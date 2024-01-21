@@ -1,0 +1,8 @@
+I am more and more convinced that react-query is not for me. It is based on the ideas
+- that a query is a live thing, and may return a different result in the future
+- that the key for a query determines its result, and the same result should be returned for the same key
+    (definitely not the case for exercise generators)
+- that query results can be shared
+- that old results are better than a loading spinner (this can be disabled)
+
+Probably all of these can be worked around, but together they indicate that I need a simpler tool with fewer features.

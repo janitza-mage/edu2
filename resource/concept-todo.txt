@@ -1,0 +1,944 @@
+
+button matrix (check/radio) label sizes -> ?
+- may no grids / matrices, just full-width buttons
+- but what about other exetcise types that need a certain width?
+- could use a virtual sheet of paper. But that's lame.
+- line breaks at (in)equality sign? i.e.
+
+    A = B = C
+
+->
+
+      A
+    = B
+    = C
+
+But most exercises will probably not involve many steps.
+But if they do, line breaks are nice.
+
+Bonus: Don't edit fields directly. Show a formula with placeholders
+and when clicking on them, open that part of the formula in a
+larger editor -- but that's not nice because while writing you
+cannot see anything else. A virtual sheet of paper can be
+zoomed, panned, ...
+- styling: placeholders != boxes like text fields, no border, just
+    colored background
+-> virtual paper is best
+- placeholders with text input as well as one-of-multiple choice
+
+sample sheet: https://web.pdx.edu/~erdman/LINALG/Linalg_pdf.pdf
+
+-----------------------------------------------
+
+Special behavior for one-of-multiple choice? i.e. no separate radio + submit button, but just multiple submit
+buttons?
+pro: fast, easy
+con: special behavior only for this exercise type
+
+special for many-of-multiple-choice? left/right swiping for yes/no. But should probably have a submit button.
+
+-----------------------------------------------
+
+problem for all others except one-of-multiple-choice: after submitting, we wnt to show if it was correct or not, then
+continue. Where should be place the continue button? Same place as submit -> might double-submit, or have to block for
+a short time, but that's annoying. But clicking elsewhere is also annoying, so if the time is really short but prevents
+double-submit, that's probably the best solution. e.g. 500ms
+
+
+
+-----------------------------------------------
+
+some exercises would rather need a fixed sequence of problems, not randomized. Is this useful? Can we support that?
+-> we _SHOULD_ support it to see if it's useful!
+-> Needs the whole exercise mechanics incl. scoring to be part of the exercise definition, not the app.
+
+The UI is more complicated, but the worst is state management. Better: pass the current score to the exercise factory.
+Then a fixed sequence is easy to implement, and we can also implement that get harder towards the end.
+
+->
+
+Is this easy for the author too? Probably not.
+
+Easiest for the author:
+- select exercise sheet type (none, random, fixed) -> both fixed and random need a list of exercise templates
+    - "gradually harder" to be added later
+- define exercises (independent of score -- that's easier to author)
+
+In a fixed exercise sheet, the exercises can be retried until they are correct. So it's not useful to show a "retry
+without score" button in that case, and the "next" button should be labeled "retry".
+
+-----------------------------------------------
+
+Maybe also make the submit button part of the app, not the exercise? The exercise can then just choose to hide it in
+case of things like one-of-multiple-choice. The exercise gets a callback to submit. BUT: In this case this solution
+seems to be more complicated than making the submit button part of the exercise: If the ex gets a callback to submit
+"right or wrong" anyway, the submit button naturally becomes part of it.
+
+After submitting, the "next" button becomes visible. The submit button should probably disappear then. But to be
+sure, scroll to the bottom of the page so the "next" button is clarly visible.
+
+-----------------------------------------------
+
+old edu-app had no unit texts, just minimal exercise texts (formula) and anwser buttons
+-> how can we change that?
+-> stems from the content back then. Use more realistic content for the intended app this time, e.g. short text; link
+    to KA video.
+
+-----------------------------------------------
+
+long term: support editing courses, even adding removing units, by operational transformation WRT learners currently
+using the course.
+
+-----------------------------------------------
+
+Khan Academy is quite good even with some exercises. We need to do it different to improve on that.
+
+Main idea so far was: small units, immediate exercises to check understanding. These exercises were meant to just ask
+about the same content from the unit.
+
+One-sentence units might be too small because they could just check that single sentence and make the user blindly
+"copy" its content to the answers. No understanding results from that. A Khan Academy video might be just the right
+length, but unlike KA should be followed by exercises. These can then check the content of the whole 10min video.
+This makes it easier to build a set of coherent questions.
+
+IDEA: What if the exercises aren't directly connected to units, but are more of a "huge set" of exercises which the
+learner can solve step by step after completing KA courses?
+- advantage:
+    - learner won't complete a unit and then forget about it (especially when it just asks for a small fact from a
+        single unit)
+- disadvantage
+    - less guidance with the exercises
+        - remedy: link to relevant KA units
+    - no immediate exercise after a unit
+        - should be both; connected to a unit, connected to the past few units; cover the whole course
+->
+More resembles the larger exercise sheets from KA at the end of a set of units. How is this different?
+
+Why randomized exercises? An "exploration style" could simply present ALL exercises, not a subset (note: generator-type
+exercises still count as one, and should be repeated and probably mixed with one another)
+- completing one exercise opens up more
+- intro exercises link to the relevant KA unit
+->
+gives more justification and motivation to provide this style in addition to KA
+
+
+data model:
+- author
+- course (better name?) -> author
+    a course serves two purposes:
+    - to provide bounds on a set of exercises, to avoid diverging into "everything"
+    - to provide an entry point based on the learner's current knowledge
+- exercise -> course; prerequisite exercises
+    - definition of "prerequisite": "A is a prerequisite of B" means that if you can't solve A, it makes no sense to
+        try to solve B
+(need in-exercise state for repeated exercises)
+
+Feature: mark all completed exercises as "redo" - go through them again as if they were new, but "redo" exercises
+have an extra button to skip them. (but still cumbersome; smaller courses are an easier way to achieve the same.
+Or maybe sub-courses; those are not an entry point but allow to mark all exercises as redo)
+
+---
+
+KA has near-random exercises already. Can I improve on that?
+- they have one exercise sheet at the end of a four-unit block
+- they only ask 4 exercises for that block, then go on. But that doesn't need a new concept since they have a generator
+  already; they would just have to tweak one number.
+
+What are the problems?
+- there is no distinction between
+    - type 1: learners who already know this
+        -> should be able to bypass the topic quickly
+    - type 2: learners who grasp the concept immediately and can continue without problems
+        -> should be able to bypass repeated exercises that don't help, but should be able to come back to the
+           exercises to get more routine
+    - type 3: learners who understand the concept but forget about it immediately
+        -> should not bypass the exercises but repeat them, and possibly get into more and more advanced exercises
+           for a lasting learning effect
+    - type 4: learners who don't understand the concept
+        -> need to slow down and get "slower" exercises, i.e. difficulty increasing slower, and more details and
+           prerequisites explained and repeated
+
+> If we agree that we really want students to learn concepts of things like slope rather than regurgitate a series of
+facts, then we need to ask the question how are concepts taught?  My answer to this is simple: through experience,
+through engagement with the concept itself in interactive play. This is how I see concepts being taught in Iridescent’s
+hands-on programs, and also how I see concepts being taught in video games.  The point is, why are we arguing about how
+to present the definition of slope, when it is what students do with that definition that is more important anyways?
+What do kids do in a math classroom, and how does this doing effect learning of concepts?
+
+"gradual release": KA goes from pure lecture to exercise, not gradually. --> not suited for type-4 learners. ok for
+the others.
+
+Can we improve on how KA only checks the content of the lectures (well they don't, they do go beyond that).
+--> Central to that is the question: What is the content actually used / needed for? Exercises that are more related
+to using the knowledge depend on an understanding of the _teacher_ of what the knowledge is used for!
+-> KA has some examples WRT analysing mass spectra. This is the right direction.
+
+- should go beyond that
+- should offer more guidance for type-4 learners
+- should repeat content more for type-3 learners
+- should push the limits for type-2 learners
+
+The learner should understand the concepts. This does not necessarily mean "know how to use it in daily life" or even
+"in job"", which is impossible for many science topics. But real understanding means handling the concept easily,
+give confidence for exercises etc.
+- understand a concept from different angles
+- understand the concept in different contexts
+- shape and modify the concept, understand how it behaves towards changes
+- break down and rebuild the concept, even from first principles
+- no "black boxes"
+- make accurate predictions, be able to test the predictions
+- understand opposing arguments to own views
+- link to related concepts
+- understanding is a different "encoding" of the same information
+- understand important patterns, re-encode the situation in terms of that
+- understand the _implications_ of the current situation
+- knowing the rules behind it
+
+
+alternative definition:
+"""
+Level 0: Being able to parrot back an explanation you have heard from a source of authority without having any idea what it means. (not understanding)
+Level 1: Being able to make predictions about how something will work, without connecting it to anything else.
+Level 2: Connecting knowledge to more general theories of how the world works.
+Level 3: Being able to recreate knowledge even after you have forgotten it (this can be thought of as an extension of Level 2)
+"""
+
+------
+
+idea: split the content up into "levels" (better name?); like above "exercise" but between a single exercise and an
+exercise sheet; a set of related sub-exercises. Must be solved together and use related concepts. Example:
+- picture of a nucleus with protons and neutrons
+    - how many protons? (just count them)
+    - how many neutrons? (just count them)
+    - mass number?
+    - (ADV) mass? (P/N masses given, mass defect given)
+    - charge of the nucleus?
+    - mass of one mole? (either ADV based on above mass, or mass given. but for understanding, based on above mass is better)
+- second picture of a nucleus with different P and different N
+    - isotope? why/why not?
+- third picture of a nucleus with same P and different N
+    - isotope? why/why not?
+    - mass number?
+    - (ADV) mass? (P/N masses given, mass defect given)
+    - charge of the nucleus?
+    - mass of one mole?
+- boxes with P number, mass, symbol for "unknownium"
+    -> which is the correct one (notation)?
+- natural ratio of isotopes given
+    - what is the average mass?
+- mass spectra shown
+    - which spectrum corresponds to this element
+- "this element is a real one. Look it up in the periodic table"
+    - which one is it?
+
+idea: for type-4 learners, show more and more hints (depending on their level-4-ness) and give guidance through
+    sub-steps
+start with "score" 0 (not displayed; used to select exercises, not as feedback because it would be discouraging
+especially to type-4, who need encouragement the most). Increase/decrease score based on how well the learner does.
+Then use that to select exercises: 0 selects understanding-level (like the above proton/neutran example). positive
+quickly goes to connect with other concepts; negative adds guidance and hints.
+- example for guidance:
+    - first picture
+        - How many protons? (same with neutrons)
+            - Count the protons in the picture.
+        - charge of the nucleus?
+            - each proton contributes +1, each neutron contributes 0
+            - charge of the nucleus is positive and equal to the number of protons; neutrons are ignored because they are uncharged
+        - atomic number
+            - same as the positive charge of the nucleus
+        - mass number
+            - each proton contributes 1, each neutron contributes 1
+            - just count all nucleons
+        - mass
+    - second picture
+        (TODO go on)
+->
+This suggests that the "same" exercise is repeated (best: spaced) in increasingly advanced levels again and again.
+
+
+If this is the learning content, then KA is only a starting point. Is that a good approach?
+- KA cannot be more than it is. If a learner is stuck using it, they need more -- this is a given situation.
+    - so using KA as a starting point, then going on like the above _is_ a good approach.
+    - this also matches the flipped classroom: start with KA, then go on using this platform, and if still stuck,
+        get guidance from a real teacher.
+If this approach is good, then it also works with KA replaced by any other lecture-style material if that is also good.
+
+---
+
+New approach based on this:
+- toplevel we have courses and some organization of courses
+- within a course, we have units that roughly correspond to KA units
+- for each unit, we have exercises, divided into difficulty levels, with multiple exercises per level
+- v1: the learner just gets a list of all of them, in a table, one row per unit, one column per level, and within the
+  table cell a list of exercises
+  - mobile: ??? prop a list of units, then a list of levels, then a list of exercises
+- per exercise, the platform remembers how well the learner did the last N (5?) tries, each try being rated es green/yellow/red
+-> no automatic selection of exercises, and no grading beyond that
+- in the future, we might have more guidance through the list of exercises that increases motivation, but for now
+  that's okay.
+- guidance through a single exercise should be there from the start
+
+How many levels?
+- "struggling to understand"
+
+--> isn't this just like KA, with increasing number of hints?
+- one difference: the above exercise consists of multiple sub-exercises that are directly related. But the hints seem
+to work well in KA.
+
+---
+
+new approach: not levels of exercises, only single level. But lots of hints that _can_ be activated and which count
+towards a "hiden score". More hints -> less score, more errors -> less score; less score -> exercise gets repeated
+more often; more score -> exercise "fades out" over time. Also, certain score -> more exercises visible.
+- but learner cannot choose themselves anymore when to go on to the next topic; might by desycnrhonized with the
+  lectures they have seen!
+- ideal situation: watching the video is also an exercise, and the platform tells the learner when it is time for that
+- if this platform augments normal learning with a teacher, then the teacher could do that
+    --> I really doubt that the platform can choose when to go on to another topic. This is when the learner feels
+    secure about a topic, which the platform can probably not detect well. Teachers can do that, but without a teacher,
+    the learner has to do it themselves.
+- score, as well as previous tries, are a tool for that. BUT: we should also achieve spaced repetition. HOW?
+
+Learners mostly don't know about spaced repetition. Teachers can do that, but they might not be available, and teachers
+might not know about SR either. It would be better if the platform could do that.
+
+note: SR relates to all life experiences. So for SR, it needs mostly _time_, not other exercises (though other exercises
+are also useful).
+
+Also relevant: understanding comes from different angles.
+
+The whole question hinges on whether a teacher is available. Currently, the question seems to assume both yes and no
+at once.
+- with a teacher, the teacher selects the exercises to do, both present and for homework. The platform need not do
+  anything more than allow to select "active" exercises
+- without a teacher, either the leaner or the platform has to select the exercises. Selection by the leaner would work
+  the same as selection by a teacher. Now the question can be sidestepped for now by just saying: Let the leaner select
+  exercises, and we'll record performance, and a system that selects questions automatically can be added on top of
+  that. But that would obviously just sidestep the question -- I still have no clue how that selection would work.
+  The "can be added on top" is really just an answer towards the software architecture.
+
+intrinsic vs. extrinsic motivation: would actually say that it is better if the learner could select exercises, based
+on the desire to understand. Behind that is a fundamental decision:
+
+    Is this platform meant for intrinsically motivated learners, or a tool selected by teachers for the learner?
+
+Extrinsic motivation + platform-selected exercises will likely "dry up" soon (become another chore). With EM, a teacher
+is needed for continuous motivation -- the platform alone won't cut it. In that case, let the teacher select the
+exercises. With IM, the desire to understand is there, and the main task of the platform is to support that.
+Leaner-selected exercises would fit that, but more is needed. Who selects the exercises is just one of the questions,
+and doesn't see the whole picture, which is one of motivation.
+
+It is easy to say: "This platform is for motivated learners" because then you don't have to deal with the problem of
+motivation. But can automatic selection of exercises bring motivation?
+- "Motivation can be measured by four indices: choice, effort, persistence, and level of achievement"
+- "Students who are motivated display goal-orientated behaviours."
+    "They take initiative, show resilience, harness their curiosity, and care for and respect their work."
+    "They are equipped to orchestrate their own learning journey."
+
+How? ( https://www.highspeedtraining.co.uk/hub/motivation-in-education/ )
+- Carol Dweck: "Have a Growth Mindset":
+    (they turn challenges into experiences)
+    (they accept failure)
+    -> praise them for the process, rather than their intelligence or talents, as this can make them vulnerable
+    -> Acknowledge their effort, focus, or hard work, as these are the qualities which will make students resilient
+- Adopt a Holistic Approach
+    (not clear what is meant by that)
+- The school should prioritise social skills, so that all students can become caring, loving, empathetic, and
+    supportive of one another, as healthy peer-to-peer relationships can affect student motivation.
+    --> forum?
+    --> testimonials?
+- Praise
+    "All learning is effortful, so when students display willing and success, they deserve to be acknowledged"
+    (learners develop a sense of agency)
+    secure success early and often
+- Accessibility
+    aim to create a ‘no one is left behind’ ethos
+- Empower Students with Knowledge
+    Make sure that students understand how they can do better – that they know where they went wrong, and how to improve.
+- Make Learning Relatable
+
+"""
+    However, once this process of extrinsically motivating through rewards becomes habitual, it can become challenging to
+    disassociate success with praise and reward, as the individual’s attitude becomes controlled by the stimulus alone.
+    Some studies suggest that if there is no genuine desire that steers individuals to engage in the activity, then deep
+    learning must be limited.
+
+    Professor Frédéric Guay, an expert in motivation at Laval University in Québec, states: “Rather than focusing on
+    rewards, focus on the quality of relationship with the students. Students who find learning important, even if they
+    don’t enjoy it, will bring about the same kind of positive outcomes as you see with those with high intrinsic
+    motivation.” Guay suggests that educators should encourage children to express their emotions, and share their
+    experiences towards learning. Their responses can be used to help teachers redefine their practice, and therefore
+    improve the learning experience for all pupils.
+"""
+
+"Intrinsic motivation links strongly to performance merely for the enjoyment of engaging in activities"
+
+"When students have fun and find success, they experience improved self-worth and self-belief, which are key drivers
+in developing a self-summoned desire to achieve"
+
+metacognition: understand their own learning processes and regulate their learning
+For example, a student with metacognitive skills might:
+    Recognise that they have trouble applying formulas in maths.
+    Think about the maths problems they have solved before, and the strategies they used.
+    Apply these strategies, assessing whether they are working or not.
+    Try a different strategy if the one they are using is not effective.
+    Reflect on how they performed in this task, and use this to inform their future work.
+-->
+    This is probably more useful for the "teacher guided" part, not for this platform.
+
+
+Compare this situation to a situation of motivation that I experienced, e.g. "configure a service in Linux":
+- not willing to show commitment, but willing to "give it a try"
+- discourage by unnecessary roadblocks
+    - contradicting documentation
+    - wrong documentation
+    - incomplete documentation
+    - outdated documentation
+    - complexity for which no justification is given
+- discouraged by lack of feedback
+    - success is "all or nothing"
+    - no feedback on what went wrong
+- discouraged by lack of success
+- activity is not fun, because it is blindly trying out a sequence of seemenly random steps, hoping that one of them
+  works, and always overshadowed by the fear that _NONE_ of them works; also accompanied by the fear that the
+  whole system is just incredibly stupid and lacks any kind of logic
+
+Key Learning Principles
+- Student motivation is sometimes driven by fear of failure, based on the belief that grades amount to a judgment of
+    their personal ability or intelligence rather than their performance on a specific learning task. This is part of what
+    drives intense student interest in achieving high grades, in addition to beliefs about how their grades may influence
+    future prospects.
+- To instructors, grades don’t hold the same meaning as for students; instructors’ primary goal is for students to learn
+    the course material for its own sake. Because students are so invested in grades, their expectations of a course can
+    be very different from or at odds with their teachers’ expectations.
+- Learning environments and course designs that leverage intrinsic motivation — student curiosity and interest — improve
+    the quality of students’ learning.
+
+"
+Grades, in fact, are the primary focus of most students (an extrinsic motivation). Only as secondary reasons do
+students list the desires to become competent, to prove themselves, and to avoid mistakes (intrinsic motivations).
+"
+
+-------
+
+Organize a lesson plan around a problem for students to solve using the course material. The problem should relate to
+    things students are already interested in — for example, in a pre-med microbiology course, having students put
+    themselves in the place of a pediatrician figuring out which systems are at issue given a hypothetical patient’s
+    symptoms.
+If you are creating your own course, organize the entire course around a large question or problem that the course
+    material will eventually enable them to accurately explain and solve.
+Connect course material with the non-academic world.
+Take advantage of events the students are interested in to explore how your field views the issues involved.
+Curiosity is great for priming intrinsic interest. Bring in anomalies or curiosities that students can use the course material to analyze and explain.
+
+Extrinsic motivation does help if it is connected to goals the learner wants to achieve, so the learner sees value in
+learning. -> more sustainable than direct rewards or punishment
+
+"
+If the student remembers doing well or feeling satisfied when completing a similar task in the past, they are more
+likely to push themselves to work hard on the current task. However, if the student remembers that the activity was
+too difficult to be completed and they became frustrated, or not difficult enough and they became bored, they are
+unlikely to engage with it.
+"
+
+"
+When students have a firm sense that they are regarded as competent, they will be more likely to treat learning like
+play, making mistakes and taking risks. Threats and unyielding deadlines tend to diminish this orientation towards
+play-like learning.
+"
+
+"
+A pressure to compete tends to diminish motivation unless the two students are and perceive themselves to be equally
+competent: if a student at the top of the class is pitted against a student who is struggling, the latter student may
+feel that there is no reason to try. This is not to say that class or school-wide competitions should be avoided. When
+broader competitions are more open-ended, students can creatively self-guide their projects, and will feel a stronger
+sense of intrinsic motivation.
+"
+
+"
+How often do you do the following? Write a 1-10 next to each response (1=Not Often; 10=Very Often)
+
+Choose to work above and beyond what is expected            _____
+Stick with a task until it is completed                                  _____
+Attempt to solve problems that others have difficulty with    _____
+Hurry through assignments                                               _____
+Ask questions to better understand difficult concepts           _____
+Try to avoid competitive situations                                      _____
+Put forth minimum effort                                                 _____
+Do something over again just to get it right                         _____
+"
+
+-------
+consequences:
+- do not start with an "average" exercise and go "down" to a simple one if needed; rather start at the lowest point and
+  go up
+- if there are visible "scores", reward commitment, not success. Better would be a sense of agency, but there should
+  be some way to trigger that sense of agency.
+    - example: unlock advanced exercises, or new "levels" of an exercise
+    - example: need fewer hints
+    --> hints or levels?
+    - ability to "go back" should be enough, either selecting to show more hints or ability to go back to a lower level
+    (implementation-wise, different exercises vs different levels might be a pointless distinction. But levels might
+    make navigation easier.)
+    -> hints, levels or separate exercises around the same topic?
+        levels provide a form of feedback and encouragement
+        UI for levels? select course, select unit; within the unit, select a level -- relation to unit description?
+- demonstrate the value of the knowledge gained, e.g. in real life or in a job
+    - design advanced exercises such that the goal is related to a real-world problem or job problem
+- demonstrate the "why": Why is this knowledge important?
+    - for each piece of knowledge, explain why we want to know that at all
+- motivate by progress rather than scores (easier anyway)
+    - levels indicate progress. Individual exercises not so much.
+- make things open-ended (easiest to do through the set of available courses; much harder within a course)
+
+Organize courses by topics. Keep the "course" as the entry point.
+Organize units within a course similar to KA units, and building knowledge on top of other knowledge.
+Within a unit, we have levels, and multiple exercises per level. Per unit, we keep a hidden "score" that is used to
+    unlock levels. The learner can choose any of the unlocked levels, and in particular, go back if things get too hard.
+"Preparing for an exam" would be to repeat past exercises, which is possible in this system, and selects exercises based
+    on the learner's current knowledge. (even though this system doesn't have exams -- but the real world might have
+    them, depending on context).
+Doing bad in one level should probably not re-lock that level (demotivation). Not being able to complete it is already
+    a strong hint to go back. So current score is per level.
+
+Should unlocked units be linear or DAG?
+- DAG: state is (courseId, unitId) -> (level, score)
+- linear: state is (courseId) -> (units, unitId -> (level, score))
+-->
+linear is more complex; DAG is more general and subsumes linear. Only disadvantage: DAG is more complex to configure
+for the teacher. But I feel like DAG can be more motivating and goes in the "more open-ended" direction: Even if a
+learner cannot handle the current unit, he can still make progress elsewhere.
+=> DAG
+- content is:
+    author: name
+    course: authorId, title, description
+    unit: courseId, preprequisiteUnitIds; numberOfLevels
+    TODO: unit description? e.g. link to KA video? Or should that be part of exercises and we only have exercises?
+    exercise: unitId, level, description, data
+    TODO should actually be an "exercise sheet" with closely connected sub-exercises
+
+connecting to other topics + spaced repetition: can both be achieved by using no levels, but individual exercises /
+exercise sheets. First basic exercises, then go to a related topic and do basic exercises, and so on; then come
+back to the first one and present a more advanced exercise that connects to the other topics handled in the meantime.
+DAG-vs-sequence is still an open question. But other than that, the current system is actually sufficient for that,
+it just has to be used in a different way than originally intended.
+
+Opening up more and more topics, DAG-style, can also add to confusion. If a learner struggles with a topic, opening
+up more topics can offer another path for progress, but also easily overwhelm with the amount of content, as well as
+choice.
+-> an alternative to open up new topics is to touch multiple topics at a low level, raising the difficulty only
+slowly. This also gives chances to connect the topics which can help understanding. Scrap the DAG for that, so the
+learner is not overwhelmed by choice -- this also simplifies the UI.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Re-orientation based on "we can't teach practical work just yet": Then let's do math -- this is in need -- and do it
+in German, because KA doesn't cover that as well yet as English, AND makes it easier for me to validate the content
+against real-world learners and teachers.
+
+Also, focus on "learning by doing" without KA videos, both because they aren't there yet and to avoid having to stick
+to KA content sequence. This is based on the _ASSUMPTION_ that lectures aren't really needed, and I'll get feedback on
+that idea as well.
+
+-> german KA seems to have _more_ exercises than english. So it is quite good in that regard already. Is there something
+  I can improve?
+
+--- useful hints from discussion on KA forum and elsewhere
+
+- Time is a factor for students- both in class and out of class. Making students redo 5 problems in a row because of an
+    error of any sort on their fifth problem (which may or may not look anything at all like their first four) is not
+    necessarily an effective use of their most limited resource- time.
+    -> first thought: Don't mix different kinds of exercises into a single "score" to go on
+- Teachers are using KA and would need a "feedback" feature to understand where leaners are struggling
+- KA get lots of questions / feedback that cannot all be handled
+    -> lesson from CAST book: handle a few, then fix the systemic causes
+- KA has problems with teachers "seeing" the progress of their students, except it doesn't work and causes more
+    problems than it solves. For example when not logged in (not obvious to the student) or when the student created
+    a new account. KA people have no solution for that. "maybe implementing incentives will ensure students log on"
+        --> they are clueless
+        In one case the KA people actually suggested to accuse the students of cheating !?!?
+        stats pages also seem to have caching issues
+    --> decide: is the goal to learn on your own, or with a teacher? The system will look very different.
+    "It's unfortunate because this is the best way I’ve found to ensure my students are practicing math correctly….when it works. "
+    --> teachers _want_ to use KA!
+- "I am a Freshman in a Sophomore math class and my teacher requires us to master certain skills that we are working on
+    which goes towards our grade. After practicing all of the skills in the topic we are working on, Khan Academy
+    refuses to give me a mastery challenge on the topics.
+    Instead, they choose to ONLY give me mastery challenges on topics I had gone over last semester and I have not
+    worked on them for almost a year.
+    Khan Academy needs to get this together because my grade will suffer because of this."
+
+==> There is little indication that students would want to learnn from KA on their own, just to go on "learning"
+    everything again in such a way that they can prove it. A platform like KA won't be able to avoid cheating, but
+    there is still value in a not-100%-secure way of "proving" that you at least completed the lessons, even if only
+    to be admitted to an exam.
+    This indicates that progress should be tracked by default. The "not being logged in" problem must be solved then,
+    especially when teachers just assign exercises from the platform (not their own), because those obviously are
+    available without being logged in.
+    - can be solve this without "logging in"? e.g. make an exercise sheet available through a QR code, and the learner
+    can show success in a similar way? Maybe enter their name on that sheet and the teacher gets sheet submitted,
+    without being linked to an account?
+    --> would probably need "teacher accounts" but not "student accounts"
+    - does not solve that a student would want to show completiong of a whole course as preparation to another course
+        --> that can be done just by screenshotting the "course completed" page. It's not cheat-proof either way.
+        Cheat-proofing can be done with a subsequent exam in a controlled environment.
+    --> we have to solve the "certified homework" problem, not the "certified course completed" problem.
+    ...
+    "not logged in" can be solved by "you cannot do this exercise because you have not completed the previous one"
+    But I don't want to force students to log in in a non-class setting. The "already logged in with a different account"
+    problem is also there. Seems like there are too many scenarios to consider here.
+    - an "exercise sheet" QR code would solve several of those; another thing would be to enter the ID from the QR
+        code manually for non-camera PCs.
+        "Teacher accounts" would not be really necessary if the teacher can write down a similar, teeacher-side code
+        and/or QR code. The exact workflow has to be worked out. A teacher account would allow to organize and
+        track the sheets, though. Seems like both options are nice, and neither requires student accounts (so they
+        both sidestep the problem of "not logged in" and "already logged in with a different account" and "created
+        a new account" -- this should be emphasized as the reasons).
+
+- When we say that someone has “learned” a subject, we typically mean that they have shown evidence of mastery not
+    only of basic cognitive processes like factual recall and working mechanical exercises but also higher-level tasks
+    like applying concepts to new problems and judging between two equivalent concepts
+    --> hint about what can be improved over KA
+- Even if the student can solve optimization or related rates problems just like the ones in the book and in the
+    lecture -- but doesn’t know how to start if the optimization or related rates problem does not match their
+    template -- then the student hasn’t really learned calculus. At that point, those “applied” problems are just more
+    mechanical processes.
+- in my experience with Khan Academy videos, this isn’t what happens -- the videos are demos on how to finish
+    mathematics exercises, with little modeling of the higher-level thinking skills that are so important for using
+    mathematics in the real world.
+-->
+    Hints towards "learn by doing, from first principles".
+
+- no teacher feedback, which is very important; in one case, student "got all problems wrong" because of a UI problem
+- "KA is not good as an introduction to a new topic", no background --> "guess-and-check-learning"
+- KA uses specific wording (solved when re-working the whole content in german)
+
+- "If your child has had mostly negative experiences with math, it’s time to get some help with mindset. Most likely
+    your child feels like it doesn’t matter if they try–because they will fail. Your child might be viewing failure as
+    a bad thing, instead of an opportunity to learn."
+
+- Re-learning basics helps. This contradicts the "no self-guided learning, only on-demand learning" because no teacher
+    will ask students to do this. This emphasizes that self-guided should be possible!
+
+- "Look for Multisensory Math Resources"
+
+- "Surprisingly, though, in my experience, Khan Academy is actually not one of my favorite apps. While apps such as
+    Outlier were built completely focused on online learning, Khan Academy focused on making sure that the app was able
+    to align with a teacher’s lessons. For students who are learning without teachers, this caused the quality of Khan
+    Academy to decrease and made other apps much better choices for online learning.
+
+- KA does not adapt the content to what the student knows
+    --> HINT HINT HINT! This is one place where KA can be improved!
+
+- "From an objective standpoint, Khan Academy's worst feature is how easy it is to "memorize your way to mastery."
+    While this can lead to students completing Khan Academy courses at an incredibly fast rate, the students are less
+    inclined to learn the content. The way Khan is set up allows a student to memorize the answers to each problem by
+    clicking through the questions, and, after a couple of minutes, input the memorized answers as the same questions
+    cycle through. Additionally, some of the question formattings can lead students to memorize what the answers are
+    instead of how to find the answers. (See: Working the Program)"
+
+- The limits to Khan Academy and other similar platforms are:
+    - Lack of customization
+        (?)
+    - Lack of initial individualized analysis (diagnostic test)
+        agree
+    - No study skills development
+        agree
+    - Depth of knowledge
+        (maybe)
+
+- Incorrect practice problems on Khan Academy don’t indicate where the student went wrong.
+- Students are only inputting the answer and doing their work on their paper, so the platform doesn’t even see the steps the student took to get their answer.
+- But that’s not just a Khan Academy shortfall. Most virtual learning platforms don’t pinpoint the student’s error.
+
+- the videos are not always aligned with the provided practice questions.
+
+"
+math proficiency takes 5 things:
+    conceptual understanding — comprehension of mathematical concepts, operations, and relations
+    procedural fluency — skill in carrying out procedures flexibly, accurately, efficiently, and appropriately
+    strategic competence — ability to formulate, represent, and solve mathematical problems
+    adaptive reasoning — capacity for logical thought, reflection, explanation, and justification
+    productive disposition — habitual inclination to see mathematics as sensible, useful, and worthwhile, coupled with a belief in diligence and one’s own efficacy.
+... "Khan Academy offers the first two" --> ???
+"
+
+
+"For example, I find that many of my students usually don’t watch the videos or read the articles on Khan Academy.
+These students are doing the problems because they are assigned. That’s it, just because a teacher is making them do
+it for some sort of grade."
+--->
+    Am I doing this as a service for teachers, to go on as usual? no.
+    If anything, this could be a source for complex exercises that teachers can use. But it's not a generator for
+    simple mechanical exercises (that would be yet another tool -- but others are likely already covering that).
+
+WHAT ABOUT THE "COMPLEX EXERCISES" APPROACH?
+    This would at least be something that nobody else provides. But it is distinct from the "small unit course" approach.
+
+--->
+
+The KA criticism does not seem to match reality. KA does lack in completeness of the exercises, but the exercises are
+NOT purely mechanical, as claimed.
+- KA does NOT implement the "small unit, immediately followed by an exercise" approach. But it's not too far away either.
+- it is definitely close enough to make it hard for me to improve on that
+
+I think I should review the "complex exercises" approach in more detail because
+- it is something that nobody else provides
+- it is very much "learning by doing", much more than "small" exercises, and connects different topics
+review:
+- "complex" does not imply "hard". These exercises can be easy, but they are multi-step and require planning and
+  proficiency with the material larned.
+- multiple paths to success may exist. The exercise should not punish a learner for choosing another path if it works
+  as well. It should give a hint if the chosen path is more difficult than necessary.
+- it should be possible to get hints, up to a complete guide, towards the solution, in case a learner does not succeed.
+  This is still an opportunity for learning.
+
+-------------------------------------------------------------
+
+german KA is a weird english/german mix. This doesn't really help a german student.
+- even for math!
+
+some of the math videos that *have* been translated are just a pixel soup
+
+Aside from some simple math topics, german KA isn't well equipped.
+
+-->
+
+It's probably not too hard to do better than german KA, but that doesn't answer the question whether a better
+*approach* exists, because german KA doesn't implement its own approach very well.
+
+Another exercise either has an error or took multiple steps without explaining them. --> if a student is already
+struggling, this will just confuse him further. KA has no mechanism to ask for an explanation of such multi-steps.
+- KA _does_ allow to ask for hints, but the hints don't even explain that step
+
+PIVOT: take a step back. Can we find fundamentally different approaches? What if a struggling student could show this
+exact scenario and ask other students for help? This would probably contradict the "exercise generator" approach.
+(With a generator, different users could not talk about the same thing).
++ everybody talking about the same exercise would ensure the quality of that exercise
++ different users could explain the approach in different ways. Explanations could be rated.
+(moderators would be needed to remove SPAM / malware links and pure trolling)
+
+Good explanations and real-world information needs help from a _lot_ of people. For example, math exercises with a
+naive treatment of taxes could be augmented by tax experts.
+
+However, this can easily devolve into a low-qualty user discussion.
+
+What about exercise generators? They teach the "mechanical" aspect. Generating the same exercise over and over with
+different numbers does not help understanding, it only helps to reduce errors.
+
+----
+
+The "forum" aspect seems good. For the rest, "small units with immediate exercises" seem to be more generalizable
+then "complex exercises with group approach". If anything, a complex exercise can be the underlying material to be
+split into units.
+- so the forum approach should be respected
+- it should be possible to ask about the concrete exercise one gets, in case it is randomized
+- the exercise should consist of small sub-steps, so questions can be more specific
+
+"What worked was first debunking misconceptions and then replacing them with the truth"
+--> take that into account for the content
+BUT: "There is also research showing (in gossip/news and politics) that by refuting a false statement, the act of
+    repeating the statement actually reinforces it. People ignore the "... IS FALSE" part."
+BUT BUT: "You need to to drag someone through the mental struggle of unseating their beliefs."
+
+Both "complex exercise" and "small units with immediate exercise" augment the KA approach AND the traditional school
+approach, in that there is another source that does it different. This alone is a good thing.
+
+"Furthermore, most videos and exercises seem to focus on repetition, rote learning, and giving correct answers.
+There is no room for exploring alternatives, errors, hypothetical situations, and what not."
+--> HINT. Can we integrate this?
+    - alternatives: maybe. Just like sub-exercie answers, a learner could be asked which approach they prefer, and
+        that both will work.
+    - errors: Hard, but the forum approach will help, as will small steps in the exercises.
+    - hypothetical situations: "small units" help, as do harder versions of a complex exercise. Optional units might
+        help too. Branching would be more general, but also more confusing.
+
+One thing that I could "do better" is less rote learning, and more "why". Example: The LA course is too much rote
+learning ATM. Starting with arrows representing displacement/velocity/force would explain the "why" much better.
+even better: start with a coordinate system and points, then displacement, then explain points as displacement of
+the origin, and so on.
+- describe points by "move right from the origin, move up from there". Introduce the concept of an axis later,
+    because moving _parallel_ to the axis is something you have to undertand first
+- introduce vectors as _axis_aligned_displacements_ as opposed to movement in the viewers own coordinate system as
+    more universal, therefore preferred (doesn't depend on POV)
+
+Similarly for probabilities: start with rolling a die, flipping a coin, choosing an item from a pot. Work out from
+the beginning what a probability even _is_ (fraction of a specific result when trying again and again; prediction
+about what to expect / what is going to happen).
+
+This, supported by immediate exercises, is an approach not yet in KA, annd rarely in traditional schools (and other
+advantages over traditional schools exist, just like they exist for KA).
+
+Generally: Take the time (extra units) to avoid common misconceptions by directly showing them to be untrue.
+Examples above: vectors being axis-aligned, not POV; vectors being relative displacements without knowledge of
+their starting point, etc.
+
+-------------------------------------------------------------
+
+Unit / exercise format must be defined better.
+- multiple different exercises "in a streak" are not good, per feedback from KA.
+- multiple different exercises in a sequence are not a problem if the learner is not forced to complete them in a streak
+- one exercise template (single or multi-generator) per unit would simplify the UI and logic, but might be bad in some cases
+- some units warrant multiple choose-one questions in a sequence "for the same unit", i.e. they refer to the same text
+    - whether this collides with the "single exercise" idea depends on
+        - whether the unit text should be visible throughout all questions... but if they are "parroting" questions,
+            that would be better
+        - whether we can just "repeat" the text through some mechanism (copying the text is bad. causes copy n paste
+            errors)
+- a unit that has both a complex problem AND multiple small exercises is confusing. Either/or. So we might use the
+    same mechanism for both.
+    - Also, a complex problem somewhat collides with a unit text: There is no good reason to have a unit text visible
+        during a complex problem, because that problem will touch multiple units anyway.
+    - What _might_ be different: Multiple "parroting" exercises would be visible one at a time, while a complex
+        multi-step problem would have all previous steps visible at once
+--> The general format of a unit could be "sequence of exercises that must be completed in sequence"
+    - a lecture-style unit would have a sequence of simple "parroting" exercises
+    - a mechanical training exercise (esp. math) would use a generator to generate a sequence of exercises at once
+    - a complex problem would have a sequence of steps that build on top of each other, with possibly different
+      exercise styles
+TODO
+    - we cannot do "streak" style mechanical exercises. OTOH, this cn be implemented "on top" by using a grading system
+      that takes all exercise results into account, then says e.g. "must complete 4/5".
+    - if parroting exercises should be shown "one at a time", the unit text must be split from the exercise text
+      (because the unit text is the text NOT swapped out). This is not needed (as a mechanism) for complex problems.
+      It *is* better for mechanical training exercises.
+      ==> yes, use a separate unit text
+
+data model:
+    course
+        authorId
+        title
+        description
+    unit
+        courseId
+        index
+        description ("unit text" above)
+        (later: exerciseDisplayStyle: stack / replace)
+        (later: grading system; for now it's "everything must be correct")
+    [[[
+    exercise
+        unitId
+        index
+        description
+        interaction
+    ---
+        Is that good? If a generator should generate the whole sequence, then we would probably have exercises as
+        a single field in the "unit". For parroting exercises and complex problems, either would work.
+        -
+        Suppose the learner is in the middle of an exercise, then reloads the page. We would want all progress to be
+        saved AND all previous steps to be loaded. This likely makes it simpler to use a single field, even though
+        it is not "typical SQL style".
+    ]]]
+        exercises: {description: string, type: ExerciseType, ...: type-specific}
+
+-----------------------------------
+
+next:
+- WE DO NOT HAVE ANY SUPPORT for repeated complex exercises. Possible approach: Do a complex exercise in little steps,
+  without repetition. Next/later, give similar exercises, with repetition, but only entering the final result.
+  The learner must then complete it in little steps without errors at least once (more by going back), with more
+  learning support by doing similar exercises also in little steps (implemented as different units).
+--> ok-ish enough to try.
+
+-----------------------------------
+
+course libraries are extra useful if JS pattern strings could handle arbitrary objects... or the toString of the vector class
+    would have to output LaTeX
+
+showExerciseSheet (and others) would have to insert the exercise content into the DOM. jQuery? What about React?
+- scripts cannot directly call into react, because they would have to run through typescript/babel/webpack for that
+    - scripts can only call environment-provided functions ("generator script" approach, not "fully scripted")
+        or call into pure JS libraries such as jquery, and even for that an include mechanism is needed
+        - per-course libraries and aux libraries _are_ that include mechanism, if done right
+        - fully scripted approach, if run on the exercise server, depends on jquery
+- jquery is not just a performance boost over react, it is also fundamental for a unified architecture between
+    "fully scripted" and "generator script" approaches
+- without jquery, i.e. react-based, we can only implement generator script for now
+
+---------------------------
+
+quote:
+    When you learn mathematics, whether in books or in lectures, you generally only see the end product – very polished, clever and elegant presentations of a mathematical topic.
+    However, the process of discovering new mathematics is much messier, full of the pursuit of directions which were naïve, fruitless or uninteresting.
+    While it is tempting to just ignore all these “failed” lines of inquiry, actually they turn out to be essential to one’s deeper understanding of a topic, and (via the process of elimination) finally zeroing in on the correct way to proceed.
+    So one should be unafraid to ask “stupid” questions, challenging conventional wisdom on a subject; the answers to these questions will occasionally lead to a surprising conclusion, but more often will simply tell you why the conventional wisdom is there in the first place, which is well worth knowing.
+    For instance, given a standard lemma in a subject, you can ask what happens if you delete a hypothesis, or attempt to strengthen the conclusion; if a simple result is usually proven by method X, you can ask whether it can be proven by method Y instead; the new proof may be less elegant than the original, or may not work at all, but in either case it tends to illuminate the relative power of methods X and Y, which can be useful when the time comes to prove less standard lemmas.
+    It’s also acceptable, when listening to a seminar, to ask “dumb” but constructive questions to help clarify some basic issue in the talk (e.g. whether statement X implied statement Y in the argument, or vice versa; whether a terminology introduced by the speaker is related to a very similar sounding terminology that you already knew about; and so forth). If you don’t ask, you might be lost for the remainder of the talk; and usually speakers appreciate the feedback (it shows that at least one audience member is paying attention!) and the opportunity to explain things better, both to you and to the rest of the audience. However, questions which do not immediately enhance the flow of the talk are probably best left to after the end of the talk.
+-
+    A "stupid" question to ask is what makes convex functions special.
+    -> "convex functions are functions that are trivial to optimize but the converse is not true"
+-
+    "Another example I ran into was the notion of metric spaces and completeness. It is "stupid" to ask what happens
+    if you get rid of completeness."
+-
+    "One of the things that separates ordinary people from smarter people is the topic of this article, the ability to
+    imagine new concepts, questions, ideas. Colloquially we call this creativity, and it stems from a large degree of
+    playfulness and enjoyment of the subject at hand."
+
+---------------------------
+
+DOM-embedded SVGs vs. IMG tab with data URL:
+- SVGs in img tags lose interactivity
+- no CSS classes applied inside IMG
+- SVG inside IMG have their own ID namespace
+--> IDs and CSS classes between different SVGs on the same page will collide if DOM-embedded
+- DOM-embedded SVGs can refer to external images; inside IMG, any images must be embedded, not external
+    -> same for fonts used in the SVG
+- "If you are embedding an SVG onto your website in this day and age, chances are, you have a lot more factors to
+    consider, in addition to browser compatibility."
+    --> seems like no compat problems for DOM-embedding
+
+inline SVGs are useful for direct rendering after load, before subsequent HTTP requests have been finished
+ID/class collision make them cumbersome for other things
+
+supporting both inline SVG and IMG is possible. Biggest obstacle is how to extend the markdown parser, but is
+required for both.
+
+--->
+
+Best would be to directly reflect the authoring process:
+- global image / resource / blob table
+- refer to global (cross-author) ID in that table from markdown
+- garbage-collected: if blob is no longer used, it can be collected (useful?)
+    --> maybe if not used for some time
+- table has optional fields to pin a blob to an author, course, unit(?)
+    - prevents garbage collection
+    - makes it available in search / image "palette" during authoring
+-->
+problem with remotelay generated exercises: those have "GC roots" we cannot find. Solution: Must refer to author ID of
+the image and accept the fact that this author can remove the images. _Usage_ of the images cannot be quota'ed unless
+we use a generated per-unit key for unlocking, so other authors cannot "steal" the images (i.e. refer to them without
+being added to their own quota) -- could be added as a feature later to allow authors to "protect" their images. But
+for now, usage quota isn't that important. but storage quota is to an extent. -> reference contains author ID and image
+ID.
+    - in other words, the fact that the authorId is part of the image reference is to discourage "stealing" images
+        and to indicate that it is not intended usage
+
+
+--------------------------------------------------
+
+The strict alternation between text and exercises does not always fit well. Especially, it makes it harder to "develop"
+stuff together with the learner, which is actually recommended. A better approach for that would be to make a unit
+a sequence of steps, each of which can be either an exercise or content text. Content text is also needed to
+explain why the right answer to an exercise is right.
+
+In my mind, a unit can be implemented as a complex JS-UI that gives instructions to operate on the same thing again
+and again, as an alternative to a sequence of exercises. How realistic is that? If a sequence of exercises is "the
+only way", it could be simplified a lot: A unit would then be a sequence of "steps", each of which is an exercise or
+content text. This is actually very similar to the current approach: An exercise works differently than content text
+because text will not block the next step from becoming visible, multiple blocks of text can be collapsed into one,
+and an empty block of text is automatically "absent". So we do have a strict alternation, or possibly a sequence
+of before-text/exercise/after-text/separator/(repeat), just like now. The unit description would be the text before the
+first separator.
+
+The only real difference in this approach is that the "sequential exercise sheet" is defined to be "the only way",
+and promoted to a database schema instead of lurking as an inner system.
+
+PROBLEM: Conflicts with generated exercise sheets: No support for repeated exercises (but could be implemented),
+no support for generated before-text and after-text.
+
+So the inner system is, unfortunately, the only possible approach. Then the question is whether the unit description
+is needed, or can be folded into an exercise. But this question is much less important than first thought. Any
+"development" of knowledge must follow as a sequence of exercises, with the unit description being an introduction.
+Folding this into the sequence is almost a "refactoring for later".
+

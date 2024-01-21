@@ -1,0 +1,254 @@
+----------------------------------------------------------------------------------------------------------------------------------
+further sources to read
+----------------------------------------------------------------------------------------------------------------------------------
+
+https://www.amazon.ca/Basic-Electricity-Bureau-Naval-Personnel/dp/1420971018/
+https://www.allaboutcircuits.com/textbook/
+
+----------------------------------------------------------------------------------------------------------------------------------
+applications
+----------------------------------------------------------------------------------------------------------------------------------
+
+complex numbers; uni-level electrical engineering; programming -> less interesting
+
+can we apply this approach to totally different topics?
+- driver's license
+    e.g. https://fuehrerschein.sueddeutsche.de/quiz/6
+    -> already used this way; could be technically superior and less ads
+    -> would probably need biased exercise selection based on errors, but atoms might be used this way
+        -> other topics will have this too. Might define an "exercises" atom after the others that needs lot of
+            exercise points and uses past answers for question selection; easier alternative: multiple topic-specific
+            exercise atoms that group several previous atoms by topic and grouping has already happened through
+            these atoms.
+- sudoku solving; nonogram solving
+    probably, not that interesting but why not
+- CAST accident analysis
+    -> how? Takes long texts, and the questions are usually multiple-choice questions (checkboxes -- e.g. which of these
+    factors contributed to the accident?)
+        - checkbox questions are better than nothing. Long texts are better than nothing.
+        - even trivial questions seem to better than nothing; see driver's license questions
+            - trivial questions are possible for CAST too, but people who can be targeted by trivial questions will
+                fail at long texts
+        - checkbox questions: what are the three most important flaws in this design / process / whatever?
+            (ex. lists some and three of them are obviously the worst)
+            -> alternative version: THE worst -> can use single-select button matrix; less in-depth exercise but
+                better UI flow
+        - checkbox questions: what steps do you propose to improve safety in this design / ...?
+            -> single-select button could allow one of multiple that are correct
+        - "Notice that it is deemed to be the flight crew’s fault for
+           being confused and also for choosing to use poorly designed software (the FMS or Flight Management
+           System) and not the fault of the software for being confusing and demanding an excessive workload.
+           When accident reports state causes in this way, learning is inhibited and attention is directed to the
+           wrong aspects of the causal scenario."
+           -> checkbox questions could present different views on the same thing - which contributed?
+           -> better way to phrase the initial question: Which view may lead to further insight?
+                - flight crew used FMS even though it is confusing
+                    - intended answer: no, but may actually lead to insight: WHY did they use it anyway?
+                        -> exercise may be fixed by phasing this in a different way
+                - FMS is designed in a way that makes it confusing (yes)
+                    - why is it designed this way? Are there good reasons for that? Is it an artifact of the design
+                        process?
+                - flight crew did not choose the appropriate communication tool (no)
+                    again: WHY? -> phase differently
+                - flight crew's workload is increased by having to choose the communication tool in a stress situation
+                    -> intended: Yes, but does not lead to insight this way
+                - flight crew is not properly trained to handle stress situation (unlcear whether this is correct)
+                    - may lead to insight about training, but may also just assign blame.
+                --> this kind of question could be very good, but is very hard to phrase in a way that makes it a
+                    good question. Should lead to insight, then to recommendations.
+            -> p. 38: identify system hazards and non system hazards
+        - problem: one of the key points of CAST is to ask the right questions. How can this be checked in an exercise?
+            We can present a list of questions and have the user select the "right" ones
+            -> a complex exercise could involve a fictitious accident can multiple rounds of questions, each as
+                checkbox lists.
+        - trivial questions can lead the way to more complex ones
+        - with CAST, reading the handbook is probably necessary
+        - an introduction can be done before reading the handbook
+            - also help with whether reading the handbook is the right choice for the learner
+            -> "why did somebody not read the CAST handbook" is also a question to ask in the analysis of the failure
+                of the learning platform!
+        - "introduction" can be quite complex and lead to much of the content of the handbook
+            THEN, read the whole handbook. It shouldn't be too hard anymore.
+            - map atoms <-> sections of the handbook and provide exercises
+- woodworking
+    - tools + names
+    - use cases for each tool
+    - usage rules + safety measures
+- car repairs
+    -> to do, I don't know anything about this
+    - but would probably be a hot topic if you could actually learn it this way
+    - a few simple steps are easy to explain and would go a long way
+        - refill oil, wiper fluid, coolant
+            - know symbols
+        - change tires; adjust tire pressure sensor
+        - fix scratches
+        - change wipers
+        --> but these are more "how-to" steps that can be found with a simple google search
+        - edu-app intends to go one step deeper: provide some basic knowledge; not the same level as professional training
+            but also beyond a simple how-to. Should explain how things work and how to perform more complex tasks
+- plumbing
+    -> to do, I don't know anything about this
+    - even more doubt that you can learn it this way, but might be hot
+- languages? -> NO
+    - there are probably better platforms for this already
+- specialized programming topics
+    - 6502 assembler, NES / SNES programming
+    -> niche topics, might be added at some point
+- tax topics, similar topics
+    -> very country specific, and lots of similar sources. MIGHT be useful, but very unclear.
+- music
+    - needs to recognize notes, e.g. MIDI keyboard or mic + frequency analysis
+        - special setup or at least strong PC needed
+        - special setup could still be used in musical schools
+        -> niche application but still useful
+    - need not be real-time analysis! 1..3s delay is totally okay
+    - room may affect notes -> musical school setup
+    - training phase: adapt to instrument and room (but easy to use wrong, e.g. change room or instrument and not re-train)
+
+
+There are two key points to edu-app:
+- a new learning scheme that emphasizes short lessons (atoms) and exercises with each atom, the more hands-on the better
+    - this is lots of work but straightforward
+- applying computer-based learning to areas where it wasn't applicable before
+    - this is the hard part, so focus on this!
+    - this is also the rewarding part because nobody thinks it can be done.
+
+Beispiele von Lehrplänen:
+- Lehrplan für die Berufsschule; Fachklassen Zimmerer/Zimmerin; Unterrichtsfächer: Wand- und Deckenkonstruktionen, Dachkonstruktionen, Innenausbau
+    Jahrgangsstufe 11
+        Wand- und Deckenkonstruktionen
+            Moderne Wand- und Deckenkonstruktionen planen und herstellen
+                Holzrahmenbau, Brettstapeldecken, Brettsperrholzelemente, Holz-Beton-Verbundsysteme
+                Wärmebrücken, Feuchteschutz
+        Dachkonstruktionen
+            Dachtragwerke mit Dachaufbauten planen und herstellen
+            Dacheindeckungen mit Durchdringungen planen und herstellen
+        Innenausbau
+            Trockenbaukonstruktionen planen und herstellen
+            Zweiläufige Treppen planen und herstellen
+    Jahrgangsstufe 12
+        Wand- und Deckenkonstruktionen
+            Modernisierungen und Erweiterungsbauten planen und herstellen
+            Terrassen und Balkone planen und herstellen
+        Dachkonstruktionen
+            Walmdachtragwerke planen und herstellen
+            Hallentragwerke fertigen und montieren
+        Innenausbau
+            Gewendelte Treppen planen und herstellen
+    andere Fächer 
+        Grundlagen Holzprodukte
+        Gründungen und Holzbaukonstruktionen
+    Zusätzlich
+        Qualitätssicherung
+        Kundenorientierung
+        rechnergestützte Fertigungstechniken (CAD, CNC)
+        Arbeitssicherheit
+        Gesundheitsschutz
+        Umweltschutz (Zimmerer: energieeffiziente Gebäude; nachwachsende Rohstoffe)
+        Gesetze, Normen, technische Vorschriften einschlägige Fachregeln
+    Unterstützend
+        Mathe
+        Naturwissenschaften
+            - genannt insbesondere SI-Einheiten
+            - Sonderpunkt: die Materialien kennen, mit denen man arbeitet
+            - Beispiel Zimmerer: "Lastannahmen, Kräften und Lastabtragung durch Verbindungsmittel"
+                -> Grundverständnis, keine statischen Berechnungen
+        Geschichte des jeweiligen Handwerks
+
+Lehrplan Mathe fürs Abi -> wäre auch sinnvoll! Überschneidung mit Khan Academy beachten.
+-> mal schauen, was die so machen.
+    - textfield
+        - Hier wird es nicht so gemacht, dass eine falsche Antwort als falsch gewertet und erklärt wird, sondern nur
+            gesagt dass sie falsch ist und man weiterprobieren soll bis man die richtige hat. (Wobei das jetzt auch
+            bei dem Quiz war)
+            Meine Meinung: Es ist sinnvoll, erst direktes Feedback zu bekommen und später das "probieren bis richtig"
+            zu machen. Das geht aber nur mit Generator gut.
+        - Man kann aber auch dann noch eine Erklärung aufrufen, wo man diese Aufgabe erklärt bekommt. Also so
+            ein Zwischending zwischen den beiden Varianten wie ich es mir gedacht habe.
+    - multiple choice (radio)
+        - die Vorschläge sind aber gut, siehe z.B. "Derivative as a limit"
+            Wenn man es nicht verstanden hat, klingen alle Vorschläge nur nach Bahnhof.
+    - haben scheinbar keinen Generator (zumindest nicht bei dieser Aufgabe) sondern manuell geschriebene Aufgaben
+        -> nicht so gu zum "einhämmern"
+    - haben auch wenig Aufgaben im Vergleich zu den Videos, nur ein 4-Pack Aufgaben nach 5 Videos
+        - andere Gebiete haben mehr!
+    - zusätzlich nach N videos ein "Quiz" -> multiple choice
+    - zu jeder falschen Antwort eine Erklärung, warum man auf die Idee kommen könnte, die wäre richtig, es
+        aber doch nicht ist
+    - Man muss viel auf dem Papier machen bei den komplizierten Aufgaben
+    - Zu jeder Aufgabe gibt es eine gut beschriebene Musterlösung.
+-> hier ist zumindest keine große Steigerung mehr möglich!
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+applying computer-based learning to areas where it wasn't applicable before
+----------------------------------------------------------------------------------------------------------------------------------
+
+About this section:
+- List is above, this is about fundamentals
+- Also note that is is meant to augment, not replace, traditional learning. It is specifically meant to replace those parts of
+    traditional learning that are better solved by computers, leaving teachers more time for the actually relevant parts of teaching.
+- edu-app is also meant to prepare for professional traning and to encourage people who consider it but are afraid, as well as
+    those who do not even yet consider it.
+- Ideally, edu-app should also help people who do not seek professional traning because even partial knowledge helps
+
+Techniques -- which can be applied where?
+- German driver's license test shows specific situations and asks what you have to do now.
+- crafts / trades etc.:
+    - associate tool images and names
+    - associate tool images / names and usage
+    - associate tool images / names and safety considerations
+    - Show something that someone else built; tell *if* there is a problem and what it is
+    - Show a problem, ask which tool is needed
+    - actual people learning a trade are probably worried about *other* stuff such as math
+        - but this is covered elsewhere a lot
+        - and we want to reach people NOT already learning it
+    - legal
+        - obviously ask what is allowed and what isn't
+        - ask *why* things aren't allowed. Understanding this helps remember what is allowed.
+            - e.g. electrical: what would happen if you switch N instead of L?
+                - Checkboxes; mix of right and wrong answers
+(edu-app technical)
+    - obviously need the general set of checkbox/radio questions
+    - pick-and-place editors, probably grid based (drag n drop or diablo-like -- this seems more like a personal preference; differs on mobile)
+        mobile-first (target audience), so diablo-like is more appropriate because we need drag n drop for scrolling
+        - with "inventory"
+        - with inventory contents that are wrong to use for the exercise
+        - with fixed parts "in place" as part of the exercise
+
+
+Beispiel o.g. Lehrplan Zimmerer
+- Mathe, Naturwissenschaften, Vorschriften usw. hier ausgenommen -- die sind Easy-Mode für so eine Plattform
+    - trotzdem sinnvoll, sie aufzunehmen, aber die sind kein "hartes Problem" was ich jetzt hier angehen will
+- o.g. Lehrplan ist aus der Berufsschule. Was da drinsteht ist immer noch ganz viel "Easy Mode", weil Theorie
+    - idealerweise sollte das mit Praxis durchsetzt sein. Ich will hier nicht die Berufsschule optimieren, sondern den gesamten Lernprozess.
+    - also wird ab hier nur noch der Teil genannt, der über die reine Theorie hinausgeht
+- Gesetze, aktuelle technische Regeln: müsste man jetzt im einzelfall Kennen
+    - getante Arbeit mit Fehler zeigen; man muss erkennen, was der Fehler ist (Bilder)
+    - Problembeschreibungen. Fragen: Was kann die Ursache sein? Wie findet man es heraus, was die Ursache ist?
+- Moderne Wand- und Deckenkonstruktionen planen und herstellen
+    - Konstruktion entwickeln
+        - idealerweise von 0 aus, nicht multiple-choice o.ä.
+        - unklar, wieviel Freiheit man da hat
+    - Dokumentation zu einer Konstruktion (Holzart und Holzqualität, Unterkonstruktion, Befestigungsmittel)
+        - schlechte Dokumentationen erkennen, z.B. 5 Dokus zeigen, welche 3 davon sind schlecht?
+    - vertikale und horizontale Lastabtragung (Querpressung, Gebäudeaussteifung, Wandverankerung).
+        - auch wieder Bilder wo es falsch gemacht wurde; fehler erkennen; gut von schlecht unterscheiden
+        - besser noch wäre selbst planen
+            - notfalls ist das der Teil, wo man einen Lehrer braucht, aber besser noch wäre, wenn der für Probleme frei wäre
+    - Deckenbalken dimensionieren
+        - im Prinzip eine Matheaufgabe, daher leicht machbar
+    - passende Verbinder auswählen
+        - Klingt relativ einfach machbar
+        - Problem zeigen, man muss Auswahl treffen
+    - "Sie nutzen technische Dokumente der Hersteller und montieren die Verbinder (Maschineneinsatz, Fräs- und Montageschablonen)."
+        - praktischen Maschineneinsatz kann eduapp nicht, sowas geht vielleicht in 50 Jahren
+        - Schablonen erstellen geht, z.B. auf Raster zeichnen mit Zeichenprogramm; richtige von falschen unterscheiden
+        - Zu den Maschinen geht Bedienung, Sicherheit usw.
+    - beurteilen die Funktionsfähigkeit der Konstruktionen (Temperaturverlauf) und die handwerklichen Bauleistungen (Blower-Door-Test)
+        - Durchführung und Auswertung der Tests geht theoretisch
+
+
+
+
+

@@ -1,0 +1,4 @@
+- follow same order as the book, so they can be used in parallel
+- read next section, followed by exercises
+- do not try to repeat the book content here
+- in the exercises, perform more crosslinking with previous content than the book

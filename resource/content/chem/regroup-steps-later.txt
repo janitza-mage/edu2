@@ -1,0 +1,121 @@
+where to go from here?
+- ions
+...
+- van der waals forces (später; mehrere subthemen: neutral-neutral, charged-neutral, charged-charged as counterexample; hint towards hydrogen bonds)
+...
+- covalent bonds
+...
+- nuclear structure, isotopes
+
+
+
+
+
+
+
+
+LATER:
+Let's get to a more practical example. We said that a large overall electric force can move all positive ions in one
+direction, all negative ions in the other direction, and keep all neutral atoms in their place. This can be shown
+in practice, but let's first clear up our usage of words a bit:
+
+* The _electric force_ is what pushes ions around. The force that acts on a $+2e$ charged ion is twice as strong as
+  the force on a $+e$ charged ion, and the force on a $-e$ charged ion is in the opposite direction. So the _force_ is
+  really the result of the charges, position, and outside influence, not its cause.
+* The "outside influence" we want to talk about is called the _electric field_. It is what generates a force on a
+  charged particle like an ion, but not on a neutral atom.
+
+
+
+
+
+
+* The _electric force_ is what pushes ions around. The force that acts on a $+2e$ charged ion is twice as strong as
+  the force on a $+e$ charged ion, and the force on a $-e$ charged ion is in the opposite direction. So the _force_ is
+  really the result of the charges, position, and outside influence, not its cause.
+* The "outside influence" we want to talk about is called the _electric field_. It is what generates a force on a
+  charged particle like an ion, but not on a neutral atom.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LATER DETAIL:
+If protons attract electrons, then what is the role of the neutrons? It turns out that they are not directly involved
+in chemical interactions, but are still interesting for three reasons:
+
+* They glue the protons together in the nucleus. Without them, the protons would repel each other, and the nucleus
+  would fall apart.
+* They make the nucleus heavier, which slows down some interactions between atoms.
+* Because they make the nucleus heavier
+
+(There is actually a fourth reason, but we can't explain that one yet: Neutrons help us mark an atom and track its
+movement during a checmical reaction.)
+
+
+
+
+LATER: relative strength of these forces
+- The electron shells are on the outside, so if two atoms get close to each other, their electron shells will repel each other.
+- There are ways to counteract that force, and if we do that, we'll see that the shell of one of the atoms gets attracted to the nucleus of the other atom, and vice versa, because they are opposite-charged.
+- Pushing the atoms even further, the atoms will start to share part of their shell. This shared shell acts like a strong glue that makes the atoms stick together.
+- Finally, if we push even further, then the two nuclei will start to repel each other, because they are like-charged.
+
+
+
+
+
+
+
+
+
+
+
+Let'S understand the most fundamental rules about how atoms work:
+* electrons are negatively charged, all by the same amount, so two electrons will repel each other
+* protons are positively charged, also by that same amount, so two protons will repel each other
+* a proton and an electron will attract each other
+* neutrons are not charged
+* all the protons and neutrons in a nucleus are held together by a much stronger force. This keeps the protons from
+  pushing each other apart. In chemistry, we cannot create a force that is strong enough to break a nucleus apart.
+  Doing this is the domain of nuclear physics.
+
+
+
+
+
+TODO: add repeated exercises
+TODO: arrange units for spaced repetition
+
+
+
+
+
+
+As far as we know, electrons are indistinguishable from each other, but can take
+very different paths along the electron shell.
+
+Again, protons are indistinguishable from each other, and so
+are neutrons. A proton and a neutron, on the other hand, a very different, so we have to distinguish between them.
+
+TODO too advanced for now? Also leaves open why this is not true for nuclei:
+    (true for electrons because their identity gets lost in clost two-electron interactions; in chemistry there are
+    no close interactions betwen two nuclei)
+* In chemistry, we do not track the identity of an electron over more than a few interactions. Why?
+    + Because electrons are indistinguishable from each other, so their identity is meaningless
+    - Because we do not have the technology to mark an electron for tracking
+    - Because "a few interactions" is more than enough to understand a chemical reaction

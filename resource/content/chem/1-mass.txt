@@ -1,0 +1,40 @@
+What is Av.N.
+- number of particles in a mole
+- number of moles per gram
+- number of particles per gram
+- number of grams per mole
+
+What is the value of Av.N
+- 4-5 values
+
+Whatt is the average mass of one atom of (element) (link to PT)
+- 4-5 values; masses, proton numbers, neutron numbers
+
+Which element has an av mass of (value) (link to PT)
+4-5 elements
+
+One molecule of methane (CH4) consists of one carbon atom (C) and four hydrogen atoms (H). What is its mass? (link to PT)
+4-5 values
+
+A H+ ion is a hydrogen atom that has lost its electron. What is its mass? (link to PT)
+
+An OH- ion consists of an oxygen atom and a hydrogen atom, but also an extra electron. What is its mass?
+
+(not backed by the videos, but appears in exercises!)
+- Masses taken from the periodic table: H (hydrogen): 1u, O (oxygen): 16u, Na (sodium): 23u, Cl (chlorine): 17u.
+    We say that a molecule of water (H2O) has a mass of 2*1u+16u=18u. Likewise, we say that a formula unit of sodium
+    chloride (NaCl) has a mass of 23u+17u=40u. What would be wrong about saying that a _molecule_ (instead of a formula
+    unit) of sodium chloride has a mass of 23u+17u=40u?
+    - a molecule of sodium chloride has twice that mass, 80u.
+    - a molecule of sodium chloride has half that mass, 20u.
+    - a molecule of sodium chloride does not exist
+    (expl: Na and Cl exchange an electron to become Na+ and Cl-, then arrange themselves in a large crystal lattice
+    without any discrete molecules. The formula NaCl refers only to the ratio of Na to Cl atoms in the crystal lattice,
+    not to any discrete molecule.)
+
+(Rechenintensive Aufgaben)
+- How many atoms are in a (XXX) mg sample of (element) (linkt to PT; mole def; calculator)
+- (Auszug aus PT mit Atommassen): calculate the number of moles in a (XXX) g sample of (molecule)
+- calculate the mass in grams of a sample of (XXX) containing YYY atoms/molecules
+
+----------------------

@@ -1,0 +1,151 @@
+
+sandboxed iframe
+
+additional webworker? doesn't always work since it is itself often blocked, and unclear whether needed
+    might be needed to avoid freezing the main thread
+    different domain seems to prevent that in some browsers
+
+Origin-Agent-Cluster header
+    https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin-Agent-Cluster
+    https://wicg.github.io/origin-agent-cluster/
+
+
+-----------------------------------------------------------------------------------------------------------------------
+Different approach: inner-system interpreter (JS interpreter on WASM)
+-----------------------------------------------------------------------------------------------------------------------
+
+We might manage to avoid async/promises altogether, and then block them.
+
+At Figma: Running on the main thread
+    The benefits of running on the main thread are that plugins can:
+        Directly edit the document rather than a copy of it, eliminating loading time issues.
+        Run our complex component updating and constraints logic without needing to have two copies of that code.
+        Make synchronous API calls in situations where you’d expect a synchronous API. There would be no confusion with loading or flushing updates.
+        Be written in a more intuitive way: plugins are just automating actions that the user would otherwise do manually using our UI.
+    However, now we have these problems:
+        Plugins can hang, and there is no way to interrupt a plugin.
+        Plugins can make network requests as figma.com.
+        Plugins can access and modify global state. This includes modifying our UI, creating dependencies on internal application state outside the API, or doing downright malicious things like changing the value of ({}).__proto__ which poisons every new and existing JavaScript object.
+    Decided to drop the "cannot hang" requirement
+    It’s Browser APIs that are dangerous. -> And APIs are all global variables. So hide the global variables!
+
+Possible JS implementations:
+    https://bellard.org/quickjs/
+    Duktape (fewer Features, but used in practice by Figma)
+
+Browser support: good, except IE (Edge works)
+
+-----------------------------------------------------------------------------------------------------------------------
+Different Approach: Realms
+-----------------------------------------------------------------------------------------------------------------------
+
+https://github.com/tc39/proposal-shadowrealm
+- integration into Node is an open ticket
+
+-----------------------------------------------------------------------------------------------------------------------
+Quick approach?
+-----------------------------------------------------------------------------------------------------------------------
+
+Anything that works, but still allows exercises to be script-generated. That might be JS, Lisp, Lua, Forth,
+JSON-based TCL, whatever. It should be _secure_. Usability is secondary for now; enthusiats will manage that.
+
+Lisp is probably easiest for that, and at least it's not unknown.
+JSON-oriented Lisp?
+    - parentheses for function calls
+    - numbers, string literals are "themselves"
+    - true, false, null are pre-defined "variables"
+    - "variables" are actually constants; each "statement" defines a constant, no other statements.
+    - only exception: the last "statement" defines the resulting exercise JSON, it has no name and is not terminated
+        by a semicolon.
+    - JSON literals are allowed; arrays and objects use their JSON syntax (keys must use double quotes; identifier
+        without double quote is always a variable reference for uniformity); all others implicitly do as defined above
+    - no special syntax to select part of a JSON value -- too rarely used. Built-in functions are provided.
+    - importing custom functions is also just a built-in function
+    - a few built-ins are provided
+
+Parsing assignments, then result, is a bit hard without an awkward syntax. It would be easier if this is part of the
+Lisp syntax and not "outside" it. That should be possible, and a "let" special form would be useful inside the script
+too.
+
+Special form syntax: #keyword, like #let
+
+PARSING A USEFUL LISP IS TOO HARD FOR V1!
+- Forth? No. Forth is really NOT readable.
+- Alternative: JSON-based syntax for a Lisp-y PL
+- TCL-y language? Probably the same problems as with Lisp, and the PL would be worse.
+
+Attempt with forth-y:
+                ...repeat(2, (): Exercise => ({
+                    description: "Which of these is a vector from $R^3$?",
+                    type: "ChooseOne",
+                    rightAnswer: "$" + randomVector(3, 5) + "$",
+                    wrongAnswers: [
+                        "$" + randomVector(1, 5) + "$",
+                        "$" + randomVector(2, 5) + "$",
+                        "$" + randomVector(4, 5) + "$",
+                    ],
+                })),
+-->
+    ???
+Sucks at representing JSON!
+
+-----------------------------------------------------------------------------------------------------------------------
+Alternative Approach: Any other embeddable language, running on WASM, possibly on the server
+-----------------------------------------------------------------------------------------------------------------------
+
+Lua
+    https://github.com/ceifa/wasmoon
+
+-----------------------------------------------------------------------------------------------------------------------
+Alternative Approach: Implement generator-script via remote-generator
+-----------------------------------------------------------------------------------------------------------------------
+
+Disadvantage: Would load the script twice, but some DB trickery can avoid that
+
+Set up another frontend project, generator-script-frontend. Runs in an iframe frpom a different domain / site (?).
+Gets the courseId and unitIndex as parameters, loads the exercise script, executes it (sandboxed via the iframe) and
+presents its own UI. The UI code must be manually kept in sync with the normal UI code (or we can actually implement
+_all_ exercises this way, not just generated ones).
+
+Problems:
+The iframe approach is incompatible with "growing page" unless the whole page is contained in the iframe.
+    -> this is also a possible solution
+The page structure must be reworked, and will be awdward to deal with, because scrolling now sometimes happens inside
+    the iframe, sometimes "outside" without an iframe".
+
+https://stackoverflow.com/questions/9975810/make-iframe-automatically-adjust-height-according-to-the-contents-without-using
+
+The exercise implementation might work without React, maybe pure jQuery.
+
+Technical implementation:
+- unit page loading and the "finisher unit" are outside the iframe. Only the non-finisher case even shows an iframe
+- unit title must be outside the iframe because it must be statically known for the unit list
+- handling the UnitProgressionState can be done outside if the iframe is non-scrolling and growing
+    - handling it inside is technically easier, but will likely cause inconsistencies. All third-party exercise sites
+        would have to be kept up to date.
+    - the same is true for the repeat/continue button.
+- unit description may be inside or outside
+    - since the iframe may show the result of a generator script isntead of a third-party site, having the unit description
+        outside simplifies things, especially with the rule that an empty description is not shown (nor are any margins),
+        giving the decision to the author
+- the "repeat exercise" and "continue" buttons _might_ be outside the iframe
+    - the unitProgressionState is taken into account, so "just showing the button inside the iframe" isn't that
+        simple either
+    - probably simpler to have the iframe use postMessage to show completion of the exercise, with a parameter that
+        says "can continue"
+- exercise sequencing in inside the iframe -- there is simply no point in doing it outside
+    - exerciseProgress and exerciseError are handled inside the iframe. This also allows third-party exercise sites
+        to implement their own grading / pass logic
+- state management happens outside the iframe
+
+Which messages are needed?
+    setHeight
+    complete
+
+Complete->repeat just reloads the iframe. This avoids any state resetting and associated bugs inside the iframe.
+For client-side scripted exercises (both fully scripted and generator-scripted), this just reloads the scripts that
+are, in the best case, CDN-cached anyway. Same for static exercises. For server-generated exercises, reloading from
+the server is _required_. -> very simple solution
+
+
+

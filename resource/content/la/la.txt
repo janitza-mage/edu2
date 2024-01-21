@@ -1,0 +1,76 @@
+
+problem with old LA content: no motivation, no goal. Why do that at all?
+
+vectors as arrows don't help with the definition, but with the motivation.
+
+"vector =^= displacement"
+add = append
+    add displacements
+    add velocities
+    add forces
+subtract = find what to add; reverse append
+multiply with scalar = repeat; scale
+divide by scalar = scale
+negate = reverse
+multiply with negative = negate / multiply = reverse / repeat
+"parallel"
+
+---------------------------------------------------------------------------------------------------------------------
+
+linear combination
+linear equation system
+span, generator (Erzeugendensystem)
+subspace
+linear independence
+basis
+
+---------------------------------------------------------------------------------------------------------------------
+
+"length"
+unit vectors
+normalization
+
+scalar product, definition from cartesian coordinates
+scalar product, definition from polar coordinates
+scalar product = projection
+define length from scalar product
+Cauchy-Schwarz inequality: |a*b| <= |a|*|b|
+
+"orthogonal"
+split into parallel and orthogonal parts
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+LATER
+- parametric representation of lines in 2d and 3d
+    parametric representation of planes in 3d
+- prove cauchy-schwarz inequality
+    - show triangle inequality
+    - prove triangle inequality
+scalar product, definition from polar coordinates
+    define angle
+cross product
+    plane normal vector
+    point distance to plane
+    distance between parallel lines
+    distance between skew lines
+    distance between point and line
+    distance between planes
+    angle between lines
+    angle between planes
+    angle between line and plane
+    angle between skew lines
+
+
+
+
+

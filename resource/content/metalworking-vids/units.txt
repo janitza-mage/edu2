@@ -1,0 +1,209 @@
+Cannot be worked from first principles. What would be another way to "always be one step from a safe place
+knowledge-wise"?
+
+recap:
+- one new thing at a time
+- connect to already-known things
+- immediately support with exercises, even if it just repeats the content
+- smalls steps in multiple directions, not several steps into the unknown
+    - then connect and support each other
+- repeat previous, if possible from different angles
+- open question or unknown aspect as motivation
+- combination exercise
+
+With this in mind, process the videos:
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Which procedure is best?
+- define and specify the part to make. Go to the shop and decide in which order to make the features. Calculate the
+  numbers for the individual measurements, then make the part.
+- define and specify the part to make. Decide the order of operations. Go to the shop. For each feature, calculate
+  the numbers for the individual measurements, then make that feature.
++ define and specify the part to make. Decide the order of operations. For each feature, calculate the numbers for
+  the individual measurements. Only when you have all the numbers, go to the shop and make the part.
+
+What is the main reason why it is preferred to calculate all the numbers before going to the shop?
++ the noise and possible physical dangers inside the shop make it hard to concentrate on calculations, and easy to
+  make mistakes
+- to occupy the machines for the shortest time possible
+- ...
+
+-----------------------------------------------------------------------------------------------------------------------
+
+What is layout fluid used for?
+- as a light coating to protect the surface from rust
++ as a light coating to make scribe marks visible
+- as an adhesive for drawings and templates
+- as a lubricant and coolant for tools
+- to give the surface a more finished look
+
+What is the main disadvantage when you spray too much layout fluid on a workpiece?
++ scratching through it scratches off flakes instead of a thin, precise line
+- it will be harder to remove
+- it wastes more layout fluid
+
+What does a scriber do to layout fluid?
++ it scratches off a thin line of layout fluid
+- it "draws" a thin line of layout fluid
+- it puts the layout fluid on the workpiece
+
+What is the thickness of a scribe line, and therefore the precision when using such a line as a reference?
+    line thickness: 2/1000th in = 0.05 mm
+        wrong answers: 2mm, 1mm, 0.5mm
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Which parallels must be combined to draw a line parallel to the edge of a part, at a distance of 7/8in?
++ 1/2, 1/4, 1/8
+- 1/2 and 1/4
+- 1/2 and 1/8
+- 1/4 and 1/8
+
+Which method is more precise to mark a point in a corner, 1/2in from both sides?
+    (image)
+- use a ruler to measure 1/2in from the corner on each side, draw two lines perpendicular to the two sides, then
+  mark the intersection of the two lines
++ use a 1/2in parallel to draw two lines, each parallel to one side at a distance of 1/2in, then mark the
+  intersection of the two lines
+
+What are the advantages and disadvantages of using a ruler over using parallels?
++ using the ruler is usually quicker but less precise
+- ...
+
+What error is possible when using parallels?
++ the parallels are not in contact with each other
+- the parallels are usually not made with high precision
+- ...
+
+-----------------------------------------------------------------------------------------------------------------------
+
+What is the purpose of a center punch?
++ the center punch makes a small dent in the surface, not just a mark on the surface
+- the center punch scribes a point mark into the layout fluid
+- the center punch paints a point mark onto the surface even without layout fluid
+
+What is the main advantage of a center punch over only marking a point with a scriber?
++ the dent from the center punch holds a drill, leg of a compass, or other tool in place
+- it is not necessary to cover the surface in layout fluid before using the center punch
+- the mark from the center punch can be removed more easily than the mark from the scriber
+
+
+
+
+
+
+
+
+
+
+mark a point to drill a hole with a scriber or with a center punch?
+    + both, first scriber to "find" the point, then center punch
+
+how can (even inaccurate) marks help in a machine with digital readouts?
+    + easy to see when you are totally off, e.g. flipped digits or decimal point in wrong place
+
+how to position the center punch accurately?
+    + magnifying glass
+
+use case for transfer punches?
+    mark points at the location of holes of an existing parts
+    - for through-holes
+    - for threaded blind holes
+    - for unthreaded blind holes
+
+If position of the holes in the part don't matter, why clamp parts together when marking points with transfer punches?
+    Absolute position of holes doesn't matter, but position of the holes relative to each other does.
+
+Threaded transfer punches: Why screw them in until just the point sticks out? What happens if more than the point
+    sticks out?
+    + will lift and tilt the part and give inaccurate punch marks
+
+adv/disadv of plotting a drawing and glueing it to sheet metal?
+    adv: very fast; harder to make mistakes
+    disasv: not very accurate
+use this in which case?
+    -> accurace not as important
+
+-------
+DRILL PRESS
+
+advantage of a drill press over a hand drill
+    + drill exactly perpendicular to the surface
+    - stronger
+    - larger holes
+    - drill deeper
+
+what do the levers for the transmission change?
+    + speed by which the drill bit rotates
+    - hole size
+    - hole depth
+    - speed by which the drill moves down
+    - speed by which the drill moves up
+
+what does the power feed do?
+    + moves the drill down automatically and at a constant speed
+
+what is the main advantage of the power feed
+    + pushes the drill down at a constant speed. When pushing by hand, you push in varying speeds and force, and can
+      easily push down too hard and break the drill bit or even the drill press.
+    - can do something else in the meantime
+    - relax a bit in the meantime
+
+when is the power feed especially useful to avoid breaking the drill bit or drill press?
+    + when drilling a large-diameter hole
+
+use of a center finder?
+    + makes sure the axis of the drill is not moved against the axis of the hole to drill
+    - makes sure the axis of the drill is not tilted against the axis of the hole to drill, that is, that the drill is
+        exactly perpendicular to the surface
+    - makes sure that the tip of the drill is in contact with the surface to drill
+
+what to watch out for with a center finder
+    + do not pull down too hard; just enough to maintain contact with the surface
+
+what happens if you pull down too hard?
+    the quill deflects, and the center finder will not show the displacement of the two axes accurately
+
+how to choose drill size?
+    + start with a center drill, then step up size until the desired hole size is reached
+
+what happens if you choose a large drill too early?
+
+what happens if you start with a small drill instead of a center drill?
+    + the drill will wander off the center of the hole to drill, essentially drilling in the wrong place, because it
+        is thin and flexible, so it needs the hole from the center drill to stay in its place
+
+When tapping a hole (cutting threads into it), why would you want to use the spindle of the drill press to guide the
+tap?
+    + to cut the threads perpendicular to the surface
+
+What to watch out for when guiding the tap with the spindle?
+    + pull the drill press down firmly enough so the tap does not slip out. With the part clamped down, it is easy to
+      break the tap that way.
+
+What is the purpose of cutting fluid?
+    + lubricate the cutting edge to reduce unnecessary friction
+    + lubricate the sides of the drill, so the chips slide along the flutes and do not get stuck in them
+    - cool the drill
+
+What should you do when you hear chatter (vibration) when operating the drill?
+    + reduce the drill speed
+    - add cutting fluid
+
+What should you do when you cannot switch the transmission?
+    + rotate the spindle slightly by hand, until the gear teeth slide past each other
+
+Why can't you use a drill press for milling?
+    + because the quill of the drill press is too flexible for milling. It will deflect and not cut an even surface.
+
+
+-----
+ADD
+----
+
+safety glasses
+
+
+
+

@@ -1,0 +1,28 @@
+
+This is harder than I thought. I feel like this is because the video are more of an introduction to the shop, and less
+of a course. That is, even after fully learning everything that is in the videos, you cannot really solve any real
+problem. Maybe it's okay that way -- after doing the whole "course", you have learnt about all the tools, nothing more
+nothing less.
+
+Can I pinpoint that criticism better? I feel like the videos are not very cohesive. They talk about every tool, but
+do not contain enough material to be "well-rounded" in a way that allows to cross-link knowledge.
+
+Problem with a more cohesive approach: You'll need an instructor that does one (I don't know much about it).
+
+Options:
+- find an instructor and work together. Needs enough of this platform to (1) let the instructor work on his own, i.e.
+    authoring tools ready; (2) be useful and popular enough to make it worthwile to the instructor
+- let an instructor build the course mostly on his own, but needs even more of this platform
+- learn the content myself first -- takes too much time to be viable
+- find more videos online to build a cohesive whole. Takes lots of time too, and the result will be "meh".
+
+Best result will be for working together with an instructor. To get there,
+- make the authoring tools ready
+- add content that I already know enough about, to make the platform useful and at least a bit popular
+- add content that gets closer to pracical work and is somewhere in between -- I know enough to find content and build
+  it together, and OTOH is useful for someone who wants to do practical work
+--->
+Learning about practical work is a long-term goal.
+
+
+

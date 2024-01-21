@@ -1,0 +1,27 @@
+desirability hypotheses
+- small units with immediate exercises are better than larger units
+    (these two are not independent: small units need an immediate exercise, otherwise they have no advantage because
+    a learner would just forget a small unit of content. Likewise, a larger unit makes it hard to have an immediate
+    exercise)
+- platform gets accepted by authors
+
+feasibility hypotheses
+-> finished up to a level that makes me confident
+
+relevant: https://www.valamis.com/hub/microlearning
+"savings curve" at the bottom. This is not yet taken into account.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+most risky assumption
+-----------------------------------------------------------------------------------------------------------------------
+
+"small units with immediate exercises are better than larger units"
+
+test this:
+- experiment to learn myself
+- present to HN
+
+
+
+

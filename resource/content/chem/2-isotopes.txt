@@ -1,0 +1,101 @@
+
+Which is correct?
+- isotopes of the same element have the same number of protons but different numbers of neutrons
+- isotopes of the same element have the same number of neutrons but different numbers of protons
+- isotopes of the same element have the same mass (sum of protons and neutrons) but different proton/neutron ratio
+- isotopes of the same element have the same number of protons and neutrons but different numbers of electrons
+
+Element X has A protons and B neutrons. What is its atomic mass?
+
+Element Y has A protons and a mass of B. What is its number of neutrons?
+
+What is the mass number?
+- number of protons
+- number of neutrons
+- number of protons and neutrons
+- mass of the nucleus in atomic mass units
+
+How do the atomic mass and the mass number relate?
+- they are the same, except that the atomic mass uses the unit u and the mass number is unit-less
+- the mass number is the atomic mass rounded to the nearest integer
+- the mass number is the atomic mass, rounded down
+- they are roughly the same. The mass number pretends that all protons and neutrons have a mass of 1u each, that
+  electrons have no mass, and that the atomic mass is the sum of both (as if there was no _mass defect_)
+
+(choose other element, this is taken from KA) Chromium-52 is the most stable isotope of chromium. How many neutrons are
+found in a single atom of chromium-52? (link to PT)?
+
+We say that two atomic nuclei are isotopes of the same element if they have the same number of protons, regardless of
+the neutrons. In contrast, we do not consider it to be very important whether the nuclei have the same number of
+neutrons if their number of protons is different. Why?
+- the number of protons is equal to the number of electrons, which define the chemical properties. In contrast, the
+  number of neutrons does not directly relate to the electrons.
+- because protons have much larger mass than neutrons, so the mass contribution of neutrons is dawrfed by the different
+  number of protons
+- counting protons is historically preferred to counting neutrons, so we stick with it. It would be possible to
+  define everything "the other way round", by counting neutrons, with equivalent results.
+
+TODO
+Why do different isotopes of the same element have almost identical chemical properties?
+- because chemical properties are determined by the electrons, and the number of electrons depends on the number of
+  protons, which is the same for all isotopes of the same element
+- (wrong answers)
+-> (similar mass!)
+
+Why do different isotopes of hydrogen have different chemical properties?
+-> TODO
+
+(rechenintensiv)
+- the avg mass of (element) is XXX. It has two stable isotopes, AAA with mass A and BBB with mass B. Calculate the
+  naturally occuring ratio of these isotopes.
+- natural uranium has an atomic mass of XXXu. It consists of 0.72% of U-235 and 99.28% of U-238. Calculate the
+  mass of U-235 in 1 kg of natural uranium.
+- 1 mole of natural uranium has a mass of XXX. Calculate the mass of one mole of _reactor-grade_ uranium that has
+  been _enriched_ to contain 5% U-235 and only 95% U-238.
+
+----------------------
+
+Which is true in a mass spectrometer?
+- heaver ions get deflected more
+- heaver ions get deflected less
+
+Which is true in a mass spectrometer?
+- ions that are charged +2 get deflected more than ions charged +1
+- ions that are charged +2 get deflected less than ions charged +1
+
+A sample of (Element) shows three peaks in a mass spectrometer. Two of them, X and Y, are expected and correspond to its
+known isotopes. What is the most likely explanation for the third peak at Z?
+- a third isotope of the element exists that has not been discovered yet
+- the sample has a ratio of isotopes that is different from the natural ratio
+- the sample is contaminated with a different element
+    TODO choose example values so this is the correct answer
++ the third peak is caused by ions that have been charged +2 instead of +1, so they have half the mass-to-charge ratio
+    ... and not this
+
+A sample of (Element) shows three peaks in a mass spectrometer. Two of them, X and Y, are expected and correspond to its
+known isotopes. What is the most likely explanation for the third peak at Z?
+- a third isotope of the element exists that has not been discovered yet
+- the sample has a ratio of isotopes that is different from the natural ratio
+- the sample is contaminated with a different element
+    (TODO choose example values so no other element has the same mass as the third peak)
++ the third peak is caused by ions that have been charged +2 instead of +1, so they have half the mass-to-charge ratio
+
+show mass spectrum -- what is the mass of the most abundant isotope?
+
+show mass spectrum -- how many isotopes?
+
+show mass spectrum -- which element is this?
+
+show mass spectrum -- what is true?
+- N isotopes
+- most abundant isotope is X
+- average atomic mass is X
+- average atomic mass is between X and Y
+
+show mass spectrum -- calculate average mass
+
+average atomic mass of (element) is X. which of the spectra matches
+
+
+
+

@@ -1,0 +1,19 @@
+
+Problem: form gets rendered as Markdown -> HTML with form inputs, then inserted. Old form values get lost.
+Re-rendering MUST happen because inputs become disabled after submitting. React cannot have components called from
+user-supplied HTML.
+
+Solution #1: use jQuery. However, EVERYTHING must be done in jQuery then.
+
+Possible solution #2: HTML inputs get inserted after Markdown rendering. Maybe it is possible to insert React
+components at that point. But it's not as easy because they have to be located somewhere nested in the provided DOM.
+- React.render() to the rescue. I'm not sure if a form outside the HTML works with form components inside the HTML,
+  but that part isn't important (I can process the raw form data).
+Problem: Form gets re-rendered with "disabled". How to have this cause re-rendering of the content?
+
+Solution (probably): render an empty DIV, get it with a ref, then insert whatever in a useEffect().
+- will have to understand how to modify the component during re-rendering with different props. Probably use a
+second ref that contains state, use all props in the dependency list of the useEffect, then diff the props.
+
+jQuery will be useful in implementing the non-react part.
+

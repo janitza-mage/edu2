@@ -1,0 +1,230 @@
+Trigger for this document was the question whether unit content, exercise descriptions and exercise answers should be
+written as "static content" descriptive JSON or as JSX.
+
+This in part depends on who is writing the content. But the deeper problem is that JSON/JSX is only the result of
+a program that also needs to be written. Otherwise a WYSIWYG editor would solve the problem.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Authoring content on this platform is _HARD_ in principle. It's programming: Writing a program that generates
+exercises and grades them.
+
+How can this be simplified? What simplifications are acceptable?
+
+My guess: It cannot be simplified in general. Instead, specific cases can be simplified in different ways.
+- an alternative point of view would be that this _IS_ programming, no need to hide it. Hire a programmer to build
+    courses. Does this make perfect the enemy of good? It would prevent many people from authoring courses and
+    instead try to centralize authoring. PROBLEM: The open-source nature of the whole project will cause this to
+    focus on programming-related topics because you need a programmer to author content.
+    -> this is a show stopper!
+- if a programmer is available, a general solution can be developed. This takes a lot of work, but it's a one-time
+  investment. BUT: Is other authoring also just a one-time investment?
+    - This discussion is implicitly focused on "choose one" / "choose many" / "fill in the blanks" exercises!
+    - for those, the extra effort of an exercise generator might not be worth it.
+        - We assume consent of the learner, so cheating is by assumption not a problem.
+        - Advantage of a generator: A learner with difficulties can get a lot of different exercises, and the effort
+          to write the generator is amortized over all learners.
+- power users can achieve a good fraction of what programmers can, especially when supported by a plugin system
+
+Related question: What is the end goal?
+- to empower users to handle some simple tasks? This is better served by a how-to platform
+- to augment professional training and take it to the next level!
+- this will need quality authoring from everybody without access to a programmer!
+- the "power users and plugins" approach might be viable though
+
+-----------------------------------------------------------------------------------------------------------------------
+Science-centered discussion of content / authoring
+-----------------------------------------------------------------------------------------------------------------------
+
+It will likely be very hard to find content authors in practice. See Khan Academy, where the content is mostly
+written by the founder.
+
+How can professional traning be augmented?
+- highly parallelized theory teaching, before starting with actual practice
+    - learner focused pacing
+    - early clues if the course is doable
+
+What exercise formats can be implemented by plugins, without platform-related technical knowledge by the author?
+- hardcoded content (WYSIWYG editor): choose one, choose multiple, fill in the blanks
+
+What exercise formats could be implemented by directly programming them, especially those that are NOT easily
+implemented by plugins?
+- some programming-related one, but they don't matter! The authors can program anyway.
+- math exercises with computed values
+
+
+(side note: using local files and _git_ as authoring tools would be a nice alternative to web-based authoring.
+I Could even use github as a repository for the content and just pull from there on button-click. Close to no
+authoring tools needed! Maybe even use Markdown for the content; Latex stuff has to be solved though.)
+
+(side note: if the general authoring style is content-based, not programming-based, then scripts could be treated
+as one type of content and still allow programming-based authoring. This would be a nice compromise.)
+
+What could exercises in other subjects look like? (Khan Academy does choose-one questions, but they don't have any
+other technology, so what *could* they do if they had?) Also, how would they be authored?
+- chemistry: molecule editor (plugin capable?)
+    - partial molucule editor: part fixed, part editable; limited parts; possibly change charge but not structure
+- choose-one/many: much larger selection of right and wrong answers, of which only one/few are shown
+- choose-one/many from image map (esp. table of elements)
+- (re-usable text blocks, image maps for exercises)
+- bring block into the right order (definitely plugin capable and WYSIWYG editable)
+
+Technical features needed:
+- unit description: this is just a content editor, mostly WYSIWYG
+- exercise sheet style: drop-down selection; extendable by plugin; might need metadata for each exercise
+    fixed sequence
+    random selection (possibly needs scores)
+    weighted selection (needs weights, possibly scores)
+- exercise description: static content, mostly WYSIWYG
+- exercises
+    choose-one/many: list editor + static content; possibly allow to limit number of displayed choices
+    molecule editor: edit fixed part (same editor as for exercise? difference between desktop authoring and
+        mobile/touch editor? Same editor software might do both.), define choice of parts (atoms, charges; possibly
+        limited amount)
+        - mobile/touch: editor opens in a non-scrolling popup, so swiping means editing
+    image map: upload image, define zones, define if right or wrong
+- text blocks: edit separately; insertable by WYSIWYG editor
+    text blocks can be unit-local or course-local; affects visibility and delete-behavior
+- bring blocks into right order: list editor + static content
+
+(side note: add explanation to all answers of choose-one/many. This is supported by them being static content.)
+
+-----------------------------------------------------------------------------------------------------------------------
+Practical work centered:
+-----------------------------------------------------------------------------------------------------------------------
+
+MIT metalworking videos:
+- choose-one/many obviously works here, and I already found an example in 1 min of video
+- choose-one/many with image answers (but this is easy to do since the answers contain static content which allowes images)
+
+This is actually enough for theory, but what about "theoretical practice"?
+- "virtual machine": show an image of a machine with working controls. The learner must operate the machine correctly.
+  might also include other tools.
+    - plugin capable? hard. I might write this into the platform (not core, but needs tight integration and maybe
+        higher privileges). An installation that wants this might employ a dev for that. BUT: We want the "general case"
+        to work without a dev.
+    - solution: Make it possible to implement custom exercise types on a separate platform. After all, we don't need
+        much communication between them: request exercise by ID; provide exercise as a client-side web application
+        which runs in an iframe and communicates with the top window. Has to report back when done, and if correct or
+        not. This is just webhosting. The fact that the outer platform is usable without logging in also makes
+        phishing a non-problem.
+        ...
+        "THIS IS JUST WEBHOSTING" -> problem solved!
+    - this means that logging in is only needed for authoring, and a back-end is only needed for the content, not for
+        the leaner's state. So this whole project is a very specialized CMS.
+- mini-videos (few seconds), e.g. "what is wrong here", as static content. Youtube videos have bad usability for that.
+
+reverse question tree: Give some starter clues, and let the learner ask questions (has to choose from a list of
+possily parameterized questions). Find out what is going on with the least amount of questions.
+
+---
+
+The "webhosting" solution is very general but tends to produce poor UI. We can use it so the platform is general enough
+for "everything", but we should also provide a few "specialized" exercise types that are more usable, especially the
+common choose-one/many.
+
+---
+
+-----------------------------------------------------------------------------------------------------------------------
+implementation approach
+-----------------------------------------------------------------------------------------------------------------------
+
+author-metadata (static*)
+course:
+    title (inline static reduced content)
+    description (block SC)
+    [units]
+unit:
+    [order index]
+    title (inline reduced static content)
+    description (block SC)
+    exercise sheet type (enum)
+    [exercises]
+    [exercise rules]
+exercise:
+    tags / metadata (score/penalty, probability, [order index]...?)
+    description (block SC)
+    type
+    type-specific fields
+        choose-one/many: answers (list of inline SC / two lists of inline SC)
+        bring into correct order: list of inline SC
+        bring subset into correct order: two lists of inline SC
+        ??? bring subset with repetitions into correct order -- almost at "virtual machine" but easier to implement
+        external: iframe URL (querystring can contain any parameters)
+
+SQL representation:
+    author
+    course -> author
+    unit -> course
+    exercise -> unit; type-specific fields as JSONB
+
+Static content
+- Markdown as a basis is ok
+- Headings are _smaller_ than the "Exercise" heading, so that would be H0 in Markdown terms
+- bold, italic, blockquote, strikethrough, u-list, o-list, code, rule OK
+- link: only external? What could be linked to internally? Other courses and other units. Maybe use specialized URL
+    schemes for that.
+- table, code block ok. Footnote? Maybe.
+- image? prop best to make this dependent on the storage medium
+    - SQL: separate AnswerImage, ExerciseImage, UnitImage tables; link to image in text
+    - in-code JSON: same probably; easier than embedding images in text
+    - in-code JSX: just use a component
+
+-----------------------------------------------------------------------------------------------------------------------
+Re-think the metalworking videos
+-----------------------------------------------------------------------------------------------------------------------
+
+The "virtual machine" is probably not that important at start, because you could just try with a real machine. The
+things you have to watch out for with a real machine aren't taught with a virtual machine anyway.
+
+What *would* appear in exercises, content-wise (not technology-wise)?
+- basic operation
+    - What tool should be used to do X?
+    - What is the purpose of tool X?
+    - What are the disadvantages of tool X?
+    - What are the dangers of tool X?
+    - (video) what is wrong here?
+    - X (bad) happens. What is the cause / are possible causes? What should be done?
+    - (animation, bild oder 3-sek video) what tool is shown here?
+- complex operation
+    - you want to perform processing X using tool Y.
+        - What steps are necessary, in which order?
+        - What errors do you have to watch out for?
+        - What dangers do you have to watch out for?
+- achieving a goal
+    - you want to make feature X. What steps are necessary, in which order?
+    - you want to make part X. What processings are necessary?
+    - you want to make part X. What machines do you need?
+    - you want to make part X. In which order do you make the features?
+
+-----------------------------------------------------------------------------------------------------------------------
+current math exercises
+-----------------------------------------------------------------------------------------------------------------------
+
+These are actually nice, BUT the cool thing is we can keep them using something similar to the "webhosting" solution.
+Let's call it "LoadFrom" exercise type: This type takes an URL too, but it doesn't use it for an iframe, but instead
+loads the exercise definition from there. Then we can generate a new exercise randomly on request.
+- the returned exercise cannot be a LoadFrom anymore to avoid infinite loops, or even multi-hop loading because it's slow
+- this will only work once the exercise definition uses a passive representation for static content (e.g. Markdown),
+    not JSX because it can't be returned from a URL (in-code this might be hacked to work)
+- A little trick will allow us to do this in the same code base, either using a different exercise type or (I prefer
+    this:) using a custom URL scheme that is recognized by the loader.
+- Another trick will temporarily make JSX work: define yet another exercise type, let's call it "Generated", that
+    takes a function which returns an exercise definition. This is always in-code, but for JSX it has to be anyway.
+
+-----------------------------------------------------------------------------------------------------------------------
+Markdown Implementations
+-----------------------------------------------------------------------------------------------------------------------
+
+markdown-it
+- math support is a "community mess". There are ~10 different forks of the plugin, the official one is 7 years old,
+    the others have <10 downloads per week and who knows which one works.
+--> avoid this
+
+marked
+- does not seem to support math
+
+micromark
+
+
+

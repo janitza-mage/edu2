@@ -1,0 +1,59 @@
+import {useBackend} from "../../logic/content/useBackend";
+import {FullWidthLoadingIndicator} from "../../components/LoadingIndicator/FullWidthLoadingIndicator";
+import {Footer} from "./Footer";
+import {useStateStore} from "../../logic/state/useStateStore";
+import {CourseDetailState} from "../../logic/state/StateStore";
+import {UnitList} from "../../components/UnitList/UnitList";
+import {useNavigate} from "react-router-dom";
+import {WithFooter} from "../../components/Footer/WithFooter";
+import {GetUnitListPageResponseElement} from "../../common/frontend-api/GetUnitListPageResponse";
+import {Loader, useLoader} from "../../util/useLoader";
+import {GetCourseInfoPageResponse} from "../../common/frontend-api/GetCourseInfoPageResponse";
+import {Markdown, MarkdownInline} from "../../components/util/Markdown";
+import {Alert, Button} from "@mui/material";
+
+type Data = [GetCourseInfoPageResponse, CourseDetailState];
+
+function useData(courseId: number): Loader<Data> {
+    const backend = useBackend();
+    const stateStore = useStateStore();
+    return useLoader(async (): Promise<Data> => {
+        const contentResponse = await backend.getCourseInfoPage(courseId);
+        const courseState = await stateStore.getCourseDetailState(courseId);
+        return [contentResponse, courseState];
+    });
+}
+
+export interface CourseInfoPageProps {
+    courseId: number;
+}
+
+export function CourseInfoPage({courseId}: CourseInfoPageProps) {
+    const navigate = useNavigate();
+    const loader = useData(courseId);
+    return <WithFooter footer={<Footer/>}>
+        <FullWidthLoadingIndicator<Data> loader={loader}>
+            {([content, courseState]) => <>
+                <h1><MarkdownInline renderConfiguration={{authorIdForImages: null}}>{content.title}</MarkdownInline></h1>
+                <Markdown renderConfiguration={{authorIdForImages: content.authorId}}>{content.description}</Markdown>
+                <div>
+                    {courseState.completionStatus === "new" &&
+                        <Button
+                            variant={"contained"}
+                            onClick={() => navigate(`/courses/${courseId}/units/0`)}
+                        >Start this course</Button>
+                    }
+                    {courseState.completionStatus === "active" &&
+                        <Button
+                            variant={"contained"}
+                            onClick={() => navigate(`/courses/${courseId}/units/current`)}
+                        >Continue this course</Button>
+                    }
+                    {courseState.completionStatus === "completed" &&
+                        <Alert severity={"success"}>You have completed this course.</Alert>
+                    }
+                </div>
+            </>}
+        </FullWidthLoadingIndicator>
+    </WithFooter>;
+}

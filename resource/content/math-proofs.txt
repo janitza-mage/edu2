@@ -1,0 +1,52 @@
+
+Ideen:
+
+1.
+Entscheidungs-Baumstruktur ohne gezeigtes richtig/falsch an jedem Knoten, aber nur ein Blatt ist richtig. Man muss sich
+durchklicken, bis man da ist. schwierige Variante: Richtiger Blattknoten bzw. andere Blattknoten werden nach falscher
+Antwort nicht gezeigt, nur warum der genommene WEg falsch ist.
+
+2.
+Lückentext, siehe https://blog.cengage.com/teach-proofs-with-new-problems/
+- dropdowns
+    Matrix-Dropdowns: Statt dass eine Liste mit 1-dimensionaler Auswahl kommt, eine Matrix mit zweidimensionaler Auswahl
+    z.B. 0, 1, 2, x, 1+x, 2+x, x^2, 1+x^2, 2+x^2
+- textfelder
+    - Zahlen (mit Taschenrechner am Feld!)
+    - Variablen (das könnten auch Dropdowns sein)
+    - Formeln? Aber kompliziert! Dropdown oder Formel-Template mit mehreren Feldern?
+
+3.
+1. + 2. kombiniert; jeder Baumknoten ist ein Lückentext
+- nicht so einfach! wie wird ein Unterknoten anhand des Lückentexts ausgewählt?
+    - entweder nur 1 Unterknoten an Knoten mit Lückentext
+    - und/oder Lückentext wird direkt Bewertet, nur wenn richtig darf man weiter
+
+4. Anti-Beweis
+Man bekommt einen falschen Beweis gezeigt und muss den Fehler finden
+    - einfachere Variante: Die Behauptung ist falsch, d.h. der Beweis muss falsch sein. Man kann z.B. ein
+        Gegenbeispiel finden.
+    - kompliziertere Variante: Die Behauptung ist richtig, aber der Beweis ist falsch. Man muss den Fehler finden.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Von den o.g. ist ein Lückentext jedenfalls am einfachsten:
+- es ist schwierig, falsche Unterbäume weiterzuführen, weil man da im Grund bullshitten muss
+    - alternativ kann man jede falsche Abzweigung gleich als solche bewerten
+        -> aber das ist nix, damit lernt man nur falsch wie Beweise funktionieren! Bei einem Beweis merkt man
+            nicht wenn man falsch ist!
+    - aber bullshitten bringt auch nix, weil der Bernutzer dann ggf. nicht den Weg gehen kann, den er gehen will,
+        wenn eine entsprechende Abzweigung nicht da ist. Es kann ja sogar sein, dass er mit einer falschen Abzweigung
+        zurück auf den richtigen Weg gefunden hätte und damit einen richtigen und nur unnötig komplizierten
+        Beweis geführt hätte.
+
+--> erst mal Lückentext.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Richtiger Beweis geht nur mit menschlichem Lehrer. Gibt es eine Computer-unterstützte Möglichkeit dafür? Also eine,
+die nicht zu o.g. vollautomatik degradiert.
+- Beweis-Ansatz auswählen wäre Möglich, aber nur als 1 Multiple-Choice
+- Beweis per Baumstruktur oder Lückentext, und danach mit zeitverzögerung selbst auf Papier reproduzieren
+    (oder Formeleditor, Latex etc.)
+

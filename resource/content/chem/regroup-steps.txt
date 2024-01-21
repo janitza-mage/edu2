@@ -1,0 +1,323 @@
+
+Chemistry is understanding how substances behave. How _do_ they behave? We have to zoom in on a microscopic level
+to understand that. If we do that, we'll soo some recurring patterns, like molecules, ions, lattice structures, and
+so on.
+
+But how to _those_ behave? If we zoom in further, we find that they are all made from the same building blocks: atoms.
+Understanding substances, therefore, means understanding how atoms behave.
+
+(sequential sheet)
+* Which is true?
+    + We want to understand atoms because they are the common building blocks for all substances
+    - Atoms are one of the building blocks for substances; molecules and ions are others.
+* Which is true?
+    + Understanding how atoms behave is the fundamental building block to understand how substances behave
+    - Understanding how atoms behave, and understanding how substances behave, are two distinct branches of chemistry.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+A single atom won't do a lot of interesting things on its own. Understanding substances means to understand how and
+when atoms attract each other, repel each other, stick together, and so on. Most of chemistry is therefore dealing
+with how atoms interact.
+
+(sequential sheet)
+* Why are interactions between atoms so important?
+    + Because a substance is made up from a huge number of atoms that interact to give that substance its properties
+    - Because dealing with a larger number of atoms makes it harder, and therefore more challenging, to do chemistry
+* What are the main interactions between atoms?
+    + attraction, repulsion, and sticking together
+    - exchange of information
+    - generating and destroying atoms
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Even though interactions between atoms are most interesting to us, we first have to understand how a single atom works.
+This will give us the tools to understand interactions later.
+
+An atom consists of two things, a nucleus on the inside and an electron shell on the outside. The electron shell
+consists of a number of electrons and the nucleus contains of a number of protons and neutrons.
+
+Here is an example of a lithium atom: (3p, 3e, m=7 -> 4n); marked p, e, n
+
+(sequential sheet)
+* Here is another atom, beryllium (4p, 4e, m=9 -> 5n) How many protons, neutrons, and electrons does it have? Just count them!
+* Which is true?
+    The nucleus of an atom contains protons and neutrons
+    The nucleus of an atom contains protons, neutrons, and electrons
+    The nucleus of an atom contains protons and electrons
+    The nucleus of an atom contains neutrons and electrons
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Let's dive into how the atom works. The nuclei and the electron shells are electrically charged. This causes them to
+interact through the electric force: like charges repel each other, and opposite charges attract each other. This
+force gets stronger, the closer the charges are to each other.
+
+Electron shells are negatively charged, and the nucleus is positively charged. This makes a shell stick very tightly
+to its nucleus.
+
+TODO exercises
+
+-----------------------------------------------------------------------------------------------------------------------
+
+The electron shells are on the outside, so if two atoms get close to each other, their electron shells will repel each
+other.
+
+There are ways to counteract that force, and if we do that, we'll see that the shell of one of the atoms gets attracted
+to the nucleus of the other atom, and vice versa, because they are opposite-charged.
+
+Pushing the atoms even further, the atoms will start to share part of their shell. This shared shell acts like a strong
+glue that makes the atoms stick together.
+
+Finally, if we push even further, then the two nuclei will start to repel each other, because they are like-charged.
+
+TODO exercises
+
+-----------------------------------------------------------------------------------------------------------------------
+
+We'll need some numbers to better keep track of these forces. Luckily, the atom makes it simple for us, because all
+charges are multiples of a single elementary charge, called $e$. An electron is negatively charged by $-e$, and a
+nucleus is positively charged by multiples of $+e$.
+
+The force is proportional to the charges: A $+1e$ charged nucleus will attrach a ($-1e$ charged) electron by the same
+amount that two $-1e$ charged electrons repel each other. A $+3e$ charged nucleus would attract the same electron by
+three times as much. To get the force between two charges, we have to multiply these charges.
+
+This allows us to simplify writing the charges, so for example when we write about a charge of $-2$, we actually mean
+a charge of $-2e$.
+
+TODO exercises
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Why can a nucleus carry multiple charges, but an electron only ever carries a single one? Remember how the nucleus is
+actually made up from protons and neutrons:
+
+    (image)
+
+We never explained how protons and neutrons are different, and now is the time for that: Each proton carries a charge
+of $+1e$, and each neutron carries no charge at all. So the positive charge of a nucleus is the same as the number
+of protons in it!
+
+TODO exercises
+Which is true?
+- a nucleus with 3 protons attacts an electron 3 times as much as a nucleus with 1 proton
+- a nucleus with 3 protons attacts an electron 1/3 as much as a nucleus with 1 proton
+- a nucleus with 3 neutrons attacts an electron 3 times as much as a nucleus with 1 proton
+- a nucleus with 3 neutrons attacts an electron 1/3 as much as a nucleus with 1 proton
+(something with an image of an atom, counting particles)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+combined exercise time!
+
+* Why do we care about the number of protons in a nucleus?
+    + Because they are the ones that attract electrons, and are therefore the cause of interactions between atoms
+    - Because they keep the neutrons around, which are the actually interesting particles
+    - Because the protons from different nuclei attract each other, and are therefore the cause of interactions between atoms
+    - ...
+
+-----------------------------------------------------------------------------------------------------------------------
+
+If protons attract electrons, then what is the role of the neutrons? It turns out that they are not directly involved
+in chemical interactions, and mostly make the nuclei heavier. It turns out, though, that "just making the nuclei
+heavier" allows us to pull some cool tricks with them that will help us a lot in chemistry.
+
+There _is_ one central purpose of the neutrons: They glue the protons together in the nucleus. Without them, the
+(like-charged) protons would repel each other, and the nucleus would fall apart.
+
+TODO exercises
+
+-----------------------------------------------------------------------------------------------------------------------
+
+The electric force depends on the charges, but it also depends on distance: The closer the charges are to each other,
+the stronger the force. Distant charges do not interact very much.
+
+The most important example of this principle is how the electron shell of an atom sticks to its nucleus. Compared to
+other atoms, the shell is very close to its nucleus, so the attractive force is very strong. A lot is needed to
+break that force, and we'll later learn about how this can be done. For now, suffice it to say that just trying to
+pull the shell away from the nucleus will not work.
+
+For the same reason, when two atoms share part of their shell, they stick together very strongly: The shared shell
+now sticks to both nuclei by a force that a very strong because the shared shell is so close to both nuclei. How can
+it be close to both of them? Such a shared shell is streched between the nuclei to be close to both at some point,
+and like a rubber band, it also pulls the nuclei together.
+
+TODO exercises
+* What happens when a shared shell pulls two nuclei together until they touch?
+    + The nuclei won't touch. They will repel each other, because they are both positively charged, and that
+        repulsion gets stronger and stronger the closer they come to each other.
+    - The nuclei will stick together after they touch, but only as long as the shared shell connects them.
+    - The nuclei will stick together after they touch, and even continue to stick together when they lose their shared shell
+    - The nuclei will merge into a single nucleus when they touch.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+An interesting thing happen when an atom has the same number of protons and electrons: Such an atom is mostly immune
+against attraction or repulsion by the electric force. If we place another charge -- in this example, a positive
+charge -- near it, then this positive charge will attract the electron shell, but repel the nucleus _by the same
+amount_. This will slightly deform the atom, but way too little to pull the shell off the nucleus. Most importantly,
+it will neither attract nor repel the atom as a whole.
+
+We call such an atom _neutral_. Being neutral is one of the things that atoms "prefer" to be. Why do they prefer that,
+and what does it even mean for an atom to "prefer" something? The atom interacts though the electric force a lot when
+it is not neutral, until it becomes neutral, and then mostly stops interacting. So "prefer" really means that, just by
+chance, atoms end up being neutral most of the time.
+
+TODO exercises
+* Electrons are in the electron shell, not in the nucleus, yet we'll often look at the nucleus to learn something
+about an atom's electrons. How can this work?
+    + The nucleus contains the protons, and the atom will have an equal number of electrons when it is neutral.
+    -
+* When two atoms bump into each other, afterwards they fly away from each other just like two billiard balls. But we
+just learned that actually, the two electron shells repel, the two nuclei repel, and the shell of one atom attracts the
+nucleus of the other atom and vice versa. These forces should cancel out. Why do the atoms still repel?
+    + Because the electron shells are on the outside, so they are slightly closer to each other, making them repel
+      stronger than the attraction towards the other nucleus.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Electrons and protons cancel out with respect to an outside electric force. This calls for a simplification: When
+dealing with such an outside electric force, it is sufficient to look at the _net_ charge, that is, the difference
+in the number of protons and electrons.
+
+Let's take this atom as an example:
+
+    (image: Li1+)
+
+For the outside electric force, let's assume a positive charge that is close to this atom. That force will repel one
+proton, and attract an electron by the same amount. It will also repel the second proton, and attract the second
+electron by the same amount. Finally, it will repel the third proton, but there is no third electron to attract. So
+the net force is the same as if our atom had only one proton and no electron. Our atom as a net charge of $+1e$.
+
+Using this new concept, a _neutral_ atom is an atom with a net charge of $0$.
+
+TODO exercises
+* There is no strong attraction nor repulsion between two neutral atoms. Why?
+* There is no strong attraction nor repulsion between a neutral atom and an atom with a net charge. Why?
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Just like an atom with net charge $0$ is called neutral, an atom with non-zero net charge is called an _ion_. Ions
+are important because they _do_ react to an outside electric force. One of the obvious and most important of these
+interactions is that two ions with like net charges repel each other, and two ions with opposite net charges attract
+each other. Another one is that a large overall electric force can move all positive ions in one direction, all
+negative ions in the other direction, and keep all neutral atoms in their place.
+
+You will read the terms _kation_ and _anion_ in a textbook. A kation is an ion with a positive net charge, and an
+anion is an ion with a negative net charge. Using more specific words will make it easier to talk about ions later, but
+for now, we'll stick to _positive ion_ and _negative ion_ for simplicity.
+
+TODO exercises
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Let's get to a more practical example. We said that a large overall electric force can move all positive ions in one
+direction, all negative ions in the other direction, and keep all neutral atoms in their place. This can be shown
+in practice.
+
+First, we need a substance that contains ions. We also want the particles to float around in that substance easily --
+if the ions are locked into their place, they cannot be moved by the electric force. We can get both of that easily
+by dissolving table salt in water: The water is liquid, so its particles float around easily, and dissolved table
+salt gives us both positive and negative ions.
+
+Next we need a way to generate an overall electric force. We can do that by connecting a battery to two electrodes,
+and then submerging the electrodes into the salt water. The battery will generate a strong electric force between
+the electrodes, and the ions will react to that force.
+
+We can see the movement of the ions by the fact that an electric current flows between the electrodes. In other words,
+the water _conducts_ the electric current. It will do so better the more ions are dissolved in it, because the ions
+are what moves the current.
+
+Since in science, we'll always want to test if our understanding is correct, we can do so by adding more salt to the
+water, and see if the current increases. We can also try with water that contains _fewer_ ions than tap water, called
+_deionized water_ for obvious reasons, and see if the current decreases.
+
+Finally, we can try to push current through dry salt, and observe that it won't work. Dry salt has lots of ions, but
+they are locked into place and cannot flow freely to move the current.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+We mentioned dry table salt in the last unit. It contains lots of ions, "locked into place" so they don't conduct the
+electric current. How would that look like, and why would they lock into place?
+
+The key here is that "dry" means no water, so we have _only_ the ions left. That means that everything is electrically
+charged, and we have strong electric forces acting everywhere. The ions will naturally seek an arrangement where they
+minimize and balance all these forces.
+
+If we consider that two like-charged ions repel each other, and two opposite-charged ions attract each other, it
+becomes obvious that the ions will arrange themselves in a way that opposite-charged ions become neighbors, and
+like-charged ions are as far away from each other as possible. This is called a _lattice structure_, and looks like
+this:
+
+    (image)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+The lattice structure can be used to explain why salt crystals are brittle. Materials can be brittle for various
+reasons, but in the case of table salt, the ion lattice gives us the explanation.
+
+What does it mean to be brittle? Suppose we hit a salt crystal with a hammer. "Brittle" means that there is no
+internal structure that can absorb this large force, and instead leads to a large-scale shift between parts of the
+crystal, breaking it. In contrast, a ductile material would be able to break a few internal bonds to absorb the
+energy of the hammer blow, keeping the majority of the bonds intact.
+
+But with table salt, it's almost the opposite: A force that is strong enough to shift part of the lattice will actually
+move like-charged ions next to each other, breaking all bonds at once!
+
+    (multi-step image or animation)
+
+Even though this explanation will not help us with other brittle materials, at least we now understand why table salt
+_must_ be brittle.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+There is something still lacking from our understanding of neutral atoms and ions: Let's first get back to how an ion
+can exist at all.
+
+For a positive ion, this is not that hard to understand. A positive ion is lacking an electron compared to a neutral
+atom. The remaining electrons are attracted to the nucleus as usual. Such an ion can exist simply be the lack of an
+electron.
+
+Things are more complicated for a negative ion. A negative ion has an extra electron compared to a neutral atom. How we
+would expect the electric force from the other electrons, and the force from the nucleus, to cancel out. However, if
+they do cancel out, then no net force acts on the extra electron, and it would just fly away. So obviously, "net force"
+is too crude as a model to understand negative ions.
+
+Without "net force", we have forces from the nucleus, as well as the individual other electrons, acting on the extra
+electron. The key here is that the electric force gets weaker over distance. For example, an electron that is near the
+nucleus gets attracted by the nucleus in a stronger fashion than it gets repelled by another electron that is on the
+_other_ side of the nucleus.
+TODO-knowledge -- is that correct?
+    Vermutung is ja; x1=-x2 states sind vorrangig; Kleine Abweichungen davon sind dreh-Vibrationsmoden
+
+So if we arrange the movement of the electrons the right way, then we can actually make the nucleus hold more electrons
+than it has protons. That's what happens in a negative ion, but we'll see later that it only works with a very specific
+number of extra electrons to balance all the forces.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+The other open question is: If we have positive and negative ions, why don't they just attract each other, bump into
+each other, exchange an electron, and be neutral? We would expect that to happen by random change, and then the
+neutral atoms would stay neutral because they are no longer affected by the electric force.
+TODO-knowledge
+
+Unfortunately, we are not yet equipped with the knowledge to answer that question in depth. For now, we'll have to
+accept the fact that in reality, there _are_ cases where two neutral atoms would rather end up as oppositely charged
+ions, and even exchange an electron to become ions, than stay neutral -- even seemingly moving that electron _against_
+the electric force.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+(Kombinations-Übungen)
+* What is the overall charge of this atom? (image -> count protons, electrons; ignore neutrons)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

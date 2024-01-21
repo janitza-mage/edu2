@@ -1,0 +1,17 @@
+
+.UnitList :global(.MuiListItemSecondaryAction-root) {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+
+// TODO use lines?
+
+.xUnitList {
+  border-top: 1px solid #ccc;
+}
+
+.xUnitList {
+  height: 3em;
+  border-bottom: 1px solid #ccc;
+}

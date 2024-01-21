@@ -1,0 +1,22 @@
+motivation? start with examples!
+- maybe even literally START with examples, and extract common behavior
+    "boxed string of capital letters" (boxed: to distinguish from variable names)
+    -> use new symbol for semigroup operation
+    + boxed string of lowercase letters; boxed string of digits (<- not numbers! leading zeroes!), ...
+    -> common: string of elements from a given symbol set
+    (ex: check if property X holds for strings)
+- common structure: closed, associative, identity element; not commutative
+    - another example: natural number multiplication
+        - no inverse
+        - BUT: is commutative -- strings aren't
+    - another example: natural number addition
+        - has inverse
+        - is commutative
+    - terminology: associative, commutative, identity, inverse; semigroup, monoid, group, commutative group
+    (ex: list properties of structure X)
+    (ex: which of these structures is a Y)
+- presentation (monoid is the quotient of the free monoid by a set of relations)
+    https://en.wikipedia.org/wiki/Presentation_of_a_monoid
+
+
+
