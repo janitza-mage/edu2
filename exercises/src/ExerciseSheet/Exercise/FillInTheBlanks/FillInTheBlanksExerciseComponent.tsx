@@ -42,6 +42,6 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
 
     return <form onSubmit={onSubmit} className={styles.form}>
         <div ref={divRef} id={stateRef.current.htmlId} />
-        <input type="submit" value="done" />
+        <input type="submit" value="done" disabled={props.answered} />
     </form>;
 }
