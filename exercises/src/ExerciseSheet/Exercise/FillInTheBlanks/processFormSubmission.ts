@@ -1,5 +1,6 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
 import {FillInTheBlanksExercise} from "../../../common/types/Exercise";
+import {getAllChoicesFromChoiceVariable} from "../../../common/types/FillInTheBlanksVariable";
 
 export function processFormSubmission(props: ExerciseComponentProps<FillInTheBlanksExercise>, form: HTMLFormElement) {
     const formData = Object.fromEntries(new FormData(form));
@@ -12,8 +13,16 @@ export function processFormSubmission(props: ExerciseComponentProps<FillInTheBla
                     right = false;
                 }
                 break;
+
             case "choice":
-                throw new Error("not yet implemented");
+                const choices = getAllChoicesFromChoiceVariable(variable);
+                const chosenValue = formData[variable.name];
+                // we don't properly parse chosenValue, but if it is invalid, then this condition will be false
+                if (choices[chosenValue as unknown as number] !== variable.rightChoice) {
+                    right = false;
+                }
+                break;
+
             default:
                 throw new Error(`unknown variable type: ${(variable as any).type}`);
         }
