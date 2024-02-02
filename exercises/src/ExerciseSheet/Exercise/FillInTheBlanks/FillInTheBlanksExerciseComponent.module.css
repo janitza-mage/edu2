@@ -1,0 +1,6 @@
+
+.form input[type=text] {
+    border: 1px solid blue;
+    border-radius: 3px;
+    width: 10em; /* make sure we have a standard, browser-independent width */
+}

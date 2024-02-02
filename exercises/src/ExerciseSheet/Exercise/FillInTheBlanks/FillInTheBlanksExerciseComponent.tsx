@@ -5,6 +5,7 @@ import {allocateSyntheticIds} from "../../../util/SyntheticId";
 import $ from "jquery";
 import {renderFormContents} from "./renderFormContents";
 import {processFormSubmission} from "./processFormSubmission";
+import styles from "./FillInTheBlanksExerciseComponent.module.css";
 
 export interface ComponentState {
     htmlId: string;
@@ -39,7 +40,7 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
         processFormSubmission(props, event.target as HTMLFormElement);
     }
 
-    return <form onSubmit={onSubmit}>
+    return <form onSubmit={onSubmit} className={styles.form}>
         <div ref={divRef} id={stateRef.current.htmlId} />
         <input type="submit" value="done" />
     </form>;
