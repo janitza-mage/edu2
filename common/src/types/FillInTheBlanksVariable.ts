@@ -32,6 +32,10 @@ export const fillInTheBlanksChoiceVariableSchema = fillInTheBlanksVariableBaseSc
 }).strict();
 export type FillInTheBlanksChoiceVariable = z.infer<typeof fillInTheBlanksChoiceVariableSchema>;
 
+export function getAllChoicesFromChoiceVariable(variable: FillInTheBlanksChoiceVariable): string[] {
+    return [variable.rightChoice, ...variable.wrongChoices].sort();
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 // union type and derived types
 // --------------------------------------------------------------------------------------------------------------------

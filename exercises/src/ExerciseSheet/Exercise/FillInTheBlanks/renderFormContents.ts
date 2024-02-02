@@ -1,6 +1,7 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
 import {FillInTheBlanksExercise} from "../../../common/types/Exercise";
 import {renderMarkdown} from "../../../util/renderMarkdown";
+import {getAllChoicesFromChoiceVariable} from "../../../common/types/FillInTheBlanksVariable";
 
 export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanksExercise>): string {
     const { exercise, answered } = props;
@@ -14,8 +15,18 @@ export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanks
                     `<input type="text" name="${variable.name}" ${answered ? "disabled=\"disabled\"" : ""} />`,
                 );
                 break;
-            case "choice":
-                throw new Error("not yet implemented");
+
+            case "choice": {
+                const defaultHtml = `<option value="-1">-- choose --</option>`;
+                const choicesHtml = getAllChoicesFromChoiceVariable(variable).map((choice, i) =>
+                    `<option value="${i}">${choice}</option>`).join("");
+                stencilHtml = stencilHtml.replace(
+                    `((:${variable.name}))`,
+                    `<select name="${variable.name}" ${answered ? "disabled=\"disabled\"" : ""} />${defaultHtml}${choicesHtml}</select>`,
+                );
+                break;
+            }
+
             default:
                 throw new Error(`unknown variable type: ${(variable as any).type}`);
         }

@@ -31,7 +31,7 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
             $("#" + stateRef.current.htmlId).html(renderFormContents(props));
             stateRef.current.initiallyRendered = true;
         } else {
-            $("#" + stateRef.current.htmlId).find("input[type=text]").attr("disabled", props.answered ? "disabled" : null);
+            $("#" + stateRef.current.htmlId).find("input[type=text],select").attr("disabled", props.answered ? "disabled" : null);
         }
     }, [props.answered]);
 
