@@ -10,10 +10,11 @@ export interface MaterializedExerciseSheetProps {
 
 export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps) {
 
-    // exercise progress. We're currently not showing a progress bar because it's not that useful and there isn't really
+    // Exercise progress. We're currently not showing a progress bar because it's not that useful and there isn't really
     // a good place to put it. We're currently counting any single error as a reason to repeat the exercise.
-    const [exerciseProgress, setExerciseProgress] = useState<number>(0);
-    const [exerciseError, setExerciseError] = useState(false);
+    // The length of this array is the number of answered exercises, and the values indicate whether the answer was
+    // correct.
+    const [exerciseResults, setExerciseResults] = useState<boolean[]>([]);
 
     // sets the size of the enclosing iframe to the size of the content.
     function adjustContainerSize() {
@@ -32,16 +33,15 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
     // will have to be repeated if there is an error. If this function gets called to answer the last exercise,
     // then a completion button will be shown that will either repeat the exercise sheet or advance to the next unit.
     function onReportResult(index: number, correct: boolean) {
-        if (index === exerciseProgress) {
-            setExerciseProgress(exerciseProgress + 1);
-            if (!correct) {
-                setExerciseError(true);
-            }
+        if (index === exerciseResults.length) {
+            const newResults = [...exerciseResults, correct];
+            setExerciseResults(newResults);
             setTimeout(() => {
                 adjustContainerSize();
                 scrollToBottom();
-                if (exerciseProgress + 1 === props.exerciseSheet.length) {
-                    postContainerMessage({type: "finish", success: !exerciseError});
+                if (newResults.length === props.exerciseSheet.length) {
+                    const success = newResults.every(r => r);
+                    postContainerMessage({type: "finish", success});
                 }
             }, 10);
         }
@@ -56,18 +56,20 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
 
     // JSX
     return <>
-        {props.exerciseSheet.map((exercise, index) => (index <= exerciseProgress) && <Fragment key={index}>
+        {props.exerciseSheet.map((exercise, index) => (index <= exerciseResults.length) && <Fragment key={index}>
             <hr/>
             <div><Markdown>{exercise.description}</Markdown></div>
-            <ExerciseComponentSwitch
-                key={index}
-                exercise={exercise}
-                answered={index < exerciseProgress}
-                reportResult={(correct: boolean) => onReportResult(index, correct)}
-                adjustContainerSize={adjustContainerSize}
-                scrollToBottom={scrollToBottom}
-            />
-            {index < exerciseProgress && exercise.epilogue && <div><Markdown>{exercise.epilogue}</Markdown></div>}
+            <div style={index < exerciseResults.length ? {backgroundColor: exerciseResults[index] ? "#c0ffc0" : "#ffc0c0"} : {}}>
+                <ExerciseComponentSwitch
+                    key={index}
+                    exercise={exercise}
+                    answered={index < exerciseResults.length}
+                    reportResult={(correct: boolean) => onReportResult(index, correct)}
+                    adjustContainerSize={adjustContainerSize}
+                    scrollToBottom={scrollToBottom}
+                />
+            </div>
+            {index < exerciseResults.length && exercise.epilogue && <div><Markdown>{exercise.epilogue}</Markdown></div>}
         </Fragment>)}
     </>;
 }
