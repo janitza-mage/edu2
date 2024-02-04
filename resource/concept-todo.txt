@@ -942,3 +942,17 @@ is needed, or can be folded into an exercise. But this question is much less imp
 "development" of knowledge must follow as a sequence of exercises, with the unit description being an introduction.
 Folding this into the sequence is almost a "refactoring for later".
 
+------------------------------------------------------------------------
+
+not possible: infinite exercise sheet; done if certain score reached -- but is an inconsequential variation
+not possible: see remaining exercises while current one not done -- but not needed to reach the goal of this
+    platform
+TODO: penalty for wrong answers (currently 0)
+TODO: negative target score, e.g. to count as correct=0, penalty=-X, target=-Y (useful for goal?)
+TODO: specify target score as absolute or as % of sum of correct-scores
+TODO: specify how much of the correct answers gets revealed after 1. (wrong) answer to exercise, 2. correct answer
+    to exercise but target score fo sheet not reached
+
+
+
+
