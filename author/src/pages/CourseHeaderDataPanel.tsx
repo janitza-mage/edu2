@@ -1,8 +1,8 @@
 import {Form} from "../Form/Form";
 import {z} from "zod";
-import {TextField} from "../Form/TextField";
-import {TextArea} from "../Form/TextArea";
 import {updateBackendCourseHeaderData} from "../logic/backend/backend";
+import {FormCodeMirror} from "../Form/FormCodeMirror";
+import {TextField} from "../Form/TextField";
 
 const formSchema = z.object({
     title: z.string().min(1, "Title cannot be empty"),
@@ -31,6 +31,7 @@ export function CourseHeaderDataPanel(props: CourseHeaderDataPanelProps) {
     }
     return <Form schema={formSchema} defaultValues={defaultValues} onSubmit={onSubmit}>
         <TextField name="title" label="Title" />
-        <TextArea name="description" label="Description" />
+        <br /><br />
+        <FormCodeMirror name="description" label="Description" />
     </Form>;
 }
