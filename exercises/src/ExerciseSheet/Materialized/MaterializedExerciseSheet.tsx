@@ -3,6 +3,7 @@ import {Fragment, useEffect, useState} from "react";
 import {ExerciseComponentSwitch} from "../Exercise/ExerciseComponentSwitch";
 import {postContainerMessage} from "./postContainerMessage";
 import {Markdown} from "../../util/Markdown";
+import {AdjustContainerSizeScrollMode} from "../../common/types/AdjustSizeScrollMode";
 
 export interface MaterializedExerciseSheetProps {
     exerciseSheet: NonEmptyExerciseSheet;
@@ -17,8 +18,8 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
     const [exerciseResults, setExerciseResults] = useState<boolean[]>([]);
 
     // sets the size of the enclosing iframe to the size of the content.
-    function adjustContainerSize() {
-        postContainerMessage({type: "setHeight", height: document.documentElement.scrollHeight});
+    function adjustContainerSize(scrollMode: AdjustContainerSizeScrollMode = "none") {
+        postContainerMessage({type: "setHeight", height: document.documentElement.scrollHeight, scrollMode});
     }
 
     // scrolls the outer component around the growing iframe to the bottom.
@@ -37,8 +38,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
             const newResults = [...exerciseResults, correct];
             setExerciseResults(newResults);
             setTimeout(() => {
-                adjustContainerSize();
-                scrollToBottom();
+                adjustContainerSize("oldBottom");
                 if (newResults.length === props.exerciseSheet.length) {
                     const success = newResults.every(r => r);
                     postContainerMessage({type: "finish", success});

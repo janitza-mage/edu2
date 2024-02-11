@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {Markdown, MarkdownInline} from "../../../components/util/Markdown";
 import {background} from "../../../common/util/background";
 import {RegularUnitPageResponse} from "../../../common/frontend-api/GetUnitPageResponse";
-import {scrollToBottomDelayed} from "../../../util/scrolling";
+import {scrollToBottomDelayed, scrollToDelayed} from "../../../util/scrolling";
 import {systemConfiguration} from "../../../systemConfiguration";
 
 /**
@@ -92,9 +92,25 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                 for (const command of commands) {
                     switch (command.type) {
 
-                        case "setHeight":
+                        case "setHeight": {
+                            let scrollTarget: number | null = null;
+                            switch (command.scrollMode ?? "none") {
+
+                                case "oldBottom":
+                                    scrollTarget = iframe.scrollHeight;
+                                    break;
+
+                                case "newBottom":
+                                    scrollTarget = command.height;
+                                    break;
+
+                            }
                             iframe.height = command.height;
+                            if (scrollTarget !== null && props.scrollContainerRef && props.scrollContainerRef.current) {
+                                scrollToDelayed(props.scrollContainerRef.current, iframe.clientTop + scrollTarget);
+                            }
                             break;
+                        }
 
                         case "scrollToBottom":
                             if (props.scrollContainerRef && props.scrollContainerRef.current) {
