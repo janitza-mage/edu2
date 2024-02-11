@@ -6,6 +6,7 @@ import $ from "jquery";
 import {renderFormContents} from "./renderFormContents";
 import {processFormSubmission} from "./processFormSubmission";
 import styles from "./FillInTheBlanksExerciseComponent.module.css";
+import {loseFocus} from "../../../util/loseFocus";
 
 export interface ComponentState {
     htmlId: string;
@@ -29,6 +30,12 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
         }
         const query = $("#" + stateRef.current.htmlId);
         if (!stateRef.current.initiallyRendered) {
+            query.on("keydown", ":input:not(textarea):not(:submit)", function(event) {
+                if (event.key == "Enter") {
+                    event.preventDefault();
+                    loseFocus();
+                }
+            });
             query.html(renderFormContents(props));
             stateRef.current.initiallyRendered = true;
         } else {
