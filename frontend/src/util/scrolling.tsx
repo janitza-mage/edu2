@@ -1,12 +1,24 @@
 export function scrollToTop(container: Element) {
-    container.scrollTo({top: 0, left: 0, behavior: "smooth"});
+    scrollTo(container, 0);
 }
 
 export function scrollToBottom(container: Element) {
-    container.scrollTo({top: container.scrollHeight, left: 0, behavior: "smooth"});
+    scrollTo(container, container.scrollHeight);
+}
+
+export function scrollTo(container: Element, position: number) {
+    container.scrollTo({top: position, left: 0, behavior: "smooth"});
+}
+
+export function scrollToTopDelayed(container: Element, delay = 10) {
+    setTimeout(() => scrollToTop(container), delay);
 }
 
 export function scrollToBottomDelayed(container: Element, delay = 10) {
     setTimeout(() => scrollToBottom(container), delay);
+}
+
+export function scrollToDelayed(container: Element, position: number, delay = 10) {
+    setTimeout(() => scrollTo(container, position), delay);
 }
 
