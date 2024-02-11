@@ -12,6 +12,8 @@ async function getFullUrl(urlSuffix: string): Promise<string> {
 }
 
 async function getAuthorizationHeader(): Promise<string> {
+  // TODO do not hardcode author 1
+  // TODO use an actual secure token
   return "Bearer 1";
 }
 
