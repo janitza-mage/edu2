@@ -107,7 +107,9 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                             }
                             iframe.height = command.height;
                             if (scrollTarget !== null && props.scrollContainerRef && props.scrollContainerRef.current) {
-                                scrollToDelayed(props.scrollContainerRef.current, iframe.clientTop + scrollTarget);
+                                const container = props.scrollContainerRef.current;
+                                const iframePositionWithinContainer = iframe.getBoundingClientRect().top + container.scrollTop;
+                                scrollToDelayed(container, iframePositionWithinContainer + scrollTarget);
                             }
                             break;
                         }
