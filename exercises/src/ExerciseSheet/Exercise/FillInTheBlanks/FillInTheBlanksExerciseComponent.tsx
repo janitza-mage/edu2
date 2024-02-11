@@ -27,11 +27,12 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
         if (divRef.current === null) {
             return;
         }
+        const query = $("#" + stateRef.current.htmlId);
         if (!stateRef.current.initiallyRendered) {
-            $("#" + stateRef.current.htmlId).html(renderFormContents(props));
+            query.html(renderFormContents(props));
             stateRef.current.initiallyRendered = true;
         } else {
-            $("#" + stateRef.current.htmlId).find("input[type=text],select").attr("disabled", props.answered ? "disabled" : null);
+            query.find("input[type=text],input[type=number],select").attr("disabled", props.answered ? "disabled" : null);
         }
     }, [props.answered]);
 

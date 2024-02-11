@@ -19,9 +19,12 @@ export type FillInTheBlanksVariableBase = z.infer<typeof fillInTheBlanksVariable
 // different variable types
 // --------------------------------------------------------------------------------------------------------------------
 
+export const fillInTheBlanksTextSubtypeSchema = zodEnum(["text", "number"]);
+
 export const fillInTheBlanksTextVariableSchema = fillInTheBlanksVariableBaseSchema.extend({
     type: z.literal("text"),
     expected: z.string(),
+    subtype: fillInTheBlanksTextSubtypeSchema.nullable().optional(),
 }).strict();
 export type FillInTheBlanksTextVariable = z.infer<typeof fillInTheBlanksTextVariableSchema>;
 

@@ -8,11 +8,13 @@ export function processFormSubmission(props: ExerciseComponentProps<FillInTheBla
     for (let i = 0; i < props.exercise.variables.length; i++) {
         const variable = props.exercise.variables[i];
         switch (variable.type) {
-            case "text":
-                if (formData[variable.name] !== variable.expected) {
+            case "text": {
+                const answer = ((formData[variable.name] ?? "") as string).trim();
+                if (answer !== variable.expected) {
                     right = false;
                 }
                 break;
+            }
 
             case "choice":
                 const choices = getAllChoicesFromChoiceVariable(variable);

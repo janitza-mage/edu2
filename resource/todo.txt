@@ -1,0 +1,4 @@
+
+mobile prevent pull-down-reload
+
+long exercise: scroll to beginning of exercise, not to bottom

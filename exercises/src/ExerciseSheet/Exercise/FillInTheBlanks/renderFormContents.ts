@@ -9,12 +9,14 @@ export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanks
     for (let i = 0; i < exercise.variables.length; i++) {
         const variable = exercise.variables[i];
         switch (variable.type) {
-            case "text":
+            case "text": {
+                const typeAttribute = variable.subtype === "number" ? "number" : "text";
                 stencilHtml = stencilHtml.replace(
                     `((:${variable.name}))`,
-                    `<input type="text" name="${variable.name}" ${answered ? "disabled=\"disabled\"" : ""} />`,
+                    `<input type="${typeAttribute}" name="${variable.name}" ${answered ? "disabled=\"disabled\"" : ""} />`,
                 );
                 break;
+            }
 
             case "choice": {
                 const defaultHtml = `<option value="-1">-- choose --</option>`;
