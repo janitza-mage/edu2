@@ -1,5 +1,5 @@
 import {useLoader} from "../util/useLoader";
-import {getBackendCourseAndUnits, getBackendCourseList} from "../logic/backend/backend";
+import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
 import {MarkdownInline} from "../components/util/Markdown";
 import {GetBackendCourseListResponseElement} from "../common/author-api/GetBackendCourseListResponse";
 import {useState} from "react";
@@ -10,17 +10,18 @@ import {
     GetBackendCourseAndUnitsResponseUnit
 } from "../common/author-api/GetBackendCourseAndUnitsResponse";
 import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
+import {GetBackendUnitResponse} from "../common/author-api/GetBackendUnitResponse";
+import {UnitDataPanel} from "./UnitDataPanel";
 
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // selected course
+    // ----------------------------------------------------------------------------------------------------------------
+
     const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
     const courseLoader = useLoader<GetBackendCourseAndUnitsResponse | null>(async () => null);
-    const [selectedUnitId, setSelectedUnitId] = useState<number | null>(null);
-
-    const selectedCourse =
-        selectedCourseId === null ? null :
-        courseListLoader.status !== "success" ? null :
-        courseListLoader.result.courses.find(c => c.courseId === selectedCourseId) ?? null;
 
     function selectCourse(course: GetBackendCourseListResponseElement) {
         setSelectedCourseId(course.courseId);
@@ -34,13 +35,36 @@ export function MainPage() {
         courseLoader.reload(async () => null);
     }
 
+    const selectedCourse =
+        selectedCourseId === null ? null :
+            courseListLoader.status !== "success" ? null :
+                courseListLoader.result.courses.find(c => c.courseId === selectedCourseId) ?? null;
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // selected unit
+    // ----------------------------------------------------------------------------------------------------------------
+
+    const [selectedUnitId, setSelectedUnitId] = useState<number | null>(null);
+    const unitLoader = useLoader<GetBackendUnitResponse | null>(async () => null);
+
     function selectUnit(unit: GetBackendCourseAndUnitsResponseUnit) {
         if (selectedUnitId === unit.unitId) {
             setSelectedUnitId(null);
+            unitLoader.reload(async () => null);
         } else {
             setSelectedUnitId(unit.unitId);
+            unitLoader.reload(async () => getBackendUnit(unit.unitId));
         }
     }
+
+    const selectedUnit =
+        selectedUnitId === null ? null :
+            unitLoader.status !== "success" ? null :
+                unitLoader.result;
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // JSX
+    // ----------------------------------------------------------------------------------------------------------------
 
     return <div style={{display: "flex", flexDirection: "row"}}>
 
@@ -92,6 +116,8 @@ export function MainPage() {
 
         {/* main area */}
         <div style={{flexGrow: 1, marginLeft: "10px"}}>
+
+            {/* course header */}
             {selectedCourse !== null && courseLoader.status === "success" && courseLoader.result !== null && selectedUnitId === null && <>
                 <h1>Course</h1>
                 <CourseHeaderDataPanel
@@ -104,6 +130,21 @@ export function MainPage() {
                     }}
                 />
             </>}
+
+            {/* unit */}
+            {selectedUnitId !== null && selectedUnit !== null && <>
+                <h1>Unit</h1>
+                <UnitDataPanel
+                    unitId={selectedUnitId}
+                    dataResponse={selectedUnit}
+                    onDataUpdatedInBackend={() => {
+                        if (selectedCourse !== null) {
+                            courseLoader.reload(() => getBackendCourseAndUnits(selectedCourse.courseId));
+                        }
+                    }}
+                />
+            </>}
+
         </div>
     </div>;
 }

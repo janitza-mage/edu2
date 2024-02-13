@@ -2,6 +2,7 @@ import {GetBackendCourseListResponse} from "../../common/author-api/GetBackendCo
 import {backendGet, backendPost} from "./backendCall";
 import {GetBackendCourseAndUnitsResponse} from "../../common/author-api/GetBackendCourseAndUnitsResponse";
 import {UpdateCourseHeaderDataRequest} from "../../common/author-api/UpdateCourseHeaderDataRequest";
+import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 
 export async function getBackendCourseList(): Promise<GetBackendCourseListResponse> {
     return await backendGet<GetBackendCourseListResponse>("getCourseList");
@@ -13,4 +14,8 @@ export async function getBackendCourseAndUnits(courseId: number): Promise<GetBac
 
 export async function updateBackendCourseHeaderData(courseId: number, request: UpdateCourseHeaderDataRequest): Promise<void> {
     await backendPost(`updateCourseHeaderData/${courseId}`, request);
+}
+
+export async function getBackendUnit(unitId: number): Promise<GetBackendUnitResponse> {
+    return await backendGet<GetBackendUnitResponse>(`getUnit/${unitId}`);
 }

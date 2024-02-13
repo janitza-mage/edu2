@@ -2,15 +2,18 @@ import {Controller, useFormContext} from "react-hook-form";
 import CodeMirror from "@uiw/react-codemirror";
 import React from "react";
 import {InputLabel} from "@mui/material";
-import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
-import { languages } from "@codemirror/language-data";
+import {ReactCodeMirrorProps} from "@uiw/react-codemirror/src";
 
-export interface FormCodeMirrorProps {
+export interface FormCodeMirrorBaseProps {
     name: string;
     label: string;
 }
 
-export function FormCodeMirror(props: FormCodeMirrorProps) {
+export interface FormCodeMirrorInternalProps extends FormCodeMirrorBaseProps {
+    extraCodeMirrorProps: Partial<ReactCodeMirrorProps>,
+}
+
+export function FormCodeMirrorInternal(props: FormCodeMirrorInternalProps) {
     const form = useFormContext();
     return <div>
         <InputLabel>{props.label}</InputLabel>
@@ -24,13 +27,7 @@ export function FormCodeMirror(props: FormCodeMirrorProps) {
                     onChange={(value: string) => {
                         field.onChange(value);
                     }}
-                    extensions={[
-                        markdown({
-                            base: markdownLanguage,
-                            codeLanguages: languages,
-                        }),
-                    ]}
-                    height="200px"
+                    {...props.extraCodeMirrorProps}
                 />
             )}
         />
