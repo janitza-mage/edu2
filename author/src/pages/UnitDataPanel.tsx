@@ -3,6 +3,8 @@ import {z} from "zod";
 import {TextField} from "../Form/TextField";
 import {GetBackendUnitResponse} from "../common/author-api/GetBackendUnitResponse";
 import {FormCodeMirrorMarkdown} from "../Form/CodeMirror/FormCodeMirrorMarkdown";
+import {FormCodeMirrorJson} from "../Form/CodeMirror/FormCodeMirrorJson";
+import {FormCodeMirrorJavascript} from "../Form/CodeMirror/FormCodeMirrorJavascript";
 
 const formSchema = z.object({
     title: z.string().min(1, "Title cannot be empty"),
@@ -37,8 +39,8 @@ export function UnitDataPanel(props: UnitDataPanelProps) {
         <FormCodeMirrorMarkdown name="description" label="Description" />
         <TextField name="exerciseUrl" label="Override Exercise URL" muiTextFieldProps={{inputProps: {style: {fontFamily: "monospace"}}}} />
         <br /><br />
-        <FormCodeMirrorMarkdown name="exerciseDefinition" label="Exercise Definition" />
+        <FormCodeMirrorJson name="exerciseDefinition" label="Exercise Definition" />
         <br /><br />
-        <FormCodeMirrorMarkdown name="exerciseScript" label="Exercise Script" />
+        <FormCodeMirrorJavascript name="exerciseScript" label="Exercise Script" />
     </Form>;
 }
