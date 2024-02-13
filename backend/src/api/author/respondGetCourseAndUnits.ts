@@ -9,7 +9,7 @@ export async function respondGetCourseAndUnits(requestCycle: AuthorRequestCycle)
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);
     const postgresPool = await getPostgresPool();
     const [courseResult, unitResult] = await promiseAll(
-        () => postgresPool.query('SELECT "title", "description" FROM "edu2"."Course" LIMIT 1', []),
+        () => postgresPool.query('SELECT "title", "description" FROM "edu2"."Course" WHERE "id" = $1 LIMIT 1', [courseId]),
         () => postgresPool.query('SELECT "id", "index", "title" FROM "edu2"."Unit" WHERE "courseId" = $1 ORDER BY "index"', [courseId]),
     );
     if (courseResult.rows.length !== 1) {
