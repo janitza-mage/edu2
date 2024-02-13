@@ -4,6 +4,7 @@ import {WrapUnauthenticatedApiOptions} from "../../util/rest/unauthenticated/wra
 import {AuthorApiHandler, wrapAuthorApi} from "../../util/rest/author/wrapAuthorApi";
 import {respondGetCourseAndUnits} from "./respondGetCourseAndUnits";
 import {respondUpdateCourseHeaderData} from "./respondUpdateCourseHeaderData";
+import {respondGetUnit} from "./respondGetUnit";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -25,4 +26,5 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerGet("getCourseList", respondGetCourseList);
     registerGet("getCourseAndUnits/:courseId", respondGetCourseAndUnits);
     registerPost("updateCourseHeaderData/:courseId", respondUpdateCourseHeaderData);
+    registerGet("getUnit/:unitId", respondGetUnit);
 }
