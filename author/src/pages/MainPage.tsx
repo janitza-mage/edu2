@@ -43,9 +43,14 @@ export function MainPage() {
     }
 
     return <div style={{display: "flex", flexDirection: "row"}}>
+
+        {/* left sidebar */}
         <div style={{width: "400px"}}>
+
             <h1>Course</h1>
             <List className={styles.EntityList}>
+
+                {/* course list (no course selected) */}
                 {selectedCourse === null && <>
                     {courseListLoader.status === "success" && courseListLoader.result.courses.map(course =>
                         <ListItem key={course.courseId} disablePadding className={styles.EntityListEntry}>
@@ -55,6 +60,8 @@ export function MainPage() {
                         </ListItem>
                     )}
                 </>}
+
+                {/* course "list" containing only the selected course */}
                 {selectedCourse !== null &&
                     <ListItem disablePadding className={styles.EntityListEntry + " " + styles.selected}>
                         <ListItemButton onClick={closeCourse}>
@@ -65,8 +72,10 @@ export function MainPage() {
                         </ListItemButton>
                     </ListItem>
                 }
+
             </List>
 
+            {/* unit list */}
             {courseLoader.status === "success" && courseLoader.result !== null && <>
                 <h1>Unit</h1>
                 {courseLoader.result.units.map(unit => {
@@ -80,6 +89,8 @@ export function MainPage() {
             </>}
 
         </div>
+
+        {/* main area */}
         <div style={{flexGrow: 1, marginLeft: "10px"}}>
             {selectedCourse !== null && courseLoader.status === "success" && courseLoader.result !== null && selectedUnitId === null && <>
                 <h1>Course</h1>

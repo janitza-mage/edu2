@@ -4,7 +4,7 @@ import React, { ReactElement } from "react";
 export interface TextFieldProps {
   name: string;
   label: string;
-  muiTextFieldProps?: TextFieldElementProps;
+  muiTextFieldProps?: Partial<TextFieldElementProps>;
 }
 
 export function TextField({ name, label, muiTextFieldProps }: TextFieldProps): ReactElement {

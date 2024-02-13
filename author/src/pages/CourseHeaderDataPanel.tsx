@@ -30,7 +30,7 @@ export function CourseHeaderDataPanel(props: CourseHeaderDataPanelProps) {
         props.onDataUpdatedInBackend();
     }
     return <Form schema={formSchema} defaultValues={defaultValues} onSubmit={onSubmit}>
-        <TextField name="title" label="Title" />
+        <TextField name="title" label="Title" muiTextFieldProps={{inputProps: {style: {fontFamily: "monospace"}}}} />
         <br /><br />
         <FormCodeMirror name="description" label="Description" />
     </Form>;
