@@ -17,7 +17,6 @@ export async function respondGetCourseAndUnits(requestCycle: AuthorRequestCycle)
     }
     const courseRow = courseResult.rows[0];
 
-
     // ensure that the index field is consistent. TODO if not, auto-fix it! or build a cron job that auto-fixes it.
     unitResult.rows.forEach((row, index) => {
         if (row.index !== index) {
