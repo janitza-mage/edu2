@@ -124,6 +124,7 @@ export function MainPage() {
                     courseId={selectedCourse.courseId}
                     title={selectedCourse.title}
                     description={courseLoader.result.description}
+                    scriptLibrary={courseLoader.result.scriptLibrary}
                     onDataUpdatedInBackend={() => {
                         courseListLoader.reload(getBackendCourseList);
                         courseLoader.reload(() => getBackendCourseAndUnits(selectedCourse.courseId));
