@@ -14,10 +14,12 @@ Note: zod transforms that change the output type are not yet supported due to a 
 see https://github.com/react-hook-form/react-hook-form/issues/9600
  */
 
+export type FormMethods<T extends FieldValues> = UseFormReturn<T, any, T>;
+
 export interface FormProps<T extends FieldValues> {
   children: ReactNode;
   schema: ZodType<T>;
-  onSubmit: (data: T, methods: UseFormReturn<T, any, T>) => void | Promise<void>;
+  onSubmit: (data: T, methods: FormMethods<T>) => void | Promise<void>;
   addSubmitButton?: boolean | string;
   defaultValues?: undefined | null | DefaultValues<T> | (() => Promise<T>);
   resetOnSuccess?: boolean;
