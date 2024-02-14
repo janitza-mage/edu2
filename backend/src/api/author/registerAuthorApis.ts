@@ -5,6 +5,7 @@ import {AuthorApiHandler, wrapAuthorApi} from "../../util/rest/author/wrapAuthor
 import {respondGetCourseAndUnits} from "./respondGetCourseAndUnits";
 import {respondUpdateCourseHeaderData} from "./respondUpdateCourseHeaderData";
 import {respondGetUnit} from "./respondGetUnit";
+import {respondUpdateUnitData} from "./respondUpdateUnitData";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -27,4 +28,5 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerGet("getCourseAndUnits/:courseId", respondGetCourseAndUnits);
     registerPost("updateCourseHeaderData/:courseId", respondUpdateCourseHeaderData);
     registerGet("getUnit/:unitId", respondGetUnit);
+    registerPost("updateUnit/:courseId", respondUpdateUnitData);
 }
