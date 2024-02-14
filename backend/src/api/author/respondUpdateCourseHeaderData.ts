@@ -8,13 +8,9 @@ import {EmptyObject} from "../../common/util/EmptyObject";
 export async function respondUpdateCourseHeaderData(requestCycle: AuthorRequestCycle): Promise<EmptyObject> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);
     const request = await validateRequestBodyZod(requestCycle, updateCourseHeaderDataRequestSchema);
-
     const postgresPool = await getPostgresPool();
-
-    const result = await postgresPool.query('UPDATE "edu2"."Course" SET "title" = $2, "description" = $3 WHERE "id" = $1',
-        [courseId, request.title, request.description]);
-    console.log(result);
-
-
+    await postgresPool.query(
+        'UPDATE "edu2"."Course" SET "title" = $2, "description" = $3, "scriptLibrary" = $4 WHERE "id" = $1',
+        [courseId, request.title, request.description, request.scriptLibrary]);
     return {};
 }
