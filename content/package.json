@@ -1,9 +1,16 @@
 {
   "dependencies": {
-    "zx": "^7.2.3"
+    "@types/lodash": "^4.14.199",
+    "@types/node": "^20.8.4",
+    "@types/randomstring": "^1.1.9",
+    "axios": "^1.6.7",
+    "lodash": "^4.17.21",
+    "randomstring": "^1.3.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.1.6"
   },
+  "license": "MIT",
   "scripts": {
-    "run": "zx ./src/index.js"
-  },
-  "type": "module"
+    "run": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc && node build"
+  }
 }
