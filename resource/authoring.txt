@@ -226,5 +226,55 @@ marked
 
 micromark
 
+-----------------------------------------------------------------------------------------------------------------------
+invokable extension components
+-----------------------------------------------------------------------------------------------------------------------
+
+Must be explicitly invoked -- no special syntax like Katex.
+- possibly triggered by the markdown parser, or by explicit replacement
+    - explicit replacement would probably be done using jQuery
+    - but embedding a JSON configuration has the "nested syntax" problem
+    - JSON is optional -- a custom language inside the HTML tag inside markdown would be possible
+- HTML tag can have attributes, such as used formal language ("type" attribute)
+
+Use case: math diagram
+- canvas
+- draw commands
+-->
+script library should be able to define these types!
+PROBLEM:
+script library runs inside the _exercise_ iframe, but this is the _unit_ description markdown _outside_ the iframe!
+->
+we don't want author scripts to run with full permissions, even inside the frontend app!
+
+How should the editor look?
+- "insert component"
+- configuration dialog, even if just a script editor with preview, but the preview is specific
+-> JSON or text
+no decision from that, so use plain text and edit directly
+
+"safe" renderer needed, possibly "safe" PL
+- but renderer is supplied by devs, so thats okay
+- safe PL? Lua? or nsted JSON based PL? latter is very limited!
+
+NOTHING SPECIAL NEEDED FOR NOW!
+- JS lib that renders to canvas or SVG
+- export that to file and include as image in description
+- use directly in exercise context -- custom code allowed!
+
+
+
+--------------------------------
+images
+--------------------------------
+
+linkes to author, course or unit
+single table with contrained indices for these three cases (authorId  always set? then courseId also always set)
+upload per author, course, unit (author UI: link to one of three images page)
+
+
+
+
+
 
 

@@ -6,6 +6,7 @@ import {respondGetCourseAndUnits} from "./respondGetCourseAndUnits";
 import {respondUpdateCourseHeaderData} from "./respondUpdateCourseHeaderData";
 import {respondGetUnit} from "./respondGetUnit";
 import {respondUpdateUnitData} from "./respondUpdateUnitData";
+import {respondUpdateImage} from "./respondUpdateImage";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -24,9 +25,18 @@ export function registerAuthorApis(expressApp: core.Express) {
         expressApp.post(`/author/${urlSuffix}`, wrapAuthorApi(handler, options));
     }
 
+    function registerPut(
+        urlSuffix: string,
+        handler: AuthorApiHandler,
+        options?: WrapUnauthenticatedApiOptions | undefined,
+    ) {
+        expressApp.put(`/author/${urlSuffix}`, wrapAuthorApi(handler, options));
+    }
+
     registerGet("getCourseList", respondGetCourseList);
     registerGet("getCourseAndUnits/:courseId", respondGetCourseAndUnits);
     registerPost("updateCourseHeaderData/:courseId", respondUpdateCourseHeaderData);
     registerGet("getUnit/:unitId", respondGetUnit);
-    registerPost("updateUnit/:courseId", respondUpdateUnitData);
+    registerPost("updateUnit/:unitId", respondUpdateUnitData);
+    registerPut("updateImage/:imageId", respondUpdateImage);
 }
