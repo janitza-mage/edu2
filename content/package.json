@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "zx": "^7.2.3"
+  },
+  "scripts": {
+    "run": "zx ./src/index.js"
+  },
+  "type": "module"
+}
