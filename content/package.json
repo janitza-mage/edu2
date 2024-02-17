@@ -7,6 +7,7 @@
     "lodash": "^4.17.21",
     "randomstring": "^1.3.0",
     "source-map-support": "^0.5.21",
+    "svgcanvas": "^2.5.0",
     "typescript": "^5.1.6"
   },
   "license": "MIT",

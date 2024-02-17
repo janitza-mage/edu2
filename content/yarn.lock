@@ -111,6 +111,11 @@ source-map@^0.6.0:
   resolved "https://artifactory.dev.janitza.cloud:443/artifactory/api/npm/npm-all/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
+svgcanvas@^2.5.0:
+  version "2.5.0"
+  resolved "https://artifactory.dev.janitza.cloud:443/artifactory/api/npm/npm-all/svgcanvas/-/svgcanvas-2.5.0.tgz#04a22d2d94c402235bf260e85195d40213a78d7f"
+  integrity sha512-ZNnhijO9gNTkTy+r4fOpV8ZS79JmeXqdl3ruKWLXB7E9DPnD3BEBkspKH9HwoDdbV8VJ8m/Kkg4YJZEzn0EJxQ==
+
 typescript@^5.1.6:
   version "5.3.3"
   resolved "https://artifactory.dev.janitza.cloud:443/artifactory/api/npm/npm-all/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
