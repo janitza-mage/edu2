@@ -1,0 +1,26 @@
+
+Teilziel 1: Mathekurse (LA, Analysis, ...)
+- Authoring-Tools nur soweit wie ich sie brauche
+- pgAdmin ist Teil der Tool-Suite
+
+Teilziel 2: Andere Überzeugen
+
+Teilziel 3: Authoring-Tools für andere
+- Änderungshistorie
+    - Hauptgrund: damit man nicht aus Versehen Content verliert
+    - Nachvollziehbarkeit ist nachrangig
+    - sehr einfaches ES-like logging, so dass man die Live-Versionen wiederhersellen _könnte_.
+        - das sollte dann auch getestet werden, wobei das wahrscheinlich nicht kompliziert wird.
+            Ich speichere vor allem neue Versionen aller Felder, d.h. der letzte Eintrag in der Historie sollte
+            der aktuellen Version entsprechen.
+    - nur eine Log-Tabelle / File
+        - dann stellt sich nicht immer die Frage, ob nicht doch einfach soft-delete (hilfe eh nicht gegen überschreiben)
+        - entlastet die DB
+        - man kann diffs besser komprimieren
+        - man muss bei Schema-Änderungen nicht die Daten migrieren (dafür allerdings immer mehr "Auslesecode"
+            mitschleppen, aber der ist nicht im "heißen" Pfad, d.h. muss nur immer schon gegen die Live-Version
+            geprüft werden)
+- von Grund auf aufgeräumtes UI
+    - nötige Funktionen auflisten
+    - REST-Funktionen dann auch aufräumen, ggf. REST -> JSON-API
+
