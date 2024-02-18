@@ -13,6 +13,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "run": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc && node build"
+    "run": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc && node build",
+    "dev": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc-watch --onSuccess \"node build\""
+  },
+  "devDependencies": {
+    "tsc-watch": "^6.0.4"
   }
 }
