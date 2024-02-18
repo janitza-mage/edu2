@@ -2,6 +2,7 @@ import "source-map-support/register";
 import {createCanvas} from "canvas";
 import {base64Encode} from "./util/base64";
 import axios, {AxiosRequestConfig} from "axios";
+import {setupGrid} from "./setupGrid";
 
 async function updateImage(imageId: number, width: number, height: number, renderer: (context: CanvasRenderingContext2D) => void) {
     const canvas = createCanvas(width, height);
@@ -23,6 +24,7 @@ async function updateImage(imageId: number, width: number, height: number, rende
 }
 
 async function main() {
+    /*
     await updateImage(1, 200, 200, (context) => {
 
         // Write "Awesome!"
@@ -38,6 +40,10 @@ async function main() {
         context.lineTo(50 + textMetrics.width, 102);
         context.stroke();
 
+    });
+     */
+    await updateImage(1, 200, 200, (context) => {
+        setupGrid(context, -3, 3, -3, 3);
     });
 }
 
