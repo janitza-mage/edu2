@@ -61,4 +61,10 @@ export function setupGrid(
     context.lineTo(+0.2, endY - 0.2);
     context.stroke();
 
+    // sane and stable defaults
+    context.strokeStyle = "black";
+    context.fillStyle = "black";
+    context.lineWidth = 0.1;
+    context.setLineDash([]);
+
 }
