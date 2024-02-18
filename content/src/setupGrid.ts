@@ -22,9 +22,8 @@ export function setupGrid(
     const endY = maxY + 0.5;
 
     // transformation
-    context.scale(1 / (maxX - minX + 1) * context.canvas.width, 1 / (maxY - minY + 1) * context.canvas.height);
-    // context.translate(startX, -startY);
-    context.translate(-startX, -startY);
+    context.scale(1 / (maxX - minX + 1) * context.canvas.width, -1 / (maxY - minY + 1) * context.canvas.height);
+    context.translate(-startX, -endY);
 
     // grid
     context.strokeStyle = "lightgrey";
@@ -52,14 +51,14 @@ export function setupGrid(
 
     // arrows
     context.beginPath();
-    context.moveTo(endX, 0);
-    context.lineTo(endX - 0.5, 0.5);
-    context.lineTo(endX - 0.5, -0.5);
-    context.lineTo(endX, 0);
-    context.moveTo(0, endY);
-    context.lineTo(0.5, endY - 0.5);
-    context.lineTo(-0.5, endY - 0.5);
-    context.lineTo(0, endY);
+    context.moveTo(endX - 0.05, 0);
+    context.lineTo(endX - 0.2, -0.2);
+    context.moveTo(endX - 0.05, 0);
+    context.lineTo(endX - 0.2, +0.2);
+    context.moveTo(0, endY - 0.05);
+    context.lineTo(-0.2, endY - 0.2);
+    context.moveTo(0, endY - 0.05);
+    context.lineTo(+0.2, endY - 0.2);
     context.stroke();
 
 }

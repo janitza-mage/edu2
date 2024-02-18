@@ -3,6 +3,7 @@ import {createCanvas} from "canvas";
 import {base64Encode} from "./util/base64";
 import axios, {AxiosRequestConfig} from "axios";
 import {setupGrid} from "./setupGrid";
+import {point} from "./objects";
 
 async function updateImage(imageId: number, width: number, height: number, renderer: (context: CanvasRenderingContext2D) => void) {
     const canvas = createCanvas(width, height);
@@ -44,6 +45,7 @@ async function main() {
      */
     await updateImage(1, 200, 200, (context) => {
         setupGrid(context, -3, 3, -3, 3);
+        point(context, 2, 1);
     });
 }
 
