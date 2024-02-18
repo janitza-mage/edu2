@@ -42,3 +42,22 @@ export function infiniteLine(
     context.lineTo(x2 + extensionFactor * dx, y2 + extensionFactor * dy);
     context.stroke();
 }
+
+export function showXAxisAngle(
+    context: CanvasRenderingContext2D,
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const intersectionX = x1 - y1 * dx / dy;
+
+    context.beginPath();
+    context.arc(intersectionX, 0, 0.2, 0, 2 * Math.PI);
+    context.fill();
+    context.beginPath();
+    context.arc(intersectionX, 0, 0.6, 0, 0.5 * Math.PI); TODO
+    context.stroke();
+}

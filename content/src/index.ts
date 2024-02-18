@@ -3,7 +3,7 @@ import {createCanvas} from "canvas";
 import {base64Encode} from "./util/base64";
 import axios, {AxiosRequestConfig} from "axios";
 import {setupGrid} from "./setupGrid";
-import {arrow, infiniteLine, point} from "./objects";
+import {arrow, infiniteLine, point, showXAxisAngle} from "./objects";
 
 async function updateImage(imageId: number, width: number, height: number, renderer: (context: CanvasRenderingContext2D) => void) {
     const canvas = createCanvas(width, height);
@@ -49,15 +49,21 @@ async function main() {
         context.strokeStyle = "blue";
         context.lineWidth = 0.07;
         context.setLineDash([0.2, 0.2]);
-        infiniteLine(context, 0, 0, 2, 1);
+        infiniteLine(context, 1, 1, 2, 3);
+
+        context.strokeStyle = "green";
+        context.fillStyle = "green";
+        context.lineWidth = 0.07;
+        context.setLineDash([]);
+        showXAxisAngle(context, 1, 1, 2, 3);
 
         context.strokeStyle = "red";
         context.lineWidth = 0.1;
         context.setLineDash([]);
-        arrow(context, 0, 0, 2, 1);
+        arrow(context, 1, 1, 2, 3);
 
         context.fillStyle = "black";
-        point(context, 2, 1);
+        point(context, 2, 3);
     });
 }
 
