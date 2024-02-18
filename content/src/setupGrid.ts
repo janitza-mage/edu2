@@ -1,3 +1,8 @@
+
+// TODO the canvas itself has a certain aspect ratio. By giving all four extents of the grid, the grid has its own
+// aspect ratio, which must match that of the canvas, or the whole drawing will be distorted.
+// Possible approach: combine setupGrid with creation of the canvas object?
+
 export function setupGrid(
     context: CanvasRenderingContext2D,
     minX: number,
@@ -5,14 +10,56 @@ export function setupGrid(
     minY: number,
     maxY: number,
 ) {
+
+    // parameter normalization and computing derived values
     minX = Math.round(minX);
     maxX = Math.round(maxX);
     minY = Math.round(minY);
     maxY = Math.round(maxY);
-    context.strokeStyle = "black";
+    const startX = minX - 0.5;
+    const endX = maxX + 0.5;
+    const startY = minY - 0.5;
+    const endY = maxY + 0.5;
+
+    // transformation
+    context.scale(1 / (maxX - minX + 1) * context.canvas.width, 1 / (maxY - minY + 1) * context.canvas.height);
+    // context.translate(startX, -startY);
+    context.translate(-startX, -startY);
+
+    // grid
+    context.strokeStyle = "lightgrey";
+    context.lineWidth = 0.1;
     context.beginPath();
-    context.moveTo(0, 0);
-    context.lineTo(50, 20);
-    context.lineTo(50, 40);
+    for (let x = minX; x <= maxX; x++) {
+        context.moveTo(x, startY);
+        context.lineTo(x, endY);
+    }
+    for (let y = minY; y <= maxY; y++) {
+        context.moveTo(startX, y);
+        context.lineTo(endX, y);
+    }
     context.stroke();
+
+    // main axes
+    context.strokeStyle = "black";
+    context.lineWidth = 0.1;
+    context.beginPath();
+    context.moveTo(startX, 0);
+    context.lineTo(endX, 0);
+    context.moveTo(0, startY);
+    context.lineTo(0, endY);
+    context.stroke();
+
+    // arrows
+    context.beginPath();
+    context.moveTo(endX, 0);
+    context.lineTo(endX - 0.5, 0.5);
+    context.lineTo(endX - 0.5, -0.5);
+    context.lineTo(endX, 0);
+    context.moveTo(0, endY);
+    context.lineTo(0.5, endY - 0.5);
+    context.lineTo(-0.5, endY - 0.5);
+    context.lineTo(0, endY);
+    context.stroke();
+
 }
