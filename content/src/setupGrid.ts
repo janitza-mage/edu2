@@ -13,5 +13,6 @@ export function setupGrid(
     context.beginPath();
     context.moveTo(0, 0);
     context.lineTo(50, 20);
+    context.lineTo(50, 40);
     context.stroke();
 }

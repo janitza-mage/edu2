@@ -2,11 +2,14 @@ import {FinishRequest} from "./FinishRequest";
 import {ExpressHandlerStarter, LowLevelRequest, LowLevelResponse} from "./LowLevel";
 import {background} from "../../common/util/background";
 import {getErrorStackTraceAsString} from "../../common/util/getErrorStackTraceAsString";
+import {EmptyObject} from "../../common/util/EmptyObject";
 
 /**
  * If this object is returned from a handler, the framework assumes that a response has already been sent.
  */
 export const ALREADY_RESPONDED = {};
+
+export type AlreadyResponded = EmptyObject;
 
 type Handler = (request: LowLevelRequest, response: LowLevelResponse) => Promise<unknown>;
 

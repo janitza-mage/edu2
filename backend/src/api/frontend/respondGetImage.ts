@@ -2,8 +2,9 @@ import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/Unaut
 import {FinishRequest} from "../../util/rest/FinishRequest";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
+import {ALREADY_RESPONDED, AlreadyResponded} from "../../util/rest/wrapAutoRespond";
 
-export async function respondGetImage(requestCycle: UnauthenticatedRequestCycle): Promise<Uint8Array> {
+export async function respondGetImage(requestCycle: UnauthenticatedRequestCycle): Promise<AlreadyResponded> {
     const authorId = getNumberFromPath(requestCycle.pathParameters.authorId);
     const imageId = getNumberFromPath(requestCycle.pathParameters.imageId);
     const postgresPool = await getPostgresPool();
@@ -15,8 +16,7 @@ export async function respondGetImage(requestCycle: UnauthenticatedRequestCycle)
         throw FinishRequest.notFound();
     }
     const row = result.rows[0];
-    console.log(row);
     requestCycle.response.setHeader("Content-Type", row.contentType);
     requestCycle.response.write(row.data);
-    return new Uint8Array();
+    return ALREADY_RESPONDED;
 }
