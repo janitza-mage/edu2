@@ -1,0 +1,94 @@
+Punkte
+- Punkt: das was keine Ausdehnung hat
+    - Darstellung als Kreuzchen
+    Übung:
+    - Zeichnung mit mehreren geom. Objekten. Welche davon sind Punkte?
+- Koordinaten
+    Ort eines Punkts: Da ist er -- geht nur mit Fingerzeigen
+    Wie sonst? Koordinaten. Koordinatenachsen, nach rechts, nach oben.
+    Verschiedene Schreibweisen: (1 | 3), (1, 3), (1; 3)
+    - sagen aber alle das gleiche aus
+    - Schreibweise mit Komma hat Verwechslungsgefahr mit Komma als Dezimaltrennzeichen
+    - deshalb hier Schreibweise mit Semikolon
+    Übungen
+    - Punkte in Koordinatenachsen eintragen
+    - Koordinaten von einem Punkt ablesen
+- Abstand zwischen zwei Punkten
+    - Abstand = Länge der kürzesten Verbindung, also kein Umweg!
+    - Beispiel parallel zur Koordinatenachse -- einfach
+    - allgemein: messen oder berechnen
+    - Beispiel
+    - Spoiler: geht allgemein mit Satz des Pythagoras
+        - fürs Berechnen wichtig, fürs Verständnis aber nicht
+    Übung:
+    - Abstand zwischen zwei Punkten ablesen, deren Verbindung parallel zu den Koordinatenachsen ist
+- Eigenschaften der Kürzesten Verbindung
+    - erster Punkt
+    - zweiter Punkt
+    - Länge der Verbindung
+    - Richtung der Verbindung (mit verschiedenem Verständnis davon, was "Richtung" bedeutet)
+    - wieviel Einheiten nach rechts
+    - wieviel Einheiten nach links
+    - wieviel Einheiten nach oben
+    - wieviel Einheiten nach unten
+    - ob man eine bestimmte Linie kreuzt
+    - ob man sich vom Ursprung wegbewegt oder darauf zu
+    - ...
+    - Grundidee der Vektorrechnung: Man konzentriert sich auf ein paar wenige dieser Eigenschaften und ignoriert die anderen
+        - wieviel Einheiten nach rechts/links (mit Vorzeichen)
+        - wieviel Einheiten nach oben/unten (mit Vorzeichen)
+        - Länge der Verbindung
+        - Richtung der Verbindung in dem Sinne: Wenn man die Verbindung in beide Richtungen verlängert -- welchen Winkel
+            bildet sie dann mit den Koordinatenachsen?
+    - das heißt: Wenn zwei Vektoren sich in diesen Eigenschaften gleichen, dann werden sie als "gleich" angesehen,
+        auch wenn sie z.B. unterschiedliche Start- und Endpunkte haben
+    Übung:
+    - Koordinatensystem mit mehreren farbig markierten Vektoren -- welche zwei sind gleich?)
+        - welche mit gleicher Länge aber unterschiedlicher richtung und gleichem Endpunkt
+        - welche mit gleicher Länge aber unterschiedlicher richtung und gleichem Startpunkt
+        - welche mit gleicher Richtung aber unterschiedlicher Länge und gleichem Startpunkt (längerer als durchgezogene
+            Linie, kürzerer als gestrichelte Linie)
+        - welche mit gleicher Richtung aber unterschiedlicher Länge und gleichem Endpunkt (längerer als durchgezogene
+            Linie, kürzerer als gestrichelte Linie)
+        - ein paar ganz andere Extra
+        - einer von den o.g. ein zweites Mal, ist dann einer der "einzelnen"
+        - Buttons mit Farbigen ausgefüllten Kreisen bzw. getrichelten Outline-Kreisen
+    ...
+    ...
+    ...
+- die gewählten Eigenschaften enthalten doppelte Informationen: Ein Vektor mit einer vorgegebenen Länge und Richtung
+    hat immer die gleiche Anzahl an Einheiten nach recht/links und oben/unten. Umgekehrt: Ein Vektor mit einer
+    vorgegebenen Anzahl an Einheiten nach rechts/links und oben/unten hat immer die gleiche Länge und Richtung.
+    Zur letzten Regel gibt es eine einzige Ausnahme: bei der Länge 0 ist die Richtung undefiniert. Deshalb legen wir
+    fest, dass zwei Vektoren der Länge 0 immer gleich sind, unabhängig von der angegebenen Richtung.
+    Übung: Wir haben jetzt festgelegt, welche Eigenschaften von Vektoren für uns relevant sind. Welche Auswahl an
+        Eigenschaften reicht als Angabe aus, so dass man die restlichen Eigenschaften daraus ermitteln kann?
+        - schritte nach rechts/links und oben/unten - ja
+        - Länge und Richtung - ja
+        - Länge und Schritte Rechts/Links - nein: Wenn der Vektor nur nach oben/unten geht, kennt man zwar seine
+            Länge, weiß aber nicht, ob nach oben oder nach unten
+        - Länge und Schritte Oben/Unten - nein: Wenn der Vektor nur nach rechts geht, kennt man zwar seine Länge, weiß
+            aber nicht, ob nach rchts oder nach links
+        - Richtung und Schritte Rechts/Links - nein: Wenn der Vektor nur nach oben oder unten geht, kennt man
+            seine Länge nicht
+        - Richtung und Schritte Oben/Unten - nein: Wenn der Vektor nur nach rechts oder links geht, kennt man
+            seine Länge nicht
+        -> epilog: Deshalb gibt es zwei gültige Darstellungen für Vektoren in unserem Sinne:
+            1. Länge und Richtung
+            2. Schritte nach rechts/links und nach oben/unten
+...
+...
+...
+- Wege verketten, Vektoraddition
+- Längen addieren sich nicht immer
+- Koordinaten eines Punkts: Vektor vom Ursprung zum Punkt; man kann Koordinaten als Vektor angeben
+- Nullvektor: Koordinaten des Ursprungs; neutrales Element der Addition; Länge 0; einziger Vektor ohne definierte Richtung
+- Subtraktion, verschiedene Interpretationen: Spitze anlegen und Rückwärts gehen; Vektor von Punkt A zu Punkt B;
+    Vektor finden, so dass die Summe einen bestimmten Vektor ergibt
+- Skalare Multiplikation (Vektor mit Zahl multiplizieren):
+    - ganze Zahl == Vektor wiederholen
+    - Vektor um den Faktor verlängern
+    - Vektor um den Faktor verkürzen
+    - Vektor umkehren
+    - Kombination daraus
+- Multiplikation mit 0 ergibt immer den Nullvektor
