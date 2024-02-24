@@ -120,3 +120,37 @@ Punkte
     - Vektor umkehren
     - Kombination daraus
     - Multiplikation mit 0 ergibt immer den Nullvektor
+...
+???
+
+
+
+divide by scalar = scale
+negate = reverse
+parallel vectors
+
+
+
+https://de.wikipedia.org/wiki/Analytische_Geometrie (aber: nicht-lineare AG wäre ein weiterer Kurs; hier nur lineare AG)
+https://de.wikipedia.org/wiki/Lineare_Algebra
+Umfang LA:
+- Linearkombinationen
+- Lineare Unabhängigkeit
+- aufspannendes System
+- Basis
+- Dimension
+- Skalarprodukt
+- Vektorprodukt
+- Orthogonalität
+- Orthogonale Projektion
+Umfang LAG:
+- 2d:
+    - Geraden (Parameterform)
+    - Geradenschnittpunkte
+- 3d:
+    - Ebenen (Parameterform, Normalenform, Koordinatenform)
+    - Schnittgerade zweier Ebenen
+    - Schnittpunkt Gerade / Ebene
+    - parallelität gerade/gerade 2d, gerade/gerade 3d, gerade/ebene, ebene/ebene
+    - Windschiefheit
+
