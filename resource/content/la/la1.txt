@@ -76,19 +76,47 @@ Punkte
         -> epilog: Deshalb gibt es zwei gültige Darstellungen für Vektoren in unserem Sinne:
             1. Länge und Richtung
             2. Schritte nach rechts/links und nach oben/unten
-...
-...
-...
-- Wege verketten, Vektoraddition
-- Längen addieren sich nicht immer
+- Vektoren verketten
+    - zwei Vektoren hintereinander geben einen Weg, der i.A. nicht mehr der kürzeste Weg zum Zielpunkt ist.
+    -   (bild)
+    - Wir wollen erst mal aber nur mit kürzesten Wegen arbeiten. Das lösen wir so, dass wir zwar zwei Vektoren verketten
+        können, dann aber die Kette durch den kürzesten Weg zum Ende der Kette ersetzen. Dieses Verketten-und-Ersetzen
+        nennen wir die _Summe_ der beiden Vektoren.
+    -   (bild)
+    Übungen
+    - welche Aussage ist richtig:
+        - wenn man zwei Vektoren addiert, bleibt die Gesamtlänge gleich.
+            Anders formuliert: Die Länge der Summe zweier Vektoren ist gleich der Summe der Längen der beiden Vektoren.
+        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben oder kleiner werden
+            Anders formuliert: Die Länge der Summe zweier Vektoren ist kleiner oder gleich der Summe der Längen der beiden Vektoren.
+        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben oder größer werden
+            Anders formuliert: Die Länge der Summe zweier Vektoren ist größer oder gleich der Summe der Längen der beiden Vektoren.
+        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben, kleiner werden oder größer werden
+            Anders formuliert: Die Länge der Summe zweier Vektoren ist gleich, kleiner oder größer der Summe der Längen der beiden Vektoren.
+    - wann bleibt die Gesamtlänge gleich? Also wann ist die Summe der Längen der beiden Vektoren gleich der Länge der Summe?
+        - wenn die beiden Vektoren in die gleiche Richtung zeigen
+        - wenn die beiden Vektoren in die entgegengesetzte Richtung zeigen
+        - wenn die beiden Vektoren senkrecht aufeinander stehen
+- Vektoraddition in Koordinaten
+    ... (wie begründen?) TODO
+    Übung
+    - rechenübungen
 - Koordinaten eines Punkts: Vektor vom Ursprung zum Punkt; man kann Koordinaten als Vektor angeben
-- Nullvektor: Koordinaten des Ursprungs; neutrales Element der Addition; Länge 0; einziger Vektor ohne definierte Richtung
+    ... TODO
+- Nullvektor: Koordinaten des Ursprungs; neutrales Element der Addition; Länge 0; einziger Vektor ohne definierte Richtung, in Zahlen: 0, 0, 0
+    ... TODO
 - Subtraktion, verschiedene Interpretationen: Spitze anlegen und Rückwärts gehen; Vektor von Punkt A zu Punkt B;
     Vektor finden, so dass die Summe einen bestimmten Vektor ergibt
-- Skalare Multiplikation (Vektor mit Zahl multiplizieren):
+    ... TODO
+- Vektoren verdoppeln und verdreifachen
+    ... TODO definition über Addition, dann als Zahl*Vektor schreiben
+    ... Auswirkung auf die Zahlen: verdoppeln und verdreifachen
+- Verallgemeinerung: Skalare Multiplikation (Vektor mit Zahl multiplizieren)
+    ... TODO erst in Zahlen, dann in Auswirkungen
+    ... evtl in mehreren units
     - ganze Zahl == Vektor wiederholen
     - Vektor um den Faktor verlängern
     - Vektor um den Faktor verkürzen
     - Vektor umkehren
     - Kombination daraus
-- Multiplikation mit 0 ergibt immer den Nullvektor
+    - Multiplikation mit 0 ergibt immer den Nullvektor
