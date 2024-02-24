@@ -108,6 +108,11 @@ Punkte
 - Subtraktion, verschiedene Interpretationen: Spitze anlegen und Rückwärts gehen; Vektor von Punkt A zu Punkt B;
     Vektor finden, so dass die Summe einen bestimmten Vektor ergibt
     ... TODO
+- Vektor Umkehren
+    auch: Vektor negieren, inverser Vektor
+    a+(-b) = a-b
+    a+(-a) = 0
+    Nullvektor ist sein eigener inverser Vektor
 - Vektoren verdoppeln und verdreifachen
     ... TODO definition über Addition, dann als Zahl*Vektor schreiben
     ... Auswirkung auf die Zahlen: verdoppeln und verdreifachen
@@ -120,14 +125,30 @@ Punkte
     - Vektor umkehren
     - Kombination daraus
     - Multiplikation mit 0 ergibt immer den Nullvektor
+- Vektor durch Zahl Teilen
+    gleiche Bedeutung wie Multiplikation mit Kehrwert
+    Übung: Rechenaufgaben
+- parallele Vektoren
+    - zwei Vektoren, die in die gleiche oder entgegengesetzte Richtung zeigen
+    - woanders unterscheidet man "echt parallel" und "identisch", aber da man Vektoren beliebig verschieben kann,
+        gibt es den Unterschied hier nicht
+    - Vektor mit Zahl multiplizieren gibt immer einen parallelen Vektor
+    - andersherum sind zwei Vektoren genau dann parallel, wenn man den einen aus dem anderen durch Multiplikation mit einer
+        Zahl erhält
+- sonderfall: Nullvektor. Dieser hat keine definierte Richtung, deshalb muss man festlegen, ob
+    (1) er zu allen Vektoren parallel ist
+    (2) er zu keinem Vektor parallel ist
+    (3) es undefiniert, zu welchen Vektoren er parallel ist
+    Wir wählen hier die Variante (3). Die Konsequenz ist, dass man immer von vornherein den Nullvektor ausschließen
+    muss, wenn man nach Parallelität fragt.
+
+
+
 ...
 ???
 
 
 
-divide by scalar = scale
-negate = reverse
-parallel vectors
 
 
 
