@@ -141,6 +141,8 @@ Punkte
     (3) es undefiniert, zu welchen Vektoren er parallel ist
     Wir wählen hier die Variante (3). Die Konsequenz ist, dass man immer von vornherein den Nullvektor ausschließen
     muss, wenn man nach Parallelität fragt.
+    Die richtige Formulierung ist dann: zwei nicht-Null-Vektoren sind genau dann parallel, wenn man den einen aus dem
+        anderen durch Multiplikation mit einer Zahl erhält
 
 
 
