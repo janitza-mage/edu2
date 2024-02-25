@@ -170,14 +170,23 @@ https://de.wikipedia.org/wiki/Analytische_Geometrie (aber: nicht-lineare AG wär
 https://de.wikipedia.org/wiki/Lineare_Algebra
 Umfang LA:
 - Linearkombinationen
+    - nur mal zeigen, dass man kompliziertere Formeln aus Addition/Sububtraktion/Multiplikation bauen kann
 - Lineare Unabhängigkeit
+    - evtl. ganz weglassen
 - aufspannendes System
+    - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
 - Basis
+    nein
 - Dimension
+    nein
 - Skalarprodukt
-- Vektorprodukt
+    ja, über Winkel
 - Orthogonalität
+    ja
 - Orthogonale Projektion
+    ja
+- Vektorprodukt
+    ja
 Umfang LAG:
 - 2d:
     - Geraden (Parameterform)
