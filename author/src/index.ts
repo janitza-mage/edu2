@@ -1,0 +1,1 @@
+import "self/index.ts"
