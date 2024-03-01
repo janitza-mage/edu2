@@ -1,4 +1,3 @@
-import {useLoader} from "../util/useLoader";
 import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
 import {MarkdownInline} from "../components/util/Markdown";
 import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
@@ -12,6 +11,7 @@ import {
 import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
 import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {UnitDataPanel} from "./UnitDataPanel";
+import {useLoader} from "../../uilib/util/useLoader";
 
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
