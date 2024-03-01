@@ -66,6 +66,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
             <div><Markdown renderConfiguration={markdownConfiguration}>{exercise.description}</Markdown></div>
             <div style={index < exerciseResults.length ? {backgroundColor: exerciseResults[index] ? "#c0ffc0" : "#ffc0c0"} : {}}>
                 <ExerciseComponentSwitch
+                    authorId={props.authorId}
                     key={index}
                     exercise={exercise}
                     answered={index < exerciseResults.length}
