@@ -58,6 +58,6 @@ export function showXAxisAngle(
     context.arc(intersectionX, 0, 0.2, 0, 2 * Math.PI);
     context.fill();
     context.beginPath();
-    context.arc(intersectionX, 0, 0.6, 0, 0.5 * Math.PI); TODO
+    context.arc(intersectionX, 0, 0.6, 0, 0.5 * Math.PI); // TODO
     context.stroke();
 }
