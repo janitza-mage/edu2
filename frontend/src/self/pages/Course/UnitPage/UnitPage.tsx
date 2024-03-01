@@ -1,6 +1,5 @@
 import {Footer} from "../Footer";
 import {useBackend} from "../../../logic/content/useBackend";
-import {FullWidthLoadingIndicator} from "../../../components/LoadingIndicator/FullWidthLoadingIndicator";
 import {PreLoadedUnitPage} from "./PreLoadedUnitPage";
 import {CourseDetailState} from "../../../logic/state/StateStore";
 import {useStateStore} from "../../../logic/state/useStateStore";
@@ -10,6 +9,7 @@ import {useRef} from "react";
 import {GetUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
 import {promiseAll} from "../../../../common/util/promiseAll";
 import {Loader, useLoader} from "../../../../uilib/util/useLoader";
+import {FullWidthLoadingIndicator} from "../../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
 type Data = [GetUnitPageResponse, CourseDetailState];
 

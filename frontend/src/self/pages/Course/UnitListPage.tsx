@@ -1,5 +1,4 @@
 import {useBackend} from "../../logic/content/useBackend";
-import {FullWidthLoadingIndicator} from "../../components/LoadingIndicator/FullWidthLoadingIndicator";
 import {Footer} from "./Footer";
 import {useStateStore} from "../../logic/state/useStateStore";
 import {CourseDetailState} from "../../logic/state/StateStore";
@@ -8,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
 import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
 import {Loader, useLoader} from "../../../uilib/util/useLoader";
+import {FullWidthLoadingIndicator} from "../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
 type Data = [GetUnitListPageResponseElement[], CourseDetailState];
 

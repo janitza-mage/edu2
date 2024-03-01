@@ -1,9 +1,9 @@
 import {Footer} from "./Footer";
-import {FullWidthLoadingIndicator} from "../../components/LoadingIndicator/FullWidthLoadingIndicator";
 import {CourseList, CourseListEntry} from "../../components/CourseList/CourseList";
 import {CourseListFilter, useCourseListEntries} from "./useCourseListEntries";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
+import {FullWidthLoadingIndicator} from "../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
 export interface AbstractCoursesListPageProps {
     title: string;

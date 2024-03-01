@@ -1,5 +1,4 @@
 import {useBackend} from "../../logic/content/useBackend";
-import {FullWidthLoadingIndicator} from "../../components/LoadingIndicator/FullWidthLoadingIndicator";
 import {Footer} from "./Footer";
 import {useStateStore} from "../../logic/state/useStateStore";
 import {CourseDetailState} from "../../logic/state/StateStore";
@@ -9,6 +8,7 @@ import {GetCourseInfoPageResponse} from "../../../common/frontend-api/GetCourseI
 import {Markdown, MarkdownInline} from "../../components/util/Markdown";
 import {Alert, Button} from "@mui/material";
 import {Loader, useLoader} from "../../../uilib/util/useLoader";
+import {FullWidthLoadingIndicator} from "../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
 type Data = [GetCourseInfoPageResponse, CourseDetailState];
 
