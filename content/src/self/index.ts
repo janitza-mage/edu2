@@ -2,8 +2,8 @@ import "source-map-support/register";
 import {createCanvas} from "canvas";
 import {base64Encode} from "./util/base64";
 import axios, {AxiosRequestConfig} from "axios";
-import {setupGrid} from "./setupGrid";
-import {arrow, infiniteLine, point, showXAxisAngle} from "./objects";
+import {arrow, infiniteLine, point, showXAxisAngle} from "../../../uilib/src/self/coordinate-grid-canvas/objects";
+import {setupCoordinateGridCanvas} from "../uilib/coordinate-grid-canvas/setupCoordinateGridCanvas";
 
 async function updateImage(imageId: number, width: number, height: number, renderer: (context: CanvasRenderingContext2D) => void) {
     const canvas = createCanvas(width, height);
@@ -44,7 +44,7 @@ async function main() {
     });
      */
     await updateImage(1, 200, 200, (context) => {
-        setupGrid(context, -6, 6, -6, 6);
+        setupCoordinateGridCanvas(context, -6, 6, -6, 6);
 
         context.strokeStyle = "blue";
         context.lineWidth = 0.07;

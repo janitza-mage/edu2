@@ -3,7 +3,7 @@
 // aspect ratio, which must match that of the canvas, or the whole drawing will be distorted.
 // Possible approach: combine setupGrid with creation of the canvas object?
 
-export function setupGrid(
+export function setupCoordinateGridCanvas(
     context: CanvasRenderingContext2D,
     minX: number,
     maxX: number,
