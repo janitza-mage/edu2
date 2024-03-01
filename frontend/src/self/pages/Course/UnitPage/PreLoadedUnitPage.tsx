@@ -4,8 +4,8 @@ import {Alert, Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {Markdown, MarkdownInline} from "../../../components/util/Markdown";
-import {background} from "../../../common/util/background";
-import {RegularUnitPageResponse} from "../../../common/frontend-api/GetUnitPageResponse";
+import {background} from "../../../../common/util/background";
+import {RegularUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
 import {scrollToBottomDelayed, scrollToDelayed} from "../../../util/scrolling";
 import {systemConfiguration} from "../../../systemConfiguration";
 

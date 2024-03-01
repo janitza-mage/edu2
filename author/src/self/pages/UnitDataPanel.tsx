@@ -1,12 +1,11 @@
 import {Form, FormMethods} from "../Form/Form";
 import {z} from "zod";
 import {TextField} from "../Form/TextField";
-import {GetBackendUnitResponse} from "../common/author-api/GetBackendUnitResponse";
+import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {FormCodeMirrorMarkdown} from "../Form/CodeMirror/FormCodeMirrorMarkdown";
 import {FormCodeMirrorJson} from "../Form/CodeMirror/FormCodeMirrorJson";
 import {FormCodeMirrorJavascript} from "../Form/CodeMirror/FormCodeMirrorJavascript";
 import {updateBackendUnitData} from "../logic/backend/backend";
-import {UseFormReturn} from "react-hook-form/dist/types";
 
 const formSchema = z.object({
     title: z.string().min(1, "Title cannot be empty"),

@@ -2,7 +2,7 @@ import styles from "./UnitList.module.scss";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {UnitCompletionStatusIcon} from "./UnitCompletionStatusIcon";
 import {CourseDetailState} from "../../logic/state/StateStore";
-import {GetUnitListPageResponseElement} from "../../common/frontend-api/GetUnitListPageResponse";
+import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
 import {MarkdownInline} from "../util/Markdown";
 
 export interface UnitListProps {

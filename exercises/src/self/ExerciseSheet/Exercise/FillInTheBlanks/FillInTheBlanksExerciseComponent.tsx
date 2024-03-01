@@ -1,5 +1,5 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
-import {FillInTheBlanksExercise} from "../../../common/types/Exercise";
+import {FillInTheBlanksExercise} from "../../../../common/types/Exercise";
 import {FormEvent, useEffect, useRef} from "react";
 import {allocateSyntheticIds} from "../../../util/SyntheticId";
 import $ from "jquery";
@@ -31,7 +31,7 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
         const query = $("#" + stateRef.current.htmlId);
         if (!stateRef.current.initiallyRendered) {
             query.on("keydown", ":input:not(textarea):not(:submit)", function(event) {
-                if (event.key == "Enter") {
+                if (event.key === "Enter") {
                     event.preventDefault();
                     loseFocus();
                 }

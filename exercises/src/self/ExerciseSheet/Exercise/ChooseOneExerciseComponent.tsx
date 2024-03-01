@@ -1,7 +1,7 @@
 import {ExerciseComponentProps} from "./ExerciseComponentProps";
 import {useState} from "react";
-import {shuffleInPlace} from "../../common/util/shuffleInPlace";
-import {ChooseOneExercise} from "../../common/types/Exercise";
+import {shuffleInPlace} from "../../../common/util/shuffleInPlace";
+import {ChooseOneExercise} from "../../../common/types/Exercise";
 import {ChooseOneHelper, TaggedAnswer} from "./ChooseOneHelper";
 
 export function ChooseOneExerciseComponent(props: ExerciseComponentProps<ChooseOneExercise>) {

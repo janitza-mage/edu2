@@ -1,5 +1,5 @@
 import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/UnauthenticatedRequestCycle";
-import {GetUnitListPageResponse} from "../../common/frontend-api/GetUnitListPageResponse";
+import {GetUnitListPageResponse} from "../../../common/frontend-api/GetUnitListPageResponse";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
 

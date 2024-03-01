@@ -1,5 +1,5 @@
 import {ExerciseComponentProps} from "./ExerciseComponentProps";
-import {ChooseYesNoExercise} from "../../common/types/Exercise";
+import {ChooseYesNoExercise} from "../../../common/types/Exercise";
 import {ChooseOneHelper, TaggedAnswer} from "./ChooseOneHelper";
 
 export function ChooseYesNoExerciseComponent(props: ExerciseComponentProps<ChooseYesNoExercise>) {

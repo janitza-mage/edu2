@@ -1,6 +1,6 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
-import {FillInTheBlanksExercise} from "../../../common/types/Exercise";
-import {getAllChoicesFromChoiceVariable} from "../../../common/types/FillInTheBlanksVariable";
+import {FillInTheBlanksExercise} from "../../../../common/types/Exercise";
+import {getAllChoicesFromChoiceVariable} from "../../../../common/types/FillInTheBlanksVariable";
 
 export function processFormSubmission(props: ExerciseComponentProps<FillInTheBlanksExercise>, form: HTMLFormElement) {
     const formData = Object.fromEntries(new FormData(form));

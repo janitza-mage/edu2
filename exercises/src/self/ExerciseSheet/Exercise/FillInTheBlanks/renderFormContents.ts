@@ -1,7 +1,7 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
-import {FillInTheBlanksExercise} from "../../../common/types/Exercise";
+import {FillInTheBlanksExercise} from "../../../../common/types/Exercise";
 import {renderMarkdown} from "../../../util/renderMarkdown";
-import {getAllChoicesFromChoiceVariable} from "../../../common/types/FillInTheBlanksVariable";
+import {getAllChoicesFromChoiceVariable} from "../../../../common/types/FillInTheBlanksVariable";
 
 export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanksExercise>): string {
     const { exercise, answered } = props;

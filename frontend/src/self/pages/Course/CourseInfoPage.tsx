@@ -3,12 +3,10 @@ import {FullWidthLoadingIndicator} from "../../components/LoadingIndicator/FullW
 import {Footer} from "./Footer";
 import {useStateStore} from "../../logic/state/useStateStore";
 import {CourseDetailState} from "../../logic/state/StateStore";
-import {UnitList} from "../../components/UnitList/UnitList";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
-import {GetUnitListPageResponseElement} from "../../common/frontend-api/GetUnitListPageResponse";
 import {Loader, useLoader} from "../../util/useLoader";
-import {GetCourseInfoPageResponse} from "../../common/frontend-api/GetCourseInfoPageResponse";
+import {GetCourseInfoPageResponse} from "../../../common/frontend-api/GetCourseInfoPageResponse";
 import {Markdown, MarkdownInline} from "../../components/util/Markdown";
 import {Alert, Button} from "@mui/material";
 

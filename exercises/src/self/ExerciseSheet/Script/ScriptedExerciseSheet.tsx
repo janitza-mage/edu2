@@ -1,4 +1,4 @@
-import {ExerciseSheet, exerciseSheetSchema, makeExerciseSheetNonEmpty} from "../../common/types/Exercise";
+import {ExerciseSheet, exerciseSheetSchema, makeExerciseSheetNonEmpty} from "../../../common/types/Exercise";
 import {ReactNode, useEffect, useState} from "react";
 import {MaterializedExerciseSheet} from "../Materialized/MaterializedExerciseSheet";
 import {validate} from "../../util/validate";

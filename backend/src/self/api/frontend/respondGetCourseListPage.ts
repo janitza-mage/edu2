@@ -1,5 +1,5 @@
 import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/UnauthenticatedRequestCycle";
-import {GetCourseListPageResponse} from "../../common/frontend-api/GetCourseListPageResponse";
+import {GetCourseListPageResponse} from "../../../common/frontend-api/GetCourseListPageResponse";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
 
 export async function respondGetCourseListPage(_requestCycle: UnauthenticatedRequestCycle): Promise<GetCourseListPageResponse> {

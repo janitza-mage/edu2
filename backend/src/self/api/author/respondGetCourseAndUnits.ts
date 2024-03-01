@@ -1,9 +1,9 @@
 import {getPostgresPool} from "../../util/postgres/postgresPool";
 import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {getNumberFromPath} from "../getNumberFromPath";
-import {promiseAll} from "../../common/util/promiseAll";
+import {promiseAll} from "../../../common/util/promiseAll";
 import {FinishRequest} from "../../util/rest/FinishRequest";
-import {GetBackendCourseAndUnitsResponse} from "../../common/author-api/GetBackendCourseAndUnitsResponse";
+import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
 
 export async function respondGetCourseAndUnits(requestCycle: AuthorRequestCycle): Promise<GetBackendCourseAndUnitsResponse> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);

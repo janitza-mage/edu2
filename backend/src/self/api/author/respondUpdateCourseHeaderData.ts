@@ -2,8 +2,8 @@ import {getPostgresPool} from "../../util/postgres/postgresPool";
 import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {validateRequestBodyZod} from "../../util/rest/validateRequestBodyZod";
-import {updateCourseHeaderDataRequestSchema} from "../../common/author-api/UpdateCourseHeaderDataRequest";
-import {EmptyObject} from "../../common/util/EmptyObject";
+import {updateCourseHeaderDataRequestSchema} from "../../../common/author-api/UpdateCourseHeaderDataRequest";
+import {EmptyObject} from "../../../common/util/EmptyObject";
 
 export async function respondUpdateCourseHeaderData(requestCycle: AuthorRequestCycle): Promise<EmptyObject> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);

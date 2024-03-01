@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {App} from './components/App/App';
-import {Metric, ReportHandler} from 'web-vitals';
+import {Metric} from 'web-vitals';
 import 'katex/dist/katex.min.css';
 
 const root = ReactDOM.createRoot(

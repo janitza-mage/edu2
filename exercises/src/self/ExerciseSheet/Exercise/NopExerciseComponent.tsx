@@ -1,6 +1,6 @@
 import {Button} from "@mui/material";
 import {ExerciseComponentProps} from "./ExerciseComponentProps";
-import {NopExercise} from "../../common/types/Exercise";
+import {NopExercise} from "../../../common/types/Exercise";
 
 /**
  * This exercise just asks the user to confirm that he/she has read the unit. It is used for units that do not have

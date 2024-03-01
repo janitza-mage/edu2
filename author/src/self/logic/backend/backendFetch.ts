@@ -1,5 +1,5 @@
 import {systemConfiguration} from "../../systemConfiguration";
-import {JsonObject} from "../../common/util/JsonValue";
+import {JsonObject} from "../../../common/util/JsonValue";
 
 const MAX_RETRIES = 5;
 

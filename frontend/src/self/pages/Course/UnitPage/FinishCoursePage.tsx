@@ -2,7 +2,7 @@ import {CourseDetailState} from "../../../logic/state/StateStore";
 import {Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
-import {background} from "../../../common/util/background";
+import {background} from "../../../../common/util/background";
 
 export interface FinishCoursePageProps {
     courseId: number;

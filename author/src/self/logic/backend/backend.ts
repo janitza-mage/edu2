@@ -1,9 +1,9 @@
-import {GetBackendCourseListResponse} from "../../common/author-api/GetBackendCourseListResponse";
+import {GetBackendCourseListResponse} from "../../../common/author-api/GetBackendCourseListResponse";
 import {backendGet, backendPost} from "./backendCall";
-import {GetBackendCourseAndUnitsResponse} from "../../common/author-api/GetBackendCourseAndUnitsResponse";
-import {UpdateCourseHeaderDataRequest} from "../../common/author-api/UpdateCourseHeaderDataRequest";
-import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
-import {UpdateBackendUnitRequest} from "../../common/author-api/UpdateBackendUnitRequest";
+import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
+import {UpdateCourseHeaderDataRequest} from "../../../common/author-api/UpdateCourseHeaderDataRequest";
+import {GetBackendUnitResponse} from "../../../common/author-api/GetBackendUnitResponse";
+import {UpdateBackendUnitRequest} from "../../../common/author-api/UpdateBackendUnitRequest";
 
 export async function getBackendCourseList(): Promise<GetBackendCourseListResponse> {
     return await backendGet<GetBackendCourseListResponse>("getCourseList");

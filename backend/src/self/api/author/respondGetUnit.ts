@@ -2,7 +2,7 @@ import {getPostgresPool} from "../../util/postgres/postgresPool";
 import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {FinishRequest} from "../../util/rest/FinishRequest";
-import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
+import {GetBackendUnitResponse} from "../../../common/author-api/GetBackendUnitResponse";
 
 export async function respondGetUnit(requestCycle: AuthorRequestCycle): Promise<GetBackendUnitResponse> {
     const unitId = getNumberFromPath(requestCycle.pathParameters.unitId);

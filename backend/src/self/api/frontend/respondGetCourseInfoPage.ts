@@ -1,6 +1,6 @@
 import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/UnauthenticatedRequestCycle";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
-import {GetCourseInfoPageResponse} from "../../common/frontend-api/GetCourseInfoPageResponse";
+import {GetCourseInfoPageResponse} from "../../../common/frontend-api/GetCourseInfoPageResponse";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {FinishRequest} from "../../util/rest/FinishRequest";
 

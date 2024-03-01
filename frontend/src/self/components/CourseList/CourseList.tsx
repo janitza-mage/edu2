@@ -2,7 +2,7 @@ import styles from "./CourseList.module.scss";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {CourseOverviewState} from "../../logic/state/StateStore";
 import {CourseCompletionStatusIcon} from "./CourseCompletionStatusIcon";
-import {GetCourseListPageResponseElement} from "../../common/frontend-api/GetCourseListPageResponse";
+import {GetCourseListPageResponseElement} from "../../../common/frontend-api/GetCourseListPageResponse";
 import {MarkdownInline} from "../util/Markdown";
 
 export interface CourseListEntry {

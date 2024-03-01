@@ -8,7 +8,7 @@ import {
     DummyExercise,
     Exercise, FillInTheBlanksExercise,
     NopExercise
-} from "../../common/types/Exercise";
+} from "../../../common/types/Exercise";
 import {ChooseYesNoExerciseComponent} from "./ChooseYesNoExerciseComponent";
 import {FillInTheBlanksExerciseComponent} from "./FillInTheBlanks/FillInTheBlanksExerciseComponent";
 

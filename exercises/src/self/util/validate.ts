@@ -1,5 +1,5 @@
-import {getErrorMessage} from "../common/util/getErrorMessage";
-import {SchemaWithOutput} from "../common/util/zod/SchemaWithOutput";
+import {getErrorMessage} from "../../common/util/getErrorMessage";
+import {SchemaWithOutput} from "../../common/util/zod/SchemaWithOutput";
 
 export function validate<T>(schema: SchemaWithOutput<T>, data: unknown, description: string): T {
     try {

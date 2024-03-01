@@ -2,8 +2,8 @@ import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/Unaut
 import {FinishRequest} from "../../util/rest/FinishRequest";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
-import {promiseAll} from "../../common/util/promiseAll";
-import {GetExerciseResponse} from "../../common/frontend-api/GetExerciseResponse";
+import {promiseAll} from "../../../common/util/promiseAll";
+import {GetExerciseResponse} from "../../../common/frontend-api/GetExerciseResponse";
 
 export async function respondGetExercise(requestCycle: UnauthenticatedRequestCycle): Promise<GetExerciseResponse> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);

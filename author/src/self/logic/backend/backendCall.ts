@@ -1,5 +1,5 @@
 import {backendFetch, BackendFetchOptions} from "./backendFetch";
-import {JsonObject, JsonValue} from "../../common/util/JsonValue";
+import {JsonObject, JsonValue} from "../../../common/util/JsonValue";
 
 const TEXT_CONTENT_TYPE_PREFIX = "text/plain";
 const JSON_CONTENT_TYPE = "application/json";

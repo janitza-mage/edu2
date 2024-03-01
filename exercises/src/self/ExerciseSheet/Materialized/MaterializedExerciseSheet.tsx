@@ -1,9 +1,9 @@
-import {NonEmptyExerciseSheet} from "../../common/types/Exercise";
+import {NonEmptyExerciseSheet} from "../../../common/types/Exercise";
 import {Fragment, useEffect, useState} from "react";
 import {ExerciseComponentSwitch} from "../Exercise/ExerciseComponentSwitch";
 import {postContainerMessage} from "./postContainerMessage";
 import {Markdown} from "../../util/Markdown";
-import {AdjustContainerSizeScrollMode} from "../../common/types/AdjustSizeScrollMode";
+import {AdjustContainerSizeScrollMode} from "../../../common/types/AdjustSizeScrollMode";
 
 export interface MaterializedExerciseSheetProps {
     exerciseSheet: NonEmptyExerciseSheet;

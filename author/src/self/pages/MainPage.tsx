@@ -1,16 +1,16 @@
 import {useLoader} from "../util/useLoader";
 import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
 import {MarkdownInline} from "../components/util/Markdown";
-import {GetBackendCourseListResponseElement} from "../common/author-api/GetBackendCourseListResponse";
+import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
 import {useState} from "react";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import styles from "./MainPage.module.scss";
 import {
     GetBackendCourseAndUnitsResponse,
     GetBackendCourseAndUnitsResponseUnit
-} from "../common/author-api/GetBackendCourseAndUnitsResponse";
+} from "../../common/author-api/GetBackendCourseAndUnitsResponse";
 import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
-import {GetBackendUnitResponse} from "../common/author-api/GetBackendUnitResponse";
+import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {UnitDataPanel} from "./UnitDataPanel";
 
 export function MainPage() {

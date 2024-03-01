@@ -1,6 +1,5 @@
 import {zodEnum} from "../util/zod/zodEnum";
 import {z} from "zod";
-import {exerciseBaseSchema} from "./Exercise";
 
 // --------------------------------------------------------------------------------------------------------------------
 // core types

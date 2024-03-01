@@ -1,1 +1,1 @@
-import "self/index.ts"
+import "./self/index"

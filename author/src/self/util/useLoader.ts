@@ -1,5 +1,5 @@
 import {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
-import {getErrorMessage} from "../common/util/getErrorMessage";
+import {getErrorMessage} from "../../common/util/getErrorMessage";
 
 export type LoaderStatus = "loading" | "success" | "error";
 
@@ -80,6 +80,6 @@ export function useLoader<T>(body: () => Promise<T>): Loader<T> {
     internalStateHolder.current.initialize(setLoader);
     useEffect(() => {
         internalStateHolder.current.reload(body, false);
-    }, []);
+    }, [body]);
     return loader;
 }

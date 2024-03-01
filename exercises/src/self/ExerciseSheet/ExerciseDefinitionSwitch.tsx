@@ -1,5 +1,5 @@
-import {ExerciseDefinition, exerciseDefinitionSchema} from "../common/types/ExerciseDefinition";
-import {makeExerciseSheetNonEmpty} from "../common/types/Exercise";
+import {ExerciseDefinition, exerciseDefinitionSchema} from "../../common/types/ExerciseDefinition";
+import {makeExerciseSheetNonEmpty} from "../../common/types/Exercise";
 import {MaterializedExerciseSheet} from "./Materialized/MaterializedExerciseSheet";
 import {ScriptedExerciseSheet} from "./Script/ScriptedExerciseSheet";
 import {validate} from "../util/validate";

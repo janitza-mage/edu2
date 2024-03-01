@@ -1,4 +1,4 @@
-import {Exercise} from "../../common/types/Exercise";
+import {Exercise} from "../../../common/types/Exercise";
 
 /**
  * Note: The exercise object includes the exercise description, but that is shown by the enclosing

@@ -2,8 +2,8 @@ import {getPostgresPool} from "../../util/postgres/postgresPool";
 import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {validateRequestBodyZod} from "../../util/rest/validateRequestBodyZod";
-import {EmptyObject} from "../../common/util/EmptyObject";
-import {updateImageRequestSchema} from "../../common/author-api/UpdateImageRequest";
+import {EmptyObject} from "../../../common/util/EmptyObject";
+import {updateImageRequestSchema} from "../../../common/author-api/UpdateImageRequest";
 import {base64Decode} from "../../util/base64";
 
 export async function respondUpdateImage(requestCycle: AuthorRequestCycle): Promise<EmptyObject> {

@@ -7,9 +7,9 @@ import {useStateStore} from "../../../logic/state/useStateStore";
 import {FinishCoursePage} from "./FinishCoursePage";
 import {WithFooter} from "../../../components/Footer/WithFooter";
 import {useRef} from "react";
-import {GetUnitPageResponse} from "../../../common/frontend-api/GetUnitPageResponse";
+import {GetUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
 import {Loader, useLoader} from "../../../util/useLoader";
-import {promiseAll} from "../../../common/util/promiseAll";
+import {promiseAll} from "../../../../common/util/promiseAll";
 
 type Data = [GetUnitPageResponse, CourseDetailState];
 
