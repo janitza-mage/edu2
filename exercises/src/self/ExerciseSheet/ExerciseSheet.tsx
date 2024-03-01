@@ -1,10 +1,10 @@
 import {backendGet} from "../util/backendGet";
-import {useLoader} from "../util/useLoader";
 import {FullWidthLoadingIndicator} from "../LoadingIndicator/FullWidthLoadingIndicator";
 import {ExerciseDefinitionSwitch} from "./ExerciseDefinitionSwitch";
 import {GetExerciseResponse} from "../../common/frontend-api/GetExerciseResponse";
 import {exerciseDefinitionSchema} from "../../common/types/ExerciseDefinition";
 import {getErrorMessage} from "../../common/util/getErrorMessage";
+import {useLoader} from "../../uilib/util/useLoader";
 
 export interface ExerciseSheetProps {
     courseId: number;

@@ -1,7 +1,7 @@
 import React from "react";
 import {PlainFullWidthLoadingIndicator} from "./PlainFullWidthLoadingIndicator";
 import {PlainFullWidthLoadingError} from "./PlainFullWidthLoadingError";
-import {Loader} from "../util/useLoader";
+import {Loader} from "../../uilib/util/useLoader";
 
 export interface FullWidthLoadingIndicatorProps<T> {
     loader: Loader<T>;
