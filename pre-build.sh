@@ -13,3 +13,6 @@ cd ..
 cd exercises
 ./scripts/pre-build.sh
 cd ..
+cd uilib
+./scripts/pre-build.sh
+cd ..
