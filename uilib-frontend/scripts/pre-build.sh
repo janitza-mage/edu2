@@ -5,6 +5,3 @@ cp -R ../../common/src/self common
 
 rm -rf uilib
 cp -R ../../uilib/src/self uilib
-
-rm -rf uilib-frontend
-cp -R ../../uilib-frontend/src/self uilib-frontend
