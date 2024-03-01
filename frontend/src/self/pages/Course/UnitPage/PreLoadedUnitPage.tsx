@@ -6,8 +6,8 @@ import {useNavigate} from "react-router-dom";
 import {Markdown, MarkdownInline} from "../../../components/util/Markdown";
 import {background} from "../../../../common/util/background";
 import {RegularUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
-import {scrollToBottomDelayed, scrollToDelayed} from "../../../util/scrolling";
 import {systemConfiguration} from "../../../systemConfiguration";
+import {scrollToBottomDelayed, scrollToDelayed} from "../../../../uilib/util/scrolling";
 
 /**
  * This state indicates the relation of the current unit index vs. the active unit index, the latter being equal

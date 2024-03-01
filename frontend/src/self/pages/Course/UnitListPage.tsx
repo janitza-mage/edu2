@@ -7,7 +7,7 @@ import {UnitList} from "../../components/UnitList/UnitList";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
 import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
-import {Loader, useLoader} from "../../util/useLoader";
+import {Loader, useLoader} from "../../../uilib/util/useLoader";
 
 type Data = [GetUnitListPageResponseElement[], CourseDetailState];
 

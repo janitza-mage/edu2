@@ -1,7 +1,7 @@
 import {CourseListEntry} from "../../components/CourseList/CourseList";
 import {useBackend} from "../../logic/content/useBackend";
 import {useStateStore} from "../../logic/state/useStateStore";
-import {Loader, useLoader} from "../../util/useLoader";
+import {Loader, useLoader} from "../../../uilib/util/useLoader";
 
 export type CourseListFilter = "all" | "active" | "completed";
 

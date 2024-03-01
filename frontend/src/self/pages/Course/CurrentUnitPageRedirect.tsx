@@ -2,7 +2,7 @@ import {useStateStore} from "../../logic/state/useStateStore";
 import {Navigate} from "react-router-dom";
 import {useBackend} from "../../logic/content/useBackend";
 import {PlainFullWidthLoadingIndicator} from "../../components/LoadingIndicator/PlainFullWidthLoadingIndicator";
-import {Loader, useLoader} from "../../util/useLoader";
+import {Loader, useLoader} from "../../../uilib/util/useLoader";
 
 function useCurrentUnitIndex(courseId: number): Loader<number | "new" | "completed"> {
     const backend = useBackend();

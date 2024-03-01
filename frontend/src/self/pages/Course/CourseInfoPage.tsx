@@ -5,10 +5,10 @@ import {useStateStore} from "../../logic/state/useStateStore";
 import {CourseDetailState} from "../../logic/state/StateStore";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
-import {Loader, useLoader} from "../../util/useLoader";
 import {GetCourseInfoPageResponse} from "../../../common/frontend-api/GetCourseInfoPageResponse";
 import {Markdown, MarkdownInline} from "../../components/util/Markdown";
 import {Alert, Button} from "@mui/material";
+import {Loader, useLoader} from "../../../uilib/util/useLoader";
 
 type Data = [GetCourseInfoPageResponse, CourseDetailState];
 
