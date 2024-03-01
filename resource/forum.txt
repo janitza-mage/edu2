@@ -1,0 +1,20 @@
+Ein Forum für Lernende ist denke ich super-wichtig! Evtl sogar ein Forum pro Kurs / Kommentare pro Unit. Dann können
+sich Lernende direkt dort über die Inhalte unterhalten; es hilft ggf. Lernenden, etwas zu verstehen, was sie sonst
+nicht verstanden hätten, und es hilft auch dem Autor, Feedback zu bekommen und die Inhalte zu verbessern.
+
+Evtl dann auch für "eine Schule" jeweils ein Forum, wo man z.B. über mögliche zukünftige Kurse diskutieren kann.
+
+Technisches Problem: Ein Forum beißt sich damit, sich nicht einloggen zu müssen.
+- evtl. neue Kommentare erst mal verstecken, über zusatzbutton einblendbar, wo sie genügend "likes" bekommen müssen,
+    um sichtbar zu werden.
+- dann müssen aber von der Plattform aus klare Regeln vorgegeben werden, welche Kommentare _maximal_ erlaubt sind
+    (ohne weitere Einschränkung durch den Autor eines Kurses / andere Mods): z.B. keine Beleidigungen, keine
+    Diskriminierung, keine Werbung, keine politischen Meinungen (*), keine religiösen Meinungen (*), ...
+    am besten als Grundidee: Nur on-topic zu dem jeweiligen Kurs. (*) ist komplizierter / etwas lockerer bei Kursen,
+    die sich mit dem jeweiligen Thema beschäftigen. Externe Links können z.B. grundsätzlich eingeschränkt sein
+    und z.B. grundsätzlich nicht klickbar (nur URL als text)
+
+
+
+
+

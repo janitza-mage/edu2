@@ -128,6 +128,11 @@ Punkte
 - Vektor durch Zahl Teilen
     gleiche Bedeutung wie Multiplikation mit Kehrwert
     Übung: Rechenaufgaben
+***kompliziertere Formeln zusammenbauen
+- Linearkombinationen, ohne das Wort zu benutzen
+- Associativgesetz und Kommutativgesetz
+- Distributivgesetze
+***
 - parallele Vektoren
     - zwei Vektoren, die in die gleiche oder entgegengesetzte Richtung zeigen
     - woanders unterscheidet man "echt parallel" und "identisch", aber da man Vektoren beliebig verschieben kann,
@@ -137,7 +142,7 @@ Punkte
         Zahl erhält
     Übung:
     - sind folgende zwei Vektoren parallel? (nur nicht-Null-Vektoren in den Beispielen)
-- sonderfall: Nullvektor. Dieser hat keine definierte Richtung, deshalb muss man festlegen, ob
+- parallelität/sonderfall: Nullvektor. Dieser hat keine definierte Richtung, deshalb muss man festlegen, ob
     (1) er zu allen Vektoren parallel ist
     (2) er zu keinem Vektor parallel ist
     (3) es undefiniert, zu welchen Vektoren er parallel ist
@@ -150,7 +155,17 @@ Punkte
         - Die Aussage ist weder richtig noch falsch, sondern undefiniert, weil der Nullvektor nicht ausgeschlossen ist.
             Man müsste stattdessen sagen: "Jeder nicht-null-Vektor ist zu sich selbst parallel." Dann wäre die
             Aussage nicht mehr undefiniert, sondern korrekt.
-
+- parallele Vektoren kann man zusammenfassen:
+    v + a*v + w = (1+a)*v + w
+    (geht in Richtung lineare Unabhängigkeit, ohne das Thema komplett auszubreiten)
+***weitere Themen
+...TODO
+... 3d-Raum
+... Geraden-Parameterdarstellung
+... Ebenen-Parameterdarstellung
+... Gleichungssysteme
+... Skalarprodukt, Orthogonalität, Projektion, Vektorprodukt
+***
 
 ...
 ???
@@ -163,6 +178,9 @@ Punkte
 ***
 allgemein: in früheren Einheiten "einfachere Versionen" der Konzepte bringen, z.B. in 2d "kann man alle Punkte erreichen"
 als Vorbereitung für ein aufspannendes System.
+- aber es ist denke ich nicht so gut, ganz neue Themen schon mal anzuschneiden, z.B. 3d-Raum schon früh.
+    Das verunsichert eher und verwirrt. Die Themen sollten jeweils ein abgeschlossenes System aufbauen und nur
+    innerhalb dieses Systems Dinge früh anschneiden.
 ***
 
 
@@ -175,10 +193,6 @@ Umfang LA:
     - evtl. ganz weglassen
 - aufspannendes System
     - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
-- Basis
-    nein
-- Dimension
-    nein
 - Skalarprodukt
     ja, über Winkel
 - Orthogonalität
@@ -197,4 +211,44 @@ Umfang LAG:
     - Schnittpunkt Gerade / Ebene
     - parallelität gerade/gerade 2d, gerade/gerade 3d, gerade/ebene, ebene/ebene
     - Windschiefheit
+
+***************************************************************************************************************
+
+Didaktik und Methodik:
+
+"""
+Haben die Kinder ausreichend Materialien, mit denen sie sich beschäftigen können?
+Gibt es genug Freiräume, um eigenen Interessen nachzugehen?
+Haben die Kinder auch mal Langeweile, um ihrer Kreativität freien Lauf zu lassen?
+Dies sind die sieben didaktischen Prinzipien, die für den Kindergarten gelten:
+
+Prinzip der Anschauung: Inhalte kommen besser an, wenn Erzieher zur Veranschaulichung Bilder benutzen
+    - hier beachten, ist aber grundsätzlich da
+Prinzip der Aktivität: Kinder lernen vor allem dann, wenn sie selbst aktiv sein müssen
+    - das ist die Grundidee der ganzen Plattform
+Prinzip der Übung: Kinder lernen besser, wenn die Inhalte wiederholt werden
+    - das betrifft vor allem den Punkt, Dinge schon man anzureißen, bevor man sie komplett beherrschen muss,
+        und auch danach immer wieder aufzugreifen und auch zu üben
+Prinzip der Lebensnähe: Unbekanntes können Kinder besser erlernen, wenn es auf Bekanntem aufbaut
+    - würde in LA1 für "realistische" Textaufgaben sprechen. Bei späteren LA-Kursen ist da nicht viel zu machen.
+Prinzip der Teilschritte: Lerninhalte müssen Erzieher in kleine Schritte aufteilen
+    - das ist in dieser Plattform der Fall
+Prinzip der Kindgemäßheit: Erzieher sollten Themen so aufbereiten, dass sie den Interessen der Kinder entsprechen
+    - TODO schauen ob man da was machen kann
+Prinzip der Individualisierung: Berücksichtigung der sozialen Herkunft, des Entwicklungsstands und des Arbeitstempos
+    - das wird man in so einer Plattform nur stark eingeschränkt machen können
+"""
+
+Wie wäre es mit "Accessoires", die aus den Units heraus verlinkt werden?
+- Abstand von zwei Punkten: zwei Punkte verschieben und das PRogramm zeigt jeweils den Abstand
+    - dito den Vektor von einem Punkt zum anderen
+        - kartesisch
+        - Länge und Abstand
+    - extra-Übungen
+        - hier sollte eine Hilfestellung kommen, _wann_ man diese aufruft. Es sollte NICHT passieren, dass man, um an
+            einer Stelle weiterzukommen, die Accessoires aus einer früheren Unit aufrufen muss, denn dann müsste man
+            diese durchsuchen ohne zu wissen was man sucht.
+
+
+
 
