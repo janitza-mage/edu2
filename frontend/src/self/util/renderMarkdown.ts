@@ -1,6 +1,6 @@
 import {compile, parse, postprocess, preprocess} from "micromark";
 import {math, mathHtml} from "micromark-extension-math";
-import {systemConfiguration} from "../systemConfiguration";
+import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
 
 export interface MarkdownRenderConfiguration {
     authorIdForImages: number | null;
@@ -88,7 +88,7 @@ export function renderMarkdown(markdownSource: string, configuration: MarkdownRe
                     text = text.substring(7);
                     const imageId = parseInt(text, 10);
                     if (!isNaN(imageId)) {
-                        const replacement = systemConfiguration.backendBaseUrl + "/getImage/" + configuration.authorIdForImages + "/" + imageId;
+                        const replacement = commonSystemConfiguration.frontendBackendBaseUrl + "/getImage/" + configuration.authorIdForImages + "/" + imageId;
                         event[2] = {sliceSerialize: () => replacement} as any;
                     }
                 }

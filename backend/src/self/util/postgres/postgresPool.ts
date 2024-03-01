@@ -1,5 +1,5 @@
 import {Pool, types} from "pg";
-import {systemConfiguration} from "../../systemConfiguration";
+import {backendSystemConfiguration} from "../../backendSystemConfiguration";
 
 types.setTypeParser(20, (val) => {
   const result = parseInt(val, 10);
@@ -18,10 +18,10 @@ export function getPostgresPool(): Promise<Pool> {
   if (poolPromise === null) {
     poolPromise = (async (): Promise<Pool> => {
       return new Pool({
-        host: systemConfiguration.postgresHost,
-        user: systemConfiguration.postgresUser,
-        password: systemConfiguration.postgresPassword,
-        database: systemConfiguration.postgresDatabase,
+        host: backendSystemConfiguration.postgresHost,
+        user: backendSystemConfiguration.postgresUser,
+        password: backendSystemConfiguration.postgresPassword,
+        database: backendSystemConfiguration.postgresDatabase,
       });
     })();
   }

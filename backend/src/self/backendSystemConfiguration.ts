@@ -1,4 +1,4 @@
-export const systemConfiguration = {
+export const backendSystemConfiguration = {
     postgresHost: "localhost",
     postgresUser: "postgres",
     postgresPassword: "postgres",

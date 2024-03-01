@@ -1,7 +1,7 @@
-import {systemConfiguration} from "../systemConfiguration";
+import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
 
 export async function backendGet(urlSuffix: string): Promise<any> {
-  const url = systemConfiguration.backendBaseUrl + "/" + urlSuffix;
+  const url = commonSystemConfiguration.frontendBackendBaseUrl + "/" + urlSuffix;
   const response = await fetch(url);
   if (response.status !== 200) {
     throw new Error("unexpected HTTP status: " + response.status + ", body: " + (await response.text()));

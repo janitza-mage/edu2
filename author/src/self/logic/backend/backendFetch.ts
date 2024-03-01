@@ -1,5 +1,5 @@
-import {systemConfiguration} from "../../systemConfiguration";
 import {JsonObject} from "../../../common/util/JsonValue";
+import {commonSystemConfiguration} from "../../../common/commonSystemConfiguration";
 
 const MAX_RETRIES = 5;
 
@@ -8,7 +8,7 @@ export type BackendFetchOptions = {
 };
 
 async function getFullUrl(urlSuffix: string): Promise<string> {
-  return systemConfiguration.backendBaseUrl + (urlSuffix.startsWith("/") ? "" : "/") + urlSuffix;
+  return commonSystemConfiguration.authorBackendBaseUrl + (urlSuffix.startsWith("/") ? "" : "/") + urlSuffix;
 }
 
 async function getAuthorizationHeader(): Promise<string> {
