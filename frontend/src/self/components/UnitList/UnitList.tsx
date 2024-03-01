@@ -3,7 +3,7 @@ import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {UnitCompletionStatusIcon} from "./UnitCompletionStatusIcon";
 import {CourseDetailState} from "../../logic/state/StateStore";
 import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
-import {MarkdownInline} from "../util/Markdown";
+import {MarkdownInline} from "../../../uilib/markdown/Markdown";
 
 export interface UnitListProps {
     units: GetUnitListPageResponseElement[];

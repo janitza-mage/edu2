@@ -1,8 +1,8 @@
 import {useEffect, useRef} from "react";
 import {Button} from "@mui/material";
-import {MarkdownInline} from "../../util/Markdown";
 import IconDangerous from '@mui/icons-material/Dangerous';
 import IconCheck from '@mui/icons-material/Check';
+import {MarkdownInline} from "../../../uilib/markdown/Markdown";
 
 export interface TaggedAnswer {
     content: string;
@@ -10,6 +10,7 @@ export interface TaggedAnswer {
 }
 
 export interface ChooseOneHelperProps {
+    authorId: number;
     answers: TaggedAnswer[];
     answered: boolean;
     reportResult: (correct: boolean) => void;
@@ -50,7 +51,7 @@ export function ChooseOneHelper(props: ChooseOneHelperProps) {
                 {props.answered && <div style={{color: "#888", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
                     {answer.correct ? <IconCheck /> : <IconDangerous />}
                 </div>}
-                <MarkdownInline>
+                <MarkdownInline renderConfiguration={{ authorIdForImages: props.authorId }}>
                     {answer.content}
                 </MarkdownInline>
             </Button>

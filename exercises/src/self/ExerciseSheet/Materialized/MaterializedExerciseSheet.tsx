@@ -2,10 +2,12 @@ import {NonEmptyExerciseSheet} from "../../../common/types/Exercise";
 import {Fragment, useEffect, useState} from "react";
 import {ExerciseComponentSwitch} from "../Exercise/ExerciseComponentSwitch";
 import {postContainerMessage} from "./postContainerMessage";
-import {Markdown} from "../../util/Markdown";
 import {AdjustContainerSizeScrollMode} from "../../../common/types/AdjustSizeScrollMode";
+import {Markdown} from "../../../uilib/markdown/Markdown";
+import {MarkdownRenderConfiguration} from "../../../uilib/markdown/renderMarkdown";
 
 export interface MaterializedExerciseSheetProps {
+    authorId: number;
     exerciseSheet: NonEmptyExerciseSheet;
 }
 
@@ -55,10 +57,13 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
     }, []);
 
     // JSX
+    const markdownConfiguration: MarkdownRenderConfiguration = {
+        authorIdForImages: props.authorId,
+    };
     return <>
         {props.exerciseSheet.map((exercise, index) => (index <= exerciseResults.length) && <Fragment key={index}>
             <hr/>
-            <div><Markdown>{exercise.description}</Markdown></div>
+            <div><Markdown renderConfiguration={markdownConfiguration}>{exercise.description}</Markdown></div>
             <div style={index < exerciseResults.length ? {backgroundColor: exerciseResults[index] ? "#c0ffc0" : "#ffc0c0"} : {}}>
                 <ExerciseComponentSwitch
                     key={index}
@@ -69,7 +74,9 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
                     scrollToBottom={scrollToBottom}
                 />
             </div>
-            {index < exerciseResults.length && exercise.epilogue && <div><Markdown>{exercise.epilogue}</Markdown></div>}
+            {index < exerciseResults.length && exercise.epilogue && <div>
+                <Markdown renderConfiguration={markdownConfiguration}>{exercise.epilogue}</Markdown>
+            </div>}
         </Fragment>)}
     </>;
 }

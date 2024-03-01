@@ -3,11 +3,11 @@ import {CourseDetailState} from "../../../logic/state/StateStore";
 import {Alert, Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
-import {Markdown, MarkdownInline} from "../../../components/util/Markdown";
 import {background} from "../../../../common/util/background";
 import {RegularUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
 import {scrollToBottomDelayed, scrollToDelayed} from "../../../../uilib/util/scrolling";
 import {commonSystemConfiguration} from "../../../../common/commonSystemConfiguration";
+import {Markdown, MarkdownInline} from "../../../../uilib/markdown/Markdown";
 
 /**
  * This state indicates the relation of the current unit index vs. the active unit index, the latter being equal

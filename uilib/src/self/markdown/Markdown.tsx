@@ -1,4 +1,4 @@
-import {MarkdownRenderConfiguration, renderMarkdown, renderMarkdownInline} from "../../util/renderMarkdown";
+import {MarkdownRenderConfiguration, renderMarkdown, renderMarkdownInline} from "./renderMarkdown";
 
 export interface MarkdownProps {
     children: string;

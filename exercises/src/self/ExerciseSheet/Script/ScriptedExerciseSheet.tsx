@@ -4,6 +4,7 @@ import {MaterializedExerciseSheet} from "../Materialized/MaterializedExerciseShe
 import {validate} from "../../util/validate";
 
 export interface ScriptedExerciseSheetProps {
+    authorId: number;
     script: string;
     courseScriptLibrary: string;
 }
@@ -16,7 +17,7 @@ export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
             showExerciseSheet: (exerciseSheet: ExerciseSheet) => {
                 validate(exerciseSheetSchema, exerciseSheet, "generated exercise sheet");
                 const nonEmptySheet = makeExerciseSheetNonEmpty(exerciseSheet);
-                setSheetContent(<MaterializedExerciseSheet exerciseSheet={nonEmptySheet} />);
+                setSheetContent(<MaterializedExerciseSheet authorId={props.authorId} exerciseSheet={nonEmptySheet} />);
             },
         };
         (new Function("context", "courseLibrary", props.script))(context, libraryResult);

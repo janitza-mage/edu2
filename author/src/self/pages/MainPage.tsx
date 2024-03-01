@@ -1,7 +1,6 @@
 import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
-import {MarkdownInline} from "../components/util/Markdown";
 import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
-import {useState} from "react";
+import React, {useState} from "react";
 import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import styles from "./MainPage.module.scss";
 import {
@@ -12,6 +11,12 @@ import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
 import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {UnitDataPanel} from "./UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
+import {MarkdownInline} from "../../uilib/markdown/Markdown";
+import {MarkdownRenderConfiguration} from "../../uilib/markdown/renderMarkdown";
+
+const markdownRenderConfiguration: MarkdownRenderConfiguration = {
+    authorIdForImages: null,
+};
 
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
@@ -79,7 +84,7 @@ export function MainPage() {
                     {courseListLoader.status === "success" && courseListLoader.result.courses.map(course =>
                         <ListItem key={course.courseId} disablePadding className={styles.EntityListEntry}>
                             <ListItemButton onClick={() => selectCourse(course)}>
-                                <ListItemText primary={<MarkdownInline>{course.title}</MarkdownInline>}/>
+                                <ListItemText primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{course.title}</MarkdownInline>}/>
                             </ListItemButton>
                         </ListItem>
                     )}
@@ -90,7 +95,7 @@ export function MainPage() {
                     <ListItem disablePadding className={styles.EntityListEntry + " " + styles.selected}>
                         <ListItemButton onClick={closeCourse}>
                             <ListItemText
-                                primary={<MarkdownInline>{selectedCourse.title}</MarkdownInline>}
+                                primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{selectedCourse.title}</MarkdownInline>}
                                 secondary="click to close"
                             />
                         </ListItemButton>
@@ -106,7 +111,7 @@ export function MainPage() {
                     const selected = selectedUnitId !== null && selectedUnitId === unit.unitId;
                     return <ListItem key={unit.unitId} disablePadding className={styles.EntityListEntry + (selected ? " " + styles.selected : "")}>
                         <ListItemButton onClick={() => selectUnit(unit)}>
-                            <ListItemText primary={<MarkdownInline>{unit.title}</MarkdownInline>}/>
+                            <ListItemText primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{unit.title}</MarkdownInline>}/>
                         </ListItemButton>
                     </ListItem>;
                 })}

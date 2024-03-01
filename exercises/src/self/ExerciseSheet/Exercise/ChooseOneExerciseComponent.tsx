@@ -16,6 +16,7 @@ export function ChooseOneExerciseComponent(props: ExerciseComponentProps<ChooseO
     });
 
     return <ChooseOneHelper
+        authorId={props.authorId}
         answers={taggedAnswers}
         answered={props.answered}
         reportResult={props.reportResult}

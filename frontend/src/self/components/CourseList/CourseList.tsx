@@ -3,7 +3,7 @@ import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
 import {CourseOverviewState} from "../../logic/state/StateStore";
 import {CourseCompletionStatusIcon} from "./CourseCompletionStatusIcon";
 import {GetCourseListPageResponseElement} from "../../../common/frontend-api/GetCourseListPageResponse";
-import {MarkdownInline} from "../util/Markdown";
+import {MarkdownInline} from "../../../uilib/markdown/Markdown";
 
 export interface CourseListEntry {
     course: GetCourseListPageResponseElement;

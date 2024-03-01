@@ -11,7 +11,7 @@ export async function respondGetExercise(requestCycle: UnauthenticatedRequestCyc
     const postgresPool = await getPostgresPool();
     const [courseResult, unitResult] = await promiseAll(
         () => postgresPool.query(
-            'SELECT "scriptLibrary" FROM "edu2"."Course" WHERE "id" = $1 LIMIT 1',
+            'SELECT "authorId", "scriptLibrary" FROM "edu2"."Course" WHERE "id" = $1 LIMIT 1',
             [courseId],
         ),
         () => postgresPool.query(
@@ -25,6 +25,7 @@ export async function respondGetExercise(requestCycle: UnauthenticatedRequestCyc
     const courseRow = courseResult.rows[0];
     const unitRow = unitResult.rows[0];
     return {
+        authorId: courseRow.authorId,
         exerciseDefinition: unitRow.exerciseDefinition,
         exerciseScript: unitRow.exerciseScript,
         courseScriptLibrary: courseRow.scriptLibrary,

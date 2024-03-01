@@ -5,6 +5,7 @@ import {ScriptedExerciseSheet} from "./Script/ScriptedExerciseSheet";
 import {validate} from "../util/validate";
 
 export interface ExerciseSheetSourceSwitchProps {
+    authorId: number,
     exerciseDefinition: ExerciseDefinition;
     exerciseScript: string;
     courseScriptLibrary: string;
@@ -16,11 +17,12 @@ export function ExerciseDefinitionSwitch(props: ExerciseSheetSourceSwitchProps) 
 
         case "explicit": {
             const exerciseSheet = makeExerciseSheetNonEmpty(exerciseDefinition.exercises);
-            return <MaterializedExerciseSheet exerciseSheet={exerciseSheet} />;
+            return <MaterializedExerciseSheet authorId={props.authorId} exerciseSheet={exerciseSheet} />;
         }
 
         case "script":
             return <ScriptedExerciseSheet
+                authorId={props.authorId}
                 script={props.exerciseScript}
                 courseScriptLibrary={props.courseScriptLibrary}
             />;

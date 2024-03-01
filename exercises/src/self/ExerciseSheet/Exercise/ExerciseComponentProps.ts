@@ -7,6 +7,11 @@ import {Exercise} from "../../../common/types/Exercise";
 export interface ExerciseComponentProps<E extends Exercise> {
 
     /**
+     * The ID of the exercise's author, used to fetch images.
+     */
+    authorId: number;
+
+    /**
      * The exercise data.
      */
     exercise: E;

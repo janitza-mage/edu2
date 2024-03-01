@@ -1,11 +1,11 @@
 import {ExerciseComponentProps} from "../ExerciseComponentProps";
 import {FillInTheBlanksExercise} from "../../../../common/types/Exercise";
-import {renderMarkdown} from "../../../util/renderMarkdown";
 import {getAllChoicesFromChoiceVariable} from "../../../../common/types/FillInTheBlanksVariable";
+import {renderMarkdown} from "../../../../uilib/markdown/renderMarkdown";
 
 export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanksExercise>): string {
     const { exercise, answered } = props;
-    let stencilHtml = renderMarkdown(exercise.stencil);
+    let stencilHtml = renderMarkdown(exercise.stencil, { authorIdForImages: props.authorId });
     for (let i = 0; i < exercise.variables.length; i++) {
         const variable = exercise.variables[i];
         switch (variable.type) {

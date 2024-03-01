@@ -8,6 +8,7 @@ export function ChooseYesNoExerciseComponent(props: ExerciseComponentProps<Choos
         {content: "No", correct: !props.exercise.rightAnswer}
     ];
     return <ChooseOneHelper
+        authorId={props.authorId}
         answers={taggedAnswers}
         answered={props.answered}
         reportResult={props.reportResult}

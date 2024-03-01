@@ -26,6 +26,7 @@ export function ExerciseSheet(props: ExerciseSheetProps) {
     const loader = useLoader(() => loadExercise(props));
     return <FullWidthLoadingIndicator loader={loader}>
         {(result) => <ExerciseDefinitionSwitch
+            authorId={result.authorId}
             exerciseDefinition={result.exerciseDefinition}
             exerciseScript={result.exerciseScript}
             courseScriptLibrary={result.courseScriptLibrary}
