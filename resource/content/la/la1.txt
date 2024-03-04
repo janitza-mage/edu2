@@ -46,6 +46,12 @@ Punkte
 
         (Bild mit Label (1 | 3))
     """
+    Übungen (Idealvorstellung)
+    - als erstes: Versuchsweise punkte setzen, man sieht dann die Koordinaten. Übung ist "erfolgreich" wenn man auf
+        den "weiter"-Button drückt -- das könnte eine allgemeine Art Übung sein. Muss dann halt scripted sein, aber es
+        wäre gut, wenn man dann nicht automatisch das ganze sheet scripten muss. Also vielleicht Übungstyp mit
+        Script-Text (für nonscripted sheet) oder callback (für scripted sheet). Dann muss man es nicht extern hosten.
+        Die Übung wird ja schon im iframe ausgeführt, und auch Zugriff aufs course script library müsste so gehen.
     Übungen
     - Punkte in Koordinatenachsen eintragen
     - Koordinaten von einem Punkt ablesen
@@ -63,6 +69,8 @@ Punkte
     Wir werden später außerdem sehen, dass man durch die negativen Zahlen alle Punkte in Berechnungen einheitlich
     behandeln kann, egal auf welcher Seite der Koordinatenachsen sie liegen.
     """
+    Übungen (Idealvorstellung)
+    - wieder Punkte setzen, jetzt auch negativ
     Übungen
     - Punkte in Koordinatenachsen eintragen
     - Koordinaten von einem Punkt ablesen
@@ -81,6 +89,8 @@ Punkte
     geht gerade deshalb, weil der Abstand ja nur von den beiden Punkten bzw. dessen Koordinaten abhängt und
     sonst von nichts. Die genaue Formel zum Berechnen wird später erläutert.
     """
+    Übungen (Idealvorstellung)
+    - ein Punkt fest (nicht der Ursprung), der zweite kann gesetzt werden, dann wird der Abstand angezeigt
     Übung:
     - Abstand zwischen zwei Punkten ablesen, deren Verbindung parallel zu den Koordinatenachsen ist
 - Eigenschaften der Kürzesten Verbindung
@@ -103,8 +113,10 @@ Punkte
         - Richtung der Verbindung in dem Sinne: Wenn man die Verbindung in beide Richtungen verlängert -- welchen Winkel
             bildet sie dann mit den Koordinatenachsen?
 
-    Das heißt: Wenn zwei Vektoren sich in diesen Eigenschaften gleichen, dann werden sie als "gleich" angesehen,
-    auch wenn sie z.B. unterschiedliche Start- und Endpunkte haben
+    Die Gesamtheit dieser Eigenschaften wird als _Vektor_ bezeichnet. Das heißt: Wenn zwei Vektoren sich in diesen
+    Eigenschaften gleichen, dann werden sie als "gleich" angesehen, auch wenn sie z.B. unterschiedliche Start- und
+    Endpunkte haben. Ein Vektor fasst also viele kürzeste Wege als gleichartig zusammen, die sich nur in den
+    "unwichtigen" Eigenschaften unterscheiden.
     """
     Übung:
     - Koordinatensystem mit mehreren farbig markierten Vektoren -- welche zwei sind gleich?)
@@ -120,9 +132,21 @@ Punkte
     ...
     ...
     ...
-- die gewählten Eigenschaften enthalten doppelte Informationen: Ein Vektor mit einer vorgegebenen Länge und Richtung
-    hat immer die gleiche Anzahl an Einheiten nach recht/links und oben/unten. Umgekehrt: Ein Vektor mit einer
-    vorgegebenen Anzahl an Einheiten nach rechts/links und oben/unten hat immer die gleiche Länge und Richtung.
+- """
+    Relevante Eigenschaften der kürzesten Verbindung:
+    - wieviel Einheiten nach rechts/links (Zahl mit Vorzeichen)
+    - wieviel Einheiten nach oben/unten (Zahl mit Vorzeichen)
+    - Länge der Verbindung (nicht-negative Zahl)
+    - Richtung der Verbindung in dem Sinne: Wenn man die Verbindung in beide Richtungen verlängert -- welchen Winkel
+        bildet sie dann mit den Koordinatenachsen?
+
+    Wenn wir möglichst kurz und knapp die Eigenschaften angeben wollen, dann sind nicht alle diese Angaben nötig,
+    denn sie enthalten dieselben Informationen doppelt:
+    * Ein Vektor mit einer vorgegebenen Länge und Richtung hat immer die gleiche Anzahl an Einheiten nach recht/links
+      und oben/unten.
+    * Ein Vektor mit einer vorgegebenen Anzahl an Einheiten nach rechts/links und oben/unten hat immer die gleiche
+      Länge und Richtung.
+    """
     Zur letzten Regel gibt es eine einzige Ausnahme: bei der Länge 0 ist die Richtung undefiniert. Deshalb legen wir
     fest, dass zwei Vektoren der Länge 0 immer gleich sind, unabhängig von der angegebenen Richtung.
     Übung: Wir haben jetzt festgelegt, welche Eigenschaften von Vektoren für uns relevant sind. Welche Auswahl an

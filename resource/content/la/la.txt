@@ -106,4 +106,103 @@ cross product
 
 
 
+---------------------------------------------------------------------------------------------------------------------
+LA3
+---------------------------------------------------------------------------------------------------------------------
+
+- start with R^3
+    - keep some properties, remove others
+    - gain a more abstract view on vectors
+    - most conclusions still valid because they depend only on the properties we kept
+    (concept: go through all properties, let the user find which ones are true for R^3,
+        state basic idea for which properties we keep, then then list which ones we keep)
+        - basic idea: detach from R^n, but keep the "rules"
+    - for now state rules that can be derived from others, such as 0*v = s*0 = 0
+- properties of R^n
+    - selecting an element
+        - depends on R^n
+        - with different interpretations, it does not
+            - coordinates according to a basis
+            - orthogonal projection
+        --> both will be defined later; can be derived from other properties
+    - properties of addition
+        - associativity
+        - commutativity
+        - identity element: zero vector
+        - inverse element: negative vector
+        - "subtraction" -- not really a rule but a definition
+    - properties of scalar multiplication
+        - associativity ("Compatibility of scalar multiplication with field multiplication")
+        - "commutativity" -- not really a rule but a definition
+    - combined properties
+        - distributivity (both sides)
+        - identity element: 1
+        - 0*v = s*0 = 0
+            - can be derived
+        - (-1)v = -v
+            - can be derived
+        - sv=0 ==> s=0 or v=0
+            - can be derived
+    - length
+        can be defined from scalar product
+        -> triangle inequality
+    - scalar product
+        - the definition of the SP as we know it depends on R^n. Again we'll try to find the rules that govern the SP,
+            then define the SP through these rules without reference to R^n.
+        - commutativity
+        - bilinearity
+        - positive definiteness
+        - Cauchy-Schwarz inequality: can be derived
+        - scalar product is very important, but a vector space is interesting without it. So we consider the SP
+            an "upgrade" to the vector space. Terminology: A "vector space with scalar product" has an SP;
+            a "vector space" does not.
+- abstract vector space
+    - take the above properties as axioms, except those that can be derived
+    - the "SP upgrade" is left out for now -- will be added later
+    - axioms
+        (list)
+    - convenience definitions: v-w, v*s
+    Übung:
+    - Ist die folgende Menge/Regeln ein Vektorraum?
+        (mehrere Beispiele)
+- derive some missing properties from the axioms
+    (braucht kaum text)
+    Übungen:
+    - 0*v = s*0 = 0
+    - (-1)v = -v
+...
+...
+...
+(weitere abgeleitete Eigenschaften, Dinge die man mit einem VS machen kann)
+...
+...
+...
+define: linear combination
+define: span
+define linear independence
+define basis
+...
+...
+...
+
+
+
+
+
+
+- VS with scalar product
+    - properties
+        - commutativity
+        - bilinearity
+        - positive definiteness
+        - length
+        - Cauchy-Schwarz inequality
+        - triangle inequality
+
+
+SPÄTER
+
+
+- vector space over a different field
+- infinite-dimensional vector space
 
