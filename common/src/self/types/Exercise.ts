@@ -7,7 +7,8 @@ import {fillInTheBlanksVariableSchema} from "./FillInTheBlanksVariable";
 // core types
 // --------------------------------------------------------------------------------------------------------------------
 
-export const exerciseTypeSchema = zodEnum(["Nop", "Dummy", "ChooseOne", "ChooseYesNo"]);
+// TODO this is upper camel case, exercise definition is lower camel case
+export const exerciseTypeSchema = zodEnum(["Nop", "Dummy", "ChooseOne", "ChooseYesNo", "FillInTheBlanks", "Script"]);
 export type ExerciseType = z.infer<typeof exerciseTypeSchema>;
 
 export const exerciseBaseSchema = z.object({
@@ -51,6 +52,12 @@ export const fillInTheBlanksExerciseSchema = exerciseBaseSchema.extend({
 }).strict();
 export type FillInTheBlanksExercise = z.infer<typeof fillInTheBlanksExerciseSchema>;
 
+export const scriptExerciseSchema = exerciseBaseSchema.extend({
+    type: z.literal("Script"),
+    script: z.string(),
+}).strict();
+export type ScriptExercise = z.infer<typeof scriptExerciseSchema>;
+
 // --------------------------------------------------------------------------------------------------------------------
 // union type and derived types
 // --------------------------------------------------------------------------------------------------------------------
@@ -61,6 +68,7 @@ export const exerciseSchema = z.discriminatedUnion("type", [
     chooseOneExerciseSchema,
     chooseYesNoExerciseSchema,
     fillInTheBlanksExerciseSchema,
+    scriptExerciseSchema,
 ]);
 export type Exercise = z.infer<typeof exerciseSchema>;
 

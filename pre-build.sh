@@ -7,12 +7,15 @@ cd ..
 cd content
 ./scripts/pre-build.sh
 cd ..
-cd frontend
-./scripts/pre-build.sh
-cd ..
 cd exercises
 ./scripts/pre-build.sh
 cd ..
+cd frontend
+./scripts/pre-build.sh
+cd ..
 cd uilib
+./scripts/pre-build.sh
+cd ..
+cd uilib-frontend
 ./scripts/pre-build.sh
 cd ..
