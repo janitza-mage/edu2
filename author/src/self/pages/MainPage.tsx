@@ -71,10 +71,10 @@ export function MainPage() {
     // JSX
     // ----------------------------------------------------------------------------------------------------------------
 
-    return <div style={{display: "flex", flexDirection: "row"}}>
+    return <div style={{display: "flex", flexDirection: "row", width: "100%"}}>
 
         {/* left sidebar */}
-        <div style={{width: "400px"}}>
+        <div style={{flexGrow: 0, flexShrink: 0, width: "400px"}}>
 
             <h1>Course</h1>
             <List className={styles.EntityList}>
@@ -120,7 +120,7 @@ export function MainPage() {
         </div>
 
         {/* main area */}
-        <div style={{flexGrow: 1, marginLeft: "10px"}}>
+        <div style={{width: "1px", flexGrow: 1, flexShrink: 1, marginLeft: "10px"}}>
 
             {/* course header */}
             {selectedCourse !== null && courseLoader.status === "success" && courseLoader.result !== null && selectedUnitId === null && <>
