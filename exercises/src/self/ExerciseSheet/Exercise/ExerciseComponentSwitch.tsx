@@ -7,10 +7,11 @@ import {
     ChooseYesNoExercise,
     DummyExercise,
     Exercise, FillInTheBlanksExercise,
-    NopExercise
+    NopExercise, ScriptExercise
 } from "../../../common/types/Exercise";
 import {ChooseYesNoExerciseComponent} from "./ChooseYesNoExerciseComponent";
 import {FillInTheBlanksExerciseComponent} from "./FillInTheBlanks/FillInTheBlanksExerciseComponent";
+import {ScriptExerciseComponent} from "./Script/ScriptExerciseComponent";
 
 export function ExerciseComponentSwitch(props: ExerciseComponentProps<Exercise>) {
     switch (props.exercise.type) {
@@ -24,6 +25,8 @@ export function ExerciseComponentSwitch(props: ExerciseComponentProps<Exercise>)
             return <ChooseYesNoExerciseComponent {...props as ExerciseComponentProps<ChooseYesNoExercise>} />;
         case "FillInTheBlanks":
             return <FillInTheBlanksExerciseComponent {...props as ExerciseComponentProps<FillInTheBlanksExercise>} />;
+        case "Script":
+            return <ScriptExerciseComponent {...props as ExerciseComponentProps<ScriptExercise>} />;
         default:
             throw new Error("unknown exercise type: " + (props.exercise as any).type);
     }

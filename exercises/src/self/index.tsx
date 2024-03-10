@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import {App} from './App/App';
 import 'katex/dist/katex.min.css';
 import {Metric} from "web-vitals";
+import $ from "jquery";
+
+(window as unknown as {$: unknown}).$ = $;
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
