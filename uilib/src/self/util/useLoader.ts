@@ -80,6 +80,6 @@ export function useLoader<T>(body: () => Promise<T>): Loader<T> {
     internalStateHolder.current.initialize(setLoader);
     useEffect(() => {
         internalStateHolder.current.reload(body, false);
-    }, [body]);
+    }, []); // do NOT reload if the body changes -- it's an inner function that always changed identity!
     return loader;
 }
