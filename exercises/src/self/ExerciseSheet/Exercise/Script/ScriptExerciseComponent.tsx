@@ -33,8 +33,12 @@ export function ScriptExerciseComponent(props: ExerciseComponentProps<ScriptExer
                 adjustContainerSize: props.adjustContainerSize,
                 scrollToBottom: props.scrollToBottom,
             };
-            const script = new Function("context", props.exercise.script);
-            script(scriptContext);
+            if (typeof props.exercise.script === "string") {
+                const script = new Function("context", props.exercise.script);
+                script(scriptContext);
+            } else {
+                props.exercise.script(scriptContext);
+            }
             stateRef.current.initiallyRendered = true;
         } else {
             // TODO how can we update the component? Should the script return an object with "initial" and "update" functions?

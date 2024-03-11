@@ -54,7 +54,10 @@ export type FillInTheBlanksExercise = z.infer<typeof fillInTheBlanksExerciseSche
 
 export const scriptExerciseSchema = exerciseBaseSchema.extend({
     type: z.literal("Script"),
-    script: z.string(),
+    // Passing a function as a script cannot occur in JSON, thus not in an "explicit" exercise sheet, but it *can*
+    // occur when the exercise sheet itself is generted by a script. In that case, passing a function closure is
+    // easier than writing the exercise script in a script, mostly due to multiple nested levels of quoting.
+    script: z.union([z.string(), z.function()]),
 }).strict();
 export type ScriptExercise = z.infer<typeof scriptExerciseSchema>;
 
