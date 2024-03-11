@@ -9,9 +9,10 @@ export async function respondUpdateUnitData(requestCycle: AuthorRequestCycle): P
     const unitId = getNumberFromPath(requestCycle.pathParameters.unitId);
     const request = await validateRequestBodyZod(requestCycle, updateBackendUnitRequestSchema);
     const postgresPool = await getPostgresPool();
+    const exerciseUrl = request.exerciseUrl.trim() || null;
     await postgresPool.query(
         'UPDATE "edu2"."Unit" SET "title" = $2, "description" = $3, "exerciseUrl" = $4, "exerciseDefinition" = $5, "exerciseScript" = $6 WHERE "id" = $1',
-        [unitId, request.title, request.description, request.exerciseUrl, request.exerciseDefinition, request.exerciseScript],
+        [unitId, request.title, request.description, exerciseUrl, request.exerciseDefinition, request.exerciseScript],
     );
     return {};
 }
