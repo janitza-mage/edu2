@@ -1,0 +1,17 @@
+file[edu2]:author/src/self//*
+||
+file[edu2]:backend/src/self//*
+||
+file[edu2]:common/src/self//*
+||
+file[edu2]:content/src/self//*
+||
+file[edu2]:exercises/src/self//*
+||
+file[edu2]:frontend/src/self//*
+||
+file[edu2]:uilib/src/self//*
+||
+file[edu2]:uilib-frontend/src/self//*
+
+file[edu2]:author/src/self//*||file[edu2]:backend/src/self//*||file[edu2]:common/src/self//*||file[edu2]:content/src/self//*||file[edu2]:exercises/src/self//*||file[edu2]:frontend/src/self//*||file[edu2]:uilib/src/self//*||file[edu2]:uilib-frontend/src/self//*
