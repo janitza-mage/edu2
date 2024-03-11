@@ -12,6 +12,7 @@ export interface ScriptedExerciseSheetProps {
 export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
     const [sheetContent, setSheetContent] = useState<ReactNode>(null);
     useEffect(() => {
+        // eslint-disable-next-line no-new-func -- found no information on how to fix this
         const libraryResult = (new Function(props.courseScriptLibrary))();
         const context = {
             showExerciseSheet: (exerciseSheet: ExerciseSheet) => {
@@ -20,7 +21,8 @@ export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
                 setSheetContent(<MaterializedExerciseSheet authorId={props.authorId} exerciseSheet={nonEmptySheet} />);
             },
         };
+        // eslint-disable-next-line no-new-func -- found no information on how to fix this
         (new Function("context", "courseLibrary", props.script))(context, libraryResult);
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps -- we cannot just re-run the script, and those props don't change for exactly that reason
     return <>{sheetContent}</>;
 }

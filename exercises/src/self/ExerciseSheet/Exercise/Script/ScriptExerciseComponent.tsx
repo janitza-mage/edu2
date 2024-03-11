@@ -34,6 +34,7 @@ export function ScriptExerciseComponent(props: ExerciseComponentProps<ScriptExer
                 scrollToBottom: props.scrollToBottom,
             };
             if (typeof props.exercise.script === "string") {
+                // eslint-disable-next-line no-new-func -- found no information on how to fix this
                 const script = new Function("context", props.exercise.script);
                 script(scriptContext);
             } else {
@@ -50,7 +51,7 @@ export function ScriptExerciseComponent(props: ExerciseComponentProps<ScriptExer
             // So doing this in a non-react way already means less change later.
             // --> no update; the component should disable itself when needed; NOP here
         }
-    }, [props.answered]);
+    }, [props.answered]); // eslint-disable-line react-hooks/exhaustive-deps -- again, react-hooks/exhaustive-deps is wrong...
 
     return <div ref={divRef} />;
 }

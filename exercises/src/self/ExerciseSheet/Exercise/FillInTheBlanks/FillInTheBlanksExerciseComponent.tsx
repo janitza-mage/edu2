@@ -41,7 +41,7 @@ export function FillInTheBlanksExerciseComponent(props: ExerciseComponentProps<F
         } else {
             query.find("input[type=text],input[type=number],select").attr("disabled", props.answered ? "disabled" : null);
         }
-    }, [props.answered]);
+    }, [props.answered]); // eslint-disable-line react-hooks/exhaustive-deps -- passing the whole props is NOT right, that object will change on every call!
 
     function onSubmit(event: FormEvent) {
         event.preventDefault();
