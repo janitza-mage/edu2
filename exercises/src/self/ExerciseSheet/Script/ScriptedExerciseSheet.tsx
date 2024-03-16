@@ -21,6 +21,7 @@ export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
                 setSheetContent(<MaterializedExerciseSheet authorId={props.authorId} exerciseSheet={nonEmptySheet} />);
             },
         };
+        // TODO if a scripted exercise occurs in a non-scripted sheet then the courseLibrary will never be executed!
         // eslint-disable-next-line no-new-func -- found no information on how to fix this
         (new Function("context", "courseLibrary", props.script))(context, libraryResult);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps -- we cannot just re-run the script, and those props don't change for exactly that reason
