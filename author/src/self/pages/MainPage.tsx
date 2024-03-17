@@ -12,10 +12,6 @@ import {useLoader} from "../../uilib/util/useLoader";
 import {MarkdownRenderConfiguration} from "../../uilib/markdown/renderMarkdown";
 import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
 
-const markdownRenderConfiguration: MarkdownRenderConfiguration = {
-    authorIdForImages: null,
-};
-
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
 
