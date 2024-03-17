@@ -22,7 +22,7 @@ export interface InlineMarkdownButtonListMenuItem<T> {
 
 export interface InlineMarkdownButtonListProps<T> {
     elements: T[],
-    authorIdForImages: number | null;
+    courseIdForImages: number | null;
     keyMapper: (element: T) => string | number;
     labelMapper: (element: T) => string;
     selectedMapper?: (element: T) => boolean;
@@ -32,7 +32,7 @@ export interface InlineMarkdownButtonListProps<T> {
 
 export function InlineMarkdownButtonList<T>(props: InlineMarkdownButtonListProps<T>) {
     const markdownRenderConfiguration: MarkdownRenderConfiguration = {
-        authorIdForImages: props.authorIdForImages,
+        courseIdForImages: props.courseIdForImages,
     };
 
     const [menuTargetElement, setMenuTargetElement] = React.useState<null | T>(null);

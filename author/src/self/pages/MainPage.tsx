@@ -80,7 +80,7 @@ export function MainPage() {
             {/* course list (no course selected) */}
             {selectedCourse === null && courseListLoader.status === "success" && <InlineMarkdownButtonList
                 elements={courseListLoader.result.courses}
-                authorIdForImages={null}
+                courseIdForImages={null}
                 keyMapper={course => course.courseId}
                 labelMapper={course => course.title}
                 onClick={selectCourse}
@@ -88,7 +88,7 @@ export function MainPage() {
             {/* course "list" containing only the selected course */}
             {selectedCourse !== null && <InlineMarkdownButtonList
                 elements={[selectedCourse]}
-                authorIdForImages={null}
+                courseIdForImages={null}
                 keyMapper={course => course.courseId}
                 labelMapper={course => course.title}
                 onClick={closeCourse}
@@ -100,7 +100,7 @@ export function MainPage() {
                 <h1>Unit</h1>
                 <InlineMarkdownButtonList
                     elements={courseLoader.result.units}
-                    authorIdForImages={null}
+                    courseIdForImages={null}
                     keyMapper={unit => unit.unitId}
                     labelMapper={unit => unit.title}
                     onClick={selectUnit}

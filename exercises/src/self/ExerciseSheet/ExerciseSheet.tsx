@@ -7,7 +7,7 @@ import {useLoader} from "../../uilib/util/useLoader";
 import {FullWidthLoadingIndicator} from "../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
 export interface ExerciseSheetProps {
-    courseId: number;
+    courseId: number,
     unitIndex: number;
 }
 
@@ -27,6 +27,7 @@ export function ExerciseSheet(props: ExerciseSheetProps) {
     return <FullWidthLoadingIndicator loader={loader}>
         {(result) => <ExerciseDefinitionSwitch
             authorId={result.authorId}
+            courseId={props.courseId}
             exerciseDefinition={result.exerciseDefinition}
             exerciseScript={result.exerciseScript}
             courseScriptLibrary={result.courseScriptLibrary}

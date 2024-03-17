@@ -9,6 +9,7 @@ export function ChooseYesNoExerciseComponent(props: ExerciseComponentProps<Choos
     ];
     return <ChooseOneHelper
         authorId={props.authorId}
+        courseId={props.courseId}
         answers={taggedAnswers}
         answered={props.answered}
         reportResult={props.reportResult}

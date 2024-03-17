@@ -4,7 +4,8 @@ import {useEffect, useRef} from "react";
 
 export interface ScriptContext {
     element: HTMLDivElement;
-    authorId: number;
+    authorId: number,
+    courseId: number,
     reportResult: (correct: boolean) => void;
     adjustContainerSize: () => void;
     scrollToBottom: () => void;
@@ -29,6 +30,7 @@ export function ScriptExerciseComponent(props: ExerciseComponentProps<ScriptExer
             const scriptContext: ScriptContext = {
                 element: divRef.current,
                 authorId: props.authorId,
+                courseId: props.courseId,
                 reportResult: props.reportResult,
                 adjustContainerSize: props.adjustContainerSize,
                 scrollToBottom: props.scrollToBottom,

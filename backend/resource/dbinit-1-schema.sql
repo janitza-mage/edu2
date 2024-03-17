@@ -29,9 +29,12 @@ create table "edu2"."Unit" (
     "exerciseScript" varchar not null
 );
 
+-- Images are linked to a course, not the author, because they are assumed to be rarely shared, and the course is
+-- less dependent on the author and more self-contained this way. We might link them to a single unit later if
+-- necessary.
 create table "edu2"."Image" (
     "id" bigint not null primary key generated always as identity,
-    "authorId" bigint not null references "edu2"."Author" ("id"),
+    "courseId" bigint not null references "edu2"."Course" ("id"),
     "contentType" varchar not null,
     "data" bytea not null
 );

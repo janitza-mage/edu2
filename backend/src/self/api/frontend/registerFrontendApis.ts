@@ -27,5 +27,5 @@ export function registerFrontendApis(expressApp: core.Express) {
     register("getUnitListPage/:courseId", respondGetUnitListPage);
     register("getUnitPage/:courseId/:unitIndex", respondGetUnitPage);
     register("getExercise/:courseId/:unitIndex", respondGetExercise);
-    register("getImage/:authorId/:imageId", respondGetImage);
+    register("getImage/:courseId/:imageId", respondGetImage);
 }

@@ -4,7 +4,8 @@ import {MaterializedExerciseSheet} from "../Materialized/MaterializedExerciseShe
 import {validate} from "../../util/validate";
 
 export interface ScriptedExerciseSheetProps {
-    authorId: number;
+    authorId: number,
+    courseId: number,
     script: string;
     courseScriptLibrary: string;
 }
@@ -18,7 +19,11 @@ export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
             showExerciseSheet: (exerciseSheet: ExerciseSheet) => {
                 validate(exerciseSheetSchema, exerciseSheet, "generated exercise sheet");
                 const nonEmptySheet = makeExerciseSheetNonEmpty(exerciseSheet);
-                setSheetContent(<MaterializedExerciseSheet authorId={props.authorId} exerciseSheet={nonEmptySheet} />);
+                setSheetContent(<MaterializedExerciseSheet
+                    authorId={props.authorId}
+                    courseId={props.courseId}
+                    exerciseSheet={nonEmptySheet}
+                />);
             },
         };
         // TODO if a scripted exercise occurs in a non-scripted sheet then the courseLibrary will never be executed!

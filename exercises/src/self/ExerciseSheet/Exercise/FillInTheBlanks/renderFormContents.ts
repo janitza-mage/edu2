@@ -5,7 +5,7 @@ import {renderMarkdown} from "../../../../uilib/markdown/renderMarkdown";
 
 export function renderFormContents(props: ExerciseComponentProps<FillInTheBlanksExercise>): string {
     const { exercise, answered } = props;
-    let stencilHtml = renderMarkdown(exercise.stencil, { authorIdForImages: props.authorId });
+    let stencilHtml = renderMarkdown(exercise.stencil, { courseIdForImages: props.courseId });
     for (let i = 0; i < exercise.variables.length; i++) {
         const variable = exercise.variables[i];
         switch (variable.type) {

@@ -32,8 +32,8 @@ export function CourseInfoPage({courseId}: CourseInfoPageProps) {
     return <WithFooter footer={<Footer/>}>
         <FullWidthLoadingIndicator<Data> loader={loader}>
             {([content, courseState]) => <>
-                <h1><MarkdownInline renderConfiguration={{authorIdForImages: null}}>{content.title}</MarkdownInline></h1>
-                <Markdown renderConfiguration={{authorIdForImages: content.authorId}}>{content.description}</Markdown>
+                <h1><MarkdownInline renderConfiguration={{courseIdForImages: null}}>{content.title}</MarkdownInline></h1>
+                <Markdown renderConfiguration={{courseIdForImages: courseId}}>{content.description}</Markdown>
                 <div>
                     {courseState.completionStatus === "new" &&
                         <Button

@@ -24,7 +24,7 @@ export function UnitList(props: UnitListProps) {
                 secondaryAction={<UnitCompletionStatusIcon unitIndex={index} completedUnits={completedUnits}/>}
             >
                 <ListItemButton onClick={() => props.onClickUnit(unit, index)}>
-                    <ListItemText primary={<MarkdownInline renderConfiguration={{authorIdForImages: null}}>{unit.title}</MarkdownInline>}/>
+                    <ListItemText primary={<MarkdownInline renderConfiguration={{courseIdForImages: null}}>{unit.title}</MarkdownInline>}/>
                 </ListItemButton>
             </ListItem>)
         }

@@ -3,7 +3,7 @@ import {math, mathHtml} from "micromark-extension-math";
 import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
 
 export interface MarkdownRenderConfiguration {
-    authorIdForImages: number | null;
+    courseIdForImages: number | null;
 }
 
 /*
@@ -70,7 +70,7 @@ export function renderMarkdown(markdownSource: string, configuration: MarkdownRe
     };
     const events = postprocess(parse(options).document().write(preprocess()(markdownSource, undefined, true)));
     let insideImage = false, insideResourceDestination = false;
-    if (configuration.authorIdForImages !== null) {
+    if (configuration.courseIdForImages !== null) {
         for (const event of events) {
             const token = event[1];
             const tokenType = token.type;
@@ -84,11 +84,11 @@ export function renderMarkdown(markdownSource: string, configuration: MarkdownRe
             }
             if (insideImage && insideResourceDestination) {
                 let text = event[2].sliceSerialize(token);
-                if (text.startsWith("author:")) {
+                if (text.startsWith("course:")) {
                     text = text.substring(7);
                     const imageId = parseInt(text, 10);
                     if (!isNaN(imageId)) {
-                        const replacement = commonSystemConfiguration.frontendBackendBaseUrl + "/getImage/" + configuration.authorIdForImages + "/" + imageId;
+                        const replacement = commonSystemConfiguration.frontendBackendBaseUrl + "/getImage/" + configuration.courseIdForImages + "/" + imageId;
                         event[2] = {sliceSerialize: () => replacement} as any;
                     }
                 }

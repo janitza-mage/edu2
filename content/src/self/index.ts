@@ -43,7 +43,7 @@ async function main() {
 
     });
      */
-    await updateImage(1, 200, 200, (context) => {
+    await updateImage(2, 200, 200, (context) => {
         setupCoordinateGridCanvas(context, -6, 6, -6, 6);
 
         context.strokeStyle = "blue";

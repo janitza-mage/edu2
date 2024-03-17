@@ -23,7 +23,7 @@ export function CourseList({entries, onClickEntry}: CourseListProps) {
             secondaryAction={<CourseCompletionStatusIcon status={entry.state.completionStatus}/>}
         >
             <ListItemButton onClick={() => onClickEntry(entry)}>
-                <ListItemText primary={<MarkdownInline renderConfiguration={{authorIdForImages: null}}>{entry.course.title}</MarkdownInline>}/>
+                <ListItemText primary={<MarkdownInline renderConfiguration={{courseIdForImages: null}}>{entry.course.title}</MarkdownInline>}/>
             </ListItemButton>
         </ListItem>)}
     </List>

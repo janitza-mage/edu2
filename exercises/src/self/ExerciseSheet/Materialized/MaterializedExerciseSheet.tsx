@@ -8,6 +8,7 @@ import {MarkdownRenderConfiguration} from "../../../uilib/markdown/renderMarkdow
 
 export interface MaterializedExerciseSheetProps {
     authorId: number;
+    courseId: number;
     exerciseSheet: NonEmptyExerciseSheet;
 }
 
@@ -58,7 +59,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
 
     // JSX
     const markdownConfiguration: MarkdownRenderConfiguration = {
-        authorIdForImages: props.authorId,
+        courseIdForImages: props.courseId,
     };
     return <>
         {props.exerciseSheet.map((exercise, index) => (index <= exerciseResults.length) && <Fragment key={index}>
@@ -67,6 +68,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
             <div style={index < exerciseResults.length ? {backgroundColor: exerciseResults[index] ? "#c0ffc0" : "#ffc0c0"} : {}}>
                 <ExerciseComponentSwitch
                     authorId={props.authorId}
+                    courseId={props.courseId}
                     key={index}
                     exercise={exercise}
                     answered={index < exerciseResults.length}

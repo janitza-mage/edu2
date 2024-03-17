@@ -10,7 +10,8 @@ export interface TaggedAnswer {
 }
 
 export interface ChooseOneHelperProps {
-    authorId: number;
+    authorId: number,
+    courseId: number,
     answers: TaggedAnswer[];
     answered: boolean;
     reportResult: (correct: boolean) => void;
@@ -51,7 +52,7 @@ export function ChooseOneHelper(props: ChooseOneHelperProps) {
                 {props.answered && <div style={{color: "#888", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
                     {answer.correct ? <IconCheck /> : <IconDangerous />}
                 </div>}
-                <MarkdownInline renderConfiguration={{ authorIdForImages: props.authorId }}>
+                <MarkdownInline renderConfiguration={{ courseIdForImages: props.courseId }}>
                     {answer.content}
                 </MarkdownInline>
             </Button>
