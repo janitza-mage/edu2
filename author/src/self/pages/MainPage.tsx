@@ -1,8 +1,6 @@
 import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
 import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
 import React, {useState} from "react";
-import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
-import styles from "./MainPage.module.scss";
 import {
     GetBackendCourseAndUnitsResponse,
     GetBackendCourseAndUnitsResponseUnit
@@ -11,8 +9,8 @@ import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
 import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {UnitDataPanel} from "./UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
-import {MarkdownInline} from "../../uilib/markdown/Markdown";
 import {MarkdownRenderConfiguration} from "../../uilib/markdown/renderMarkdown";
+import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
 
 const markdownRenderConfiguration: MarkdownRenderConfiguration = {
     authorIdForImages: null,
@@ -77,44 +75,39 @@ export function MainPage() {
         <div style={{flexGrow: 0, flexShrink: 0, width: "400px"}}>
 
             <h1>Course</h1>
-            <List className={styles.EntityList}>
-
-                {/* course list (no course selected) */}
-                {selectedCourse === null && <>
-                    {courseListLoader.status === "success" && courseListLoader.result.courses.map(course =>
-                        <ListItem key={course.courseId} disablePadding className={styles.EntityListEntry}>
-                            <ListItemButton onClick={() => selectCourse(course)}>
-                                <ListItemText primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{course.title}</MarkdownInline>}/>
-                            </ListItemButton>
-                        </ListItem>
-                    )}
-                </>}
-
-                {/* course "list" containing only the selected course */}
-                {selectedCourse !== null &&
-                    <ListItem disablePadding className={styles.EntityListEntry + " " + styles.selected}>
-                        <ListItemButton onClick={closeCourse}>
-                            <ListItemText
-                                primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{selectedCourse.title}</MarkdownInline>}
-                                secondary="click to close"
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                }
-
-            </List>
+            {/* course list (no course selected) */}
+            {selectedCourse === null && courseListLoader.status === "success" && <InlineMarkdownButtonList
+                authorIdForImages={null}
+                entries={courseListLoader.result.courses.map(course => ({
+                    key: course.courseId,
+                    content: course.title,
+                    onClick: () => selectCourse(course),
+                }))}
+            />}
+            {/* course "list" containing only the selected course */}
+            {selectedCourse !== null && <InlineMarkdownButtonList
+                authorIdForImages={null}
+                entries={[{
+                    key: selectedCourse.courseId,
+                    content: selectedCourse.title,
+                    onClick: closeCourse,
+                    selected: true,
+                }]}
+            />}
 
             {/* unit list */}
             {courseLoader.status === "success" && courseLoader.result !== null && <>
                 <h1>Unit</h1>
-                {courseLoader.result.units.map(unit => {
-                    const selected = selectedUnitId !== null && selectedUnitId === unit.unitId;
-                    return <ListItem key={unit.unitId} disablePadding className={styles.EntityListEntry + (selected ? " " + styles.selected : "")}>
-                        <ListItemButton onClick={() => selectUnit(unit)}>
-                            <ListItemText primary={<MarkdownInline renderConfiguration={markdownRenderConfiguration}>{unit.title}</MarkdownInline>}/>
-                        </ListItemButton>
-                    </ListItem>;
-                })}
+                <InlineMarkdownButtonList
+                    authorIdForImages={null}
+                    entries={courseLoader.result.units.map(unit => ({
+                        key: unit.unitId,
+                        content: unit.title,
+                        onClick: () => selectUnit(unit),
+                        selected: selectedUnitId !== null && selectedUnitId === unit.unitId,
+
+                    }))}
+                />
             </>}
 
         </div>
