@@ -7,6 +7,7 @@ import {respondUpdateCourseHeaderData} from "./respondUpdateCourseHeaderData";
 import {respondGetUnit} from "./respondGetUnit";
 import {respondUpdateUnitData} from "./respondUpdateUnitData";
 import {respondUpdateImage} from "./respondUpdateImage";
+import {respondCreateUnitBefore} from "./respondCreateUnitBefore";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -39,4 +40,5 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerGet("getUnit/:unitId", respondGetUnit);
     registerPost("updateUnit/:unitId", respondUpdateUnitData);
     registerPut("updateImage/:imageId", respondUpdateImage);
+    registerPost("createUnitBefore/:unitId", respondCreateUnitBefore);
 }
