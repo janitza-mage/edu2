@@ -7,14 +7,13 @@ import {updateImageRequestSchema} from "../../../common/author-api/UpdateImageRe
 import {base64Decode} from "../../util/base64";
 
 export async function respondUpdateImage(requestCycle: AuthorRequestCycle): Promise<EmptyObject> {
-    const authorId = 1; // TODO
     const imageId = getNumberFromPath(requestCycle.pathParameters.imageId);
     const request = await validateRequestBodyZod(requestCycle, updateImageRequestSchema);
     const data = base64Decode(request.dataBase64);
     const postgresPool = await getPostgresPool();
     await postgresPool.query(
-        'UPDATE "edu2"."Image" SET "authorId" = $2, "contentType" = $3, "data" = $4 WHERE "id" = $1',
-        [imageId, authorId, request.contentType, data],
+        'UPDATE "edu2"."Image" SET "contentType" = $2, "data" = $3 WHERE "id" = $1',
+        [imageId, request.contentType, data],
     );
     return {};
 }
