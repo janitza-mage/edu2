@@ -86,37 +86,38 @@ export async function getNewGlobalPostgresConnection(
   return connection;
 }
 
-export async function withNewGlobalPostgresConnection(
-    body: (connection: PostgresConnection) => Promise<void>,
+export async function withNewGlobalPostgresConnection<R = void>(
+    body: (connection: PostgresConnection) => Promise<R>,
     autoCloseTtlSeconds: number | null = 600,
-): Promise<void> {
+): Promise<R> {
     const connection = await getNewGlobalPostgresConnection(autoCloseTtlSeconds);
     try {
-        await body(connection);
+        return await body(connection);
     } finally {
         connection.release();
     }
 }
 
-export async function withTransaction(
+export async function withTransaction<R = void>(
     connection: PostgresConnection,
-    body: (connection: PostgresConnection) => Promise<void>,
-): Promise<void> {
+    body: (connection: PostgresConnection) => Promise<R>,
+): Promise<R> {
     await connection.query("BEGIN");
     try {
-        await body(connection);
+        const result = await body(connection);
         await connection.query("COMMIT");
+        return result;
     } catch (e) {
         await connection.query("ROLLBACK");
         throw e;
     }
 }
 
-export async function withNewGlobalPostgresConnectionAndSingleTransaction(
-    body: (connection: PostgresConnection) => Promise<void>,
+export async function withNewGlobalPostgresConnectionAndSingleTransaction<R = void>(
+    body: (connection: PostgresConnection) => Promise<R>,
     autoCloseTtlSeconds: number | null = 600,
-): Promise<void> {
-    await withNewGlobalPostgresConnection(async (connection) => {
-        await withTransaction(connection, body);
+): Promise<R> {
+    return await withNewGlobalPostgresConnection(async (connection) => {
+        return await withTransaction(connection, body);
     }, autoCloseTtlSeconds);
 }

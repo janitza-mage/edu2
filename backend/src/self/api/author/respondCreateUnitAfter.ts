@@ -4,6 +4,7 @@ import {getNumberFromPath} from "../getNumberFromPath";
 import {FinishRequest} from "../../util/rest/FinishRequest";
 import {sql} from "@pgtyped/runtime";
 import {ICreateUnitSqlQuery, IGetUnitSqlQuery, IMoveOtherUnitsSqlQuery} from "./respondCreateUnitAfter.pgtyped";
+import {IdResponse} from "../../../common/types/IdResponse";
 
 const getUnitSql = sql<IGetUnitSqlQuery>`
     SELECT "courseId", "index" FROM "edu2"."Unit" WHERE "id" = $unitId!
@@ -33,9 +34,9 @@ const createUnitSql = sql<ICreateUnitSqlQuery>`
     ) RETURNING "id";
 `;
 
-export async function respondCreateUnitAfter(requestCycle: AuthorRequestCycle): Promise<void> {
+export async function respondCreateUnitAfter(requestCycle: AuthorRequestCycle): Promise<IdResponse> {
     const unitId = getNumberFromPath(requestCycle.pathParameters.unitId);
-    await withNewGlobalPostgresConnectionAndSingleTransaction(async (postgresConnection) => {
+    return await withNewGlobalPostgresConnectionAndSingleTransaction(async (postgresConnection) => {
         const units = await getUnitSql.run({ unitId }, postgresConnection);
         if (units.length !== 1) {
             throw FinishRequest.notFound();
@@ -57,6 +58,6 @@ export async function respondCreateUnitAfter(requestCycle: AuthorRequestCycle): 
             },
             exerciseScript: "",
         }, postgresConnection);
-        console.log(result);
+        return { id: result[0].id };
     });
 }
