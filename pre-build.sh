@@ -4,6 +4,9 @@ cd ..
 cd backend
 ./scripts/pre-build.sh
 cd ..
+cd canvas-lib
+./scripts/pre-build.sh
+cd ..
 cd content
 ./scripts/pre-build.sh
 cd ..
