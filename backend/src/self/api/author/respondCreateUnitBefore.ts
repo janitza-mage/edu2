@@ -1,4 +1,4 @@
-import {getPostgresPool} from "../../util/postgres/postgresPool";
+import {withNewGlobalPostgresConnectionAndSingleTransaction} from "../../util/postgres/postgresPool";
 import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {FinishRequest} from "../../util/rest/FinishRequest";
@@ -34,25 +34,26 @@ const createUnitSql = sql<ICreateUnitSqlQuery>`
 `;
 
 export async function respondCreateUnitBefore(requestCycle: AuthorRequestCycle): Promise<void> {
-    const postgresPool = await getPostgresPool();
     const unitId = getNumberFromPath(requestCycle.pathParameters.unitId);
-    const units = await getUnitSql.run({ unitId }, postgresPool);
-    if (units.length !== 1) {
-        throw FinishRequest.notFound();
-    }
-    const unit = units[0];
-    await moveOtherUnitsSql.run({
-        courseId: unit.courseId,
-        index: unit.index,
-    }, postgresPool);
-    const result = await createUnitSql.run({
-        courseId: unit.courseId,
-        index: unit.index,
-        title: "New Unit",
-        description: "",
-        exerciseUrl: null,
-        exerciseDefinition: "",
-        exerciseScript: "",
-    }, postgresPool);
-    console.log(result);
+    await withNewGlobalPostgresConnectionAndSingleTransaction(async (postgresConnection) => {
+        const units = await getUnitSql.run({ unitId }, postgresConnection);
+        if (units.length !== 1) {
+            throw FinishRequest.notFound();
+        }
+        const unit = units[0];
+        await moveOtherUnitsSql.run({
+            courseId: unit.courseId,
+            index: unit.index,
+        }, postgresConnection);
+        const result = await createUnitSql.run({
+            courseId: unit.courseId,
+            index: unit.index,
+            title: "New Unit",
+            description: "",
+            exerciseUrl: null,
+            exerciseDefinition: "",
+            exerciseScript: "",
+        }, postgresConnection);
+        console.log(result);
+    });
 }

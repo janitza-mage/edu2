@@ -85,3 +85,38 @@ export async function getNewGlobalPostgresConnection(
   }
   return connection;
 }
+
+export async function withNewGlobalPostgresConnection(
+    body: (connection: PostgresConnection) => Promise<void>,
+    autoCloseTtlSeconds: number | null = 600,
+): Promise<void> {
+    const connection = await getNewGlobalPostgresConnection(autoCloseTtlSeconds);
+    try {
+        await body(connection);
+    } finally {
+        connection.release();
+    }
+}
+
+export async function withTransaction(
+    connection: PostgresConnection,
+    body: (connection: PostgresConnection) => Promise<void>,
+): Promise<void> {
+    await connection.query("BEGIN");
+    try {
+        await body(connection);
+        await connection.query("COMMIT");
+    } catch (e) {
+        await connection.query("ROLLBACK");
+        throw e;
+    }
+}
+
+export async function withNewGlobalPostgresConnectionAndSingleTransaction(
+    body: (connection: PostgresConnection) => Promise<void>,
+    autoCloseTtlSeconds: number | null = 600,
+): Promise<void> {
+    await withNewGlobalPostgresConnection(async (connection) => {
+        await withTransaction(connection, body);
+    }, autoCloseTtlSeconds);
+}
