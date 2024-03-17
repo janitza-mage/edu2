@@ -9,6 +9,7 @@ import {respondUpdateUnitData} from "./respondUpdateUnitData";
 import {respondUpdateImage} from "./respondUpdateImage";
 import {respondCreateUnitBefore} from "./respondCreateUnitBefore";
 import {respondDeleteUnit} from "./respondDeleteUnit";
+import {respondCreateUnitAfter} from "./respondCreateUnitAfter";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -50,5 +51,6 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerPost("updateUnit/:unitId", respondUpdateUnitData);
     registerPut("updateImage/:imageId", respondUpdateImage);
     registerPost("createUnitBefore/:unitId", respondCreateUnitBefore);
+    registerPost("createUnitAfter/:unitId", respondCreateUnitAfter);
     registerDelete("deleteUnit/:unitId", respondDeleteUnit);
 }
