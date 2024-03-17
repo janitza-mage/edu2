@@ -12,12 +12,11 @@
   "db": {
     "host": "localhost",
     "user": "postgres",
-    "dbName": "postgres",
+    "dbName": "edu2",
     "password": "postgres"
   },
   "typesOverrides": {
     "int8": "number",
-    "timestamptz": "@js-joda/core#Instant",
     "bytea": "Uint8Array"
   }
 }
