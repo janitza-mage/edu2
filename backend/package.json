@@ -22,7 +22,8 @@
   "scripts": {
     "build": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc",
     "dev": "rm -rf build && ./scripts/pre-build.sh && ./node_modules/.bin/tsc-watch --onSuccess \"node build\"",
-    "serve": "node build"
+    "serve": "node build",
+    "pgtyped": "pgtyped -c ./pgtyped.json"
   },
   "devDependencies": {
     "@pgtyped/cli": "^2.3.0"
