@@ -9,7 +9,6 @@ import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
 import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
 import {UnitDataPanel} from "./UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
-import {MarkdownRenderConfiguration} from "../../uilib/markdown/renderMarkdown";
 import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
 
 export function MainPage() {
@@ -73,36 +72,32 @@ export function MainPage() {
             <h1>Course</h1>
             {/* course list (no course selected) */}
             {selectedCourse === null && courseListLoader.status === "success" && <InlineMarkdownButtonList
+                elements={courseListLoader.result.courses}
                 authorIdForImages={null}
-                entries={courseListLoader.result.courses.map(course => ({
-                    key: course.courseId,
-                    content: course.title,
-                    onClick: () => selectCourse(course),
-                }))}
+                keyMapper={course => course.courseId}
+                labelMapper={course => course.title}
+                onClick={selectCourse}
             />}
             {/* course "list" containing only the selected course */}
             {selectedCourse !== null && <InlineMarkdownButtonList
+                elements={[selectedCourse]}
                 authorIdForImages={null}
-                entries={[{
-                    key: selectedCourse.courseId,
-                    content: selectedCourse.title,
-                    onClick: closeCourse,
-                    selected: true,
-                }]}
+                keyMapper={course => course.courseId}
+                labelMapper={course => course.title}
+                onClick={closeCourse}
+                selectedMapper={() => true}
             />}
 
             {/* unit list */}
             {courseLoader.status === "success" && courseLoader.result !== null && <>
                 <h1>Unit</h1>
                 <InlineMarkdownButtonList
+                    elements={courseLoader.result.units}
                     authorIdForImages={null}
-                    entries={courseLoader.result.units.map(unit => ({
-                        key: unit.unitId,
-                        content: unit.title,
-                        onClick: () => selectUnit(unit),
-                        selected: selectedUnitId !== null && selectedUnitId === unit.unitId,
-
-                    }))}
+                    keyMapper={unit => unit.unitId}
+                    labelMapper={unit => unit.title}
+                    onClick={selectUnit}
+                    selectedMapper={unit => selectedUnitId !== null && selectedUnitId === unit.unitId}
                 />
             </>}
 
