@@ -1,4 +1,5 @@
 /build
+/src/canvas-lib
 /src/common
 /src/uilib
 /src/uilib-frontend
