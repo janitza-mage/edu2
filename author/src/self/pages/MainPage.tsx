@@ -98,6 +98,21 @@ export function MainPage() {
                     labelMapper={unit => unit.title}
                     onClick={selectUnit}
                     selectedMapper={unit => selectedUnitId !== null && selectedUnitId === unit.unitId}
+                    menu={[
+                        {
+                          label: "Insert Before",
+                          onClick: (unit) => {alert("Insert Before: " + unit.title);},
+                        },
+                        {
+                          label: "Insert After",
+                          onClick: (unit) => {alert("Insert After: " + unit.title);},
+                        },
+                        "divider",
+                        {
+                          label: "Delete",
+                          onClick: (unit) => {alert("Delete: " + unit.title);},
+                        },
+                    ]}
                 />
             </>}
 
