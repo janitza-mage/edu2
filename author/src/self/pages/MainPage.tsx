@@ -129,8 +129,11 @@ export function MainPage() {
                           label: "Delete",
                             onClick: (unit) => {
                                 background(async () => {
-                                    await deleteUnit(unit.unitId);
-                                    courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                                    // eslint-disable-next-line no-restricted-globals
+                                    if (confirm("really delete " + unit.title + "?")) {
+                                        await deleteUnit(unit.unitId);
+                                        courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                                    }
                                 });
                             },
                         },
