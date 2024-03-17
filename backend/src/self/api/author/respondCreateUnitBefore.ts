@@ -51,7 +51,10 @@ export async function respondCreateUnitBefore(requestCycle: AuthorRequestCycle):
             title: "New Unit",
             description: "",
             exerciseUrl: null,
-            exerciseDefinition: "",
+            exerciseDefinition: {
+                "type": "explicit",
+                "exercises": []
+            },
             exerciseScript: "",
         }, postgresConnection);
         console.log(result);
