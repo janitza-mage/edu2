@@ -1,4 +1,10 @@
-import {getBackendCourseAndUnits, getBackendCourseList, getBackendUnit} from "../logic/backend/backend";
+import {
+    createUnitAfter,
+    createUnitBefore, deleteUnit,
+    getBackendCourseAndUnits,
+    getBackendCourseList,
+    getBackendUnit
+} from "../logic/backend/backend";
 import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
 import React, {useState} from "react";
 import {
@@ -10,6 +16,7 @@ import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResp
 import {UnitDataPanel} from "./UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
 import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
+import {background} from "../../common/util/background";
 
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
@@ -101,16 +108,31 @@ export function MainPage() {
                     menu={[
                         {
                           label: "Insert Before",
-                          onClick: (unit) => {alert("Insert Before: " + unit.title);},
+                          onClick: (unit) => {
+                              background(async () => {
+                                  await createUnitBefore(unit.unitId);
+                                  courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                              });
+                          },
                         },
                         {
                           label: "Insert After",
-                          onClick: (unit) => {alert("Insert After: " + unit.title);},
+                            onClick: (unit) => {
+                                background(async () => {
+                                    await createUnitAfter(unit.unitId);
+                                    courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                                });
+                            },
                         },
                         "divider",
                         {
                           label: "Delete",
-                          onClick: (unit) => {alert("Delete: " + unit.title);},
+                            onClick: (unit) => {
+                                background(async () => {
+                                    await deleteUnit(unit.unitId);
+                                    courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                                });
+                            },
                         },
                     ]}
                 />

@@ -1,5 +1,5 @@
 import {GetBackendCourseListResponse} from "../../../common/author-api/GetBackendCourseListResponse";
-import {backendGet, backendPost} from "./backendCall";
+import {backendDelete, backendGet, backendPost} from "./backendCall";
 import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
 import {UpdateCourseHeaderDataRequest} from "../../../common/author-api/UpdateCourseHeaderDataRequest";
 import {GetBackendUnitResponse} from "../../../common/author-api/GetBackendUnitResponse";
@@ -23,4 +23,16 @@ export async function getBackendUnit(unitId: number): Promise<GetBackendUnitResp
 
 export async function updateBackendUnitData(unitId: number, request: UpdateBackendUnitRequest): Promise<void> {
     await backendPost(`updateUnit/${unitId}`, request);
+}
+
+export async function createUnitBefore(unitId: number): Promise<void> {
+    await backendPost(`createUnitBefore/${unitId}`, {});
+}
+
+export async function createUnitAfter(unitId: number): Promise<void> {
+    await backendPost(`createUnitAfter/${unitId}`, {});
+}
+
+export async function deleteUnit(unitId: number): Promise<void> {
+    await backendDelete(`deleteUnit/${unitId}`, {});
 }
