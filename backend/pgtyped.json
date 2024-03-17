@@ -1,0 +1,23 @@
+{
+  "transforms": [
+    {
+      "mode": "ts",
+      "include": "**/*.ts",
+      "emitTemplate": "{{dir}}/{{name}}.pgtyped.ts"
+    }
+  ],
+  "srcDir": "./src/",
+  "failOnError": false,
+  "camelCaseColumnNames": false,
+  "db": {
+    "host": "localhost",
+    "user": "postgres",
+    "dbName": "postgres",
+    "password": "postgres"
+  },
+  "typesOverrides": {
+    "int8": "number",
+    "timestamptz": "@js-joda/core#Instant",
+    "bytea": "Uint8Array"
+  }
+}
