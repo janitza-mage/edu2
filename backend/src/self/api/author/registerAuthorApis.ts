@@ -12,6 +12,7 @@ import {respondDeleteUnit} from "./respondDeleteUnit";
 import {respondCreateUnitAfter} from "./respondCreateUnitAfter";
 import {respondGetImagePage} from "./respondGetImagePage";
 import {respondUploadImage} from "./respondUploadImage";
+import {respondDeleteImage} from "./respondDeleteImage";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -57,4 +58,5 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerPost("createUnitAfter/:unitId", respondCreateUnitAfter);
     registerDelete("deleteUnit/:unitId", respondDeleteUnit);
     registerGet("getImagePage/:courseId", respondGetImagePage);
+    registerDelete("deleteImage/:imageId", respondDeleteImage);
 }
