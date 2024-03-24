@@ -10,7 +10,7 @@ export async function respondGetImagePage(requestCycle: UnauthenticatedRequestCy
     const postgresPool = await getPostgresPool();
     const [courseResult, imagesResult] = await promiseAll(
         () => postgresPool.query(
-            'SELECT "name" FROM "edu2"."Course" WHERE "id" = $1',
+            'SELECT "title" FROM "edu2"."Course" WHERE "id" = $1',
             [courseId],
         ),
         () => postgresPool.query(
@@ -22,7 +22,7 @@ export async function respondGetImagePage(requestCycle: UnauthenticatedRequestCy
         throw FinishRequest.notFound();
     }
     return {
-        courseName: courseResult.rows[0].name,
+        courseName: courseResult.rows[0].title,
         imageIds: imagesResult.rows.map(row => row.id),
     };
 }
