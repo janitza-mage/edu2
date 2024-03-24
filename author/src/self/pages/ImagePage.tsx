@@ -1,9 +1,10 @@
 import {useLoader} from "../../uilib/util/useLoader";
-import {getImagePage, uploadImage} from "../logic/backend/backend";
+import {deleteImage, getImagePage, uploadImage} from "../logic/backend/backend";
 import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
 import {Button, Grid, IconButton} from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import {background} from "../../common/util/background";
 
 export interface ImagePageProps {
     courseId: number;
@@ -37,6 +38,16 @@ export function ImagePage(props: ImagePageProps) {
         fileReader.readAsArrayBuffer(file);
     }
 
+    function onDeleteImage(id: number) {
+        background(async () => {
+            // eslint-disable-next-line no-restricted-globals
+            if (confirm("really delete image?")) {
+                await deleteImage(id);
+                loader.reload(async () => getImagePage(props.courseId));
+            }
+        });
+    }
+
     return <>
         {loader.status === "success" && <>
             <h1>Images for {loader.result.courseName}</h1>
@@ -53,6 +64,9 @@ export function ImagePage(props: ImagePageProps) {
                                 <ContentCopyIcon />
                             </IconButton>
                         </div>
+                        <br />
+                        <br />
+                        <div><Button variant={"text"} onClick={() => onDeleteImage(id)}>Delete</Button></div>
                     </Grid>
                 </>)}
             </Grid>

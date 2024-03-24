@@ -46,3 +46,7 @@ export async function getImagePage(courseId: number): Promise<GetImagePageRespon
 export async function uploadImage(courseId: number, request: UploadImageRequest): Promise<GetImagePageResponse> {
     return await backendPost(`uploadImage/${courseId}`, request);
 }
+
+export async function deleteImage(imageId: number): Promise<void> {
+    return await backendDelete(`deleteImage/${imageId}`);
+}
