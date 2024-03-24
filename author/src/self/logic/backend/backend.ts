@@ -4,6 +4,8 @@ import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBa
 import {UpdateCourseHeaderDataRequest} from "../../../common/author-api/UpdateCourseHeaderDataRequest";
 import {GetBackendUnitResponse} from "../../../common/author-api/GetBackendUnitResponse";
 import {UpdateBackendUnitRequest} from "../../../common/author-api/UpdateBackendUnitRequest";
+import {GetImagePageResponse} from "../../../common/author-api/GetImagePageResponse";
+import {UploadImageRequest} from "../../../common/author-api/UploadImageRequest";
 
 export async function getBackendCourseList(): Promise<GetBackendCourseListResponse> {
     return await backendGet<GetBackendCourseListResponse>("getCourseList");
@@ -35,4 +37,12 @@ export async function createUnitAfter(unitId: number): Promise<void> {
 
 export async function deleteUnit(unitId: number): Promise<void> {
     await backendDelete(`deleteUnit/${unitId}`, {});
+}
+
+export async function getImagePage(courseId: number): Promise<GetImagePageResponse> {
+    return await backendGet(`getImagePage/${courseId}`);
+}
+
+export async function uploadImage(courseId: number, request: UploadImageRequest): Promise<GetImagePageResponse> {
+    return await backendPost(`uploadImage/${courseId}`, request);
 }
