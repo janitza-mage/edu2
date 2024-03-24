@@ -1,11 +1,12 @@
 import {GetBackendCourseListResponse} from "../../../common/author-api/GetBackendCourseListResponse";
-import {backendDelete, backendGet, backendPost} from "./backendCall";
+import {backendDelete, backendGet, backendPost, backendPut} from "./backendCall";
 import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
 import {UpdateCourseHeaderDataRequest} from "../../../common/author-api/UpdateCourseHeaderDataRequest";
 import {GetBackendUnitResponse} from "../../../common/author-api/GetBackendUnitResponse";
 import {UpdateBackendUnitRequest} from "../../../common/author-api/UpdateBackendUnitRequest";
 import {GetImagePageResponse} from "../../../common/author-api/GetImagePageResponse";
 import {UploadImageRequest} from "../../../common/author-api/UploadImageRequest";
+import {UpdateImageRequest} from "../../../common/author-api/UpdateImageRequest";
 
 export async function getBackendCourseList(): Promise<GetBackendCourseListResponse> {
     return await backendGet<GetBackendCourseListResponse>("getCourseList");
@@ -45,6 +46,10 @@ export async function getImagePage(courseId: number): Promise<GetImagePageRespon
 
 export async function uploadImage(courseId: number, request: UploadImageRequest): Promise<GetImagePageResponse> {
     return await backendPost(`uploadImage/${courseId}`, request);
+}
+
+export async function updateImage(imageId: number, request: UpdateImageRequest): Promise<GetImagePageResponse> {
+    return await backendPut(`updateImage/${imageId}`, request);
 }
 
 export async function deleteImage(imageId: number): Promise<void> {

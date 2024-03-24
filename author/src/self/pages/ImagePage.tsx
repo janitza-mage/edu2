@@ -1,9 +1,10 @@
 import {useLoader} from "../../uilib/util/useLoader";
-import {deleteImage, getImagePage, uploadImage} from "../logic/backend/backend";
+import {deleteImage, getImagePage, updateImage, uploadImage} from "../logic/backend/backend";
 import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
 import {Button, Grid, IconButton} from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import DeleteIcon from '@mui/icons-material/Delete';
 import {background} from "../../common/util/background";
 
 export interface ImagePageProps {
@@ -38,6 +39,23 @@ export function ImagePage(props: ImagePageProps) {
         fileReader.readAsArrayBuffer(file);
     }
 
+    function makeOnReplaceImage(id: number) {
+        return (event: any) => {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+            const fileReader = new FileReader();
+            fileReader.onloadend = async () => {
+                const data = new Uint8Array(fileReader.result as ArrayBuffer);
+                const dataBase64 = await base64Encode(data);
+                await updateImage(id, { contentType: file.type, dataBase64 });
+                loader.reload(async () => getImagePage(props.courseId));
+            }
+            fileReader.readAsArrayBuffer(file);
+        }
+    }
+
     function onDeleteImage(id: number) {
         background(async () => {
             // eslint-disable-next-line no-restricted-globals
@@ -66,7 +84,15 @@ export function ImagePage(props: ImagePageProps) {
                         </div>
                         <br />
                         <br />
-                        <div><Button variant={"text"} onClick={() => onDeleteImage(id)}>Delete</Button></div>
+                        <div>
+                            <Button component="label" variant="text" startIcon={<CloudUploadIcon />}>
+                                Replace
+                                <input type="file" hidden onChange={makeOnReplaceImage(id)} />
+                            </Button>
+                        </div>
+                        <div>
+                            <Button variant={"text"} startIcon={<DeleteIcon />} onClick={() => onDeleteImage(id)}>Delete</Button>
+                        </div>
                     </Grid>
                 </>)}
             </Grid>
