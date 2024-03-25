@@ -1,4 +1,5 @@
 import {
+    createInitialUnit,
     createUnitAfter,
     createUnitBefore, deleteUnit,
     getBackendCourseAndUnits,
@@ -17,6 +18,7 @@ import {UnitDataPanel} from "./UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
 import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
 import {background} from "../../common/util/background";
+import {Button} from "@mui/material";
 
 export function MainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
@@ -98,6 +100,15 @@ export function MainPage() {
             {/* unit list */}
             {courseLoader.status === "success" && courseLoader.result !== null && <>
                 <h1>Unit</h1>
+                {courseLoader.result.units.length === 0 && <Button
+                    variant={"contained"}
+                    onClick={() => background(async () => {
+                        if (selectedCourseId) {
+                            await createInitialUnit(selectedCourseId);
+                            courseLoader.reload(async () => selectedCourseId === null ? null : getBackendCourseAndUnits(selectedCourseId));
+                        }
+                    })}
+                >Create initial unit</Button>}
                 <InlineMarkdownButtonList
                     elements={courseLoader.result.units}
                     courseIdForImages={null}

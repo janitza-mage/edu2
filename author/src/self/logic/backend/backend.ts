@@ -36,6 +36,10 @@ export async function createUnitAfter(unitId: number): Promise<void> {
     await backendPost(`createUnitAfter/${unitId}`, {});
 }
 
+export async function createInitialUnit(courseId: number): Promise<void> {
+    await backendPost(`createUnitAtEndOfCourse/${courseId}`, {});
+}
+
 export async function deleteUnit(unitId: number): Promise<void> {
     await backendDelete(`deleteUnit/${unitId}`, {});
 }
