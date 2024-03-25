@@ -88,14 +88,19 @@ export function MainPage() {
                 onClick={selectCourse}
             />}
             {/* course "list" containing only the selected course */}
-            {selectedCourse !== null && <InlineMarkdownButtonList
-                elements={[selectedCourse]}
-                courseIdForImages={null}
-                keyMapper={course => course.courseId}
-                labelMapper={course => course.title}
-                onClick={closeCourse}
-                selectedMapper={() => true}
-            />}
+            {selectedCourse !== null && <>
+                <InlineMarkdownButtonList
+                    elements={[selectedCourse]}
+                    courseIdForImages={null}
+                    keyMapper={course => course.courseId}
+                    labelMapper={course => course.title}
+                    onClick={closeCourse}
+                    selectedMapper={() => true}
+                />
+                <div><Button onClick={() => {
+                    window.open("/images/" + selectedCourse.courseId, "_blank");
+                }}>Bildverwaltung</Button></div>
+            </> }
 
             {/* unit list */}
             {courseLoader.status === "success" && courseLoader.result !== null && <>
