@@ -88,6 +88,7 @@ export function setupCoordinateGridCanvas(
         context.stroke();
     }
     if (options?.drawTickNumbers ?? options?.drawTicks ?? true) {
+        context.font = "10px sans-serif";
         context.strokeStyle = "black";
         context.lineWidth = 0.1;
         for (let x = minX; x <= maxX; x++) {

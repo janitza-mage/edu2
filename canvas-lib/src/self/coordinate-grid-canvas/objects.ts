@@ -1,7 +1,13 @@
-export function point(context: CanvasRenderingContext2D, x: number, y: number, size = 0.15) {
+export function point(context: CanvasRenderingContext2D, x: number, y: number, size: number = 0.15, label?: string) {
     context.beginPath();
     context.arc(x, y, size, 0, 2 * Math.PI);
     context.fill();
+    if (label !== undefined) {
+        context.font = "0.8px sans-serif";
+        context.translate(x, y);
+        context.scale(1, -1);
+        context.fillText(label, 0.3, 1.0);
+    }
 }
 
 export function arrow(

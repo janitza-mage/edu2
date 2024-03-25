@@ -68,6 +68,16 @@ async function main() {
     await updateImage(9, 200, 200, (context) => {
         setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
     });
+    await updateImage(10, 200, 200, (context) => {
+        setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
+        context.fillStyle = "black";
+        point(context, 1, 3);
+    });
+    await updateImage(11, 200, 200, (context) => {
+        setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
+        context.fillStyle = "black";
+        point(context, 1, 3, undefined, "(1|3)");
+    });
 }
 
 main().then(() => {});
