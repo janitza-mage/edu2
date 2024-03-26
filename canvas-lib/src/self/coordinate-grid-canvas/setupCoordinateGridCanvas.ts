@@ -88,14 +88,14 @@ export function setupCoordinateGridCanvas(
         context.stroke();
     }
     if (options?.drawTickNumbers ?? options?.drawTicks ?? true) {
-        context.font = "10px sans-serif";
-        context.strokeStyle = "black";
+        context.font = "0.5px sans-serif";
+        context.fillStyle = "black";
         context.lineWidth = 0.1;
         for (let x = minX; x <= maxX; x++) {
             if (x !== 0 || options?.clipNegative) {
                 context.save();
                 context.translate(x - 0.18, -0.65);
-                context.scale(0.05, -0.05);
+                context.scale(1, -1);
                 context.fillText(x.toString(), 0, 0);
                 context.restore();
             }
@@ -104,7 +104,7 @@ export function setupCoordinateGridCanvas(
             if (y !== 0 || options?.clipNegative) {
                 context.save();
                 context.translate(-0.65, y - 0.18);
-                context.scale(0.05, -0.05);
+                context.scale(1, -1);
                 context.fillText(y.toString(), 0, 0);
                 context.restore();
             }
