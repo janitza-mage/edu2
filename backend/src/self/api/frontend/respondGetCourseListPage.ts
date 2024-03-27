@@ -4,7 +4,7 @@ import {getPostgresPool} from "../../util/postgres/postgresPool";
 
 export async function respondGetCourseListPage(_requestCycle: UnauthenticatedRequestCycle): Promise<GetCourseListPageResponse> {
     const postgresPool = await getPostgresPool();
-    const result = await postgresPool.query('SELECT "id", "authorId", "title" FROM "edu2"."Course"', []);
+    const result = await postgresPool.query('SELECT "id", "authorId", "title" FROM "edu2"."Course"', [] as unknown[]);
     const rows = result.rows;
     rows.sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0);
     return {

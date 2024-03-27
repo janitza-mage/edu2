@@ -4,7 +4,7 @@ import {GetBackendCourseListResponse} from "../../../common/author-api/GetBacken
 
 export async function respondGetCourseList(_requestCycle: AuthorRequestCycle): Promise<GetBackendCourseListResponse> {
     const postgresPool = await getPostgresPool();
-    const result = await postgresPool.query('SELECT "id", "authorId", "title" FROM "edu2"."Course" ORDER BY "title"', []);
+    const result = await postgresPool.query('SELECT "id", "authorId", "title" FROM "edu2"."Course" ORDER BY "title"', [] as unknown[]);
     return {
         courses: result.rows.map(({id, authorId, title}) => ({courseId: id, authorId, title})),
     };

@@ -13,7 +13,7 @@ export async function respondUploadImage(requestCycle: AuthorRequestCycle): Prom
     const postgresPool = await getPostgresPool();
     const result = await postgresPool.query(
         'INSERT INTO "edu2"."Image" ("courseId", "contentType", "data") VALUES ($1, $2, $3) RETURNING "id"',
-        [courseId, request.contentType, data],
+        [courseId, request.contentType, data] as unknown[],
     );
     return {
         id: result.rows[0].id,

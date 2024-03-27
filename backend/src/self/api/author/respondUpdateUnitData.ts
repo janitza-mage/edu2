@@ -12,7 +12,7 @@ export async function respondUpdateUnitData(requestCycle: AuthorRequestCycle): P
     const exerciseUrl = request.exerciseUrl.trim() || null;
     await postgresPool.query(
         'UPDATE "edu2"."Unit" SET "title" = $2, "description" = $3, "exerciseUrl" = $4, "exerciseDefinition" = $5, "exerciseScript" = $6 WHERE "id" = $1',
-        [unitId, request.title, request.description, exerciseUrl, request.exerciseDefinition, request.exerciseScript],
+        [unitId, request.title, request.description, exerciseUrl, request.exerciseDefinition, request.exerciseScript] as unknown[],
     );
     return {};
 }

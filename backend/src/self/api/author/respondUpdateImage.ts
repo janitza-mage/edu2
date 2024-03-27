@@ -13,7 +13,7 @@ export async function respondUpdateImage(requestCycle: AuthorRequestCycle): Prom
     const postgresPool = await getPostgresPool();
     await postgresPool.query(
         'UPDATE "edu2"."Image" SET "contentType" = $2, "data" = $3 WHERE "id" = $1',
-        [imageId, request.contentType, data],
+        [imageId, request.contentType, data] as unknown[],
     );
     return {};
 }

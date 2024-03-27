@@ -11,6 +11,6 @@ export async function respondUpdateCourseHeaderData(requestCycle: AuthorRequestC
     const postgresPool = await getPostgresPool();
     await postgresPool.query(
         'UPDATE "edu2"."Course" SET "title" = $2, "description" = $3, "scriptLibrary" = $4 WHERE "id" = $1',
-        [courseId, request.title, request.description, request.scriptLibrary]);
+        [courseId, request.title, request.description, request.scriptLibrary] as unknown[]);
     return {};
 }
