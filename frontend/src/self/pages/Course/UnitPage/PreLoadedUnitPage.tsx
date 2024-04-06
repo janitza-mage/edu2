@@ -140,8 +140,8 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
         {unitProgressionState === "lookbehind" && <Alert severity="success" sx={{alignItems: "center"}}>
             This unit has already been completed.
         </Alert>}
-        <h1><MarkdownInline renderConfiguration={{courseIdForImages: null}}>{props.contentResponse.title}</MarkdownInline></h1>
-        <Markdown renderConfiguration={{courseIdForImages: props.courseId}}>{props.contentResponse.description}</Markdown>
+        <h1><MarkdownInline renderConfiguration={{courseIdForImages: null, allowDangerousProtocol: false}}>{props.contentResponse.title}</MarkdownInline></h1>
+        <Markdown renderConfiguration={{courseIdForImages: props.courseId, allowDangerousProtocol: false}}>{props.contentResponse.description}</Markdown>
         <iframe
             key={exerciseIframeKey}
             ref={onNewIframeCallback}

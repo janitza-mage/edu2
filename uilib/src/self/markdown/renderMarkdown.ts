@@ -1,9 +1,12 @@
 import {compile, parse, postprocess, preprocess} from "micromark";
 import {math, mathHtml} from "micromark-extension-math";
 import {commonSystemConfiguration} from "../../common/commonSystemConfiguration";
+import {ParseOptions} from "micromark/lib/parse";
+import {CompileOptions} from "micromark/lib/compile";
 
 export interface MarkdownRenderConfiguration {
     courseIdForImages: number | null;
+    allowDangerousProtocol: boolean;
 }
 
 /*
@@ -63,10 +66,11 @@ As tokens (still marked with event index):
 
 
 export function renderMarkdown(markdownSource: string, configuration: MarkdownRenderConfiguration): string {
-    const options = {
+    const options: ParseOptions & CompileOptions = {
         allowDangerousHtml: true,
         extensions: [math()],
         htmlExtensions: [mathHtml()],
+        allowDangerousProtocol: configuration.allowDangerousProtocol,
     };
     const events = postprocess(parse(options).document().write(preprocess()(markdownSource, undefined, true)));
     let insideImage = false, insideResourceDestination = false;
