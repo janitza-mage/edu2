@@ -4,6 +4,15 @@ import {z} from "zod";
 import {fillInTheBlanksVariableSchema} from "./FillInTheBlanksVariable";
 
 // --------------------------------------------------------------------------------------------------------------------
+// extra data that can only be present in dynamically generated exercises
+// --------------------------------------------------------------------------------------------------------------------
+
+export const exerciseDynamicallyGeneratedExtraDataSchema = z.object({
+    canvases: z.array(z.instanceof(HTMLCanvasElement)).optional(),
+}).strict();
+export type ExerciseDynamicallyGeneratedExtraData = z.infer<typeof exerciseDynamicallyGeneratedExtraDataSchema>;
+
+// --------------------------------------------------------------------------------------------------------------------
 // core types
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -13,6 +22,7 @@ export type ExerciseType = z.infer<typeof exerciseTypeSchema>;
 
 export const exerciseBaseSchema = z.object({
     description: z.string(),
+    dynamicallyGeneratedExtraData: exerciseDynamicallyGeneratedExtraDataSchema.optional(),
     epilogue: z.string().optional(),
     type: exerciseTypeSchema,
 }).strict();

@@ -28,10 +28,6 @@ export const backend: Backend = {
         return (await backendGet(`getUnitPage/${courseId}/${unitIndex}`)) as GetUnitPageResponse;
     },
 
-    async generateExerciseSheet(courseId: number, unitIndex: number): Promise<ExerciseSheet> {
-        return (await backendGet(`generateExerciseSheet/${courseId}/${unitIndex}`)) as ExerciseSheet;
-    },
-
 };
 
 export function useBackend(): Backend {

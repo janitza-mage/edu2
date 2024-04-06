@@ -22,5 +22,4 @@ export interface Backend {
     getNumberOfUnitsForCourse(courseId: number): Promise<number>;
     getUnitListPage(courseId: number): Promise<GetUnitListPageResponse>;
     getUnitPage(courseId: number, unitIndex: number): Promise<GetUnitPageResponse>;
-    generateExerciseSheet(courseId: number, unitIndex: number): Promise<ExerciseSheet>;
 }
