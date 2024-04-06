@@ -1,6 +1,14 @@
 
 .form input[type=text] {
-    border: 1px solid blue;
+    border-top: 0 solid blue;
+    border-bottom: 1px solid blue;
+    border-left: 0 solid blue;
+    border-right: 0 solid blue;
     border-radius: 3px;
     width: 10em; /* make sure we have a standard, browser-independent width */
+    background-color: #ddf;
+}
+
+.form input[type=text]:focus {
+    outline: 1px solid blue;
 }

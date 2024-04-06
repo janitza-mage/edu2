@@ -33,6 +33,7 @@ export interface InlineMarkdownButtonListProps<T> {
 export function InlineMarkdownButtonList<T>(props: InlineMarkdownButtonListProps<T>) {
     const markdownRenderConfiguration: MarkdownRenderConfiguration = {
         courseIdForImages: props.courseIdForImages,
+        allowDangerousProtocol: false,
     };
 
     const [menuTargetElement, setMenuTargetElement] = React.useState<null | T>(null);

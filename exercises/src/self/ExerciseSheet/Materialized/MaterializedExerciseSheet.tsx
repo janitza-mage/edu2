@@ -60,6 +60,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
     // JSX
     const markdownConfiguration: MarkdownRenderConfiguration = {
         courseIdForImages: props.courseId,
+        allowDangerousProtocol: true,
     };
     return <>
         {props.exerciseSheet.map((exercise, index) => (index <= exerciseResults.length) && <Fragment key={index}>
