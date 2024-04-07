@@ -1,60 +1,8 @@
+fertig:
+- punkt
+- koordinaten
+
 Punkte
-- Punkt: das was keine Ausdehnung hat
-    - Darstellung als Kreuzchen
-    """
-    Um in die Lineare Algebra einzusteigen, müssen wir erst ein paar geometrische Grundbegriffe
-    definieren. Der erste Begriff ist der Punkt:
-
-        Ein Punkt ist das, was eine Position, aber keine Größe bzw. räumliche Ausdehnung und auch
-        keine sonstigen Eigenschaften (Form, Farbe etc.) hat.
-
-    Ein Punkt hat also nur eine Position und sonst nichts. Wenn wir einen Punkt in einer Zeichnung darstellen
-    wollen, ist das etwas unpraktisch, denn einen echten Punkt ohne Ausdehnung könnte man nicht gut sehen, und
-    jede Darstellung mit Ausdehnung macht es schwierig, zu erkennen, wo genau der Punkt sich befindet.
-
-    Als Lösung wird ein Punkt üblicherweise als ein kleines Kreuzchen dargestellt. Damit ist dann gemeint, dass sich
-    der eigentliche Punkt an der Stelle befindet, an der sich die beiden Linien des Kreuzchens schneiden. Die Linien
-    selbst und z.B. deren Länge haben dabei keine Bedeutung, sondern machen den Punkt nur in der Zeichnung
-    besser sichtbar.
-
-        (Zeichnung)
-    """
-    Übung:
-    - Zeichnung mit mehreren geom. Objekten. Welche davon sind Punkte?
-- Koordinaten
-    """
-    Ein Punkt in einer Zeichnung ist gut sichtbar. Allerdings müsste man immer noch jeden Punkt von Interesse
-    einzeichnen. Sobald man zwei oder mehr Punkte hat, wird es unübersichtlich: Welcher Punkt ist jetzt z.B. in
-    einem Text gemeint? Man müsste mit dem Finger auf den Punkt zeigen, Pfeile malen, oder aber die Punkte benennen.
-
-    Die bessere Lösung bieten _Koordinaten_. Damit können wir die Position eines Punkts durch Zahlen angeben. Dazu
-    werden zunächst _Koordinatenachsen_ festgelegt. Eine Achse zeigt nach rechts, die andere nach oben.
-
-        (Bild)
-
-    Der Kreuzungspunkt der beiden Achsen ist der _Ursprung_. Man kann die Position eines Punkts dann durch zwei
-    Zahlen angeben: Die erste Zahl gibt an, wie viele Einheiten man vom Ursprung aus nach rechts gehen muss, die andere
-    Zahl, wie viele Einheiten man nach oben gehen muss. Die Achsen legen dabei fest, was "nach rechts" und "nach oben"
-    genau bedeutet. Folgender Punkt hat zum Beispiel die Koordinaten "1 nach rechts, 3 nach oben":
-
-        (Bild)
-
-    Dafür gibt es verschiedene Kurzschreibweisen, z.B. (1 | 3) und (1, 3) und (1; 3). Alle drei Schreibweisen sagen
-    das gleiche aus. Gerade die Schreibweise mit Komma hat allerdings die Gefahr der Verwechslung mit dem Dezimalkomma:
-    Ist der Punkt (1,5,5) jetzt "1,5 nach rechts, 5 nach oben" oder "1 nach rechts, 5,5 nach oben"? In der
-    Handschrift lässt sich die Schreibweise mit Trennstrich ebenso leicht schreiben, deshalb benutzen wir sie hier:
-
-        (Bild mit Label (1 | 3))
-    """
-    Übungen (Idealvorstellung)
-    - als erstes: Versuchsweise punkte setzen, man sieht dann die Koordinaten. Übung ist "erfolgreich" wenn man auf
-        den "weiter"-Button drückt -- das könnte eine allgemeine Art Übung sein. Muss dann halt scripted sein, aber es
-        wäre gut, wenn man dann nicht automatisch das ganze sheet scripten muss. Also vielleicht Übungstyp mit
-        Script-Text (für nonscripted sheet) oder callback (für scripted sheet). Dann muss man es nicht extern hosten.
-        Die Übung wird ja schon im iframe ausgeführt, und auch Zugriff aufs course script library müsste so gehen.
-    Übungen
-    - Punkte in Koordinatenachsen eintragen
-    - Koordinaten von einem Punkt ablesen
 - Negative Koordinaten
     """
     Man kann bei weitem nicht alle Punkte erreichen, indem man vom Ursprung aus nach rechts und oben geht. Viele
