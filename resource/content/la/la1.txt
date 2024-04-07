@@ -5,13 +5,7 @@ fertig:
 
 Punkte
 - Abstand zwischen zwei Punkten
-    """
-    ...
-    """
-    Übungen (Idealvorstellung)
-    - ein Punkt fest (nicht der Ursprung), der zweite kann gesetzt werden, dann wird der Abstand angezeigt
-    Übung:
-    - Abstand zwischen zwei Punkten ablesen, deren Verbindung parallel zu den Koordinatenachsen ist
+    TODO in der DB
 - Eigenschaften der Kürzesten Verbindung
     """
     Der kürzeste Weg zwischen zwei Punkten hat viele Eigenschaften:
