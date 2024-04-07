@@ -1,27 +1,9 @@
 fertig:
 - punkt
 - koordinaten
+- Negative Koordinaten
 
 Punkte
-- Negative Koordinaten
-    """
-    Man kann bei weitem nicht alle Punkte erreichen, indem man vom Ursprung aus nach rechts und oben geht. Viele
-    Punkte liegen links oder unten vom Ursprung. Dazu könnte man zwei weitere Zahlen anngeben, die angeben, wie viele
-    Einheiten man nach links und unten gehen muss. Das wäre aber umständlich: Wenn man für einen Punkt nach links
-    gehen muss, muss man nicht nach rechts gehen, und wenn man nach unten gehen muss, muss man nicht nach oben gehen --
-    immerhin muss man für die Angabe von Koordinaten ja keinen Hinternissen ausweichen. Es wären also immer mindestens
-    zwei der Koordinaten gleich null.
-
-    Stattdessen werden negative Zahlen benutzt. Eine Angabe von "-1 nach rechts" ist das gleiche wie "1 nach links",
-    und "-3 nach oben" ist das gleiche wie "3 nach unten". Dadurch werden die unnötigen vielen Zahlen vermieden.
-    Wir werden später außerdem sehen, dass man durch die negativen Zahlen alle Punkte in Berechnungen einheitlich
-    behandeln kann, egal auf welcher Seite der Koordinatenachsen sie liegen.
-    """
-    Übungen (Idealvorstellung)
-    - wieder Punkte setzen, jetzt auch negativ
-    Übungen
-    - Punkte in Koordinatenachsen eintragen
-    - Koordinaten von einem Punkt ablesen
 - Abstand zwischen zwei Punkten
     """
     Bei zwei Punkten ist es oft interessant, wie weit sie voneinander entfernt sind. Dabei sprechen wir beim _Abstand_
