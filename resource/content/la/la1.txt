@@ -6,18 +6,7 @@ fertig:
 Punkte
 - Abstand zwischen zwei Punkten
     """
-    Bei zwei Punkten ist es oft interessant, wie weit sie voneinander entfernt sind. Dabei sprechen wir beim _Abstand_
-    von der Länge der _kürzesten_ Verbindung zwischen den beiden Punkten, also ohne Umweg -- bei einer Karte wäre das
-    die "Luftlinie". Für jede andere Verbindung müsste man den genauen Weg kennen, um von dessen Länge zu sprechen,
-    aber der Abstand ergibt sich alleine aus den beiden Punkten.
-
-    In manchen Fällen kann man den Abstand direkt an den Koordinatenachsen ablesen:
-
-        (Bild mit (1|3), (5|3), (1|4) eingezeichneten Verbindungen und Abstand daneben)
-
-    Im allgemeinen Fall muss man den Abstand entweder messen oder aus den Koordinaten der Punkte berechnen. Letzteres
-    geht gerade deshalb, weil der Abstand ja nur von den beiden Punkten bzw. dessen Koordinaten abhängt und
-    sonst von nichts. Die genaue Formel zum Berechnen wird später erläutert.
+    ...
     """
     Übungen (Idealvorstellung)
     - ein Punkt fest (nicht der Ursprung), der zweite kann gesetzt werden, dann wird der Abstand angezeigt

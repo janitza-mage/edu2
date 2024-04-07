@@ -2,7 +2,7 @@ import "source-map-support/register";
 import {createCanvas} from "canvas";
 import {base64Encode} from "./util/base64";
 import axios, {AxiosRequestConfig} from "axios";
-import {arrow, infiniteLine, point, showXAxisAngle} from "../canvas-lib/coordinate-grid-canvas/objects";
+import {point, showText} from "../canvas-lib/coordinate-grid-canvas/objects";
 import {setupCoordinateGridCanvas} from "../canvas-lib/coordinate-grid-canvas/setupCoordinateGridCanvas";
 
 async function updateImage(imageId: number, width: number, height: number, renderer: (context: CanvasRenderingContext2D) => void) {
@@ -26,23 +26,6 @@ async function updateImage(imageId: number, width: number, height: number, rende
 
 async function main() {
     /*
-    await updateImage(1, 200, 200, (context) => {
-
-        // Write "Awesome!"
-        context.font = "30px Impact";
-        context.rotate(0.1);
-        context.fillText('Awesome!', 50, 100);
-
-        // Draw line under text
-        const textMetrics = context.measureText("Awesome!");
-        context.strokeStyle = "rgba(0,0,0,0.5)";
-        context.beginPath();
-        context.lineTo(50, 102);
-        context.lineTo(50 + textMetrics.width, 102);
-        context.stroke();
-
-    });
-     */
     await updateImage(2, 200, 200, (context) => {
         setupCoordinateGridCanvas(context, -6, 6, -6, 6);
 
@@ -65,6 +48,7 @@ async function main() {
         context.fillStyle = "black";
         point(context, 2, 3);
     });
+    */
     await updateImage(9, 200, 200, (context) => {
         setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
     });
@@ -76,7 +60,45 @@ async function main() {
     await updateImage(11, 200, 200, (context) => {
         setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
         context.fillStyle = "black";
-        point(context, 1, 3, undefined, "(1|3)");
+        point(context, 1, 3, "(1|3)");
+    });
+    await updateImage(12, 200, 200, (context) => {
+        setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
+        context.fillStyle = "black";
+        const pointOptions = { font: "0.5px sans-serif", labelX: 0.2, labelY: 0.5 };
+        point(context, 1, 2, "(1|2)", pointOptions);
+        point(context, 5, 2, "(5|2)", pointOptions);
+
+        context.strokeStyle = "black";
+        context.lineWidth = 0.07;
+        context.setLineDash([0.1, 0.1]);
+        context.beginPath();
+        context.moveTo(1, 2);
+        context.lineTo(5, 2);
+        context.stroke();
+
+        context.font = "0.4px sans-serif";
+        showText(context, 2, 2.1, "Abstand: 4");
+
+    });
+    await updateImage(13, 200, 200, (context) => {
+        setupCoordinateGridCanvas(context, -0.6, 6, -0.6, 6, { clipNegative: true });
+        context.fillStyle = "black";
+        const pointOptions = { font: "0.5px sans-serif", labelX: 0.2, labelY: 0.5 };
+        point(context, 1, 2, "(1|2)", pointOptions);
+        point(context, 1, 4, "(1|4)", pointOptions);
+
+        context.strokeStyle = "black";
+        context.lineWidth = 0.07;
+        context.setLineDash([0.1, 0.1]);
+        context.beginPath();
+        context.moveTo(1, 4);
+        context.lineTo(1, 2);
+        context.stroke();
+
+        context.font = "0.4px sans-serif";
+        showText(context, 1.1, 2.8, "Abstand: 2");
+
     });
 }
 
