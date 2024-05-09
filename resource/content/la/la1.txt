@@ -1,255 +1,91 @@
-fertig:
-- punkt
-- koordinaten
-- Negative Koordinaten
+bisherige Units sind gut bis "Parallele Vektoren", ab da wirds blöd. Stattdessen sollten dort LGS kommen.
+Bis dahin sind dann: Vektoren, add/sub, mul/div mit Skalaren, Formeln daraus und 3d-vektoren.
 
-Punkte
-- Abstand zwischen zwei Punkten
-    TODO in der DB
-- Eigenschaften der Kürzesten Verbindung
-    """
-    Der kürzeste Weg zwischen zwei Punkten hat viele Eigenschaften:
-    - die Position des ersten Punkts ("Startpunkt")
-    - die Position des zweiten Punkts ("Endpunkt")
-    - die Länge der Verbindung
-    - die Richtung der Verbindung (mit verschiedenem Verständnis davon, was "Richtung" bedeutet)
-    - wieviele Einheiten man vom ersten Punkt nach rechts, links, oben und unten gehen muss, um zum zweiten Punkt zu kommen
-    - ob man eine bestimmte Linie kreuzt
-    - ob man sich vom Ursprung wegbewegt oder darauf zu
-    - ...
-
-    Die Vektorrechnung -- die Grundlage der linearen Algebra -- baut auf der Idee auf, dass man sich auf ein paar
-    wenige dieser Eigenschaften konzentriert und die anderen ignoriert:
-        - wieviel Einheiten nach rechts/links (Zahl mit Vorzeichen)
-        - wieviel Einheiten nach oben/unten (Zahl mit Vorzeichen)
-        - Länge der Verbindung (nicht-negative Zahl)
-        - Richtung der Verbindung in dem Sinne: Wenn man die Verbindung in beide Richtungen verlängert -- welchen Winkel
-            bildet sie dann mit den Koordinatenachsen?
-
-    Die Gesamtheit dieser Eigenschaften wird als _Vektor_ bezeichnet. Das heißt: Wenn zwei Vektoren sich in diesen
-    Eigenschaften gleichen, dann werden sie als "gleich" angesehen, auch wenn sie z.B. unterschiedliche Start- und
-    Endpunkte haben. Ein Vektor fasst also viele kürzeste Wege als gleichartig zusammen, die sich nur in den
-    "unwichtigen" Eigenschaften unterscheiden.
-    """
+LGS:
+- Lineare Gleichungssysteme
+    An dieser Stelle fanngen wir mit einem neuen Thema an: Lineare Gleichungssysteme, im Folgenden als LGS abgekürzt.
+    Der Zusammenhang zu Vektoren wird erst mal nicht erkennbar sein. Später werden Vektoren helfen, eine neue Sicht auf
+    LGS zu bekommen, und LGS sind dann ein neues Werkzeug, um mit Vektoren zu arbeiten.
+    .
+    Gleichungssysteme sind eine Möglichkeit, um den Zusammenhang zwischen einer oder mehrerer unbekannter Zahlen zu
+    beschreiben. Eine _Lösung_ des Gleichungssystem sind dann Zahlen, die zu dieser Beschreibung passen. Viele
+    bekannte Rätselfragen lassen sich als Gleichungssystem ausdrücken, und mit einer solchen werden wir auch in das
+    Thema einsteigen.
+    .
+    Ein _lineares_ Gleichungssystem ist eine bestimmte Sorte Gleichungssystem, bei der die Gleichungen eine bestimmte
+    Form haben. Durch diese Form kann man alle LGS auf dem selben Weg lösen.
+    --
     Übung:
-    - Koordinatensystem mit mehreren farbig markierten Vektoren -- welche zwei sind gleich?)
-        - welche mit gleicher Länge aber unterschiedlicher richtung und gleichem Endpunkt
-        - welche mit gleicher Länge aber unterschiedlicher richtung und gleichem Startpunkt
-        - welche mit gleicher Richtung aber unterschiedlicher Länge und gleichem Startpunkt (längerer als durchgezogene
-            Linie, kürzerer als gestrichelte Linie)
-        - welche mit gleicher Richtung aber unterschiedlicher Länge und gleichem Endpunkt (längerer als durchgezogene
-            Linie, kürzerer als gestrichelte Linie)
-        - ein paar ganz andere Extra
-        - einer von den o.g. ein zweites Mal, ist dann einer der "einzelnen"
-        - Buttons mit Farbigen ausgefüllten Kreisen bzw. getrichelten Outline-Kreisen
+    Herr Müller ist doppelt so alt wie sein Sohn. Vor 10 Jahren war er dreimal so alt wie sein Sohn. Wie alt sind
+    die beiden?
+    * Herr Müller: 40, Sohn: 20
+- Gleichung
+    - was ist das überhaupt
+    - eine unbekannte
+...
+...
+weiter LGS:
+    lösungsstrategien für LGS
+    GLS ohne Lösung
+    GLS mit unendlich vielen Lösungen
     ...
-    ...
-    ...
-- """
-    Relevante Eigenschaften der kürzesten Verbindung:
-    - wieviel Einheiten nach rechts/links (Zahl mit Vorzeichen)
-    - wieviel Einheiten nach oben/unten (Zahl mit Vorzeichen)
-    - Länge der Verbindung (nicht-negative Zahl)
-    - Richtung der Verbindung in dem Sinne: Wenn man die Verbindung in beide Richtungen verlängert -- welchen Winkel
-        bildet sie dann mit den Koordinatenachsen?
-
-    Wenn wir möglichst kurz und knapp die Eigenschaften angeben wollen, dann sind nicht alle diese Angaben nötig,
-    denn sie enthalten dieselben Informationen doppelt:
-    * Ein Vektor mit einer vorgegebenen Länge und Richtung hat immer die gleiche Anzahl an Einheiten nach recht/links
-      und oben/unten.
-    * Ein Vektor mit einer vorgegebenen Anzahl an Einheiten nach rechts/links und oben/unten hat immer die gleiche
-      Länge und Richtung.
-    """
-    Zur letzten Regel gibt es eine einzige Ausnahme: bei der Länge 0 ist die Richtung undefiniert. Deshalb legen wir
-    fest, dass zwei Vektoren der Länge 0 immer gleich sind, unabhängig von der angegebenen Richtung.
-    Übung: Wir haben jetzt festgelegt, welche Eigenschaften von Vektoren für uns relevant sind. Welche Auswahl an
-        Eigenschaften reicht als Angabe aus, so dass man die restlichen Eigenschaften daraus ermitteln kann?
-        - schritte nach rechts/links und oben/unten - ja
-        - Länge und Richtung - ja
-        - Länge und Schritte Rechts/Links - nein: Wenn der Vektor nur nach oben/unten geht, kennt man zwar seine
-            Länge, weiß aber nicht, ob nach oben oder nach unten
-        - Länge und Schritte Oben/Unten - nein: Wenn der Vektor nur nach rechts geht, kennt man zwar seine Länge, weiß
-            aber nicht, ob nach rchts oder nach links
-        - Richtung und Schritte Rechts/Links - nein: Wenn der Vektor nur nach oben oder unten geht, kennt man
-            seine Länge nicht
-        - Richtung und Schritte Oben/Unten - nein: Wenn der Vektor nur nach rechts oder links geht, kennt man
-            seine Länge nicht
-        -> epilog: Deshalb gibt es zwei gültige Darstellungen für Vektoren in unserem Sinne:
-            1. Länge und Richtung
-            2. Schritte nach rechts/links und nach oben/unten
-- Vektoren verketten
-    - zwei Vektoren hintereinander geben einen Weg, der i.A. nicht mehr der kürzeste Weg zum Zielpunkt ist.
-    -   (bild)
-    - Wir wollen erst mal aber nur mit kürzesten Wegen arbeiten. Das lösen wir so, dass wir zwar zwei Vektoren verketten
-        können, dann aber die Kette durch den kürzesten Weg zum Ende der Kette ersetzen. Dieses Verketten-und-Ersetzen
-        nennen wir die _Summe_ der beiden Vektoren.
-    -   (bild)
-    Übungen
-    - welche Aussage ist richtig:
-        - wenn man zwei Vektoren addiert, bleibt die Gesamtlänge gleich.
-            Anders formuliert: Die Länge der Summe zweier Vektoren ist gleich der Summe der Längen der beiden Vektoren.
-        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben oder kleiner werden
-            Anders formuliert: Die Länge der Summe zweier Vektoren ist kleiner oder gleich der Summe der Längen der beiden Vektoren.
-        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben oder größer werden
-            Anders formuliert: Die Länge der Summe zweier Vektoren ist größer oder gleich der Summe der Längen der beiden Vektoren.
-        - wenn man zwei Vektoren addiert, kann die Gesamtlänge gleich bleiben, kleiner werden oder größer werden
-            Anders formuliert: Die Länge der Summe zweier Vektoren ist gleich, kleiner oder größer der Summe der Längen der beiden Vektoren.
-    - wann bleibt die Gesamtlänge gleich? Also wann ist die Summe der Längen der beiden Vektoren gleich der Länge der Summe?
-        - wenn die beiden Vektoren in die gleiche Richtung zeigen
-        - wenn die beiden Vektoren in die entgegengesetzte Richtung zeigen
-        - wenn die beiden Vektoren senkrecht aufeinander stehen
-- Vektoraddition in Koordinaten
-    ... (wie begründen?) TODO
-    Übung
-    - rechenübungen
-- Koordinaten eines Punkts: Vektor vom Ursprung zum Punkt; man kann Koordinaten als Vektor angeben
-    ... TODO
-- Nullvektor: Koordinaten des Ursprungs; neutrales Element der Addition; Länge 0; einziger Vektor ohne definierte Richtung, in Zahlen: 0, 0, 0
-    ... TODO
-- Subtraktion, verschiedene Interpretationen: Spitze anlegen und Rückwärts gehen; Vektor von Punkt A zu Punkt B;
-    Vektor finden, so dass die Summe einen bestimmten Vektor ergibt
-    ... TODO
-- Vektor Umkehren
-    auch: Vektor negieren, inverser Vektor
-    a+(-b) = a-b
-    a+(-a) = 0
-    Nullvektor ist sein eigener inverser Vektor
-- Vektoren verdoppeln und verdreifachen
-    ... TODO definition über Addition, dann als Zahl*Vektor schreiben
-    ... Auswirkung auf die Zahlen: verdoppeln und verdreifachen
-- Verallgemeinerung: Skalare Multiplikation (Vektor mit Zahl multiplizieren)
-    ... TODO erst in Zahlen, dann in Auswirkungen
-    ... evtl in mehreren units
-    - ganze Zahl == Vektor wiederholen
-    - Vektor um den Faktor verlängern
-    - Vektor um den Faktor verkürzen
-    - Vektor umkehren
-    - Kombination daraus
-    - Multiplikation mit 0 ergibt immer den Nullvektor
-- Vektor durch Zahl Teilen
-    gleiche Bedeutung wie Multiplikation mit Kehrwert
-    Übung: Rechenaufgaben
-***kompliziertere Formeln zusammenbauen
-- Linearkombinationen, ohne das Wort zu benutzen
-- Associativgesetz und Kommutativgesetz
-- Distributivgesetze
-***
-- parallele Vektoren
-    - zwei Vektoren, die in die gleiche oder entgegengesetzte Richtung zeigen
-    - woanders unterscheidet man "echt parallel" und "identisch", aber da man Vektoren beliebig verschieben kann,
-        gibt es den Unterschied hier nicht
-    - Vektor mit Zahl multiplizieren gibt immer einen parallelen Vektor
-    - andersherum sind zwei Vektoren genau dann parallel, wenn man den einen aus dem anderen durch Multiplikation mit einer
-        Zahl erhält
-    Übung:
-    - sind folgende zwei Vektoren parallel? (nur nicht-Null-Vektoren in den Beispielen)
-- parallelität/sonderfall: Nullvektor. Dieser hat keine definierte Richtung, deshalb muss man festlegen, ob
-    (1) er zu allen Vektoren parallel ist
-    (2) er zu keinem Vektor parallel ist
-    (3) es undefiniert, zu welchen Vektoren er parallel ist
-    Wir wählen hier die Variante (3). Die Konsequenz ist, dass man immer von vornherein den Nullvektor ausschließen
-    muss, wenn man nach Parallelität fragt.
-    Die richtige Formulierung ist dann: zwei nicht-Null-Vektoren sind genau dann parallel, wenn man den einen aus dem
-        anderen durch Multiplikation mit einer Zahl erhält
-    Übung:
-    - Ist folgende Aussage korrekt? "Jeder Vektor ist zu sich selbst parallel."
-        - Die Aussage ist weder richtig noch falsch, sondern undefiniert, weil der Nullvektor nicht ausgeschlossen ist.
-            Man müsste stattdessen sagen: "Jeder nicht-null-Vektor ist zu sich selbst parallel." Dann wäre die
-            Aussage nicht mehr undefiniert, sondern korrekt.
-- parallele Vektoren kann man zusammenfassen:
-    v + a*v + w = (1+a)*v + w
-    (geht in Richtung lineare Unabhängigkeit, ohne das Thema komplett auszubreiten)
-***weitere Themen
-...TODO
-... 3d-Raum
-... Geraden-Parameterdarstellung
-... Ebenen-Parameterdarstellung
-... Gleichungssysteme
-... Skalarprodukt, Orthogonalität, Projektion, Vektorprodukt
-***
+...
+...
+Anwendung von LGS auf Vektoren:
+    auf parallelität prüfen
+    darstellbarkeit als linearkombination
+...
+...
+Lineare Analytische Geometrie
+    Geraden-Parameterdarstellung
+    Ebenen-Parameterdarstellung
+    Geradenschnittpunkte
+    Anwendung: Prüfen, ob ein Punkt auf einer Geraden liegt
+    Anwendung: Prüfen, ob ein Punkt in einer Ebene liegt
+    Anwendung: Schnittpunkt Gerade / Ebene
+    Anwendung: Schnittpunkt zweier Ebenen
+    Anwendung: Schnittpunkt zweier Geraden
+    Anwendung: Parallele Geraden
+    Anwendung: Parallele Ebenen
+    Anwendung: Windschiefe Geraden
+...
+...
+Skalarprodukt (?)
+    Winkel
+    Orthogonalität
+    Skalarprodukt
+        ...
+    Orthogonale Projektion
+        auf einen Vektor
+        auf eine Ebene orthogonal zu einem Vektor
+    Ebenen-Normalenform
 
 ...
-???
+...
 
 
 
 
 
 
-***
-allgemein: in früheren Einheiten "einfachere Versionen" der Konzepte bringen, z.B. in 2d "kann man alle Punkte erreichen"
+
+
+
+
+
+
+***************************************************************************************************************
+generell:
+
+- viele Bilder!
+- Prinzip der Übung: Kinder lernen besser, wenn die Inhalte wiederholt werden
+    - das betrifft vor allem den Punkt, Dinge schon man anzureißen, bevor man sie komplett beherrschen muss,
+        und auch danach immer wieder aufzugreifen und auch zu üben
+- Prinzip der Lebensnähe: Unbekanntes können Kinder besser erlernen, wenn es auf Bekanntem aufbaut
+    - würde in LA1 für "realistische" Textaufgaben sprechen. Bei späteren LA-Kursen ist da nicht viel zu machen.
+
+in früheren Einheiten "einfachere Versionen" der Konzepte bringen, z.B. in 2d "kann man alle Punkte erreichen"
 als Vorbereitung für ein aufspannendes System.
 - aber es ist denke ich nicht so gut, ganz neue Themen schon mal anzuschneiden, z.B. 3d-Raum schon früh.
     Das verunsichert eher und verwirrt. Die Themen sollten jeweils ein abgeschlossenes System aufbauen und nur
     innerhalb dieses Systems Dinge früh anschneiden.
-***
-
-
-https://de.wikipedia.org/wiki/Analytische_Geometrie (aber: nicht-lineare AG wäre ein weiterer Kurs; hier nur lineare AG)
-https://de.wikipedia.org/wiki/Lineare_Algebra
-Umfang LA:
-- Linearkombinationen
-    - nur mal zeigen, dass man kompliziertere Formeln aus Addition/Sububtraktion/Multiplikation bauen kann
-- Lineare Unabhängigkeit
-    - evtl. ganz weglassen
-- aufspannendes System
-    - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
-- Skalarprodukt
-    ja, über Winkel
-- Orthogonalität
-    ja
-- Orthogonale Projektion
-    ja
-- Vektorprodukt
-    ja
-Umfang LAG:
-- 2d:
-    - Geraden (Parameterform)
-    - Geradenschnittpunkte
-- 3d:
-    - Ebenen (Parameterform, Normalenform, Koordinatenform)
-    - Schnittgerade zweier Ebenen
-    - Schnittpunkt Gerade / Ebene
-    - parallelität gerade/gerade 2d, gerade/gerade 3d, gerade/ebene, ebene/ebene
-    - Windschiefheit
-
-***************************************************************************************************************
-
-Didaktik und Methodik:
-
-"""
-Haben die Kinder ausreichend Materialien, mit denen sie sich beschäftigen können?
-Gibt es genug Freiräume, um eigenen Interessen nachzugehen?
-Haben die Kinder auch mal Langeweile, um ihrer Kreativität freien Lauf zu lassen?
-Dies sind die sieben didaktischen Prinzipien, die für den Kindergarten gelten:
-
-Prinzip der Anschauung: Inhalte kommen besser an, wenn Erzieher zur Veranschaulichung Bilder benutzen
-    - hier beachten, ist aber grundsätzlich da
-Prinzip der Aktivität: Kinder lernen vor allem dann, wenn sie selbst aktiv sein müssen
-    - das ist die Grundidee der ganzen Plattform
-Prinzip der Übung: Kinder lernen besser, wenn die Inhalte wiederholt werden
-    - das betrifft vor allem den Punkt, Dinge schon man anzureißen, bevor man sie komplett beherrschen muss,
-        und auch danach immer wieder aufzugreifen und auch zu üben
-Prinzip der Lebensnähe: Unbekanntes können Kinder besser erlernen, wenn es auf Bekanntem aufbaut
-    - würde in LA1 für "realistische" Textaufgaben sprechen. Bei späteren LA-Kursen ist da nicht viel zu machen.
-Prinzip der Teilschritte: Lerninhalte müssen Erzieher in kleine Schritte aufteilen
-    - das ist in dieser Plattform der Fall
-Prinzip der Kindgemäßheit: Erzieher sollten Themen so aufbereiten, dass sie den Interessen der Kinder entsprechen
-    - TODO schauen ob man da was machen kann
-Prinzip der Individualisierung: Berücksichtigung der sozialen Herkunft, des Entwicklungsstands und des Arbeitstempos
-    - das wird man in so einer Plattform nur stark eingeschränkt machen können
-"""
-
-Wie wäre es mit "Accessoires", die aus den Units heraus verlinkt werden?
-- Abstand von zwei Punkten: zwei Punkte verschieben und das PRogramm zeigt jeweils den Abstand
-    - dito den Vektor von einem Punkt zum anderen
-        - kartesisch
-        - Länge und Abstand
-    - extra-Übungen
-        - hier sollte eine Hilfestellung kommen, _wann_ man diese aufruft. Es sollte NICHT passieren, dass man, um an
-            einer Stelle weiterzukommen, die Accessoires aus einer früheren Unit aufrufen muss, denn dann müsste man
-            diese durchsuchen ohne zu wissen was man sucht.
-
-
-
-

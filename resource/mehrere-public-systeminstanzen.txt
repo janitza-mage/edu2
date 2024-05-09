@@ -1,0 +1,17 @@
+
+pro:
+- weniger Arbeitslast / Risiko bei mir
+- man lernt voneinander
+
+contra:
+- browsability. Bei mehreren public-Instanzen hat man das gleiche problem wie jetzt z.b. bei game-spezifischen Wikis,
+Fandom oder so, man muss googlen und dann findet man irgendwas aber man weiß nicht ob es das richtige ist
+
+Mittelwege
+- eine Instanz, aber Code ist Open Source
+- meine Instanz ist die hauptinstanz, andere haben z.B. Bezahlsysteme oder so
+-> das klingt nicht schlehct. Andere werden sicher Bezahlsysteme haben wollen, und meine ist dann das eine System,
+    was nichts kostet. Ein zweites System, was nichts kostet, wird jemand nur aufmachen wollen, wenn meins wirklich
+    schlecht ist.
+
+

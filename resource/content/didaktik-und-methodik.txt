@@ -1,0 +1,39 @@
+Didaktik und Methodik:
+
+"""
+Haben die Kinder ausreichend Materialien, mit denen sie sich beschäftigen können?
+Gibt es genug Freiräume, um eigenen Interessen nachzugehen?
+Haben die Kinder auch mal Langeweile, um ihrer Kreativität freien Lauf zu lassen?
+Dies sind die sieben didaktischen Prinzipien, die für den Kindergarten gelten:
+
+Prinzip der Anschauung: Inhalte kommen besser an, wenn Erzieher zur Veranschaulichung Bilder benutzen
+    - hier beachten, ist aber grundsätzlich da
+Prinzip der Aktivität: Kinder lernen vor allem dann, wenn sie selbst aktiv sein müssen
+    - das ist die Grundidee der ganzen Plattform
+Prinzip der Übung: Kinder lernen besser, wenn die Inhalte wiederholt werden
+    - das betrifft vor allem den Punkt, Dinge schon man anzureißen, bevor man sie komplett beherrschen muss,
+        und auch danach immer wieder aufzugreifen und auch zu üben
+Prinzip der Lebensnähe: Unbekanntes können Kinder besser erlernen, wenn es auf Bekanntem aufbaut
+    - würde in LA1 für "realistische" Textaufgaben sprechen. Bei späteren LA-Kursen ist da nicht viel zu machen.
+Prinzip der Teilschritte: Lerninhalte müssen Erzieher in kleine Schritte aufteilen
+    - das ist in dieser Plattform der Fall
+Prinzip der Kindgemäßheit: Erzieher sollten Themen so aufbereiten, dass sie den Interessen der Kinder entsprechen
+    - TODO schauen ob man da was machen kann
+    - generell hier sehr schwierig, weil ich nicht steuern kann, WER den Kurs WANN macht
+    - evtl kann man einem lehrer die Tools geben, um Kurse für die Schüler zu konfigurieren
+Prinzip der Individualisierung: Berücksichtigung der sozialen Herkunft, des Entwicklungsstands und des Arbeitstempos
+    - das wird man in so einer Plattform nur stark eingeschränkt machen können
+    - siehe vorheriger Punkt
+"""
+
+Wie wäre es mit "Accessoires", die aus den Units heraus verlinkt werden?
+- Abstand von zwei Punkten: zwei Punkte verschieben und das PRogramm zeigt jeweils den Abstand
+    - dito den Vektor von einem Punkt zum anderen
+        - kartesisch
+        - Länge und Abstand
+    - extra-Übungen
+        - hier sollte eine Hilfestellung kommen, _wann_ man diese aufruft. Es sollte NICHT passieren, dass man, um an
+            einer Stelle weiterzukommen, die Accessoires aus einer früheren Unit aufrufen muss, denn dann müsste man
+            diese durchsuchen ohne zu wissen was man sucht.
+        - "challenges", die parallel zu den normalen units liegen. Und die dann auch verschwinden, wenn man sie
+            geschafft hat / ausblendet. Aber regelmäßige nach-übungen sind noch was anderes als challenges.

@@ -1,3 +1,7 @@
+- LA3/4..x: R^n
+- LAx..y: Abstrakte Vektorräume, auch mit anderen Körppern als R
+
+
 
 problem with old LA content: no motivation, no goal. Why do that at all?
 

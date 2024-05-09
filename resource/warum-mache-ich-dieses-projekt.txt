@@ -1,0 +1,9 @@
+
+ja:
+Primärziel: Um den Bildungsgrad in Deutschland und weltweit zu erhöhen
+Sekundärziel: Um den Ansatz mit kleinen Einheiten und direkter Übung zu vertesten
+
+nein:
+um selbst bekannt zu werden
+um Open Source Software zu fördern
+um Geld zu verdienen
