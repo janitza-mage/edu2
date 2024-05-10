@@ -19,18 +19,86 @@ LGS:
     Herr Müller ist doppelt so alt wie sein Sohn. Vor 10 Jahren war er dreimal so alt wie sein Sohn. Wie alt sind
     die beiden?
     * Herr Müller: 40, Sohn: 20
-- Gleichung
-    - was ist das überhaupt
+- Unbekannte und Gleichungen
+    Die Grundbaustein eines LGS sind _Unbekannte_ und _Gleichungen_.
+
+    Unbekannte (auch _Variablen_ genannt) sind die Zahlen, die in einem LGS gesucht werden. Sie sind anfangs nicht
+    bekannt und müssen durch logische Schlußfolgerungen gefunden werden.
+
+    Gleichungen sind die Grundlage, um diese Schlußfolgerungen zu ziehen. Eine Gleichung setzt zwei Formeln gleich,
+    in denen die Unbekannten vorkommen.
+
+    Ein Gleichungssystem zu _lösen_ bedeutet, herauszufinden, welchen Wert die Unbekannten haben müssen, damit alle
+    Gleichungen stimmen.
+
+    Damit man eine Formel überhaupt schreiben kann, in der eine unbekannte Zahl vorkommt, wird die Unbekannte durch
+    einen Platzhalter ersetzt, meistens einen Buchstaben. In den Formeln eines LGS muss dann eine Unbekannte immer
+    durch den selben Buchstaben dargestellt werden, und verschiedene Unbekannte durch verschiedene Buchstaben.
+
+    Hier ist als Beispiel eine Formel, in der die drei Unbekannten a, b, c vorkommen:
+
+        2 * a + 3 * b - 1 = 4 + c
+
+    ---
+    Übungen:
+    - welche Unbekannten kommen in folgender Gleichung vor?...
+    (irgendwas dass gleich-immer-gleich, ungleich-immer-ungleich?)
+- Gleichungen lösen (1)
+    Die einfachste Gleichung hat die Form
+
+        a = 4
+
+    Hier kann man sofort sehen, dass die Unbekannte a den Wert 4 haben muss. Etwas komplizierter sind dann Gleichungen
+    wie
+
+        a + 1 = 5
+
+    und
+
+        2 * a = 4
+
+    Auch hier muss a den Wert 4 haben, aber es ist nicht mehr so einfach zu erkennen.
+    Übungen:
+    - ein paar Gleichungen dieser Art
+- Gleichungen lösen (2)
+    Wenn man die Lösungen nicht mehr durch Probieren finden kann, muss man stattdessen die Gleichungen umformen.
+    TODO
+
+
+- Gleichung...:
     - eine unbekannte
+    - mehrere Gleichungen, eine Unbekannte
+    - mehrere Gleichungen, mehrere Unbekannte (so rum? oder erst eine Gleichung mit mehreren Unbekannten?)
+    - Lösungsmenge (Notation?)
+    - eine Gleichung, mehrere Unbekannte
+    - mehrere Gleichungen, mehrere Unbekannte, aber eine Gleichung ist überflüssig
+    - es muss bekannt sein, welche Unbekannten es gibt -- eine Gleichung mit 1, 2, 3 Unbekannten hat unterschiedliche
+        Lösungsmengen
+    - Rätselfrage als LGS
+        m = 2 * s
+        m - 10 = 3 * (s - 10)
+        ...
+        oder auch:
+        m = 2 * s
+        n = m - 10
+        t = s - 10
+        n = 3 * t
+- Lösungstrategien
+    - eine Gleichung mit 1 Unbekannten
+    - Addition / Subtraktion einer Konstanten
+    - Multiplikation/Division mit einer Konstanten (außer 0)
+    - Addition einer Unbekannten und deren Vielfachen, auch negativ
+    - Was nicht geht: Multiplikation mit einer Unbekannten, Multiplikation mit 0, Kehrwert
+    - jede Gleichung gilt zusätzlich zu den anderen -- man darf nicht einfach die alten Gleichungen wegfallen lassen
+    - höhere Strategien; (n/n) -> (n-1/n-1), aber Vorsicht, dass nicht nachher eine Variable verschwindet, deren Wert man wissen will
+        Einsetzen
+        Gleichsetzen
+        Subtraktion
+        Addition
 ...
 ...
-weiter LGS:
-    lösungsstrategien für LGS
-    GLS ohne Lösung
-    GLS mit unendlich vielen Lösungen
-    ...
-...
-...
+Anwendung von Vektoren auf LGS:
+    Lösungsmenge von LGS als Vektoren darstellen
 Anwendung von LGS auf Vektoren:
     auf parallelität prüfen
     darstellbarkeit als linearkombination
@@ -43,14 +111,17 @@ Lineare Analytische Geometrie
     Anwendung: Prüfen, ob ein Punkt auf einer Geraden liegt
     Anwendung: Prüfen, ob ein Punkt in einer Ebene liegt
     Anwendung: Schnittpunkt Gerade / Ebene
-    Anwendung: Schnittpunkt zweier Ebenen
-    Anwendung: Schnittpunkt zweier Geraden
+    Anwendung: Schnittgerade zweier Ebenen
+    Anwendung: Schnittpunkt zweier Geraden (2d, 3d)
     Anwendung: Parallele Geraden
     Anwendung: Parallele Ebenen
     Anwendung: Windschiefe Geraden
 ...
 ...
 Skalarprodukt (?)
+    Länge eines Vektors
+        - nicht (nur) weil durch das SP definiert, sondern auch, weil es woanders nicht gut hinpasst und weil man
+            die Länge wiederum benutzen kann, um das SP zu erklären
     Winkel
     Orthogonalität
     Skalarprodukt
@@ -58,7 +129,18 @@ Skalarprodukt (?)
     Orthogonale Projektion
         auf einen Vektor
         auf eine Ebene orthogonal zu einem Vektor
-    Ebenen-Normalenform
+    Ebenen-Normalenform, Ebenen-Koordinatenform
+    Entfernung eines Punktes von einer Ebene
+    Entfernung eines Punktes von einer Geraden
+    Entfernung zwischen zwei parallelen Ebenen
+    Entfernung zwischen zwei parallelen Geraden
+    Entfernung zwischen zwei windschiefen Geraden
+    Winkel zwischen Geraden
+    Winkel zwischen Ebenen
+    Winkel zwischen Gerade und Ebene
+    Winkel zwischen windschiefen Geraden
+    Länge eines Vektors per Skalarprodukt
+Kreuzprodukt
 
 ...
 ...
@@ -66,7 +148,8 @@ Skalarprodukt (?)
 
 
 
-
+NICHT:
+- Matrizen. Das passt besser in Teil 2. Lineare Abbildungen allgemein wahrscheinlich auch.
 
 
 
@@ -89,3 +172,20 @@ als Vorbereitung für ein aufspannendes System.
 - aber es ist denke ich nicht so gut, ganz neue Themen schon mal anzuschneiden, z.B. 3d-Raum schon früh.
     Das verunsichert eher und verwirrt. Die Themen sollten jeweils ein abgeschlossenes System aufbauen und nur
     innerhalb dieses Systems Dinge früh anschneiden.
+
+
+problem with old LA content: no motivation, no goal. Why do that at all?
+
+vectors as arrows don't help with the definition, but with the motivation.
+
+"vector =^= displacement"
+add = append
+    add displacements
+    add velocities
+    add forces
+subtract = find what to add; reverse append
+multiply with scalar = repeat; scale
+divide by scalar = scale
+negate = reverse
+multiply with negative = negate / multiply = reverse / repeat
+"parallel"

@@ -1,57 +1,5 @@
-- LA3/4..x: R^n
-- LAx..y: Abstrakte Vektorräume, auch mit anderen Körppern als R
-
-
-
-problem with old LA content: no motivation, no goal. Why do that at all?
-
-vectors as arrows don't help with the definition, but with the motivation.
-
-"vector =^= displacement"
-add = append
-    add displacements
-    add velocities
-    add forces
-subtract = find what to add; reverse append
-multiply with scalar = repeat; scale
-divide by scalar = scale
-negate = reverse
-multiply with negative = negate / multiply = reverse / repeat
-"parallel"
-
-https://de.wikipedia.org/wiki/Analytische_Geometrie (aber: nicht-lineare AG wäre ein weiterer Kurs; hier nur lineare AG)
-https://de.wikipedia.org/wiki/Lineare_Algebra
-Umfang LA:
-- Linearkombinationen
-    - nur mal zeigen, dass man kompliziertere Formeln aus Addition/Sububtraktion/Multiplikation bauen kann
-- Lineare Unabhängigkeit
-    - evtl. ganz weglassen
-- aufspannendes System
-    - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
-- Basis
-    nein
-- Dimension
-    nein
-- Skalarprodukt
-    ja, über Winkel
-- Orthogonalität
-    ja
-- Orthogonale Projektion
-    ja
-- Vektorprodukt
-    ja
-Umfang LAG:
-- 2d:
-    - Geraden (Parameterform)
-    - Geradenschnittpunkte
-- 3d:
-    - Ebenen (Parameterform, Normalenform, Koordinatenform)
-    - Schnittgerade zweier Ebenen
-    - Schnittpunkt Gerade / Ebene
-    - parallelität gerade/gerade 2d, gerade/gerade 3d, gerade/ebene, ebene/ebene
-    - Windschiefheit
-
-
+---------------------------------------------------------------------------------------------------------------------
+LA2: R^n
 ---------------------------------------------------------------------------------------------------------------------
 
 linear combination
@@ -61,7 +9,17 @@ subspace
 linear independence
 basis
 
----------------------------------------------------------------------------------------------------------------------
+- Lineare Unabhängigkeit
+    - evtl. ganz weglassen
+- aufspannendes System
+    - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
+- Basis
+    nein
+- Dimension
+    nein
+
+
+--- alles mit Skalarprodukt
 
 "length"
 unit vectors
@@ -76,42 +34,16 @@ Cauchy-Schwarz inequality: |a*b| <= |a|*|b|
 "orthogonal"
 split into parallel and orthogonal parts
 
----------------------------------------------------------------------------------------------------------------------
-
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 LATER
-- parametric representation of lines in 2d and 3d
-    parametric representation of planes in 3d
 - prove cauchy-schwarz inequality
     - show triangle inequality
     - prove triangle inequality
-scalar product, definition from polar coordinates
-    define angle
-cross product
-    plane normal vector
-    point distance to plane
-    distance between parallel lines
-    distance between skew lines
-    distance between point and line
-    distance between planes
-    angle between lines
-    angle between planes
-    angle between line and plane
-    angle between skew lines
 
 
 
 
 ---------------------------------------------------------------------------------------------------------------------
-LA3
+LA3: Abstrakte Vektorräume, auch mit anderen Körppern als R
 ---------------------------------------------------------------------------------------------------------------------
 
 - start with R^3
