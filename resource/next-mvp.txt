@@ -1,3 +1,5 @@
-sequence exercise sheets
-images in units and exercise descriptions (answers: not yet needed)
 
+content:
+- math: LA1, LA2; has to be translated
+- chemistry? would be more or less ready
+- need non-STEM examples to better show the value over KA
