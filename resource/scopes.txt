@@ -1,2 +1,0 @@
-source code:
-(file[edu2]:author/src//*||file[edu2]:backend/src//*||file[edu2]:common/src//*||file[edu2]:exercises/src//*||file[edu2]:frontend/src//*)&&!file[edu2]:author/src/common//*&&!file[edu2]:backend/src/common//*&&!file[edu2]:exercises/src/common//*&&!file[edu2]:frontend/src/common//*
