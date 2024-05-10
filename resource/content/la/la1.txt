@@ -101,6 +101,33 @@ Anwendung von Vektoren auf LGS:
     Lösungsmenge von LGS als Vektoren darstellen
 Anwendung von LGS auf Vektoren:
     auf parallelität prüfen
+        Parallele Vektoren (passt als Einführung zu lin.Abh.) TODO
+            - zwei Vektoren, die in die gleiche oder entgegengesetzte Richtung zeigen
+            - woanders unterscheidet man "echt parallel" und "identisch", aber da man Vektoren beliebig verschieben kann,
+                gibt es den Unterschied hier nicht
+            - Vektor mit Zahl multiplizieren gibt immer einen parallelen Vektor
+            - andersherum sind zwei Vektoren genau dann parallel, wenn man den einen aus dem anderen durch Multiplikation mit einer
+                Zahl erhält
+            Übung:
+            - sind folgende zwei Vektoren parallel? (nur nicht-Null-Vektoren in den Beispielen)
+        Auf Parallelität prüfen TODO
+        Parallelität und Nullvektor TODO
+            - parallelität/sonderfall: Nullvektor. Dieser hat keine definierte Richtung, deshalb muss man festlegen, ob
+                (1) er zu allen Vektoren parallel ist
+                (2) er zu keinem Vektor parallel ist
+                (3) es undefiniert, zu welchen Vektoren er parallel ist
+                Wir wählen hier die Variante (3). Die Konsequenz ist, dass man immer von vornherein den Nullvektor ausschließen
+                muss, wenn man nach Parallelität fragt.
+                Die richtige Formulierung ist dann: zwei nicht-Null-Vektoren sind genau dann parallel, wenn man den einen aus dem
+                    anderen durch Multiplikation mit einer Zahl erhält
+                Übung:
+                - Ist folgende Aussage korrekt? "Jeder Vektor ist zu sich selbst parallel."
+                    - Die Aussage ist weder richtig noch falsch, sondern undefiniert, weil der Nullvektor nicht ausgeschlossen ist.
+                        Man müsste stattdessen sagen: "Jeder nicht-null-Vektor ist zu sich selbst parallel." Dann wäre die
+                        Aussage nicht mehr undefiniert, sondern korrekt.
+
+
+
     darstellbarkeit als linearkombination
 ...
 ...
