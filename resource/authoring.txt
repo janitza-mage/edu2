@@ -273,6 +273,18 @@ single table with contrained indices for these three cases (authorId  always set
 upload per author, course, unit (author UI: link to one of three images page)
 
 
+-----------------------------------------------------------------------------------------------------------------------
+
+extend-and-scroll-to-bottom does not work well with images because they take time to load, and the user might scroll
+in between.
+
+For most exercises, seeing the previous exercise is not necessary. Sometimes it is. We might hide previous exercises
+upon completion, but it also makes sense to hide the unit description then (does it, really? You might want to refer
+to it!) But if it does, making exercises another kind of unit might make sense. Then all unit content is shown in
+an iframe, and units might be content units, fixed exercise sheets, exrecise sheet generators, ...
+-- but really, hiding the unit content doesn't really make sense...!
+-- it would be better to just fix the image issue!
+
 
 
 
