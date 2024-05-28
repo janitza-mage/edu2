@@ -1,0 +1,35 @@
+
+- playing go (JS go board)
+- speed reading (show text very briefly, then ask questions)
+- Führerschein: Foto + Fragen; aber nicht wie in der praktischen Prüfung, sondern Lerneinheit und Frage _dazu_
+- Klickbild:
+    - Lerneinheit erklärt Spannungsteiler mit zwei Widerständen
+    - Frage: an welchem Punkt im Schaltplan ist die Spannung genau X Volt (der Punkt zwischen den Widerständen) 
+- Multi-Klickbild
+    - Lerneinheit = ?
+    - Bild: Bauplan; markiere alle Türen, die schmaler als X cm sind
+- Reihenfolge: Speicherhierarchie
+- Schaltplan: finde den Kabelbruch
+- Checkbox-Tupel z.B. für Eigenschaften eines Werkstoffs
+- virtuelle Produktionsmaschine bedienen -- um eine gedachte, aber in Gedanken reale Maschine zu lernen
+    Beispiel: Drill Press; Hoch/Runter, an/aus, Bohrer (darf aber nicht verstellt werden, während die Maschine läuft)
+    - Loch soll mit 5mm vorgebohrt werden; dann mit 10mm fertiggebohrt
+        --> prüft, dass man nicht mit laufender Maschine den Bohrer wechselt
+        --> prüft, dass man sich merken muss, an welcher Halterung welcher Bohrer eingesteckt ist
+            (man hat nur zwei Halterungen, dadurch könnte man auf die Idee kommen, den Bohrer zu wechseln,
+            während die Maschine läuft)
+            - am Anfang ist der falsche Bohrer ausgewählt
+- Multiple-Choice-multiple-of-tuple: Man muss aus M1xM2x...xMn Tupel zusammenstellen, und davon mehrere/alle.
+    Beispiel: Mögliche Energieübergänge für einen Laser
+- Kommandozeilen-Tools in einer Kommandozeile ausprobieren; man muss die richtigen Dinge eingeben
+    - Nachteil: KI kann das auch
+- Bild schon Schaltung auf Breadboard; Schaltplan. LED im Schaltplan ist markiert; markiere die LED auf dem Foto.
+- Fiktive Anwendung mit Konfigurationsdatei; diese wird beschrieben; man muss (CodeMirror) eine Configdatei
+    nach Vorgaben schreiben. Das Beispiel ist komplett ausgedacht, so dass niemand vorheriges Wissen anwenden
+    kann (oder z.B. Features verwenden will, die die Simulation nicht kann), wird aber nicht als ausgedacht
+    beschrieben, sondern so, als ob es echt wäre -- nur mit einem Anwendungsnamen, den es nicht gibt.
+
+Wenn ich es hinbekomme:
+- Excel-Simulator
+- eine Art von Aufgabe, wo man Dinge berechnet (Physik, Chemie, ...) wäre sinnvoll, aber unklar wie
+- "Lückenschaltplan" wie Lückentext, aber man muss Bauteile einfügen

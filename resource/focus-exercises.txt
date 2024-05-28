@@ -1,0 +1,46 @@
+
+Grundidee:
+
+Jemand stellt Übungen zusammen, der er dann weitergibt. Die Zielperson macht die Übungen entweder immer wieder mit
+Zufallsvariationen, oder einmalig und wird kontrolliert. Ggf auch Kombinationen, z.B. 3x mit Zufallsvariationen
+und alle drei kontrolliert.
+
+Es gibt dort sehr viele Parameter, und auch "Ebenen", wann diese entschieden werden, also kann grundsätzlich ein
+N-stufiges Templating sein. Das macht es sehr komplex. Erst mal rausfinden, was die "Invarianten" sind -- was ist
+bei jeder Anwendung des Focustools gleich?
+- Derjenige, der die Übungen macht, sollte keine Parameter mehr festlegen müssen. Er soll nur die Übungen machen.
+    Es macht fast nie Sinn, dass der Schüler noch Parameter festlegt -- der Lehrer hat sich Gedanken darüber gemacht.
+    Wenn er es doch will, dann auf dem Weg, dass er eine Kopie von der erstellten Übung macht und die Parameter
+    ändert.
+- Aus Schülersicht verhält sich die Focusübung wie ein oder mehrere Übungseinheiten aus der Hauptplattform. Ich sehe
+    keinen Anlass, ein ganz neues Format zu erfinden. Unklar ist noch, ob es einen Use-Case für "mehrere
+    Aufgabenblätter" gibt -- ich kann ja erst mal mit nur einem starten.
+
+Mir schwebt aktuell ein Baukastensystem vor:
+- Man baut ein Übungsblatt aus einem ExerciseSequenceGenerator. Mögliche Implementierungen:
+    - feste Reihenfolge
+    - Nx wiederholen
+    - endlos wiederholen
+    - zufällige Reihenfolge aus einer Menge von Generatoren
+    - Einzelaufgabe (erzeugt eine 1-Elementige Liste)
+    - (teil-Parametrisierte Generatoren von woanders verwenden?)
+- Einzelaufgabe:
+    - Man kann hier aus einer Menge von Templates wählen, die andere bereitstellen können
+    - fixe Aufgabe, z.B. multiple choice
+    - script
+    
+Wird eine Sequence immer gleich "abgegeben", wenn man sie macht? Macht Sinn, weil es i.A. nicht um "scharfe, bewertete
+Kontrolle" geht, sondern darum, zu verstehen, wo es beim Schüler hängt.
+
+-----------------------------------------------------------------------------
+
+PRaktisch alles, was ich mir an Nachhillfe-Unterstützung überlegen kann, passt auch in die normale Anwendung.
+Kernfrage: Wie sieht Nachhilfe für Units aus, bei denen schon nur multiple choice fragen gehen? Maximal kann
+man die Übungen ausgewähler Units zusammenfassen. Alles andere lässt sich auch als Units in die Kurse
+integrieren, da braucht man keine separate Anwendung für -> Plattform ist so genug, nur Inhalte anpassen:
+- mehr Wiederholungsübungen, Kombinationsübungen usw.
+- in kleinen Schritten arbeiten ist sehr gut, eher sogar noch kleiner als aktuell bzw. mit viel Erklärung.
+    Diejenigen, denen der Stoff leicht fällt, schaffen es eh. Wichtiger ist, diejenigen mitzunehmen, die Angst vor
+    einem Thema haben, vor allem ganze Fächer wie Mathe.
+
+   

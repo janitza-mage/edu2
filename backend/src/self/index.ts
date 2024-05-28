@@ -16,6 +16,6 @@ expressApp.use((_, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   next();
 });
-expressApp.use(express.json({ limit: "1mb" }));
+expressApp.use(express.json({ limit: "10mb" }));
 registerApis(expressApp);
 expressApp.listen(8080);

@@ -1,0 +1,282 @@
+
+content:
+- metalworking vids? see criticism; not bad in principle but might be the wrong videos!
+    --> look for vids, and possibly woodworking (easier to start)
+- first aid?
+    https://www.practicalclinicalskills.com/
+- knots, sewing (macht evtl zusammen sinn)
+- car repairs
+- bike repairs (das wäre an sich ein gutes Beispiel, müsste ich mich nur selbst erst mal besser auskennen)
+    - aber als MVP-Demo nicht schlecht
+- Steuererklärung
+    - an sich auch ein gutes Beispiel, aber es gibt sehr viele Spezialfälle, und das wirklich fundierte Wissen
+        habe ich auch nicht
+
+- need non-STEM examples to better show the value over KA
+- es geht nicht um How-Tos, also nicht um Dinge, die jeder mal "nebenher" machen muss (z.B. was betonieren, reparieren,
+    streichen, ...), sondern um tiefergehende Fähigkeiten, mit denen man sich dann ein Stück weit "auskennt"
+
+top from https://www.oneeducation.org.uk/practical-skills/
+    speed reading
+    Programmieren per Excel (Einstellbar / verschiedene Kurse für: MS Excel, Google Docs, Libre Office)
+    "Home Repairs" -- unklar, ob man das über "how-tos" heben kann
+    Kartenlesen / Navigation
+    Gärtnern wäre cool, wenn es gute Infos dafür gibt -- hab halt selbst keine Ahnung
+    communication skills; public speaking; body language -- wie kann man das vermitteln?
+    Malen, Basteln, Kunst -- ist vielleicht besser als erst gedacht, auch wenn es "unnütz" ist. Ist aber egal, weil
+        manche Leute das trotzdem einfach brauchen, und dann hilft es besonders, wenn die Einstiegshürden
+        genommen werden
+    "writing" -- k.A. wie man das vermitteln kann
+
+top from https://www.oneeducation.org.uk/course/creativity-and-problem-solving-skills/
+    thinking outside the box <-- geht sicher, ist mehr ein "Quellen aus dem Netz sammeln"
+    problem solven in general <-- findet man da was?
+    aber das geht beides super in richtung blabla, davon gibts genug im Netz
+    ich suche nach "hard skills"
+
+------
+In meiner Vorstellung konnte die edu-Plattform auch unterstützend für praktische Fähigkeiten benutzt werden.
+Natürlich kann man am Smartphone nichts physisches lernen, aber in der Vorstellung war der physische Teil begleitend
+und von einem echten Ausbilder unterstützt, so dass man mit einem solchen Ausbilder zusammen etwas physisches durch
+einen edu-Kurs lernt. DAS MACHT KEINEN SINN! Die Kernideen der Plattform sind:
+- kleine Schritte und sofort Übungen dazu -- wenn jeder solcher Schritt durch einen echten Ausbilder begleitet werden
+    muss, dann kann man die edu-Plattform auch gleich weglassen
+- man kann "nebenher" weiterlernen -- das geht nicht, weil man nebenher den Ausbilder nicht hat
+- auch wenn man festhängt, kann man immer noch mal einen kleinen Fortschritt machen -- geht auch nur wenn der Ausbilder
+    das mitmacht und verfügbar ist, und auch dann bringt die Plattform wieder keinen Vorteil
+
+Das bedeutet, dass die Plattform zwar für eine Ausbildung mit praktischen und physischen Inhalten genutzt werden kann,
+aber nicht für den praktischen/physischen Teil selbst, sondern nur für die Theorie. Vgl Führerschein: nur die Theorie,
+und ein wenig darüber hinaus, z.B. Videos statt nur Bilder, Reaktion testen (an der richtigen Stelle eine Taste
+drücken statt an der falschen), ... also im prinzip alles, wo der Kopf und die rein wahrnehmenden Sinne trainiert werden,
+aber nicht das, wo Bewegungen trainiert werden.
+->
+Das ist nicht schlimm, sondern steckt im Gegenteil ab, worauf ich mich konzentrieren sollte.
+
+Noch mal das Kriterium anders formuliert: Man sollte einen edu-Kurs fortsetzen können, ohne zwischendurch
+praktische/physische Übungen machen zu müssen, sondern die Übungen sollten rein in der Plattform stattfinden -- ansonsten
+verliert die Plattform ihren Mehrwert.
+
+Ausnahmen gibt es, sind aber selten, z.B. Instrument lernen. Woher kommt diese Ausnahme? Weil der Computer in der Lage
+ist, die physischen Handlungen zu messen und zu bewerten. Also kann man auch dort nach Ausnahmen suchen, wo das noch
+der Fall ist -- dort können Teilschritte einer Ausbildung automatisiert werden. Ggf. kann man Geräte erfinden, die
+dem Computer als Eingabe dienen, um physische Handlungen zu messen und zu bewerten -- damit kann man dann weitere
+Schritte automatisieren.
+
+Mittelfristig wird also vor allem der Theorieteil einer Ausbildung ersetzt, wie groß der auch immer sein mag.
+
+---
+lernbare Teilschritte (von Grundfähigkeiten wie Rechnen, Deutsch/Fremdsprachen abgesehen):
+- Abläufe verstehen
+- Abläufe kontrollieren
+    - z.B. theoretische Beschreibung; danach praktischer Ablauf z.B. im Video oder auch Animation; verstöße erkennen
+        - bei z.B. Produktionsprozessen kann das auch ein fiktiver Ablauf sein, am Symbolbild, weil solche Abläufe
+            eh weit weg vom täglichen Leben sind
+    - auch: warum
+    - auch: auf welchem Weg sich Fehler einschleichen
+    - auch: wie man ungeplante Situationen meistert, die in der Theorie nicht vorkommen
+- Standards einhalten / kontrollieren
+    - z.B. Liste von Regeln + Foto zum prüfen, anhaken welche Verstöße bemerkt wurden
+        - hier eher mit "echten" Situationen, z.B. Fotos und Videos. Das ist an einer Animation nicht so gut zu lernen;
+            bzw. kann man mal ausprobieren ob das klappt
+    - auch warum
+    - auch: auf welchem Weg sich Fehler einschleichen
+    - auch: wie man ungeplante Situationen meistert, die in der Theorie nicht vorkommen
+- Fehlersuche
+    - Idee: Fehlersuchbild: Alle Fehler finden, danach bewerten, ob relevant oder nicht
+    - Idee: gerendertes oder schematisches Bild mit "Maschine", Fehler finden
+        - Steuersignal kommt nicht an; Kabelbruch / draht gelöst / Steuerung kaputt
+        - Ecke steht über und ist im Weg
+        - zuviel Reibung an einer Stelle, läuft heiß
+    - Schaltplan mit Realität vergleichen
+- Personalplanung
+- alles rund um Arbeitssicherheit
+    - das Thema kann man recht gut ausbreiten, mehr als den verstoßenden Unternehmen lieb ist
+- IT-Tools, vor allem Excel
+- bei Kundenkontakt
+    - Werbemaßnahmen, z.B. Aufsteller in Bäckerei und Restaurant
+    - Design-Grundlagen, z.B. für Flyer
+- Mechanik-Grundlagen
+- Elektrotechnik-Grundlagen
+- Fertigungsverfahren
+- CAD
+- "Prozessintegration" = ?
+--> einige der Themen können Ausbildungs-unabhängig gelehrt werden. Das ist einerseits doof, und man könnte hier z.B.
+    durch Templating angepasstere Varianten bieten. Andererseits schaut man so über den Tellerrand. Eigentlich müsste
+    das an den jeweiligen Schüler angepasst werden, da hat die Plattform auch noch Nachholbedarf. Das könnte ein
+    Anwendungsfall für "Kursparameter" sein, also ob z.B. mechanische oder chemische Prozesse als Beispiele genommen
+    werden; ebenso, ob in Excel die Formelsyntax für Excel selbst oder für Google Docs, und deutsch/englisch ist.
+    Oder man schreibt halt mehrere Varianten des Kurses.
+Bau (wird im Grunde ein Zusammentragen der diversen Ressourcen im Netz, und hier dann eben nur der theoretische Teil.
+    Das ist etwas enttäuschend, aber geht halt nicht besser.)
+- Gerüst aufbauen
+- verschiedene Betonmischungen
+- Dämmung
+- Qualitätsmanagement
+- Schaltpläne und technische Zeichnungen lesen und erstellen (erstellen braucht man viel seltener, aber hilft beim
+    Verstehen)
+- sowas hier hat viel Theorie: https://www.azubi.de/beruf/ausbildung-anlagenmechaniker
+- alles, was viele How-Tos hat (Bau, Renovierung, Auto, ...) kann als Sammlung dieser auch zu einem Kurs werden --
+    es muss sich dann klar von How-Tos abheben
+
+-----------------------------------------------------------------------------------------------------------------------
+Wie sieht es mit nicht-praktischen Dingen aus? In der Uni würde diese Plattform vermutlich noch mehr bewirken,
+und auch wenn das nicht mein größtes Anliegen ist, sollte ich es durchdenken.
+
+-----------------------------------------------------------------------------------------------------------------------
+*** FRAGE: Welche der obigen Themen lassen Übungen zu, die Über Multiple-Choice und Lückentexte hinausgehen? Die wären
+für einen MVP besonders interessant.
+
+Was als gegeben zählt:
+- Multiple-Choice / Lückentext zu einem Bild oder Video
+
+Beispiele:
+- Schaltpläne / Technische Zeichnungen
+    - teilweise kann man das Erstellen prüfen
+    - Fehler finden
+- Fehler / relevante Dinge in einem Bild finden
+    Unterschiede-Bild
+    Verstöße gegen Standards finden
+    Schaltplan: Markiere alle Bauteile vom Typ X
+    Bauplan: Markiere alle Türen, die schmaler als X cm sind
+    Foto + finde alle Schäden
+- Personal- oder Ressourcenplanung: Verwendung in einen Zeitplan eintragen
+- Excel-Simulator
+- Bauteile richtig anordnen (Drag n Drop auf einer Arbeitsfläche)
+    - kann Holz, Elektronik, Bauwerk usw. sein
+- Text-Stichpunkte in die richtige Reihenfolge bringen (OS-Speicherhierarchie-Beispiel, aber auch Arbeitsschritte
+    in zeitlicher Reihenfolge; Regeln nach Wichtigkeit; ...)
+- Schaltplan: Möglichkeit, ein Messgerät anzulegen; Feedback, wenn man dadurch einen Kurzschluß auslöst
+    oder das System stört (Wobei ein Amperemeter eh kompliziert wird, man müsste das System auftrennen; Spannung
+    geht) --> Amperemeter geht, indem man nur an einer Stelle markiert, an der aufgetrennt und gemessen werden soll;
+    geht dann nur an auftrennbaren Stellen.
+    - MVP-Beispiel: Schaltplan; Voltmeter; Ein Kontakt an Masse; finde den Kabelbruch. Dazu kann mann umschalten,
+    ob man gerade messen oder markieren will.
+        (Problem in der Umsetzung: Mann man an Gitterpunkten misst, dann muss ein Gitterpunkt noch Vcc und der nächste
+        GND sein; dann ist der Bruch zwischen zwei Gitterpunkten und man kann ihn nicht markieren. Lösung? Man kann
+        einen der beiden daneben markieren, das reicht.)
+- Personalplanung: Zuordnung zwischen Mitarbeitern und Aufgaben / Zeiten herstellen; Ist eine Optimierungsaufgabe,
+    und "richtig" wäre schon, wenn man nahe am Optimum ist, nicht nur wenn man es erreicht
+- Bild zu einer Situation, und man muss die Arbeitsschritte in der richtigen Reihenfolge ausführen. Dazu hat man
+    Buttons neben dem Bild bzw. muss ein Ding auf dem Bild anwählen und dann auf einen der Buttons dazu drücken.
+- Mischungsverhältnisse: Tupel von Schiebereglern
+- Dokumentation lesen: Mehrere Bilder; das richtige raussuchen und Informationen herausholen. Ist dann aber nicht
+    die eigentliche Aufgabe, sondern z.B. der Beschreibungstext; die eigentliche Aufgabe wäre z.B. multiple choice.
+- Schaltplan o.ä. eine Zeit lang lesen, dann merken und Fragen beantworten
+- Checkbox-Tupel z.B. für Eigenschaften eines Werkstoffs
+- virtuelle Produktionsmaschinen bedienen -- das geht sogar schematisch
+    Aber vorsicht, dass es kein reines "Spiel-Beispiel" wird
+    --> ist von daher nicht so toll, außer um eine konkrete Maschine zu lernen
+NICHT-PRAKTISCHES
+- Graph-Editor
+- eine Art von Aufgabe, wo man Dinge berechnet (Physik, Chemie, ...) wäre sinnvoll, aber unklar wie
+- Multiple-Choice-multiple-of-tuple: Man muss aus M1xM2x...xMn Tupel zusammenstellen, und davon mehrere/alle.
+    Beispiel: Mögliche Energieübergänge für einen Laser
+- Kommandozeilen-Tools in einer Kommandozeile ausprobieren; man muss die richtigen Dinge eingeben
+- Regexe eingeben; man muss den richtigen Regex schreiben, bekommt aber auch erklärt, was das macht, was man eingibt
+- Konfigurationsdateien schreiben. Man muss das richtige eintragen, und bekommt auch erklärt, was das wirklich macht,
+    was man eingegeben hat. (Umsetzung: CodeMirror)
+    - Hiermit kann man grundsätzlich die Funktionsweise von Linux erklären. Wenn jemand einen solchen Kurs schreibt,
+    wird der mit hoher Wahrscheinlichkeit sehr schlecht sein (z.B. erklärt ein Tool un dessen Konfigurationsdateien,
+    aber in Wirklichkeit wird dieses Tool nur als Brücke für ein anderes Tool benutzt, und das wird nicht erklärt).
+        - aber solche Dinge müssen dann über eine Feedbackfunktion für Kurse verbessert werden. Ohne Starter wird
+        es auch kein besseres Tutorial geben. Und ohne mmehr Leute, die die Tools verstehen und gleichzeitig einen
+        Blick fürs Praktische haben, wird es auch keine besseren Tools geben.
+- gegebene IP-Adresse und Netzmaske; finde die Netzadresse, die Broadcast-Adresse, die Anzahl der möglichen Hosts
+- Beispiel mit der Speicherhierarchie
+<-- solche sehr speziellen Beispiele sind gut für einen MVP! Sie demonstratieren die Möglichkeiten.
+==>
+für alle diese Dinge macht eine Standardbibliothek Sinn. Noch unklar, wie man die in das JS-System reinbringt.
+
++ LA (1? 2?) als Beispiel für richtige Inhalte statt Tech-Demo
+
+-------------------
+Konkreten MVP zusammenstellen:
+- LA1 übersetzen; abschneiden bei jetzt "Linearkombination"
+- LA2 polieren; da wo jetzt abgeschnitten ist gut
+- jeweils "to be continued" dranhängen
+- Tech-Demo-Course:
+    - Bild schon Schaltung auf Breadboard; Schaltplan. LED im Schaltplan ist markiert; markiere die LED auf dem Foto.
+    - Schaltplan; finde den Kabelbruch
+    - Speicherhierarchie (umsortieren und unötige entfernen)
+    - Regex schreiben
+    - Energieübergänge für einen Laser finden
+    - gegebene IP-Adresse und Netzmaske; finde die Netzadresse, die Broadcast-Adresse, die Anzahl der möglichen Hosts
+    - "Lückenschaltplan" wie Lückentext, aber man muss Bauteile einfügen
+    - Fiktive Anwendung mit Konfigurationsdatei; diese wird beschrieben; man muss (CodeMirror) eine Configdatei
+        nach Vorgaben schreiben. Das Beispiel ist komplett ausgedacht, so dass niemand vorheriges Wissen anwenden
+        kann (oder z.B. Features verwenden will, die die Simulation nicht kann), wird aber nicht als ausgedacht
+        beschrieben, sondern so, als ob es echt wäre -- nur mit einem Anwendungsnamen, den es nicht gibt.
+    TODO
+- kein Backend, DB, Author-Bereich. Das kann man alles simulieren; die Daten sind einfach im Frontend hardcodiert.
+    Bilder unklar, aber geht schon irgendwie. Das macht jedenfalls das Deployment sehr viel einfacher.
+    --> dieses Vorgehen automatisieren. Mit Feedback von HN wird der MVP evtl. wachsen.
+- vor HN noch Feedback von anderen einholen. Andere kann ich oft fragen, HN nur 1x / wenige male, und auch nur dann
+    mehrmals, wenn sich deutlich was tut.
+
+
+--- TODO noch für MVP zusammendampfen
+Beispiele:
+- Excel-Simulator
+- Bild zu einer Situation, und man muss die Arbeitsschritte in der richtigen Reihenfolge ausführen. Dazu hat man
+    Buttons neben dem Bild bzw. muss ein Ding auf dem Bild anwählen und dann auf einen der Buttons dazu drücken.
+- Mischungsverhältnisse: Tupel von Schiebereglern
+- Dokumentation lesen: Mehrere Bilder; das richtige raussuchen und Informationen herausholen. Ist dann aber nicht
+    die eigentliche Aufgabe, sondern z.B. der Beschreibungstext; die eigentliche Aufgabe wäre z.B. multiple choice.
+- Schaltplan o.ä. eine Zeit lang lesen, dann merken und Fragen beantworten
+- Checkbox-Tupel z.B. für Eigenschaften eines Werkstoffs
+- virtuelle Produktionsmaschinen bedienen -- das geht sogar schematisch
+    Aber vorsicht, dass es kein reines "Spiel-Beispiel" wird
+    --> ist von daher nicht so toll, außer um eine konkrete Maschine zu lernen
+NICHT-PRAKTISCHES
+- Graph-Editor
+- eine Art von Aufgabe, wo man Dinge berechnet (Physik, Chemie, ...) wäre sinnvoll, aber unklar wie
+- Kommandozeilen-Tools in einer Kommandozeile ausprobieren; man muss die richtigen Dinge eingeben
+- Konfigurationsdateien schreiben. Man muss das richtige eintragen, und bekommt auch erklärt, was das wirklich macht,
+    was man eingegeben hat. (Umsetzung: CodeMirror)
+    - Hiermit kann man grundsätzlich die Funktionsweise von Linux erklären. Wenn jemand einen solchen Kurs schreibt,
+    wird der mit hoher Wahrscheinlichkeit sehr schlecht sein (z.B. erklärt ein Tool un dessen Konfigurationsdateien,
+    aber in Wirklichkeit wird dieses Tool nur als Brücke für ein anderes Tool benutzt, und das wird nicht erklärt).
+        - aber solche Dinge müssen dann über eine Feedbackfunktion für Kurse verbessert werden. Ohne Starter wird
+        es auch kein besseres Tutorial geben. Und ohne mmehr Leute, die die Tools verstehen und gleichzeitig einen
+        Blick fürs Praktische haben, wird es auch keine besseren Tools geben.
+<-- solche sehr speziellen Beispiele sind gut für einen MVP! Sie demonstratieren die Möglichkeiten.
+==>
+für alle diese Dinge macht eine Standardbibliothek Sinn. Noch unklar, wie man die in das JS-System reinbringt.
+
+--- added: einzelne Units, um Anwendbarkeit auf anderen Gebieten zu zeigen
+- damit man keine Vorstellungskraft mehr braucht, um sich klarzumachen, dass Berufsausbildung auch so gehen könnte
+
+- Estrich / Innenwände: zwei Bilder, einmal die innenwand aufgesetzt, einmal bis unten. Liste von Vor-/Nachteilen
+    und man muss jeweils (pro Vor-/Nachteil ein doppel-Radiobutton) zuordnen, für welche Lösung der gilt.
+- Sowas wie die Sicherheitsunterweisung, mit Fluchtwegen etc. an einem sehr spezifischen Beispiel
+- medizinische Messung erklären, Grenzwerte beschreiben; Übung: wird abgelesen und man muss es beurteilen
+    (zu hoch, okay, zu niedrig, Messung offensichtlich falsch), evtl auch was dann zu tun ist
+    (Hämoglobinwert messen; zu niedrig -> Eisentabletten;  (gilt alles bei Erwachsenen) zu hoch -> Arzt)
+    zu niedrig: unter 6,5 Lebensgefahr
+- Beispiel aus dem CAST-Handbuch (?)
+- zwei Platten sollen verschraubt werden (Ecke eines Kastens z.B.) -- wann und wie muss das Loch vorgebohrt werden?
+    (einfach nur multiple choice, geht ja nur um die Anwendbarkeit)
+- Beispiel aus der Steuerberechnung mit Absetzen (geht das im englischsprachigen Raum genauso wie bei uns?)
+- In the previous units (not present in this demo), you have learned about the divisions of the Fire Diamond. Let's
+    practice with a few real-world examples. You can look up the meaning of the divisions on (Link:Wikipedia) in case
+    you forgot them.
+    (Bild von der Aceton-Flasche von Wikipedia; Multiple Choice welche Gefahren zutreffen)
+
+--- added (?): complete course -- eher nicht
+
+a full woodworking course would be nice, including practical exercises. These cannot be graded obviously. Theoretical
+exercises can be graded. The course will still be useful.
+- problem: tools. A beginner won't have any tools, and buying them is too expensive in the context of this course.
+    - hand tools - cheaper and less dangerous
+    - Tip: gebrauchte Möbel als Quelle für Holsstücke (fraglich, ob das wirklich günstiger ist -- wahrscheinlich etwas)
+--> von solchen Kursen gibt es allerdings schon ein Überangebot im Netz
+
+(Kann man was "falsch lernen"? Das ist ein interessanter Punkt für so einen Kurs. Falls ja, wäre es besser, ihn nicht
+anzubieten. Falls nein, dann ist das ein guter Einstieg, um es danach richtig zu lernen -- richtig lernen ab 0 wäre
+komplizierter als auf _irgendeiner_ Erfahrung aufzusetzen.
+--> dazu gibts keine brauchbare Info im Netz. Klar ist: Diejenigen, die es jetzt schon lehren, haben 1. auch nicht
+    alle Ahnung und 2. sind nicht danach ausgewählt, ob sie lehren können. Viel schlimmer kanns also kaum werden.
+
+
+

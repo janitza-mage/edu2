@@ -1,0 +1,41 @@
+
+Inverted Classroom
+- Haupt-Anwendungsfall 1
+- bisher keine Unterstützung für "Problemstellen"
+    - Aufgaben zusammenstellen
+    - Aufgabenbearbeitung mit-ansehen, kontrollieren, ...
+        - der Lehrer kann natürlich selbst dabei zusehen, aber noch zeiteffizienter wäre es, wenn es eine bessere
+            Möglichkeit gäbe, und nur dann manuell zusehen, wenn die nicht hilft
+        - aber das mit-ansehen geht auf jeden Fall besser durch echtes mit-ansehen
+        - außerdem kann man nur durch echtes mit-ansehen Schummeln verhindern
+--> für IC braucht es ein zweites, größtenteils losgelöstes Tool für Präsenzaufgaben
+    ganze Klasse wiederholt ein Thema mit Übungen
+    Bearbeitung kontrollieren ohne Schummeln
+    Lehrer kann die Übungen zusammenstellen
+    Weil das für die Lernkontrolle ist, kann die Plattform es nicht direkt einbauen
+    Eine Verknüpfung zur Hauptplattform wäre nur, um die Inhalte zuzuordnen... aber das geht auch anders, kein Grund,
+        das UI damit zu verschmutzen
+    Dieses Tool könnte der Lehrer auch benutzen, um Focus-Aufgaben für einen einzelnen Schüler zu erstellen
+
+Lernen komplett in Eigenregie
+- Haupt-Anwendungsfall 2
+- geht natürlich nur halb-gut, weil man keine Untersützung hat, wenn man nicht weiterkommt
+    - Forum etc.
+    - Focus-Übungsaufgaben
+--> Das Focus-Übungstool von oben würde funktionieren, wenn jemand ein Template erstellen kann und im Forum zur
+Verfügung stellen kann
+
+Nachhilfe
+- Erklärtext macht da keinen Sinn
+- Bei der Nachhilfe müsste man Übungsaufgaben zusammenstellen, das kann diese Plattform nicht gut
+--> auch wieder das Focus-Übungstool
+
+==> verlagert nach focus-exercises.txt
+
+-----------------------------------------------------------------------------------------------------------------------
+
+unterstützend für dne klassischen Unterricht
+- nur mäßig. Der Lehrer würde zusehen, wie alle den Erklärtext lesen -- Zeitverschwendung.
+- das will ich eh nicht unterstützen; funktioniert aktuell nicht gut und es gibt genug Leute, die daran arbeiten
+
+
