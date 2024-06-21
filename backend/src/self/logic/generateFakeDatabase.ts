@@ -8,11 +8,11 @@ async function tableToString(pool: Pool, name: string, fields: string[]): Promis
     return `${name}: ${JSON.stringify(rows, null, 2)},\n\n`;
 }
 
-export async function writeLiteralDatabaseContentsToFile(): Promise<void> {
+export async function generateFakeDatabase(): Promise<void> {
     const postgresPool = await getPostgresPool();
     let fileContents = "export const databaseContents = {\n\n";
     fileContents += await tableToString(postgresPool, "Author", ["id", "name"]);
     fileContents += await tableToString(postgresPool, "Course", ["id", "authorId", "title", "description", "scriptLibrary"]);
     fileContents += "}\n";
-    await writeFile("../common/src/self/databaseContents.ts", fileContents);
+    await writeFile("../common/src/self/fake-database/fake-database-contents.ts", fileContents);
 }
