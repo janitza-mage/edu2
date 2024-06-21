@@ -14,5 +14,5 @@ export async function writeLiteralDatabaseContentsToFile(): Promise<void> {
     fileContents += await tableToString(postgresPool, "Author", ["id", "name"]);
     fileContents += await tableToString(postgresPool, "Course", ["id", "authorId", "title", "description", "scriptLibrary"]);
     fileContents += "}\n";
-    await writeFile("src/databaseContents.ts", fileContents);
+    await writeFile("../common/src/self/databaseContents.ts", fileContents);
 }
