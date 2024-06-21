@@ -14,7 +14,7 @@ export async function respondGetImagePage(requestCycle: UnauthenticatedRequestCy
             [courseId],
         ),
         () => postgresPool.query(
-            'SELECT "id", "contentType", "data" FROM "edu2"."Image" WHERE "courseId" = $1',
+            'SELECT "id", "contentType", "data" FROM "edu2"."Image" WHERE "courseId" = $1 ORDER BY "id"',
             [courseId],
         ),
     );
