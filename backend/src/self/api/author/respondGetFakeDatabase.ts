@@ -18,7 +18,7 @@ export async function generateFakeDatabase(): Promise<string> {
     FakeDatabaseUnitRecord,
     FakeDatabaseImageRecord,    
 } from \"./fake-database-types\";\n\n`;
-    fileContents += "// eslint-disable no-template-curly-in-string\n\n";
+    fileContents += "/* eslint-disable no-template-curly-in-string */\n\n";
     fileContents += await tableToString(postgresPool, "Author",
         ["id", "name"]
     );
