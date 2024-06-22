@@ -18,6 +18,7 @@ export async function generateFakeDatabase(): Promise<string> {
     FakeDatabaseUnitRecord,
     FakeDatabaseImageRecord,    
 } from \"./fake-database-types\";\n\n`;
+    fileContents += "// eslint-disable no-template-curly-in-string\n\n";
     fileContents += await tableToString(postgresPool, "Author",
         ["id", "name"]
     );
@@ -34,7 +35,7 @@ export async function generateFakeDatabase(): Promise<string> {
 }
 
 export async function respondGetFakeDatabase(requestCycle: AuthorRequestCycle): Promise<AlreadyResponded> {
-    requestCycle.response.setHeader("Content-Type", "text/plain");
+    requestCycle.response.setHeader("Content-Type", "text/plain; charset=utf-8");
     requestCycle.response.end(await generateFakeDatabase());
     return ALREADY_RESPONDED;
 }
