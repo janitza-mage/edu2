@@ -16,7 +16,17 @@ export async function generateFakeDatabase(): Promise<void> {
     FakeDatabaseUnitRecord,
     FakeDatabaseImageRecord,    
 } from \"./fake-database-types\";\n\n`;
-    fileContents += await tableToString(postgresPool, "Author", ["id", "name"]);
-    fileContents += await tableToString(postgresPool, "Course", ["id", "authorId", "title", "description", "scriptLibrary"]);
+    fileContents += await tableToString(postgresPool, "Author",
+        ["id", "name"]
+    );
+    fileContents += await tableToString(postgresPool, "Course",
+        ["id", "authorId", "title", "description", "scriptLibrary"]
+    );
+    fileContents += await tableToString(postgresPool, "Unit",
+        ["id", "courseId", "index", "title", "description", "exerciseUrl", "exerciseDefinition", "exerciseScript"]
+    );
+    fileContents += await tableToString(postgresPool, "Image",
+        ["id", "courseId", "contentType"]//, "data"]
+    );
     await writeFile("../common/src/self/fake-database/fake-database-contents.ts", fileContents);
 }
