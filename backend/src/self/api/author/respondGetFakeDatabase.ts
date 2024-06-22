@@ -4,9 +4,19 @@ import {Pool} from "pg";
 import {ALREADY_RESPONDED, AlreadyResponded} from "../../util/rest/wrapAutoRespond";
 
 
-async function tableToString(pool: Pool, name: string, fields: string[]): Promise<string> {
+async function tableToString(
+    pool: Pool,
+    name: string,
+    fields: string[],
+    rowMutator?: (row: any) => void,
+): Promise<string> {
     const sql = `SELECT ${fields.map(x => `"${x}"`).join(", ")} FROM "edu2"."${name}" ORDER BY "id"`;
     const rows = (await pool.query(sql, [] as unknown[])).rows;
+    if (rowMutator) {
+        for (const row of rows) {
+            rowMutator(row);
+        }
+    }
     return `export const fakeDatabaseTable_${name}: FakeDatabase${name}Record[] = ${JSON.stringify(rows, null, 2)};\n\n`;
 }
 
@@ -29,7 +39,10 @@ export async function generateFakeDatabase(): Promise<string> {
         ["id", "courseId", "index", "title", "description", "exerciseUrl", "exerciseDefinition", "exerciseScript"]
     );
     fileContents += await tableToString(postgresPool, "Image",
-        ["id", "courseId", "contentType"]//, "data"]
+        ["id", "courseId", "contentType", "data"],
+        (row) => {
+            row.data = row.data.toString("base64");
+        },
     );
     return fileContents;
 }
