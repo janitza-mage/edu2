@@ -1,6 +1,8 @@
-import {getPostgresPool} from "../util/postgres/postgresPool";
-import {writeFile} from "fs/promises";
+import {getPostgresPool} from "../../util/postgres/postgresPool";
+import {AuthorRequestCycle} from "../../util/rest/author/AuthorRequestCycle";
 import {Pool} from "pg";
+import {ALREADY_RESPONDED, AlreadyResponded} from "../../util/rest/wrapAutoRespond";
+
 
 async function tableToString(pool: Pool, name: string, fields: string[]): Promise<string> {
     const sql = `SELECT ${fields.map(x => `"${x}"`).join(", ")} FROM "edu2"."${name}" ORDER BY "id"`;
@@ -8,7 +10,7 @@ async function tableToString(pool: Pool, name: string, fields: string[]): Promis
     return `export const fakeDatabaseTable_${name}: FakeDatabase${name}Record[] = ${JSON.stringify(rows, null, 2)};\n\n`;
 }
 
-export async function generateFakeDatabase(): Promise<void> {
+export async function generateFakeDatabase(): Promise<string> {
     const postgresPool = await getPostgresPool();
     let fileContents = `import {
     FakeDatabaseAuthorRecord,
@@ -28,5 +30,11 @@ export async function generateFakeDatabase(): Promise<void> {
     fileContents += await tableToString(postgresPool, "Image",
         ["id", "courseId", "contentType"]//, "data"]
     );
-    await writeFile("../common/src/self/fake-database/fake-database-contents.ts", fileContents);
+    return fileContents;
+}
+
+export async function respondGetFakeDatabase(requestCycle: AuthorRequestCycle): Promise<AlreadyResponded> {
+    requestCycle.response.setHeader("Content-Type", "text/plain");
+    requestCycle.response.end(await generateFakeDatabase());
+    return ALREADY_RESPONDED;
 }

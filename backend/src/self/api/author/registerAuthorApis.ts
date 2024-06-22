@@ -14,6 +14,7 @@ import {respondGetImagePage} from "./respondGetImagePage";
 import {respondUploadImage} from "./respondUploadImage";
 import {respondDeleteImage} from "./respondDeleteImage";
 import {respondCreateUnitAtEndOfCourse} from "./respondCreateUnitAtEndOfCourse";
+import {respondGetFakeDatabase} from "./respondGetFakeDatabase";
 
 export function registerAuthorApis(expressApp: core.Express) {
     function registerGet(
@@ -61,4 +62,5 @@ export function registerAuthorApis(expressApp: core.Express) {
     registerDelete("deleteUnit/:unitId", respondDeleteUnit);
     registerGet("getImagePage/:courseId", respondGetImagePage);
     registerDelete("deleteImage/:imageId", respondDeleteImage);
+    registerGet("export/fakeDatabase", respondGetFakeDatabase);
 }

@@ -42,6 +42,9 @@ async function getAuthorIdFromRequest(
   request: LowLevelRequest,
   _options: WrapAuthorApiOptionsMaterialized,
 ): Promise<number> {
+  // TODO disabled for easier development
+  return 1;
+  /*
   if (!request.headers.authorization) {
     throw FinishRequest.authenticationFailed();
   }
@@ -51,5 +54,6 @@ async function getAuthorIdFromRequest(
   }
   const token = segments[1];
   // TODO actually use a token
-  return parseInt(token, 10);
+  return parseInt(token, 10);  
+   */
 }
