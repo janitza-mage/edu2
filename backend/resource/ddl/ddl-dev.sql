@@ -84,7 +84,7 @@ ALTER TABLE edu2."Course" ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 CREATE TABLE edu2."Image" (
     id bigint NOT NULL,
-    "authorId" bigint NOT NULL,
+    "courseId" bigint NOT NULL,
     "contentType" character varying NOT NULL,
     data bytea NOT NULL
 );
@@ -179,7 +179,7 @@ ALTER TABLE ONLY edu2."Course"
 --
 
 ALTER TABLE ONLY edu2."Image"
-    ADD CONSTRAINT "Image_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES edu2."Author"(id);
+    ADD CONSTRAINT "Image_courseId_fkey" FOREIGN KEY ("courseId") REFERENCES edu2."Course"(id);
 
 
 --
