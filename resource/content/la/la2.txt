@@ -1,0 +1,40 @@
+---------------------------------------------------------------------------------------------------------------------
+LA2: R^n
+---------------------------------------------------------------------------------------------------------------------
+
+linear combination
+linear equation system
+span, generator (Erzeugendensystem)
+subspace
+linear independence
+basis
+
+- Lineare Unabhängigkeit
+    - evtl. ganz weglassen
+- aufspannendes System
+    - reicht in der Form: Liegt ein Punkt in einer Ebene? Das ist ein Beispiel für 2-in-3
+- Basis
+    nein
+- Dimension
+    nein
+
+
+--- alles mit Skalarprodukt
+
+"length"
+unit vectors
+normalization
+
+scalar product, definition from cartesian coordinates
+scalar product, definition from polar coordinates
+scalar product = projection
+define length from scalar product
+Cauchy-Schwarz inequality: |a*b| <= |a|*|b|
+
+"orthogonal"
+split into parallel and orthogonal parts
+
+LATER
+- prove cauchy-schwarz inequality
+    - show triangle inequality
+    - prove triangle inequality
