@@ -1,6 +1,6 @@
 import {RefObject, useCallback, useRef, useState} from "react";
 import {CourseDetailState} from "../../../logic/state/StateStore";
-import {Alert, Button} from "@mui/material";
+import {Button, Snackbar} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {background} from "../../../../common/util/background";
@@ -47,6 +47,11 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
         // look-behind unit
         unitProgressionState = "lookbehind";
     }
+    
+    // show notification for lookahead/lookbehind units because they cannot be completed
+    const [unitProgressionStateNotificationOpen, setUnitProgressionStateNotificationOpen] =
+        useState(unitProgressionState !== "active");
+    const closeUnitProgressionStateNotification = () => setUnitProgressionStateNotificationOpen(false);
 
     // null: in progress, true: successfully finished (can continue), false: finished with errors (must be repeated)
     const [exerciseState, setExerciseState] = useState<boolean | null>(null);
@@ -134,12 +139,15 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
 
     // JSX
     return <>
-        {unitProgressionState === "lookahead" && <Alert severity="error" sx={{alignItems: "center"}}>
-            This unit cannot be completed yet because previous units have not been completed.
-        </Alert>}
-        {unitProgressionState === "lookbehind" && <Alert severity="success" sx={{alignItems: "center"}}>
-            This unit has already been completed.
-        </Alert>}
+        <Snackbar
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            open={unitProgressionStateNotificationOpen}
+            onClose={closeUnitProgressionStateNotification}
+            message={unitProgressionState === "lookahead"
+                ? "This unit cannot be completed yet because previous units have not been completed."
+                : "This unit has already been completed."}
+            autoHideDuration={5000}
+        />
         <h1><MarkdownInline renderConfiguration={{courseIdForImages: null, allowDangerousProtocol: false}}>{props.contentResponse.title}</MarkdownInline></h1>
         <iframe
             key={exerciseIframeKey}
