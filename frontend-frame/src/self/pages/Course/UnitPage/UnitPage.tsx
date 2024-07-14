@@ -6,19 +6,19 @@ import {useStateStore} from "../../../logic/state/useStateStore";
 import {FinishCoursePage} from "./FinishCoursePage";
 import {WithFooter} from "../../../components/Footer/WithFooter";
 import {useRef} from "react";
-import {GetUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
+import {GetUnitPageFrameResponse} from "../../../../common/frontend-api/GetUnitPageFrameResponse";
 import {promiseAll} from "../../../../common/util/promiseAll";
 import {Loader, useLoader} from "../../../../uilib/util/useLoader";
 import {FullWidthLoadingIndicator} from "../../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
 
-type Data = [GetUnitPageResponse, CourseDetailState];
+type Data = [GetUnitPageFrameResponse, CourseDetailState];
 
 function useData(courseId: number, unitIndex: number): Loader<Data> {
     const backend = useBackend();
     const stateStore = useStateStore();
     return useLoader(async () => {
         return await promiseAll(
-            () => backend.getUnitPage(courseId, unitIndex),
+            () => backend.getUnitPageFrame(courseId, unitIndex),
             () => stateStore.getCourseDetailState(courseId),
         );
     });

@@ -4,7 +4,7 @@ import {Alert, Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {background} from "../../../../common/util/background";
-import {RegularUnitPageResponse} from "../../../../common/frontend-api/GetUnitPageResponse";
+import {RegularUnitPageFrameResponse} from "../../../../common/frontend-api/GetUnitPageFrameResponse";
 import {scrollToBottomDelayed, scrollToDelayed} from "../../../../uilib/util/scrolling";
 import {commonSystemConfiguration} from "../../../../common/commonSystemConfiguration";
 import {MarkdownInline} from "../../../../uilib/markdown/Markdown";
@@ -19,7 +19,7 @@ type UnitProgressionState = "active" | "lookahead" | "lookbehind";
 export interface PreLoadedUnitPageProps {
     courseId: number;
     unitIndex: number;
-    contentResponse: RegularUnitPageResponse;
+    contentResponse: RegularUnitPageFrameResponse;
     courseDetailState: CourseDetailState;
     scrollContainerRef?: RefObject<HTMLElement | undefined> | undefined;
 }
