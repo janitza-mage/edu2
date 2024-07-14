@@ -7,8 +7,6 @@ export interface ScriptContext {
     authorId: number,
     courseId: number,
     reportResult: (correct: boolean) => void;
-    adjustContainerSize: () => void;
-    scrollToBottom: () => void;
 }
 
 export interface ComponentState {
@@ -32,8 +30,6 @@ export function ScriptExerciseComponent(props: ExerciseComponentProps<ScriptExer
                 authorId: props.authorId,
                 courseId: props.courseId,
                 reportResult: props.reportResult,
-                adjustContainerSize: props.adjustContainerSize,
-                scrollToBottom: props.scrollToBottom,
             };
             if (typeof props.exercise.script === "string") {
                 // eslint-disable-next-line no-new-func -- found no information on how to fix this

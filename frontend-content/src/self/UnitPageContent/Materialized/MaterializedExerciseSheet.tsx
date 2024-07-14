@@ -1,8 +1,6 @@
 import {NonEmptyExerciseSheet} from "../../../common/types/Exercise";
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useState} from "react";
 import {ExerciseComponentSwitch} from "../Exercise/ExerciseComponentSwitch";
-import {postContainerMessage} from "./postContainerMessage";
-import {AdjustContainerSizeScrollMode} from "../../../common/types/AdjustSizeScrollMode";
 import {Markdown} from "../../../uilib/markdown/Markdown";
 import {MarkdownRenderConfiguration} from "../../../uilib/markdown/renderMarkdown";
 
@@ -21,16 +19,6 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
     // correct.
     const [exerciseResults, setExerciseResults] = useState<boolean[]>([]);
 
-    // sets the size of the enclosing iframe to the size of the content.
-    function adjustContainerSize(scrollMode: AdjustContainerSizeScrollMode = "none") {
-        postContainerMessage({type: "setHeight", height: document.documentElement.scrollHeight, scrollMode});
-    }
-
-    // scrolls the outer component around the growing iframe to the bottom.
-    function scrollToBottom() {
-        postContainerMessage({type: "scrollToBottom"});
-    }
-
     // This function is called when the user answers an exercise. First, the index is checked; the UI should prevent
     // answering an exercise twice, but in case it happens, this function will just ignore it.
     //
@@ -42,20 +30,12 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
             const newResults = [...exerciseResults, correct];
             setExerciseResults(newResults);
             setTimeout(() => {
-                adjustContainerSize("oldBottom");
                 if (newResults.length === props.exerciseSheet.length) {
                     props.onExerciseSheetCompleted(newResults.every(r => r));
                 }
             }, 10);
         }
     }
-
-    // initial size after rendering
-    useEffect(() => {
-        setTimeout(() => {
-            adjustContainerSize();
-        }, 10);
-    }, []);
 
     // JSX
     const markdownConfiguration: MarkdownRenderConfiguration = {
@@ -74,8 +54,6 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
                     exercise={exercise}
                     answered={index < exerciseResults.length}
                     reportResult={(correct: boolean) => onReportResult(index, correct)}
-                    adjustContainerSize={adjustContainerSize}
-                    scrollToBottom={scrollToBottom}
                 />
             </div>
             {index < exerciseResults.length && exercise.epilogue && <div>

@@ -36,11 +36,9 @@ export function UnitPageContent(props: ExerciseSheetProps) {
     // exercise sheet success -- controls the completion button and reports to the parent frame
     const [exerciseSheetSuccess, setExerciseSheetSuccess] = useState<boolean | null>(null);
     const reportExerciseSheetSuccess = (success: boolean) => {
-        console.log("reportExerciseSheetSuccess: ", success);
         setExerciseSheetSuccess(success);
     };
     const finishUnit = () => {
-        console.log("finishUnit")
         postContainerMessage({type: "finish", success: !!exerciseSheetSuccess});
     };
     

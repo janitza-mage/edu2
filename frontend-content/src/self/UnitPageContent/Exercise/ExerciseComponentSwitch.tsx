@@ -6,8 +6,10 @@ import {
     ChooseOneExercise,
     ChooseYesNoExercise,
     DummyExercise,
-    Exercise, FillInTheBlanksExercise,
-    NopExercise, ScriptExercise
+    Exercise,
+    FillInTheBlanksExercise,
+    NopExercise,
+    ScriptExercise
 } from "../../../common/types/Exercise";
 import {ChooseYesNoExerciseComponent} from "./ChooseYesNoExerciseComponent";
 import {FillInTheBlanksExerciseComponent} from "./FillInTheBlanks/FillInTheBlanksExerciseComponent";

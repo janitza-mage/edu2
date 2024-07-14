@@ -31,8 +31,7 @@ export interface UnitPageProps {
 
 export function UnitPage({courseId, unitIndex}: UnitPageProps) {
     const loader = useData(courseId, unitIndex);
-    const scrollContainerRef = useRef<HTMLElement | undefined>();
-    return <WithFooter footer={<Footer/>} scrollContainerRef={scrollContainerRef}>
+    return <WithFooter footer={<Footer/>}>
         <FullWidthLoadingIndicator<Data> loader={loader}>
             {([contentResponse, courseState]) => {
                 if (contentResponse === "finish") {
@@ -49,7 +48,6 @@ export function UnitPage({courseId, unitIndex}: UnitPageProps) {
                         unitIndex={unitIndex}
                         contentResponse={contentResponse}
                         courseDetailState={courseState}
-                        scrollContainerRef={scrollContainerRef}
                     />;
                 }
             }}

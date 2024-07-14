@@ -1,10 +1,9 @@
-import {RefObject, useCallback, useRef, useState} from "react";
+import {useCallback, useRef, useState} from "react";
 import {CourseDetailState} from "../../../logic/state/StateStore";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {background} from "../../../../common/util/background";
 import {RegularUnitPageFrameResponse} from "../../../../common/frontend-api/GetUnitPageFrameResponse";
-import {scrollToBottomDelayed, scrollToDelayed} from "../../../../uilib/util/scrolling";
 import {commonSystemConfiguration} from "../../../../common/commonSystemConfiguration";
 
 /**
@@ -19,7 +18,6 @@ export interface PreLoadedUnitPageProps {
     unitIndex: number;
     contentResponse: RegularUnitPageFrameResponse;
     courseDetailState: CourseDetailState;
-    scrollContainerRef?: RefObject<HTMLElement | undefined> | undefined;
 }
 
 export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
@@ -69,9 +67,6 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
     //
     const messageHandlerRef = useRef<((event: MessageEvent) => void) | null>(null);
     function onNewIframe(iframe: HTMLIFrameElement | null) {
-        if (iframe === messageHandlerRef.current) {
-            return;
-        }
 
         // remove previous message handler
         if (messageHandlerRef.current) {
@@ -85,35 +80,6 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                 const commands = Array.isArray(event.data) ? event.data : [event.data];
                 for (const command of commands) {
                     switch (command.type) {
-
-                        case "setHeight": {
-                            let scrollTarget: number | null = null;
-                            switch (command.scrollMode ?? "none") {
-
-                                case "oldBottom":
-                                    scrollTarget = iframe.scrollHeight;
-                                    break;
-
-                                case "newBottom":
-                                    scrollTarget = command.height;
-                                    break;
-
-                            }
-                            iframe.height = command.height;
-                            if (scrollTarget !== null && props.scrollContainerRef && props.scrollContainerRef.current) {
-                                const container = props.scrollContainerRef.current;
-                                const iframePositionWithinContainer = iframe.getBoundingClientRect().top + container.scrollTop;
-                                scrollToDelayed(container, iframePositionWithinContainer + scrollTarget);
-                            }
-                            break;
-                        }
-
-                        case "scrollToBottom":
-                            if (props.scrollContainerRef && props.scrollContainerRef.current) {
-                                scrollToBottomDelayed(props.scrollContainerRef.current);
-                            }
-                            break;
-
                         case "finish":
                             finishUnit(!!command.success);
                             break;
@@ -125,7 +91,7 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
             iframe.src = baseUrl + (baseUrl.includes("?") ? "&" : "?") + "ups=" + unitProgressionState;
         }
     }
-    const onNewIframeCallback = useCallback(onNewIframe, [props.courseId, props.unitIndex, props.contentResponse.contentUrl, props.scrollContainerRef]);
+    const onNewIframeCallback = useCallback(onNewIframe, [props.courseId, props.unitIndex, props.contentResponse.contentUrl]);
 
     // JSX
     return <iframe
@@ -133,6 +99,7 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
         ref={onNewIframeCallback}
         title="unit content"
         width="100%"
-        height="1px" style={{border: "0px none red"}}
+        height="100%"
+        style={{border: "0px none red", position: "absolute", top: 0, bottom: 0, left: 0, right: 0, overflow: "scroll"}}
     />;
 }
