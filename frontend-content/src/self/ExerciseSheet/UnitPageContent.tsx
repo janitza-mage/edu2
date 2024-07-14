@@ -5,7 +5,7 @@ import {exerciseDefinitionSchema} from "../../common/types/ExerciseDefinition";
 import {getErrorMessage} from "../../common/util/getErrorMessage";
 import {useLoader} from "../../uilib/util/useLoader";
 import {FullWidthLoadingIndicator} from "../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
-import {Markdown} from "../../uilib/markdown/Markdown";
+import {Markdown, MarkdownInline} from "../../uilib/markdown/Markdown";
 
 export interface ExerciseSheetProps {
     courseId: number,
@@ -27,6 +27,7 @@ export function UnitPageContent(props: ExerciseSheetProps) {
     const loader = useLoader(() => loadExercise(props));
     return <FullWidthLoadingIndicator loader={loader}>
         {(result) => <>
+            <h1><MarkdownInline renderConfiguration={{courseIdForImages: null, allowDangerousProtocol: false}}>{result.title}</MarkdownInline></h1>
             <Markdown renderConfiguration={{courseIdForImages: props.courseId, allowDangerousProtocol: false}}>
                 {result.description}
             </Markdown>

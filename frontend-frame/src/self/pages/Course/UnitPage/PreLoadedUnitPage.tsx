@@ -7,7 +7,6 @@ import {background} from "../../../../common/util/background";
 import {RegularUnitPageFrameResponse} from "../../../../common/frontend-api/GetUnitPageFrameResponse";
 import {scrollToBottomDelayed, scrollToDelayed} from "../../../../uilib/util/scrolling";
 import {commonSystemConfiguration} from "../../../../common/commonSystemConfiguration";
-import {MarkdownInline} from "../../../../uilib/markdown/Markdown";
 
 /**
  * This state indicates the relation of the current unit index vs. the active unit index, the latter being equal
@@ -148,7 +147,6 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                 : "This unit has already been completed."}
             autoHideDuration={5000}
         />
-        <h1><MarkdownInline renderConfiguration={{courseIdForImages: null, allowDangerousProtocol: false}}>{props.contentResponse.title}</MarkdownInline></h1>
         <iframe
             key={exerciseIframeKey}
             ref={onNewIframeCallback}

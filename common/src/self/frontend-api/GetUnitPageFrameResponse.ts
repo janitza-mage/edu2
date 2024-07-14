@@ -1,6 +1,5 @@
 export interface RegularUnitPageFrameResponse {
     authorId: number;
-    title: string;
     contentUrl: string | null;
 }
 

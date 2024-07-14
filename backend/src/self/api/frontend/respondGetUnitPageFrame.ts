@@ -9,7 +9,7 @@ export async function respondGetUnitPageFrame(requestCycle: UnauthenticatedReque
     const unitIndex = getNumberFromPath(requestCycle.pathParameters.unitIndex);
     const postgresPool = await getPostgresPool();
     const unitResult = await postgresPool.query(
-        'SELECT c."authorId", u."title", u."contentUrl" FROM "edu2"."Course" c, "edu2"."Unit" u WHERE c.id = $1 AND u."courseId" = $1 AND u."index" = $2 LIMIT 1',
+        'SELECT c."authorId", u."contentUrl" FROM "edu2"."Course" c, "edu2"."Unit" u WHERE c.id = $1 AND u."courseId" = $1 AND u."index" = $2 LIMIT 1',
         [courseId, unitIndex],
     );
     if (unitResult.rows.length === 0) {
@@ -26,7 +26,6 @@ export async function respondGetUnitPageFrame(requestCycle: UnauthenticatedReque
     const unitRow = unitResult.rows[0];
     return {
         authorId: unitRow.authorId,
-        title: unitRow.title,
         contentUrl: unitRow.contentUrl,
     };
 }
