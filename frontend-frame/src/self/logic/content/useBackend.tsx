@@ -2,7 +2,7 @@ import {Backend} from "./Backend";
 import {backendGet} from "./backendGet";
 import {GetCourseListPageResponse} from "../../../common/frontend-api/GetCourseListPageResponse";
 import {GetUnitListPageResponse} from "../../../common/frontend-api/GetUnitListPageResponse";
-import {GetUnitPageResponse} from "../../../common/frontend-api/GetUnitPageResponse";
+import {GetUnitPageFrameResponse} from "../../../common/frontend-api/GetUnitPageFrameResponse";
 import {GetCourseInfoPageResponse} from "../../../common/frontend-api/GetCourseInfoPageResponse";
 
 export const backend: Backend = {
@@ -23,8 +23,8 @@ export const backend: Backend = {
         return (await backendGet(`getUnitListPage/${courseId}`)) as GetUnitListPageResponse;
     },
 
-    async getUnitPage(courseId: number, unitIndex: number): Promise<GetUnitPageResponse> {
-        return (await backendGet(`getUnitPage/${courseId}/${unitIndex}`)) as GetUnitPageResponse;
+    async getUnitPageFrame(courseId: number, unitIndex: number): Promise<GetUnitPageFrameResponse> {
+        return (await backendGet(`getUnitPageFrame/${courseId}/${unitIndex}`)) as GetUnitPageFrameResponse;
     },
 
 };
