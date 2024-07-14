@@ -1,6 +1,5 @@
 import {RefObject, useCallback, useRef, useState} from "react";
 import {CourseDetailState} from "../../../logic/state/StateStore";
-import {Alert, Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {background} from "../../../../common/util/background";
@@ -28,7 +27,7 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
     const navigate = useNavigate();
 
     // unit progression state -- used to determine whether the unit can be completed (if not, a successfully completed
-    // exercise will not have any effect), and for that reason this will show an alert at the top.
+    // exercise sheet will not have any effect), and for that reason this will show an alert at the top.
     let unitProgressionState: UnitProgressionState;
     if (props.courseDetailState.completionStatus === "completed") {
         // whole course already completed
@@ -47,25 +46,21 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
         unitProgressionState = "lookbehind";
     }
 
-    // null: in progress, true: successfully finished (can continue), false: finished with errors (must be repeated)
-    const [exerciseState, setExerciseState] = useState<boolean | null>(null);
-
     // counted up to make the iframe reload when the "repeat" button is pressed
-    const [exerciseIframeKey, setExerciseIframeKey] = useState(0);
+    const [iframeKey, setIframeKey] = useState(0);
 
-    // The "finish exercise sheet" button either repeats the exercise sheet or advances to the next unit, depending on
-    // whether there are any errors in the exercises, as well as whether this is a look-ahead or look-behind unit.
+    // The "finish unit" button either repeats the unit or advances to the next unit, depending on whether there are
+    // any errors in the exercises, as well as whether this is a look-ahead or look-behind unit.
     // Advancing to the next unit will also persistently store the learner's progress in the state store.
-    function onFinishExerciseSheet() {
-        if (exerciseState !== null) {
+    function finishUnit(success: boolean) {
+        if (success !== null) {
             background(async () => {
-                if (unitProgressionState === "active" && exerciseState) {
+                if (unitProgressionState === "active" && success) {
                     await stateStore.completeUnit(props.courseId, props.unitIndex);
                     navigate(`/courses/${props.courseId}/units/${props.unitIndex + 1}`);
                 } else {
                     // reload iframe to generate new exercises and reset their state
-                    setExerciseIframeKey(exerciseIframeKey + 1);
-                    setExerciseState(null);
+                    setIframeKey(iframeKey + 1);
                 }
             });
         }
@@ -120,37 +115,24 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                             break;
 
                         case "finish":
-                            setExerciseState(!!command.success);
+                            finishUnit(!!command.success);
                             break;
                     }
                 }
             };
             window.addEventListener("message", messageHandlerRef.current);
-            iframe.src = props.contentResponse.contentUrl ?? `${commonSystemConfiguration.contentBaseUrl}/${props.courseId}/${props.unitIndex}`;
+            const baseUrl = props.contentResponse.contentUrl ?? `${commonSystemConfiguration.contentBaseUrl}/${props.courseId}/${props.unitIndex}`;
+            iframe.src = baseUrl + (baseUrl.includes("?") ? "&" : "?") + "ups=" + unitProgressionState;
         }
     }
     const onNewIframeCallback = useCallback(onNewIframe, [props.courseId, props.unitIndex, props.contentResponse.contentUrl, props.scrollContainerRef]);
 
     // JSX
-    return <>
-        {unitProgressionState === "lookahead" && <Alert severity="error" sx={{alignItems: "center"}}>
-            This unit cannot be completed yet because previous units have not been completed.
-        </Alert>}
-        {unitProgressionState === "lookbehind" && <Alert severity="success" sx={{alignItems: "center"}}>
-            This unit has already been completed.
-        </Alert>}
-        <iframe
-            key={exerciseIframeKey}
-            ref={onNewIframeCallback}
-            title="exercise"
-            width="100%"
-            height="1px" style={{border: "0px none red"}}
-        />
-        {exerciseState !== null && <>
-            <hr/>
-            <Button variant="contained" onClick={onFinishExerciseSheet}>
-                {(!exerciseState || unitProgressionState !== "active") ? "Repeat exercise" : "Continue to the next unit"}
-            </Button>
-        </>}
-    </>;
+    return <iframe
+        key={iframeKey}
+        ref={onNewIframeCallback}
+        title="unit content"
+        width="100%"
+        height="1px" style={{border: "0px none red"}}
+    />;
 }

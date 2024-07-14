@@ -8,6 +8,7 @@ export interface ScriptedExerciseSheetProps {
     courseId: number,
     script: string;
     courseScriptLibrary: string;
+    onExerciseSheetCompleted: (success: boolean) => void;
 }
 
 export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
@@ -29,6 +30,7 @@ export function ScriptedExerciseSheet(props: ScriptedExerciseSheetProps) {
                     authorId={props.authorId}
                     courseId={props.courseId}
                     exerciseSheet={nonEmptySheet}
+                    onExerciseSheetCompleted={props.onExerciseSheetCompleted}
                 />);
             },
         };

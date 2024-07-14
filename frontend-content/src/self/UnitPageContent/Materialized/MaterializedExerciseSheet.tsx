@@ -10,6 +10,7 @@ export interface MaterializedExerciseSheetProps {
     authorId: number;
     courseId: number;
     exerciseSheet: NonEmptyExerciseSheet;
+    onExerciseSheetCompleted: (success: boolean) => void;
 }
 
 export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps) {
@@ -43,8 +44,7 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
             setTimeout(() => {
                 adjustContainerSize("oldBottom");
                 if (newResults.length === props.exerciseSheet.length) {
-                    const success = newResults.every(r => r);
-                    postContainerMessage({type: "finish", success});
+                    props.onExerciseSheetCompleted(newResults.every(r => r));
                 }
             }, 10);
         }

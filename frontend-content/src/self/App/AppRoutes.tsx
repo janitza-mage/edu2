@@ -1,5 +1,5 @@
 import {Route, Routes, useParams} from "react-router-dom";
-import {UnitPageContent} from "../ExerciseSheet/UnitPageContent";
+import {UnitPageContent} from "../UnitPageContent/UnitPageContent";
 
 function UnitPageContentWrapper() {
     let {courseId, unitIndex} = useParams();

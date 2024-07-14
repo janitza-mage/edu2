@@ -10,6 +10,7 @@ export interface ExerciseSheetSourceSwitchProps {
     exerciseDefinition: ExerciseDefinition;
     exerciseScript: string;
     courseScriptLibrary: string;
+    onExerciseSheetCompleted: (success: boolean) => void;
 }
 
 export function ExerciseDefinitionSwitch(props: ExerciseSheetSourceSwitchProps) {
@@ -22,6 +23,7 @@ export function ExerciseDefinitionSwitch(props: ExerciseSheetSourceSwitchProps) 
                 authorId={props.authorId}
                 courseId={props.courseId}
                 exerciseSheet={exerciseSheet}
+                onExerciseSheetCompleted={props.onExerciseSheetCompleted}
             />;
         }
 
@@ -31,6 +33,7 @@ export function ExerciseDefinitionSwitch(props: ExerciseSheetSourceSwitchProps) 
                 courseId={props.courseId}
                 script={props.exerciseScript}
                 courseScriptLibrary={props.courseScriptLibrary}
+                onExerciseSheetCompleted={props.onExerciseSheetCompleted}
             />;
 
         default:
