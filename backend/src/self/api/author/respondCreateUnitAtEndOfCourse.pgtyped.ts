@@ -23,7 +23,7 @@ export interface ICreateUnitSqlParams {
   description: string;
   exerciseDefinition: Json;
   exerciseScript: string;
-  exerciseUrl?: string | null | void;
+  contentUrl?: string | null | void;
   index: number;
   title: string;
 }

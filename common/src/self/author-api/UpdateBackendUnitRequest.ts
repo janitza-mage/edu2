@@ -3,7 +3,7 @@ import {z} from "zod";
 export const updateBackendUnitRequestSchema = z.object({
     title: z.string(),
     description: z.string(),
-    exerciseUrl: z.string(),
+    contentUrl: z.string(),
     exerciseDefinition: z.string(),
     exerciseScript: z.string(),
 }).strict();

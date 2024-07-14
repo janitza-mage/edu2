@@ -10,7 +10,7 @@ import {updateBackendUnitData} from "../logic/backend/backend";
 const formSchema = z.object({
     title: z.string().min(1, "Title cannot be empty"),
     description: z.string(),
-    exerciseUrl: z.string().nullable(),
+    contentUrl: z.string().nullable(),
     exerciseDefinition: z.string(),
     exerciseScript: z.string(),
 }).strict();
@@ -37,7 +37,7 @@ export function UnitDataPanel(props: UnitDataPanelProps) {
         await updateBackendUnitData(props.unitId, {
             title: data.title,
             description: data.description,
-            exerciseUrl: data.exerciseUrl ?? "",
+            contentUrl: data.contentUrl ?? "",
             exerciseDefinition: data.exerciseDefinition,
             exerciseScript: data.exerciseScript,
         });
@@ -47,7 +47,7 @@ export function UnitDataPanel(props: UnitDataPanelProps) {
         <TextField name="title" label="Title" muiTextFieldProps={{inputProps: {style: {fontFamily: "monospace"}}}} />
         <br /><br />
         <FormCodeMirrorMarkdown name="description" label="Description" />
-        <TextField name="exerciseUrl" label="Override Exercise URL" muiTextFieldProps={{inputProps: {style: {fontFamily: "monospace"}}}} />
+        <TextField name="contentUrl" label="Override Content URL" muiTextFieldProps={{inputProps: {style: {fontFamily: "monospace"}}}} />
         <br /><br />
         <FormCodeMirrorJson name="exerciseDefinition" label="Exercise Definition" />
         <br /><br />

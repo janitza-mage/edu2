@@ -7,5 +7,5 @@ const backendBaseUrl = `http://${localServerAddress}:8080`;
 export const commonSystemConfiguration = {
     frontendBackendBaseUrl: backendBaseUrl + "/frontend",
     authorBackendBaseUrl: backendBaseUrl + "/author",
-    exerciseBaseUrl: `http://${localServerAddress}:3001`,
+    contentBaseUrl: `http://${localServerAddress}:3001`,
 };

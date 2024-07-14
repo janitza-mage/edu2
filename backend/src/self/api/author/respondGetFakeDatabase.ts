@@ -36,7 +36,7 @@ export async function generateFakeDatabase(): Promise<string> {
         ["id", "authorId", "title", "description", "scriptLibrary"]
     );
     fileContents += await tableToString(postgresPool, "Unit",
-        ["id", "courseId", "index", "title", "description", "exerciseUrl", "exerciseDefinition", "exerciseScript"]
+        ["id", "courseId", "index", "title", "description", "contentUrl", "exerciseDefinition", "exerciseScript"]
     );
     fileContents += await tableToString(postgresPool, "Image",
         ["id", "courseId", "contentType", "data"],

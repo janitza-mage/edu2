@@ -8,7 +8,7 @@ export async function respondGetUnit(requestCycle: AuthorRequestCycle): Promise<
     const unitId = getNumberFromPath(requestCycle.pathParameters.unitId);
     const postgresPool = await getPostgresPool();
     const unitResult = await postgresPool.query(
-        'SELECT "title", "description", "exerciseUrl", "exerciseDefinition", "exerciseScript" FROM "edu2"."Unit" WHERE "id" = $1 LIMIT 1',
+        'SELECT "title", "description", "contentUrl", "exerciseDefinition", "exerciseScript" FROM "edu2"."Unit" WHERE "id" = $1 LIMIT 1',
         [unitId],
     );
     if (unitResult.rows.length !== 1) {

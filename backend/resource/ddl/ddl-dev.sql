@@ -114,7 +114,7 @@ CREATE TABLE edu2."Unit" (
     index integer NOT NULL,
     title character varying NOT NULL,
     description character varying NOT NULL,
-    "exerciseUrl" character varying,
+    "contentUrl" character varying,
     "exerciseDefinition" jsonb NOT NULL,
     "exerciseScript" character varying NOT NULL
 );

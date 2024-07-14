@@ -2,7 +2,7 @@ export interface RegularUnitPageResponse {
     authorId: number;
     title: string;
     // TODO rename to contentUrl since it now also shows the unit description
-    exerciseUrl: string | null;
+    contentUrl: string | null;
 }
 
 // TODO rename to GetUnitPageFrameResponse

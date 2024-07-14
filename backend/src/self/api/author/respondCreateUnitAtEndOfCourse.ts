@@ -15,7 +15,7 @@ const createUnitSql = sql<ICreateUnitSqlQuery>`
         "index",
         "title",
         "description",
-        "exerciseUrl",
+        "contentUrl",
         "exerciseDefinition",
         "exerciseScript"
     ) VALUES (
@@ -23,7 +23,7 @@ const createUnitSql = sql<ICreateUnitSqlQuery>`
         $index!,
         $title!,
         $description!,
-        $exerciseUrl,
+        $contentUrl,
         $exerciseDefinition!,
         $exerciseScript!
     ) RETURNING "id";
@@ -39,7 +39,7 @@ export async function respondCreateUnitAtEndOfCourse(requestCycle: AuthorRequest
             index,
             title: "New Unit",
             description: "",
-            exerciseUrl: null,
+            contentUrl: null,
             exerciseDefinition: {
                 "type": "explicit",
                 "exercises": []

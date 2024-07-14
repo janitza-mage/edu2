@@ -127,10 +127,10 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                 }
             };
             window.addEventListener("message", messageHandlerRef.current);
-            iframe.src = props.contentResponse.exerciseUrl ?? `${commonSystemConfiguration.exerciseBaseUrl}/${props.courseId}/${props.unitIndex}`;
+            iframe.src = props.contentResponse.contentUrl ?? `${commonSystemConfiguration.contentBaseUrl}/${props.courseId}/${props.unitIndex}`;
         }
     }
-    const onNewIframeCallback = useCallback(onNewIframe, [props.courseId, props.unitIndex, props.contentResponse.exerciseUrl, props.scrollContainerRef]);
+    const onNewIframeCallback = useCallback(onNewIframe, [props.courseId, props.unitIndex, props.contentResponse.contentUrl, props.scrollContainerRef]);
 
     // JSX
     return <>
