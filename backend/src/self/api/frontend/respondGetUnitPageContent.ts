@@ -3,9 +3,9 @@ import {FinishRequest} from "../../util/rest/FinishRequest";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
 import {promiseAll} from "../../../common/util/promiseAll";
-import {GetExerciseResponse} from "../../../common/frontend-api/GetExerciseResponse";
+import {GetUnitPageContentResponse} from "../../../common/frontend-api/GetUnitPageContentResponse";
 
-export async function respondGetExercise(requestCycle: UnauthenticatedRequestCycle): Promise<GetExerciseResponse> {
+export async function respondGetUnitPageContent(requestCycle: UnauthenticatedRequestCycle): Promise<GetUnitPageContentResponse> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);
     const unitIndex = getNumberFromPath(requestCycle.pathParameters.unitIndex);
     const postgresPool = await getPostgresPool();

@@ -1,10 +1,10 @@
 import {UnauthenticatedRequestCycle} from "../../util/rest/unauthenticated/UnauthenticatedRequestCycle";
 import {FinishRequest} from "../../util/rest/FinishRequest";
-import {GetUnitPageResponse} from "../../../common/frontend-api/GetUnitPageResponse";
+import {GetUnitPageFrameResponse} from "../../../common/frontend-api/GetUnitPageFrameResponse";
 import {getNumberFromPath} from "../getNumberFromPath";
 import {getPostgresPool} from "../../util/postgres/postgresPool";
 
-export async function respondGetUnitPage(requestCycle: UnauthenticatedRequestCycle): Promise<GetUnitPageResponse> {
+export async function respondGetUnitPageFrame(requestCycle: UnauthenticatedRequestCycle): Promise<GetUnitPageFrameResponse> {
     const courseId = getNumberFromPath(requestCycle.pathParameters.courseId);
     const unitIndex = getNumberFromPath(requestCycle.pathParameters.unitIndex);
     const postgresPool = await getPostgresPool();

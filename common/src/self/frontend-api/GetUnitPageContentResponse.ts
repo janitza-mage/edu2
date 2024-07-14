@@ -1,7 +1,6 @@
 import {ExerciseDefinition} from "../types/ExerciseDefinition";
 
-// TODO rename to GetUnitPageContentResponse
-export interface GetExerciseResponse {
+export interface GetUnitPageContentResponse {
     authorId: number;
     description: string;
     exerciseDefinition: ExerciseDefinition;

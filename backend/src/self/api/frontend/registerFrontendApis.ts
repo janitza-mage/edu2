@@ -5,10 +5,10 @@ import {
     wrapUnauthenticatedApi,
     WrapUnauthenticatedApiOptions
 } from "../../util/rest/unauthenticated/wrapUnauthenticatedApi";
-import {respondGetUnitPage} from "./respondGetUnitPage";
+import {respondGetUnitPageFrame} from "./respondGetUnitPageFrame";
 import {respondGetUnitListPage} from "./respondGetUnitListPage";
 import {respondGetNumberOfUnitsForCourse} from "./respondGetNumberOfUnitsForCourse";
-import {respondGetExercise} from "./respondGetExercise";
+import {respondGetUnitPageContent} from "./respondGetUnitPageContent";
 import {respondGetImage} from "./respondGetImage";
 import {respondGetCourseInfoPage} from "./respondGetCourseInfoPage";
 
@@ -25,7 +25,7 @@ export function registerFrontendApis(expressApp: core.Express) {
     register("getCourseInfoPage/:courseId", respondGetCourseInfoPage);
     register("getNumberOfUnitsForCourse/:courseId", respondGetNumberOfUnitsForCourse);
     register("getUnitListPage/:courseId", respondGetUnitListPage);
-    register("getUnitPage/:courseId/:unitIndex", respondGetUnitPage);
-    register("getExercise/:courseId/:unitIndex", respondGetExercise);
+    register("getUnitPageFrame/:courseId/:unitIndex", respondGetUnitPageFrame);
+    register("getUnitPageContent/:courseId/:unitIndex", respondGetUnitPageContent);
     register("getImage/:courseId/:imageId", respondGetImage);
 }
