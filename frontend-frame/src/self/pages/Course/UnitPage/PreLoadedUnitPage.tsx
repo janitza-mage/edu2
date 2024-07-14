@@ -1,6 +1,6 @@
 import {RefObject, useCallback, useRef, useState} from "react";
 import {CourseDetailState} from "../../../logic/state/StateStore";
-import {Button, Snackbar} from "@mui/material";
+import {Alert, Button} from "@mui/material";
 import {useStateStore} from "../../../logic/state/useStateStore";
 import {useNavigate} from "react-router-dom";
 import {background} from "../../../../common/util/background";
@@ -46,11 +46,6 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
         // look-behind unit
         unitProgressionState = "lookbehind";
     }
-    
-    // show notification for lookahead/lookbehind units because they cannot be completed
-    const [unitProgressionStateNotificationOpen, setUnitProgressionStateNotificationOpen] =
-        useState(unitProgressionState !== "active");
-    const closeUnitProgressionStateNotification = () => setUnitProgressionStateNotificationOpen(false);
 
     // null: in progress, true: successfully finished (can continue), false: finished with errors (must be repeated)
     const [exerciseState, setExerciseState] = useState<boolean | null>(null);
@@ -138,15 +133,12 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
 
     // JSX
     return <>
-        <Snackbar
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            open={unitProgressionStateNotificationOpen}
-            onClose={closeUnitProgressionStateNotification}
-            message={unitProgressionState === "lookahead"
-                ? "This unit cannot be completed yet because previous units have not been completed."
-                : "This unit has already been completed."}
-            autoHideDuration={5000}
-        />
+        {unitProgressionState === "lookahead" && <Alert severity="error" sx={{alignItems: "center"}}>
+            This unit cannot be completed yet because previous units have not been completed.
+        </Alert>}
+        {unitProgressionState === "lookbehind" && <Alert severity="success" sx={{alignItems: "center"}}>
+            This unit has already been completed.
+        </Alert>}
         <iframe
             key={exerciseIframeKey}
             ref={onNewIframeCallback}
