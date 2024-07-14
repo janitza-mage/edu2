@@ -13,7 +13,7 @@ export interface ExerciseSheetProps {
 }
 
 async function loadExercise(props: ExerciseSheetProps): Promise<GetUnitPageContentResponse> {
-    const response = (await backendGet(`getExercise/${props.courseId}/${props.unitIndex}`)) as GetUnitPageContentResponse;
+    const response = (await backendGet(`getUnitPageContent/${props.courseId}/${props.unitIndex}`)) as GetUnitPageContentResponse;
     try {
         exerciseDefinitionSchema.parse(response.exerciseDefinition);
     } catch (error) {
