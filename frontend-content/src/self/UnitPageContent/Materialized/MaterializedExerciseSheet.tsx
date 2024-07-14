@@ -29,10 +29,11 @@ export function MaterializedExerciseSheet(props: MaterializedExerciseSheetProps)
         if (index === exerciseResults.length) {
             const newResults = [...exerciseResults, correct];
             setExerciseResults(newResults);
+            if (newResults.length === props.exerciseSheet.length) {
+                props.onExerciseSheetCompleted(newResults.every(r => r));
+            }
             setTimeout(() => {
-                if (newResults.length === props.exerciseSheet.length) {
-                    props.onExerciseSheetCompleted(newResults.every(r => r));
-                }
+                window.scrollTo({top: document.body.scrollHeight, left: 0, behavior: "smooth"});
             }, 10);
         }
     }

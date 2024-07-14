@@ -21,6 +21,7 @@ export interface PreLoadedUnitPageProps {
 }
 
 export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
+    const [dummyState, setDummyState] = useState({});
     const stateStore = useStateStore();
     const navigate = useNavigate();
 
@@ -45,7 +46,7 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
     }
 
     // counted up to make the iframe reload when the "repeat" button is pressed
-    const [iframeKey, setIframeKey] = useState(0);
+    const iframeKeyContainer = useRef(0);
 
     // The "finish unit" button either repeats the unit or advances to the next unit, depending on whether there are
     // any errors in the exercises, as well as whether this is a look-ahead or look-behind unit.
@@ -58,7 +59,8 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
                     navigate(`/courses/${props.courseId}/units/${props.unitIndex + 1}`);
                 } else {
                     // reload iframe to generate new exercises and reset their state
-                    setIframeKey(iframeKey + 1);
+                    iframeKeyContainer.current += 1;
+                    setDummyState({});
                 }
             });
         }
@@ -95,7 +97,7 @@ export function PreLoadedUnitPage(props: PreLoadedUnitPageProps) {
 
     // JSX
     return <iframe
-        key={iframeKey}
+        key={iframeKeyContainer.current}
         ref={onNewIframeCallback}
         title="unit content"
         width="100%"
