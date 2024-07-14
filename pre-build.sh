@@ -10,10 +10,10 @@ cd ..
 cd content
 ./scripts/pre-build.sh
 cd ..
-cd exercises
+cd frontend-content
 ./scripts/pre-build.sh
 cd ..
-cd frontend
+cd frontend-frame
 ./scripts/pre-build.sh
 cd ..
 cd uilib

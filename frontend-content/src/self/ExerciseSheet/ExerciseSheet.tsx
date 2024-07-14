@@ -5,6 +5,7 @@ import {exerciseDefinitionSchema} from "../../common/types/ExerciseDefinition";
 import {getErrorMessage} from "../../common/util/getErrorMessage";
 import {useLoader} from "../../uilib/util/useLoader";
 import {FullWidthLoadingIndicator} from "../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
+import {Markdown} from "../../uilib/markdown/Markdown";
 
 export interface ExerciseSheetProps {
     courseId: number,
@@ -25,12 +26,17 @@ async function loadExercise(props: ExerciseSheetProps): Promise<GetExerciseRespo
 export function ExerciseSheet(props: ExerciseSheetProps) {
     const loader = useLoader(() => loadExercise(props));
     return <FullWidthLoadingIndicator loader={loader}>
-        {(result) => <ExerciseDefinitionSwitch
-            authorId={result.authorId}
-            courseId={props.courseId}
-            exerciseDefinition={result.exerciseDefinition}
-            exerciseScript={result.exerciseScript}
-            courseScriptLibrary={result.courseScriptLibrary}
-        />}
+        {(result) => <>
+            <Markdown renderConfiguration={{courseIdForImages: props.courseId, allowDangerousProtocol: false}}>
+                {result.description}
+            </Markdown>
+            <ExerciseDefinitionSwitch
+                authorId={result.authorId}
+                courseId={props.courseId}
+                exerciseDefinition={result.exerciseDefinition}
+                exerciseScript={result.exerciseScript}
+                courseScriptLibrary={result.courseScriptLibrary}
+            />
+        </>}
     </FullWidthLoadingIndicator>;
 }

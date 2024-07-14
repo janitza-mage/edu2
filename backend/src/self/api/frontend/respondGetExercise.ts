@@ -15,7 +15,7 @@ export async function respondGetExercise(requestCycle: UnauthenticatedRequestCyc
             [courseId],
         ),
         () => postgresPool.query(
-            'SELECT "exerciseDefinition", "exerciseScript" FROM "edu2"."Unit" WHERE "courseId" = $1 AND "index" = $2 LIMIT 1',
+            'SELECT "description", "exerciseDefinition", "exerciseScript" FROM "edu2"."Unit" WHERE "courseId" = $1 AND "index" = $2 LIMIT 1',
             [courseId, unitIndex],
         ),
     );
@@ -26,6 +26,7 @@ export async function respondGetExercise(requestCycle: UnauthenticatedRequestCyc
     const unitRow = unitResult.rows[0];
     return {
         authorId: courseRow.authorId,
+        description: unitRow.description,
         exerciseDefinition: unitRow.exerciseDefinition,
         exerciseScript: unitRow.exerciseScript,
         courseScriptLibrary: courseRow.scriptLibrary,
