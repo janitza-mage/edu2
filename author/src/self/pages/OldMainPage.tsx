@@ -12,15 +12,15 @@ import {
     GetBackendCourseAndUnitsResponse,
     GetBackendCourseAndUnitsResponseUnit
 } from "../../common/author-api/GetBackendCourseAndUnitsResponse";
-import {CourseHeaderDataPanel} from "./CourseHeaderDataPanel";
+import {CourseHeaderDataPanel} from "./panels/CourseHeaderDataPanel";
 import {GetBackendUnitResponse} from "../../common/author-api/GetBackendUnitResponse";
-import {UnitDataPanel} from "./UnitDataPanel";
+import {UnitDataPanel} from "./panels/UnitDataPanel";
 import {useLoader} from "../../uilib/util/useLoader";
 import {InlineMarkdownButtonList} from "../components/InlineMarkdownButtonList";
 import {background} from "../../common/util/background";
 import {Button} from "@mui/material";
 
-export function MainPage() {
+export function OldMainPage() {
     const courseListLoader = useLoader(getBackendCourseList);
 
     // ----------------------------------------------------------------------------------------------------------------

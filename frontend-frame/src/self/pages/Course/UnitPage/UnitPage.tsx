@@ -9,7 +9,7 @@ import {useRef} from "react";
 import {GetUnitPageFrameResponse} from "../../../../common/frontend-api/GetUnitPageFrameResponse";
 import {promiseAll} from "../../../../common/util/promiseAll";
 import {Loader, useLoader} from "../../../../uilib/util/useLoader";
-import {FullWidthLoadingIndicator} from "../../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
+import {FullWidthLoadingIndicator} from "../../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 
 type Data = [GetUnitPageFrameResponse, CourseDetailState];
 

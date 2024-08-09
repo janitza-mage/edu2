@@ -1,9 +1,9 @@
-import {Form} from "../Form/Form";
+import {Form} from "../../Form/Form";
 import {z} from "zod";
-import {updateBackendCourseHeaderData} from "../logic/backend/backend";
-import {TextField} from "../Form/TextField";
-import {FormCodeMirrorMarkdown} from "../Form/CodeMirror/FormCodeMirrorMarkdown";
-import {FormCodeMirrorJavascript} from "../Form/CodeMirror/FormCodeMirrorJavascript";
+import {updateBackendCourseHeaderData} from "../../logic/backend/backend";
+import {TextField} from "../../Form/TextField";
+import {FormCodeMirrorMarkdown} from "../../Form/CodeMirror/FormCodeMirrorMarkdown";
+import {FormCodeMirrorJavascript} from "../../Form/CodeMirror/FormCodeMirrorJavascript";
 
 const formSchema = z.object({
     title: z.string().min(1, "Title cannot be empty"),

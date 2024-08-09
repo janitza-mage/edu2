@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
 import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
 import {Loader, useLoader} from "../../../uilib/util/useLoader";
-import {FullWidthLoadingIndicator} from "../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
+import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 
 type Data = [GetUnitListPageResponseElement[], CourseDetailState];
 

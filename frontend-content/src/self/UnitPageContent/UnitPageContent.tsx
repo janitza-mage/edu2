@@ -4,7 +4,7 @@ import {GetUnitPageContentResponse} from "../../common/frontend-api/GetUnitPageC
 import {exerciseDefinitionSchema} from "../../common/types/ExerciseDefinition";
 import {getErrorMessage} from "../../common/util/getErrorMessage";
 import {useLoader} from "../../uilib/util/useLoader";
-import {FullWidthLoadingIndicator} from "../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
+import {FullWidthLoadingIndicator} from "../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 import {Markdown, MarkdownInline} from "../../uilib/markdown/Markdown";
 import {useSearchParams} from "react-router-dom";
 import {Alert, Button} from "@mui/material";

@@ -3,7 +3,7 @@ import {CourseList, CourseListEntry} from "../../components/CourseList/CourseLis
 import {CourseListFilter, useCourseListEntries} from "./useCourseListEntries";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
-import {FullWidthLoadingIndicator} from "../../../uilib-frontend/LoadingIndicator/FullWidthLoadingIndicator";
+import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 
 export interface AbstractCoursesListPageProps {
     title: string;
