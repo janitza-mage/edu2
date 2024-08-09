@@ -8,14 +8,14 @@ import {
 import {GetBackendCourseListResponseElement} from "../../../common/author-api/GetBackendCourseListResponse";
 import React, {ReactNode} from "react";
 import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
-import {InlineMarkdownButtonList} from "../../components/InlineMarkdownButtonList";
 import {background} from "../../../common/util/background";
 import {Button} from "@mui/material";
 import {CourseSubpageSelector} from "./CourseSubpageSelector";
 import {Loader} from "../../../uilib/util/useLoader";
-import {useNavigate} from "react-router-dom";
+import {Link as RouterLink} from "react-router-dom";
 import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 import {PageFrame} from "./PageFrame";
+import {InlineMarkdownLinkButtonList} from "../../components/InlineMarkdownLinkButtonList";
 
 // --------------------------------------------------------------------------------------------------------------------
 // the sidebar itself
@@ -25,10 +25,9 @@ export interface CourseSidebarProps {
     courseId: number,
     response: GetBackendCourseAndUnitsResponse;
     subpageSelector: CourseSubpageSelector;
-    
-    selectSubpage: (subpageSelector: CourseSubpageSelector) => void;
+
+    getSubpagePath: (subpageSelector: CourseSubpageSelector) => string;
     reload: () => void;
-    closeCourse: () => void;
 }
 
 export function CourseSidebar(props: CourseSidebarProps) {
@@ -36,19 +35,19 @@ export function CourseSidebar(props: CourseSidebarProps) {
 
         {/* course "list" */}
         <h1>Selected Course</h1>
-        <InlineMarkdownButtonList<GetBackendCourseListResponseElement>
+        <InlineMarkdownLinkButtonList<GetBackendCourseListResponseElement>
             elements={[{ courseId: props.courseId, title: props.response.title }]}
             courseIdForImages={null}
             keyMapper={course => course.courseId}
             labelMapper={course => course.title}
-            onClick={props.closeCourse}
+            buildToAttribute={_course => "/"}
             selectedMapper={() => true}
         />
         <div>
-            <Button onClick={() => props.selectSubpage("header")}>Kopfdaten</Button>
+            <Button component={RouterLink} to={props.getSubpagePath("header")}>Kopfdaten</Button>
         </div>
         <div>
-            <Button onClick={() => props.selectSubpage("images")}>Bildverwaltung</Button>
+            <Button component={RouterLink} to={props.getSubpagePath("images")}>Bildverwaltung</Button>
         </div>
         
         {/* unit list */}
@@ -60,12 +59,12 @@ export function CourseSidebar(props: CourseSidebarProps) {
                 props.reload();
             })}
         >Create initial unit</Button>}
-        <InlineMarkdownButtonList
+        <InlineMarkdownLinkButtonList
             elements={props.response.units}
             courseIdForImages={null}
             keyMapper={unit => unit.unitId}
             labelMapper={unit => unit.title}
-            onClick={(unit) => props.selectSubpage(unit.unitId)}
+            buildToAttribute={unit => props.getSubpagePath(unit.unitId)}
             selectedMapper={unit => props.subpageSelector === unit.unitId}
             menu={[
                 {
@@ -116,18 +115,13 @@ export interface CourseSidebarHelperProps {
 }
 
 export function CourseSidebarHelper(props: CourseSidebarHelperProps) {
-    const navigate = useNavigate();
 
-    function selectSubpage(subpageSelector: CourseSubpageSelector) {
-        navigate(`/courses/${props.courseId}/${subpageSelector}`);
+    function getSubpagePath(subpageSelector: CourseSubpageSelector): string {
+        return `/courses/${props.courseId}/${subpageSelector}`;
     }
 
     function reload() {
         props.loader.reload(() => getBackendCourseAndUnits(props.courseId));
-    }
-
-    function closeCourse() {
-        navigate("/");
     }
 
     return <FullWidthLoadingIndicator loader={props.loader}>
@@ -136,9 +130,8 @@ export function CourseSidebarHelper(props: CourseSidebarHelperProps) {
                 courseId={props.courseId}
                 response={loaderResult}
                 subpageSelector={props.subpageSelector}
-                selectSubpage={selectSubpage}
+                getSubpagePath={getSubpagePath}
                 reload={reload}
-                closeCourse={closeCourse}
             />;
             return <PageFrame sidebar={sidebar} children={props.children} />;
         }}
