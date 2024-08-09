@@ -45,6 +45,9 @@ export function CourseSidebar(props: CourseSidebarProps) {
             selectedMapper={() => true}
         />
         <div>
+            <Button onClick={() => props.selectSubpage("header")}>Kopfdaten</Button>
+        </div>
+        <div>
             <Button onClick={() => props.selectSubpage("images")}>Bildverwaltung</Button>
         </div>
         

@@ -5,6 +5,7 @@ import {OldMainPage} from "../../pages/OldMainPage";
 import {CourseListPage} from "../../pages/new/CourseListPage";
 import {CourseStartPage} from "../../pages/new/CourseStartPage";
 import {CourseImagesPage} from "../../pages/new/CourseImagesPage";
+import {CourseHeaderPage} from "../../pages/new/CourseHeaderPage";
 
 function ImagePageWrapper() {
     const {courseId} = useParams();
@@ -14,6 +15,11 @@ function ImagePageWrapper() {
 function CourseStartPageWrapper() {
     const {courseId} = useParams();
     return <CourseStartPage courseId={parseInt(courseId!, 10)} />;
+}
+
+function CourseHeaderPageWrapper() {
+    const {courseId} = useParams();
+    return <CourseHeaderPage courseId={parseInt(courseId!, 10)} />;
 }
 
 function CourseImagesPageWrapper() {
@@ -28,6 +34,7 @@ export function App() {
                 <Route path={"/images/:courseId"} element={<ImagePageWrapper />} />;
                 <Route path={"/old"} element={<OldMainPage />} />;
                 <Route path={"/courses/:courseId"} element={<CourseStartPageWrapper />} />;
+                <Route path={"/courses/:courseId/header"} element={<CourseHeaderPageWrapper />} />;
                 <Route path={"/courses/:courseId/images"} element={<CourseImagesPageWrapper />} />;
                 <Route path={"/"} element={<CourseListPage />} />;
             </Routes>
