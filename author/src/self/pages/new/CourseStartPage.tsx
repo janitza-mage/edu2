@@ -10,29 +10,4 @@ interface CourseStartPageProps {
 export function CourseStartPage(props: CourseStartPageProps) {
     const loader = useLoader(() => getBackendCourseAndUnits(props.courseId));
     return <CourseSidebarHelper courseId={props.courseId} loader={loader} subpageSelector={null} children={""} />;
-    
-    
-/*
-
-    // ----------------------------------------------------------------------------------------------------------------
-    // JSX
-    // ----------------------------------------------------------------------------------------------------------------
-
-
-            {/* unit }
-            {selectedUnitId !== null && selectedUnit !== null && <>
-                <h1>Unit</h1>
-                <UnitDataPanel
-                    unitId={selectedUnitId}
-                    dataResponse={selectedUnit}
-                    onDataUpdatedInBackend={() => {
-                        if (selectedCourse !== null) {
-                            courseLoader.reload(() => getBackendCourseAndUnits(selectedCourse.courseId));
-                        }
-                    }}
-                />
-            </>}
-
-*/
-
 }

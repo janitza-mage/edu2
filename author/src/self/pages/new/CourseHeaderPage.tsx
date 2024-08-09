@@ -11,7 +11,7 @@ interface CourseHeaderPageProps {
 
 export function CourseHeaderPage(props: CourseHeaderPageProps) {
     const loader = useLoader(() => getBackendCourseAndUnits(props.courseId));
-    return <CourseSidebarHelper courseId={props.courseId} loader={loader} subpageSelector={null}>
+    return <CourseSidebarHelper courseId={props.courseId} loader={loader} subpageSelector={"header"}>
         <FullWidthLoadingIndicator loader={loader}>
             {result => <>
                 <h1>Course</h1>

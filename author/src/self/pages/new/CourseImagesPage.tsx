@@ -68,7 +68,7 @@ export function CourseImagesPage(props: CourseImagesPageProps) {
         });
     }
 
-    return <CourseSidebarHelper courseId={props.courseId} loader={courseAndUnitsLoader} subpageSelector={null}>
+    return <CourseSidebarHelper courseId={props.courseId} loader={courseAndUnitsLoader} subpageSelector={"images"}>
         <FullWidthLoadingIndicator loader={imageLoader}>
             {loaderResult => <>
                 <h1>Images for {loaderResult.courseName}</h1>
