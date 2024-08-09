@@ -6,18 +6,10 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {background} from "../../common/util/background";
+import {base64Encode} from "../util/base64Encode";
 
 export interface ImagePageProps {
     courseId: number;
-}
-
-async function base64Encode(data: Uint8Array): Promise<string> {
-    const base64Url = await new Promise<string>(resolve => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result as string);
-        reader.readAsDataURL(new Blob([data]));
-    });
-    return base64Url.slice(base64Url.indexOf(',') + 1);
 }
 
 export function ImagePage(props: ImagePageProps) {
