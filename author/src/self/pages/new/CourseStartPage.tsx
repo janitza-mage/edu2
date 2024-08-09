@@ -1,45 +1,15 @@
 import {getBackendCourseAndUnits} from "../../logic/backend/backend";
 import React from "react";
 import {useLoader} from "../../../uilib/util/useLoader";
-import {useNavigate} from "react-router-dom";
-import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
-import {PageFrame} from "./PageFrame";
-import {CourseSidebar} from "./CourseSidebar";
-import {CourseSubpageSelector} from "./CourseSubpageSelector";
+import {CourseSidebarHelper} from "./CourseSidebar";
 
 interface CourseStartPageProps {
     courseId: number;
 }
 
 export function CourseStartPage(props: CourseStartPageProps) {
-    const navigate = useNavigate();
     const loader = useLoader(() => getBackendCourseAndUnits(props.courseId));
-    
-    function selectSubpage(subpageSelector: CourseSubpageSelector) {
-        navigate(`/courses/${props.courseId}/${subpageSelector}`);
-    }
-    
-    function reload() {
-        loader.reload(() => getBackendCourseAndUnits(props.courseId));
-    }
-    
-    function closeCourse() {
-        navigate("/");
-    }
-    
-    return <FullWidthLoadingIndicator loader={loader}>
-        {result => {
-            const sidebar = <CourseSidebar
-                courseId={props.courseId}
-                response={result}
-                subpageSelector={null}
-                selectSubpage={selectSubpage}
-                reload={reload}
-                closeCourse={closeCourse}
-            />;
-            return <PageFrame sidebar={sidebar} children={""} />;
-        }}
-    </FullWidthLoadingIndicator>;
+    return <CourseSidebarHelper courseId={props.courseId} loader={loader} subpageSelector={null} children={""} />;
     
     
 /*
