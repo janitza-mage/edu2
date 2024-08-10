@@ -1,1 +1,1 @@
-export const gitCommit = "89da479237762561e3d87f403619c40119735914";
+export const gitCommit = "d26849eaa139bf8fe116f357eb799b958e67db78";
