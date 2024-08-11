@@ -1,16 +1,10 @@
 import {AppFrame} from "./AppFrame";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
-import {ImagePage} from "../../pages/ImagePage";
 import {CourseListPage} from "../../pages/CourseListPage/CourseListPage";
 import {CourseStartPage} from "../../pages/CourseStartPage/CourseStartPage";
 import {CourseImagesPage} from "../../pages/CourseImagesPage/CourseImagesPage";
 import {CourseHeaderPage} from "../../pages/CourseHeaderPage/CourseHeaderPage";
 import {UnitPage} from "../../pages/UnitPage/UnitPage";
-
-function ImagePageWrapper() {
-    const {courseId} = useParams();
-    return <ImagePage key={courseId} courseId={parseInt(courseId!, 10)} />;
-}
 
 function CourseStartPageWrapper() {
     const {courseId} = useParams();
@@ -36,7 +30,6 @@ export function App() {
     return <BrowserRouter basename="/">
         <AppFrame>
             <Routes>
-                <Route path={"/images/:courseId"} element={<ImagePageWrapper />} />;
                 <Route path={"/courses/:courseId"} element={<CourseStartPageWrapper />} />;
                 <Route path={"/courses/:courseId/header"} element={<CourseHeaderPageWrapper />} />;
                 <Route path={"/courses/:courseId/images"} element={<CourseImagesPageWrapper />} />;
