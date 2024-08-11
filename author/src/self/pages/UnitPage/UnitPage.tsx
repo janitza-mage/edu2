@@ -1,9 +1,9 @@
 import {getBackendCourseAndUnits, getBackendUnit} from "../../logic/backend/backend";
 import React from "react";
 import {useLoader} from "../../../uilib/util/useLoader";
-import {CourseSidebarHelper} from "./CourseSidebar";
+import {CourseSidebarHelper} from "../CourseSidebar";
 import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
-import {UnitDataPanel} from "../panels/UnitDataPanel";
+import {UnitDataPanel} from "./UnitDataPanel";
 
 interface UnitPageProps {
     courseId: number;

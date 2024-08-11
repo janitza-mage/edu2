@@ -1,11 +1,11 @@
 import {AppFrame} from "./AppFrame";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import {ImagePage} from "../../pages/ImagePage";
-import {CourseListPage} from "../../pages/new/CourseListPage";
-import {CourseStartPage} from "../../pages/new/CourseStartPage";
-import {CourseImagesPage} from "../../pages/new/CourseImagesPage";
-import {CourseHeaderPage} from "../../pages/new/CourseHeaderPage";
-import {UnitPage} from "../../pages/new/UnitPage";
+import {CourseListPage} from "../../pages/CourseListPage/CourseListPage";
+import {CourseStartPage} from "../../pages/CourseStartPage/CourseStartPage";
+import {CourseImagesPage} from "../../pages/CourseImagesPage/CourseImagesPage";
+import {CourseHeaderPage} from "../../pages/CourseHeaderPage/CourseHeaderPage";
+import {UnitPage} from "../../pages/UnitPage/UnitPage";
 
 function ImagePageWrapper() {
     const {courseId} = useParams();

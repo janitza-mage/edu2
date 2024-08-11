@@ -4,18 +4,18 @@ import {
     createUnitBefore,
     deleteUnit,
     getBackendCourseAndUnits
-} from "../../logic/backend/backend";
-import {GetBackendCourseListResponseElement} from "../../../common/author-api/GetBackendCourseListResponse";
+} from "../logic/backend/backend";
+import {GetBackendCourseListResponseElement} from "../../common/author-api/GetBackendCourseListResponse";
 import React, {ReactNode} from "react";
-import {GetBackendCourseAndUnitsResponse} from "../../../common/author-api/GetBackendCourseAndUnitsResponse";
-import {background} from "../../../common/util/background";
+import {GetBackendCourseAndUnitsResponse} from "../../common/author-api/GetBackendCourseAndUnitsResponse";
+import {background} from "../../common/util/background";
 import {Button} from "@mui/material";
 import {CourseSubpageSelector} from "./CourseSubpageSelector";
-import {Loader} from "../../../uilib/util/useLoader";
+import {Loader} from "../../uilib/util/useLoader";
 import {Link as RouterLink} from "react-router-dom";
-import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
+import {FullWidthLoadingIndicator} from "../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
 import {PageFrame} from "./PageFrame";
-import {InlineMarkdownLinkButtonList} from "../../components/InlineMarkdownLinkButtonList";
+import {InlineMarkdownLinkButtonList} from "../components/InlineMarkdownLinkButtonList";
 
 // --------------------------------------------------------------------------------------------------------------------
 // the sidebar itself

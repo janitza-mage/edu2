@@ -7,7 +7,7 @@ import {
 } from "../../logic/backend/backend";
 import React from "react";
 import {useLoader} from "../../../uilib/util/useLoader";
-import {CourseSidebarHelper} from "./CourseSidebar";
+import {CourseSidebarHelper} from "../CourseSidebar";
 import {commonSystemConfiguration} from "../../../common/commonSystemConfiguration";
 import {base64Encode} from "../../util/base64Encode";
 import {background} from "../../../common/util/background";

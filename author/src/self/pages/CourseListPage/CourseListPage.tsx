@@ -3,7 +3,7 @@ import {GetBackendCourseListResponse} from "../../../common/author-api/GetBacken
 import React from "react";
 import {useLoader} from "../../../uilib/util/useLoader";
 import {FullWidthLoadingIndicator} from "../../../uilib/LoadingIndicator/FullWidthLoadingIndicator";
-import {PageFrame} from "./PageFrame";
+import {PageFrame} from "../PageFrame";
 import {InlineMarkdownLinkButtonList} from "../../components/InlineMarkdownLinkButtonList";
 
 interface CourseListPanelProps {
