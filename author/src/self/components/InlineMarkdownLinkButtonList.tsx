@@ -46,9 +46,11 @@ export function InlineMarkdownLinkButtonList<T>(props: InlineMarkdownLinkButtonL
 
     return <>
         <List className={styles.InlineMarkdownLinkButtonList}>
-            {props.elements.map(element =>
-                <ListItem
+            {props.elements.map(element => {
+                const labelMarkdown = props.labelMapper(element);
+                return <ListItem
                     key={props.keyMapper(element)}
+                    title={labelMarkdown}
                     disablePadding={false}
                     className={styles.Entry + ((props.selectedMapper && props.selectedMapper(element)) ? " " + styles.selected : "")}
                     secondaryAction={!props.menu ? undefined :
@@ -63,12 +65,12 @@ export function InlineMarkdownLinkButtonList<T>(props: InlineMarkdownLinkButtonL
                     <ListItemButton to={props.buildToAttribute(element)} component={RouterLink}>
                         <ListItemText primary={<Typography noWrap={true}>
                             <MarkdownInline renderConfiguration={markdownRenderConfiguration}>
-                                {props.labelMapper(element)}
+                                {labelMarkdown}
                             </MarkdownInline>
                         </Typography>} />
                     </ListItemButton>
                 </ListItem>
-            )}
+            })}
         </List>
         {props.menu && <Menu
             open={Boolean(menuAnchorElement)}
