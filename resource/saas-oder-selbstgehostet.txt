@@ -11,3 +11,11 @@ keiner braucht / nutzt.
 Also doch den edu2-Ansatz weiterverfolgen. Das mit den Subdomains kann man später draufsetzen.
 
 Alternative zu Subdomains: <iframe>, allow-same-origin, sandbox
+
+----
+
+Ausgangspunkt war die Idee, Bilder in der Unit-Description on-the-fly durch Scripte zu erzeugen. Dafür habe ich die
+"Abschirmung" aus Sicherheitsgründen gebraucht. Gehe ich mal davon aus, dass die gegeben ist. Wie kann ich dann
+Scripte für die Description benutzen?
+- Die Description wird schon vom UnitPageContent (iframe, separate Domain) bereitgestellt. Es geht also nur noch darum,
+    dort aus der Unit-Definition heraus eingreifen zu können.
