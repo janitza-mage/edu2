@@ -953,6 +953,17 @@ TODO: specify target score as absolute or as % of sum of correct-scores
 TODO: specify how much of the correct answers gets revealed after 1. (wrong) answer to exercise, 2. correct answer
     to exercise but target score fo sheet not reached
 
+------------------------------------------------------------------------
 
+Videos: not totally separate courses, but provide a text version and a video version of each *unit*. Keep that
+setting across units, but allow to switch easily. This (1) provides for people who learn better with text/videos,
+and (2) provides a second explanation that may help people who struggly with their primary explanation. But the
+latter isn't really a good argument because the two are intended to be similar, and the "microscopic unit"
+approach should fix that better.
+
+Provide a "struggle" button that shows a more detailed explanation, more detailed exercises etc. for people who
+struggle. Basically splits one unit into separate sub-units. Either sequentially, or just link to "helper" units
+that explain individual aspects. Completing these "helper units" cannot be recorded, but otherwise they work as
+the normal ones. DB: a separate table is probably easiest.
 
 

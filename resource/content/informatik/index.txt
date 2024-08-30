@@ -1,0 +1,32 @@
+
+Zweiwertige Logik
+- Deckblatt:
+    auch "binäre" Logik (=zweiwertig)
+    auch "digitale" Logik (aber unpräzise, denn auch dreiwertige Logik ist digital)
+    auch "boolesche Logik" oder "boolesche Algebra" (aber unpräzise, denn auch 2^n-wertige Logik ist boolesch)
+- Bit (1/0, wahr/falsch, an/aus, ...)
+- Rechenoperationen: NOT, AND, OR, XOR
+- Wahrheitstabelle
+- Bit-Tupel
+- Bitweise NOT, AND, OR, XOR (nur gleiche Länge)
+(NICHT: Bit-Strings. PAsst hier nicht so gut rein und wäre mehr Theorie, widerspricht also dem "learning by doing"-Ansatz.)
+
+Zahlendarstellungen in Computersystemen
+(Wahrscheinlich zweiwertige Logik als Voraussetzung, sonst bräuchte man noch einen dritten Kurs, wo das dann
+die Voraussetzung wäre.)
+- dezimalsystem
+- binärsystem
+- hexadezimalsystem
+- Dezimalsystem mit fester Stellenanzahl
+- bei "fester Stellenanzahl" ist die Definition bzgl. negativer Zahlen unklar -> "vorzeichenlos", "unsigned"
+- vorzeichenloses Binärsystem mit fester Stellenanzahl
+- "vorzeichenloses Byte" = 8-Tupel von Bits, Interpretation als vorzeichenloses Binärsystem mit 8 Stellen 
+
+- (???) Umrechnung zwischen den Systemen
+- Byte = 8-Tupel von Bits
+- "Wort" in verschiedenen Bedeutungen, unklare Begrifflichkeit zwischen verschiedenen Systemen
+    Beispiel: Byte/Wort/Doppelwort oder Byte/Halbwort/Wort für 8/16/32
+    Deshalb hier nur n-Tupel
+
+
+

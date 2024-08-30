@@ -1,0 +1,13 @@
+
+edu3: Framework zum ausbauen und selbst hosten. Macht es für mich einfacher
+
+ABER: Das wichtigste -- fast das einzig wichtige -- ist eine App. Eine App ist näher an SaaS als an selbst gehostet.
+
+Eine App kann die Scripte verschiedener Autoren voneinander trennen und schafft damit Sicherheit. (Eine Trennung auf
+Kursebene ist nicht nötig, denn sie schafft keine zusätzliche Sicherheit.) Wie kann ein SaaS dasselbe erreichen?
+Subdomains: Eine Subdomain pro Autor. Wird komplizierter, aber es bringt ja auch nichts, etwas zu bauen, was dann
+keiner braucht / nutzt. 
+
+Also doch den edu2-Ansatz weiterverfolgen. Das mit den Subdomains kann man später draufsetzen.
+
+Alternative zu Subdomains: <iframe>, allow-same-origin, sandbox
