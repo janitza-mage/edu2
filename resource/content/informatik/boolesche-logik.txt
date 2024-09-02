@@ -1,0 +1,137 @@
+
+Die Boolesche Logik bildet eine Darstellung für logische Operationen in der Mathematik, aber auch eine Grundlage für
+den Umgang mit Daten in der digitalen Schaltungstechnik. Sie "rechnet" nicht mit beliebigen Zahlen, sondern mit nur
+zwei Werten.
+
+---
+
+Die Boolesche Logik "rechnet" nicht mit beliebigen Zahlen, sondern mit nur zwei Werten: _wahr_ und _falsch_. Wenn also
+zum Beispiel der Wert einer Variablen x gesucht wird, kann dieser nur einer dieser beiden Werte sein.
+
+Die Wörter "wahr" und "falsch" spiegeln die Bedeutung in der Logik wieder. Es werden aber auch oft andere Darstellungen
+verwendet, zum Beispiel
+
+$$ wahr = 1 = \top $$
+$$ falsch = 0 = \bot $$
+
+Keine dieser Darstellungen ist "richtiger" als die anderen. Speziell bei der Darstellung als Zahlen muss aber beachtet
+werden, dass mit diesen Werten _nicht_ wie mit Zahlen gerechnet wird. So ist bei Zahlen zum Beispiel $1 + 1 = 2$, aber
+weder die 2 noch die Addition gibt es in der Booleschen Logik. Hier lassen sich Fehler vermeiden, indem das Symbol +
+gar nicht erst verwendet wird.
+
+*** übungen?
+
+---
+
+In der Booleschen Logik gibt es drei wichtige Operationen. Die erste wird "nicht", "not" oder "Verneinung" genannt.
+Man findet auch den Begriff "Negation", der aber nicht mit dem nummerischen Minus verwechselt werden darf. Übliche
+Schreibweisen, um einen Wert x zu verneinen, sind
+
+$$ \neg x $$
+$$ \overline{x} $$
+$$ \lnot x $$
+$$ \text{not } x $$
+$$ \text{!}x $$
+$$ x' $$
+$$ \text{~}x $$
+$$ \text{¬}x $$
+$$ \text{Nicht } x $$
+
+Die Regeln dafür sind:
+
+$$ \neg 0 = 1 $$
+$$ \neg 1 = 0 $$
+
+*** Übungen
+
+paarmal !1, !0
+was ist richtig? !!x = x oder !!x = !x
+was ist richtig? !!!x = x oder !!!x = !x
+
+---
+
+Die zweite Operation ist das "und", "and" oder "Konjunktion". Übliche Schreibweisen sind
+
+$$ x \land y $$
+$$ x \text{ and } y $$
+$$ x \cdot y $$
+$$ x \text{ und } y $$
+$$ x \& y $$
+$$ x \text{ } y $$
+$$ x \text{ } \text{und} \text{ } y $$
+$$ x \text{ } \text{and} \text{ } y $$
+$$ x \text{ } \text{AND} \text{ } y $$
+$$ x \text{ } \text{UND} \text{ } y $$
+
+Die Regeln dafür sind
+
+$$ 0 \land 0 = 0 $$
+$$ 0 \land 1 = 0 $$
+$$ 1 \land 0 = 0 $$
+$$ 1 \land 1 = 1 $$
+
+*** Übungen
+Was ist richtig? xx=0, xx=1, xx=x, xx=!x
+
+---
+
+Die dritte Operation ist das "oder", "or" oder "Disjunktion". Übliche Schreibweisen sind
+
+$$ x \lor y $$
+$$ x \text{ or } y $$
+$$ x + y $$
+$$ x \text{ oder } y $$
+$$ x \text{ } y $$
+$$ x \text{ } \text{oder} \text{ } y $$
+$$ x \text{ } \text{or} \text{ } y $$
+$$ x \text{ } \text{OR} \text{ } y $$
+$$ x \text{ } \text{ODER} \text{ } y $$
+$$ x \text{ } \text{+} \text{ } y $$
+$$ x \text{ } \text{∨} \text{ } y $$
+$$ x \text{ } \text{∪} \text{ } y $$
+
+Die Regeln dafür sind
+
+$$ 0 \lor 0 = 0 $$
+$$ 0 \lor 1 = 1 $$
+$$ 1 \lor 0 = 1 $$
+$$ 1 \lor 1 = 1 $$
+
+*** Übungen
+Was ist richtig? x+x=0, x+x=1, x+x=x, x+x=!x
+
+----
+
+Wahrheitstabellen
+
+----
+
+Operationen Verknüpfen
+
+---
+
+Distributionsgesetze für AND/NOT und OR/NOT
+Distributionsgesetze für AND/OR und OR/AND
+(De Morgan)
+
+---
+
+Formeln mit einer Variablen Umformen und Vereinfachen
+
+---
+
+Gleichungen mit einer Variablen Lösen
+
+---
+
+Tupel von Werten und Variablen
+
+
+---
+
+Formeln mit mehreren Variablen Umformen und Vereinfachen
+
+---
+
+Gleichungen mit mehreren Variablen Lösen
+

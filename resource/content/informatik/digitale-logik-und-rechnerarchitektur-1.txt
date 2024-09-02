@@ -1,0 +1,72 @@
+
+Hintergrund: Die realen Begrifflichkeiten werden hier *nicht* erklärt, weil diese teilweise inkonsistent sind und
+außerdem die abstrakte Logikebene und die konkrete Elektrotechnik-Ebene vermischt. Das bedeutet leider, dass hier
+eine neue Begrifflichkeit geschaffen wird. Das ist aber denke ich okay, weil es vor allem darum geht, an der
+praktischen Arbeit besser zu lernen, und NICHT darum, nur die "schmutzige" Realität kennenzulernen.
+
+Ergänzend gibt es dann einen Kurs "digitale Schaltungstechnik" wo die Elektrotechnik-Ebene behandelt wird und auch
+die realen Begrifflichkeiten erklärt werden. D.h. dass man in der Realität diesen Kurs zum arbeiten auch braucht.
+Dadurch wird dieser Kurs hier aber nicht schlechter, sondern macht es sogar einfacher.
+
+Voraussetzung: Boolesche Logik
+
+------------------------------------------------------
+Editor-Idee:
+Seitenleiste: Navigation (Pfeilkreuz), Stift (wires), Radiergummi (wires+parts), 
+
+Das ganze wird auf jeden Fall einfacher, wenn man erst mit dem Editor den Aufbau lernt, und später dann die Prinzipien!
+immer mal zwischendurch den Editor geht vielleicht. Aber vieles, z.B. Delays, kann man sogar per Editor lernen.
+Das wäre jedenfalls die beste Art von Kurs, alles als Spiel zu machen. Kann das als Vorbild für andere dienen?
+- Vektoraddition geht noch. Kompliziertere Sachen halt weniger. Prinzipien sind halt kompliziert; kann man Prinzipien
+    über die Praxis lehren? Auf jeden Fall erst etwas Praxis vor der Theorie. Der Bisherige LA-Kurs ist Theorielastig;
+    es wird immer erst die Theorie erklärt. Ein praxisbasiertes Lehrspiel würde da anders vorgehen: Aufgabenstellung
+    als Einzeiler, wenig up-front-Erklärung, sondern Hilfetext, wenn man nicht klarkommt. Dafür viel Wiederholung.
+    Ist auf jeden Fall einen Versuch wert. Dann wäre nand2tetris hier auf jeden Fall der Vorreiter in die richtige
+    Richtung.
+
+------------------------------------------------------
+
+Grundlage: Übertragung von einem _Bit_ auf einer _Leitung_ von einer _Quelle_ zu einer oder mehreren _Senken_.
+Die Quelle _treibt_ die Leitung; Entscheidet über den Wert, der übertragen wird. Die Senken empfangen den Wert und
+machen etwas damit.
+
+Bild: Quelle(in1) -> Leitung -> Senke(out1), Senke(out2)
+Hier wird der Wert von der Quelle in1 zu den beiden Senken out1 und out2 übertragen.
+Symbole: Wegweiser, wie bei https://cdn.sparkfun.com/assets/6/0/2/4/e/51cdb9d0ce395f2c0b000000.png
+
+Wert ist ein Bit: Boolescher Wert, also 0 oder 1. Eine Quelle mit der Bezeichnung "1" liefert immer den Wert 1.
+Eine Quelle mit der Bezeichnung "0" liefert immer den Wert 0. Andere Quellen können je nach Situation den Wert
+1 oder 0 liefern.
+
+Bild: 1 liefert 1 an outA, 0 liefert 0 an outB und outC, inX liefert an outD
+Entsprechende Beschriftung
+
+Eine Senke kann zum Beispiel eine LED verwenden, um den Wert sichtbar zu machen: Bei 1 leuchtet die LED, bei 0 nicht.
+Bild: 0 -> LED -> Bild mit dunkler LED; 1 -> LED -> Bild mit leuchtender LED
+
+*** Übung
+1 -> LED1, 0 -> LED2, welches Bild ist richtig? Beide LED dunkel, linke leuchtet, rechte leuchtet, beide leuchten 
+1 -> LED1 und LED2, welches Bild ist richtig? Beide LED dunkel, linke leuchtet, rechte leuchtet, beide leuchten
+
+----
+
+Eine Quelle kann z.B. einen Druckknopf verwenden, um den Wert zu bestimmen. Sie treibt den Wert 1, wenn der Knopf
+gedrückt ist, und 0, wenn der Knopf nicht gedrückt ist. Entsprechend sendet ein Schiebeschalter 0 oder 1 je nach
+Position, muss aber nicht dauerhaft gedrückt werden werden.
+
+*** Bild
+buttonA -> ledS, buttonB -> ledT, switchC -> ledP; switchD -> ledQ,ledR; 
+Betätige die Schalter und Knöpfe so, dass das vorgegebene Bild entsteht (ledP dunkel, ledQ+R leuchten, ledS leuchtet)
+
+----
+
+Ein NOT-Gate, auch Inverter genannt, invertiert den Wert im Sinne der Booleschen Logik. Das bedeutet, dass 1 zu 0 und
+0 zu 1 wird.
+
+Bild: 1 -> NOT -> LED, LED ist dunkel, 0 -> NOT -> LED, LED leuchtet
+
+TODO
+
+
+
+
