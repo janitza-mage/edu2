@@ -1,0 +1,31 @@
+
+Idee: Spiel mit sehr kurzen "Levels", also nur eine Mini-Aufgabe pro "Level". Dann ist ein Level weniger als eine
+bisherige Unit und für den Fortschritt macht es evtl. Sinn, trotzdem in Units zu rechnen, sonst wird die Liste sehr
+lang und man landet ggf. mitten in einem Gedankengang, den man eigentlich von vorne anfangen müsste. Also ist dann
+ein "Level" / eine Miniaufgabe so gar nicht in der Anwendung sichtbar sondern es gibt eoinfach mehrere davon in einer
+Unit.
+
+Außerdem ist die Unit Description für dieses Konzept so nicht brauchbar. Diese ist sogar das Hauptproblem:
+Niemand will eine Wall-of-Text lesen. Eine Unit hat dann nur noch einen Namen/Titel und der Rest ist Javascript.
+(Mechanismus zum extern Hosten macht immer noch Sinn. Aber die Exercise-Struktur so nicht mehr.) Das ist blöd
+für die angedachten Author-Tools, aber dann müssen die halt besser werden. Man kann außerdem noch einen internen
+Speicherplatz für die "Bearbeitungsversion" in den Author-Tools vorsehen, falls nötig.
+
+Ich will am liebsten alle Autoren dazu bringen, ein maximal interaktives Spiel zu bauen. Also per Default ein Fullsize
+Canvas, und wenn dann irgendein Autor doch eine HTML-basierte Wall-of-Text haben will, soll er eine Funktion benutzen,
+die den Canvas durch den Text ersetzt. (Im Canvas rendern wäre das dümmste, wegen Performance)
+
+Der Einheitlichkeit halber:
+- von der Plattform gehostet oder remote URL. Alles weitere beschreibt nur die Plattform; wenn der Autor selber
+    hostet, kann er natürlich machen was er will.
+- Dokument mit HTML-Grundgerüst und Fullsize Canvas
+- Danach wird dann das Script geladen und ausgeführt
+- kein Resize des iframe, der ist immer Fullsize
+- Ende der Übung wird mit postMessage signalisiert
+- Reset der Übung kann mit postMessage ausgelöst werden; ggf. auch mit Button auf der Navleiste, aber:
+- *** TODO *** gibt es die Navi Leiste noch? Was soll da drin sein? Falls ja, soll das per postMessage anpassbar sein?
+    --> erst mal genau so lassen, auch nicht erweiterbar. Später schauen.
+    
+"override content URL" kommt auch erst mal weg. Man kann das scripten (außer es wird durch Sicherheit verhindert) und
+warum überhaupt? Man kann alles hosten. Vielleicht wird es zu groß zum hosten... was auch immer, erst mal schauen
+wie es sich verhält und dann kann ich es immer noch wieder einbauen.
