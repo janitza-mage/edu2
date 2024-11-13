@@ -1,0 +1,10 @@
+
+.GeneratorList :global(.MuiListItemSecondaryAction-root) {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.GeneratorListEntry {
+  height: 3em;
+  border-bottom: 1px solid #ccc;
+}
