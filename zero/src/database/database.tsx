@@ -27,10 +27,20 @@ export interface Generator {
 
 export const generators: Generator[] = [
     {
-        id: "GKG3",
-        name: "<, =, >",
-        body: () => makeGroesserKleinerGleich(3),
-    }
+        id: "GKG-10-100",
+        name: "<, =, > von 10 bis 100",
+        body: () => makeGroesserKleinerGleich(10, 100),
+    },
+    {
+        id: "GKG-50-200",
+        name: "<, =, > von 50 bis 200",
+        body: () => makeGroesserKleinerGleich(50, 200),
+    },
+    {
+        id: "GKG-100-1000",
+        name: "<, =, > von 100 bis 1000",
+        body: () => makeGroesserKleinerGleich(100, 1000),
+    },
 ];
 
 export const generatorMap: Map<string, Generator> = (() => {

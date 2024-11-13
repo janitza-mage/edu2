@@ -7,6 +7,7 @@ export interface MakeWhichIsCorrectElement {
 }
 
 export interface MakeWhichIsCorrectParams {
+    title: string;
     elements: MakeWhichIsCorrectElement[];
     fontSize: number;
     spacing: number;
@@ -14,14 +15,17 @@ export interface MakeWhichIsCorrectParams {
 
 export function makeWhichIsCorrect(params: MakeWhichIsCorrectParams): Exercise {
     return (props) => {
-        return <>{params.elements.map((element) =>
-            <div style={{marginTop: params.spacing + "px", textAlign: "center"}}>
-                <Button variant={"contained"} onClick={() => props.onFinish(element.correct)}>
-                    <div style={{fontSize: params.fontSize + "px"}}>
-                        {element.label}
-                    </div>
-                </Button>
-            </div>
-        )}</>;
+        return <>
+            <h1>{params.title}</h1>
+            {params.elements.map((element) =>
+                <div style={{marginTop: params.spacing + "px", textAlign: "center"}}>
+                    <Button variant={"contained"} onClick={() => props.onFinish(element.correct)}>
+                        <div style={{fontSize: params.fontSize + "px"}}>
+                            {element.label}
+                        </div>
+                    </Button>
+                </div>
+            )}
+        </>;
     };
 }

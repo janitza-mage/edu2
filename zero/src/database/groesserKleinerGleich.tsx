@@ -1,12 +1,13 @@
 import {Exercise} from "./database";
-import {makeRandomNumberWithTrueNumberOfDigits} from "./util/random";
 import {makeWhichIsCorrect} from "./ui/makeWhichIsCorrect";
+import {randomInt} from "./util/random";
 
 
-export function makeGroesserKleinerGleich(stellenzahl: number): Exercise {
-    const a = makeRandomNumberWithTrueNumberOfDigits(stellenzahl);
-    const b = makeRandomNumberWithTrueNumberOfDigits(stellenzahl);
+export function makeGroesserKleinerGleich(minIncl: number, maxExcl: number): Exercise {
+    const a = randomInt(minIncl, maxExcl);
+    const b = randomInt(minIncl, maxExcl);
     return makeWhichIsCorrect({
+        title: "Was ist richtig?",
         elements: [
             {label: a + " < " + b, correct: a < b},
             {label: a + " = " + b, correct: a === b},
