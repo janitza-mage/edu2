@@ -1,6 +1,7 @@
 import {ContentNode} from "./types";
 import {createSteppedUnit} from "../unit/createSteppedUnit";
 import {createReadStep} from "../unit/createReadStep";
+import {mathSpan, MathSpan} from "../components/Math/Math";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -15,7 +16,7 @@ export const contentTree: ContentNode = {
             children: [
                 createSteppedUnit("one", "One", () => [
                     createReadStep({
-                        content: <div>foo</div>,
+                        content: <div>use {mathSpan("#mathbb{N}^x")}</div>,
                     }),
                     createReadStep({
                         content: <div>bar</div>
