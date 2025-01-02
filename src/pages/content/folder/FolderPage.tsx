@@ -21,7 +21,7 @@ export function FolderPage(props: FolderPageProps) {
                 decoration = <ChevronRightIcon />;
                 break;
             case "unit":
-                decoration = <MiniPie green={20} red={20} grey={10} />;
+                decoration = <MiniPie green={20} red={20} grey={10} size={"2em"} resolution={30} />;
         }
         return {
             label: child.name,
