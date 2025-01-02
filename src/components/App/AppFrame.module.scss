@@ -1,6 +1,9 @@
 html {
   overflow: hidden;
   overscroll-behavior: none;
+
+  // must be here, so it affects "rem" units
+  font-size: min(4vw, 4vh);
 }
 
 body {

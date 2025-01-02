@@ -2,7 +2,7 @@ import {useBackend} from "../../logic/content/useBackend";
 import {Footer} from "./Footer";
 import {useStateStore} from "../../logic/state/useStateStore";
 import {CourseDetailState} from "../../logic/state/StateStore";
-import {UnitList} from "../../components/UnitList/UnitList";
+import {NavigationList} from "../../../../../../src/components/navigation/NavigationList/NavigationList";
 import {useNavigate} from "react-router-dom";
 import {WithFooter} from "../../components/Footer/WithFooter";
 import {GetUnitListPageResponseElement} from "../../../common/frontend-api/GetUnitListPageResponse";
@@ -31,7 +31,7 @@ export function UnitListPage({courseId}: UnitListPageProps) {
     return <WithFooter footer={<Footer/>}>
         <h1>Units</h1>
         <FullWidthLoadingIndicator<Data> loader={loader}>
-            {([units, courseState]) => <UnitList
+            {([units, courseState]) => <NavigationList
                 units={units}
                 courseState={courseState}
                 onClickUnit={(_unit, index) => navigate(`/courses/${courseId}/units/${index}`)}

@@ -10,10 +10,11 @@ export interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs(props: BreadcrumbsProps) {
-    return <div>
+    return <div style={{fontSize: "1.5em"}}>
         {props.elements.map((element, index) => <>
-            {index > 0 ? ">" : ""}
+            {index > 0 ? " > " : ""}
             <Link to={element.to}>{element.text}</Link>
         </>)}
+        &nbsp;
     </div>
 }

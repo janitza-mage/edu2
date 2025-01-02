@@ -1,0 +1,10 @@
+
+.NavigationList :global(.MuiListItemSecondaryAction-root) {
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.NavigationListElement {
+  height: 3em;
+  border-bottom: 1px solid #ccc;
+}

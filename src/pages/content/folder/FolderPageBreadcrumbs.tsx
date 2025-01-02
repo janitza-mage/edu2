@@ -1,5 +1,5 @@
 import {ContentNode} from "../../../content/types";
-import {Breadcrumbs, BreadcrumbsElement} from "../../../components/Breadcrumbs/Breadcrumbs";
+import {Breadcrumbs, BreadcrumbsElement} from "../../../components/navigation/Breadcrumbs/Breadcrumbs";
 import {buildUrlPathForContentPath, getContentNodeChildById} from "../../../content/paths";
 import {contentTree} from "../../../content/contentTree";
 
