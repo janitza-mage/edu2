@@ -1,9 +1,6 @@
 import {Unit} from "../../../content/types";
-import {FolderPageBreadcrumbs} from "../folder/FolderPageBreadcrumbs";
-import {NavigationList} from "../../../components/navigation/NavigationList/NavigationList";
-import CancelIcon from '@mui/icons-material/Cancel';
-import {IconButton} from "@mui/material";
-import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
+import {useState} from "react";
+import {UnitInstancePage} from "./UnitInstancePage";
 
 export interface UnitPageProps {
     unit: Unit;
@@ -11,25 +8,19 @@ export interface UnitPageProps {
 }
 
 export function UnitPage(props: UnitPageProps) {
-    const navigateToContentNode = useNavigateToContentNode();
+    const [instanceCounter, setInstanceCounter] = useState(0);
+    const [unitInstance, setUnitInstance] = useState(() => props.unit.instantiate());
     
-    function onClickCancel() {
-        // eslint-disable-next-line no-restricted-globals
-        if (confirm("wirklich abbrechen?")) {
-            const parentPath = [...props.path];
-            parentPath.pop();
-            navigateToContentNode(parentPath);
-        }
+    function onNewInstance() {
+        setInstanceCounter(instanceCounter + 1);
+        setUnitInstance(() => props.unit.instantiate());
     }
     
-    return <>
-        <div style={{backgroundColor: "#ccc", borderBottom: "1px solid #aaa"}}>
-            <h1 style={{margin: 0}}>
-                <IconButton onClick={onClickCancel} sx={{marginRight: "1em"}}>
-                    <CancelIcon fontSize={"large"} />
-                </IconButton>
-                {props.unit.name}
-            </h1>
-        </div>
-    </>;
+    return <UnitInstancePage
+        key={instanceCounter}
+        unit={props.unit}
+        path={props.path}
+        unitInstance={unitInstance}
+        onNewInstance={onNewInstance}
+    />;
 }

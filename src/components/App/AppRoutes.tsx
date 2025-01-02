@@ -4,7 +4,7 @@ import {ContentPathPage} from "../../pages/content/ContentPathPage";
 function ContentPathPageWrapper() {
     const { "*": splat } = useParams();
     const contentPath = (!splat || splat === "") ? [] : splat.split("/");
-    return <ContentPathPage contentPath={contentPath} />;
+    return <ContentPathPage key={splat} contentPath={contentPath} />;
 }
 
 export function AppRoutes() {

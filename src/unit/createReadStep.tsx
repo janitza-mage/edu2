@@ -1,0 +1,28 @@
+import {ReactNode} from "react";
+import {Button} from "@mui/material";
+import {UnitStep} from "./createSteppedUnit";
+import {CenteredContent} from "../components/layout/CenteredContent";
+
+export interface CreateReadStepParameters {
+    content: ReactNode;
+    widthPercent?: number | undefined | null;
+    buttonLabel?: string | undefined | null;
+}
+
+export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
+    return props => {
+        function onClickButton() {
+            props.onProgress();
+            props.onFinishStep();
+        }
+        return <CenteredContent widthPercent={parameters.widthPercent ?? 50}>
+            <div>
+                {parameters.content}
+            </div>
+            <br />
+            <div>
+                <Button variant="contained" onClick={onClickButton}>{parameters.buttonLabel ?? "weiter"}</Button>
+            </div>
+        </CenteredContent>;
+    };
+}

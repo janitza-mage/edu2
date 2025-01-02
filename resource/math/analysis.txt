@@ -1,0 +1,49 @@
+
+Ansatz:
+- "harte" Mathematik
+- keine Analogien oder Anwendbarkeit als Begründung, sondern axiomatisch
+- grundlegende Definitionen sollten schon da sein
+- nur solche, die dem Verständnis dienen; nicht solche, die aus mathematischer Sicht "notwendig" sind
+    also nicht:
+        Induktionsaxiom
+        präzische Definition der natürlichen Zahlen
+        präzise Definition der Summenschreibweise
+
+-----------------
+
+Natürliche Zahlen
+
+(Mächtigkeit von Mengen ? nur wenn es irgendwo verwendet wird)
+
+Summenschreibweise
+
+Vollständige Induktion
+
+Folgen
+
+Reihen
+
+--------------
+
+Funktionen
+
+Folge als Funktion N->M
+
+Vollständige Induktion auf Folgen anwenden
+
+--------------
+
+ganze, rationale, reelle Zahlen
+letztere erst mal informell; sqrt(2) nicht rational
+
+Funktionen N->N, N->R, R->N, R->R
+
+---
+
+dann kann evtl irgendwann Konvergenz kommen
+
+
+
+
+
+

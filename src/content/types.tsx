@@ -14,10 +14,11 @@ export interface ContentNodeBase {
 
 export interface Folder extends ContentNodeBase {
     children: ContentNode[];
+    isolatedChildren?: boolean; // typically only false for the root folder, so the default is true
 }
 
 export interface Unit extends ContentNodeBase {
-    instantiate(): UnitInstantiationResult;
+    instantiate(): UnitInstance;
 }
 
 export type ContentNode = Folder | Unit;
@@ -26,13 +27,10 @@ export type ContentNode = Folder | Unit;
 // unit instances
 // --------------------------------------------------------------------------------------------------------------------
 
-export interface UnitInstantiationResult {
-    instance: UnitInstance;
-    numberOfSteps: number;
-}
-
 export interface UnitInstanceProps {
-    
+    onProgress: () => void;
+    onMistake: () => void;
+    onFinish: () => void;
 }
 
 export type UnitInstance = (props: UnitInstanceProps) => ReactElement;

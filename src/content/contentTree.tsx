@@ -1,35 +1,38 @@
 import {ContentNode} from "./types";
+import {createSteppedUnit} from "../unit/createSteppedUnit";
+import {createReadStep} from "../unit/createReadStep";
 
 export const contentTree: ContentNode = {
     id: "root",
     name: "Inhalte",
     type: "folder",
+    isolatedChildren: false,
     children: [
         {
             id: "analysis",
             name: "Analysis",
             type: "folder",
             children: [
-                {
-                    id: "one",
-                    name: "One",
-                    type: "unit",
-                    instantiate: () => {
-                        return {
-                            numberOfSteps: 3,
-                            instance: (_props) => <div>one</div>,
-                        };
-                    },
-                },
+                createSteppedUnit("one", "One", () => [
+                    createReadStep({
+                        content: <div>foo</div>,
+                    }),
+                    createReadStep({
+                        content: <div>bar</div>
+                    }),
+                    createReadStep({
+                        content: <div>abc</div>
+                    }),
+                    createReadStep({
+                        content: <div>def</div>
+                    }),
+                ]),
                 {
                     id: "two",
                     name: "Two",
                     type: "unit",
                     instantiate: () => {
-                        return {
-                            numberOfSteps: 3,
-                            instance: (_props) => <div>two</div>,
-                        };
+                        return (_props) => <div>two</div>;
                     },
                 },
                 {
@@ -37,10 +40,7 @@ export const contentTree: ContentNode = {
                     name: "Three",
                     type: "unit",
                     instantiate: () => {
-                        return {
-                            numberOfSteps: 3,
-                            instance: (_props) => <div>three</div>,
-                        };
+                        return (_props) => <div>three</div>;
                     },
                 },
             ],
