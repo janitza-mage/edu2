@@ -2,7 +2,7 @@ import {ContentNode} from "./types";
 import {createSteppedUnit} from "../unit/createSteppedUnit";
 import {createReadStep} from "../unit/createReadStep";
 import {mathSpan, MathSpan} from "../components/Math/Math";
-import {createOrderedChooseSingleStep} from "../unit/createOrderedChooseSingleStep";
+import {createOrderedImmediateFeedbackChoiceStep} from "../unit/createOrderedImmediateFeedbackChoiceStep";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -32,7 +32,7 @@ export const contentTree: ContentNode = {
                             <p>..., -3, -1, 1, 3, ...</p>
                         </div>,
                     }),
-                    createOrderedChooseSingleStep({
+                    createOrderedImmediateFeedbackChoiceStep({
                         title: "Wähle die Folge:",
                         items: [
                             {
@@ -58,7 +58,7 @@ export const contentTree: ContentNode = {
                             <p>rot, grün, rot, grün, rot, grün, ...</p>
                         </div>,
                     }),
-                    createOrderedChooseSingleStep({
+                    createOrderedImmediateFeedbackChoiceStep({
                         title: "Wähle die Folge:",
                         items: [
                             {
