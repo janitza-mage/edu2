@@ -1,8 +1,9 @@
-import {ReactNode, useState} from "react";
+import {CSSProperties, ReactNode, useState} from "react";
 import {Button} from "@mui/material";
 import {UnitStep} from "./createSteppedUnit";
 import {CenteredContent} from "../components/layout/CenteredContent";
 import {FadeIn} from "../components/effects/FadeIn";
+import {sounds} from "../sounds/sounds";
 
 export interface OrderedChooseSingleItem {
     label: ReactNode;
@@ -26,12 +27,14 @@ export function createOrderedChooseSingleStep(parameters: CreateOrderedChooseSin
             }
             setHighlightedIndex(index);
             if (item.correct) {
+                sounds.correct.play();
                 props.onProgress();
                 setTimeout(() => {
                     setHighlightedIndex(-1);
                     props.onFinishStep();
                 }, 1000);
             } else {
+                sounds.wrong.play();
                 props.onMistake();
                 setTimeout(() => {
                     setHighlightedIndex(-1);
@@ -40,15 +43,9 @@ export function createOrderedChooseSingleStep(parameters: CreateOrderedChooseSin
         }
         
         return <CenteredContent widthPercent={parameters.widthPercent ?? 75}>
-            <div>{parameters.title}</div>
+            <div style={{marginBottom: "1em"}}>{parameters.title}</div>
             {parameters.items.map((item, index) =>
-                <div
-                    style={{
-                        border: getBorder(index, highlightedIndex, item.correct),
-                        marginBottom: "1em",
-                        userSelect: "none",
-                    }}
-                    onClick={() => onClickItem(item, index)}
+                <div style={getItemStyle(index, highlightedIndex, item.correct)} onClick={() => onClickItem(item, index)}
                 >
                     {item.label}
                 </div>
@@ -57,6 +54,27 @@ export function createOrderedChooseSingleStep(parameters: CreateOrderedChooseSin
     };
 }
 
-function getBorder(index: number, highlightedIndex: number, correct: boolean) {
-    return "2px solid #" + (index !== highlightedIndex) ? "aaa" : correct ? "0c0" : "f00";
+function getItemStyle(index: number, highlightedIndex: number, correct: boolean): CSSProperties {
+    const base: CSSProperties = {
+        marginBottom: "0.6em",
+        userSelect: "none",
+    };
+    if (index !== highlightedIndex) {
+        return {
+            ...base,
+            border: "2px solid #aaa",
+        };
+    } else if (correct) {
+        return {
+            ...base,
+            border: "2px solid #0c0",
+            backgroundColor: "#8f8",
+        };
+    } else {
+        return {
+            ...base,
+            border: "2px solid #c00",
+            backgroundColor: "#f88",
+        };
+    }
 }

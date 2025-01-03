@@ -33,6 +33,7 @@ export const contentTree: ContentNode = {
                             },
                         ],
                     }),
+                    /*
                     createReadStep({
                         content: <div>
                             <p>Eine <b>Folge</b> ist eine unendliche Aufzählung von Dingen.</p>
@@ -55,6 +56,8 @@ export const contentTree: ContentNode = {
                     createReadStep({
                         content: <div>def</div>
                     }),
+                    
+                     */
                 ]),
                 {
                     id: "two",
