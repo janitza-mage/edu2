@@ -16,10 +16,20 @@ export const contentTree: ContentNode = {
             children: [
                 createSteppedUnit("one", "One", () => [
                     createReadStep({
-                        content: <div>use {mathSpan("#mathbb{N}^x")}</div>,
+                        content: <div>
+                            <p>Eine <b>Folge</b> ist eine unendliche Aufzählung von Dingen.</p>
+                            <p>Ein Beispiel sind die ungeraden natürlichen Zahlen:</p>
+                            <p>1, 3, 5, 7, ...</p>
+                        </div>,
                     }),
                     createReadStep({
-                        content: <div>bar</div>
+                        content: <div>
+                            <p>Eine Folge hat einen Anfang, aber kein Ende.</p>
+                            <p>Die ungeraden Zahlen bis 10 sind keine Folge, weil sie ein Ende haben:</p>
+                            <p>1, 3, 5, 7, 9</p>
+                            <p>Die ungeraden ganzen Zahlen sind keine Folge, weil sie keinen Anfang haben:</p>
+                            <p>..., -3, -1, 1, 3, ...</p>
+                        </div>,
                     }),
                     createReadStep({
                         content: <div>abc</div>
