@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import {Metric} from 'web-vitals';
 import {App} from './components/App/App';
 import 'katex/dist/katex.min.css';
+import {initializeDeveloperControls} from "./components/App/developer";
+
+initializeDeveloperControls();
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement

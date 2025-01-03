@@ -1,5 +1,6 @@
 import {ReactNode} from "react";
 import styles from "./FadeIn.module.css";
+import {isFastMode} from "../App/developer";
 
 export interface FadeInProps {
     children: ReactNode;
@@ -13,7 +14,9 @@ export function FadeIn(props: FadeInProps) {
 }
 
 function determineAnimationClass(props: FadeInProps): string {
-    if (props.delay === 0) {
+    if (isFastMode()) {
+        return "";
+    } else if (props.delay === 0) {
         return styles.fadeInDelay0;
     } else if (props.delay === 2) {
         return  styles.fadeInDelay2;

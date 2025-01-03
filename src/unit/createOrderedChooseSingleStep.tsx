@@ -4,6 +4,7 @@ import {UnitStep} from "./createSteppedUnit";
 import {CenteredContent} from "../components/layout/CenteredContent";
 import {FadeIn} from "../components/effects/FadeIn";
 import {sounds} from "../sounds/sounds";
+import {isFastMode} from "../components/App/developer";
 
 export interface OrderedChooseSingleItem {
     label: ReactNode;
@@ -32,13 +33,13 @@ export function createOrderedChooseSingleStep(parameters: CreateOrderedChooseSin
                 setTimeout(() => {
                     setHighlightedIndex(-1);
                     props.onFinishStep();
-                }, 1000);
+                }, isFastMode() ? 100 : 1000);
             } else {
                 sounds.wrong.play();
                 props.onMistake();
                 setTimeout(() => {
                     setHighlightedIndex(-1);
-                }, 500);
+                }, isFastMode() ? 100 : 500);
             }
         }
         
@@ -58,6 +59,7 @@ function getItemStyle(index: number, highlightedIndex: number, correct: boolean)
     const base: CSSProperties = {
         marginBottom: "0.6em",
         userSelect: "none",
+        padding: "0.5em",
     };
     if (index !== highlightedIndex) {
         return {

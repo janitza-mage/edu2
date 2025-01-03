@@ -16,6 +16,22 @@ export const contentTree: ContentNode = {
             type: "folder",
             children: [
                 createSteppedUnit("one", "One", () => [
+                    createReadStep({
+                        content: <div>
+                            <p>Eine <b>Folge</b> ist eine unendliche Aufzählung von Dingen.</p>
+                            <p>Ein Beispiel sind die ungeraden natürlichen Zahlen:</p>
+                            <p>1, 3, 5, 7, ...</p>
+                        </div>,
+                    }),
+                    createReadStep({
+                        content: <div>
+                            <p>Eine Folge hat einen Anfang, aber kein Ende.</p>
+                            <p>Die ungeraden Zahlen bis 10 sind keine Folge, weil sie ein Ende haben:</p>
+                            <p>1, 3, 5, 7, 9</p>
+                            <p>Die ungeraden ganzen Zahlen sind keine Folge, weil sie keinen Anfang haben:</p>
+                            <p>..., -3, -1, 1, 3, ...</p>
+                        </div>,
+                    }),
                     createOrderedChooseSingleStep({
                         title: "Wähle die Folge:",
                         items: [
@@ -33,31 +49,32 @@ export const contentTree: ContentNode = {
                             },
                         ],
                     }),
-                    /*
                     createReadStep({
                         content: <div>
-                            <p>Eine <b>Folge</b> ist eine unendliche Aufzählung von Dingen.</p>
-                            <p>Ein Beispiel sind die ungeraden natürlichen Zahlen:</p>
-                            <p>1, 3, 5, 7, ...</p>
+                            <p>Die Dinge in einer Folge werden <i>Folgenglieder</i> oder <i>Komponenten</i> genannt.</p>
+                            <p>Ein Folgenglied kann mehrfach vorkommen:</p>
+                            <p>1, 3, 1, 3, 1, 3, ...</p>
+                            <p>Die Folgenglieder müssen keine Zahlen sein:</p>
+                            <p>rot, grün, rot, grün, rot, grün, ...</p>
                         </div>,
                     }),
-                    createReadStep({
-                        content: <div>
-                            <p>Eine Folge hat einen Anfang, aber kein Ende.</p>
-                            <p>Die ungeraden Zahlen bis 10 sind keine Folge, weil sie ein Ende haben:</p>
-                            <p>1, 3, 5, 7, 9</p>
-                            <p>Die ungeraden ganzen Zahlen sind keine Folge, weil sie keinen Anfang haben:</p>
-                            <p>..., -3, -1, 1, 3, ...</p>
-                        </div>,
+                    createOrderedChooseSingleStep({
+                        title: "Wähle die Folge:",
+                        items: [
+                            {
+                                label: "rot, grün, blau, gelb, schwarz, weiß",
+                                correct: false,
+                            },
+                            {
+                                label: "rot, grün, rot, grün, rot, grün",
+                                correct: false,
+                            },
+                            {
+                                label: "rot, grün, rot, grün, ...",
+                                correct: true,
+                            },
+                        ],
                     }),
-                    createReadStep({
-                        content: <div>abc</div>
-                    }),
-                    createReadStep({
-                        content: <div>def</div>
-                    }),
-                    
-                     */
                 ]),
                 {
                     id: "two",
