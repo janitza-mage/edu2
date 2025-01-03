@@ -2,6 +2,7 @@ import {ContentNode} from "./types";
 import {createSteppedUnit} from "../unit/createSteppedUnit";
 import {createReadStep} from "../unit/createReadStep";
 import {mathSpan, MathSpan} from "../components/Math/Math";
+import {createOrderedChooseSingleStep} from "../unit/createOrderedChooseSingleStep";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -15,6 +16,23 @@ export const contentTree: ContentNode = {
             type: "folder",
             children: [
                 createSteppedUnit("one", "One", () => [
+                    createOrderedChooseSingleStep({
+                        title: "Wähle die Folge:",
+                        items: [
+                            {
+                                label: "1, 2, 3, 4, 5",
+                                correct: false,
+                            },
+                            {
+                                label: "1, 2, 3, ...",
+                                correct: true,
+                            },
+                            {
+                                label: "..., -2, -1, 0, 1, 2, ...",
+                                correct: false,
+                            },
+                        ],
+                    }),
                     createReadStep({
                         content: <div>
                             <p>Eine <b>Folge</b> ist eine unendliche Aufzählung von Dingen.</p>
