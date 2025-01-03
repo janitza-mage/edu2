@@ -1,0 +1,32 @@
+
+.all {
+    width: 100%;
+    height: 100%;
+}
+
+.fadeInDelay0 {
+    animation: fadeInDelay0 0.5s;
+}
+@keyframes fadeInDelay0 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+.fadeInDelay2 {
+    animation: fadeInDelay2 2.5s;
+}
+@keyframes fadeInDelay2 {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}

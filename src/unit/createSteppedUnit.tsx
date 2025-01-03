@@ -1,5 +1,6 @@
 import {Unit, UnitInstanceProps} from "../content/types";
 import {ReactElement, useState} from "react";
+import {FadeIn} from "../components/effects/FadeIn";
 
 export interface StepInstanceProps {
     onProgress: () => void;
@@ -31,14 +32,14 @@ export function createSteppedUnitInstance(steps: UnitStep[]) {
             }
         }
 
-        return <div style={{width: "100%", height: "100%", transition: "all 1s"}}>
+        return <FadeIn key={currentStepIndex} delay={0}>
             <CurrentStep
                 key={currentStepIndex}
                 onProgress={onProgress}
                 onMistake={onMistake}
                 onFinishStep={onFinishStep}
             />
-        </div>;
+        </FadeIn>;
     };
 }
 
