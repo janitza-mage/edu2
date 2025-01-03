@@ -9,10 +9,13 @@ export interface ImmediateFeedbackChoiceExerciseItem {
     correct: boolean;
 }
 
+export type ImmediateFeedbackChoiceExerciseVariant = "default" | "inline";
+
 export interface ImmediateFeedbackChoiceExerciseProps extends StepInstanceProps {
     title: ReactNode;
     items: ImmediateFeedbackChoiceExerciseItem[];
     widthPercent?: number | undefined | null;
+    variant?: ImmediateFeedbackChoiceExerciseVariant;
 }
 
 function withElementSet<T>(array: T[], index: number, value: T): T[] {
@@ -52,37 +55,62 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
 
     return <CenteredContent widthPercent={props.widthPercent ?? 75}>
         <div style={{marginBottom: "1em"}}>{props.title}</div>
-        {props.items.map((item, index) =>
-            <div style={getItemStyle(selectedFlags[index], item.correct)} onClick={() => onClickItem(item, index)}
-            >
-                {item.label}
-            </div>
-        )}
+        <div>
+            {props.items.map((item, index) => <Item
+                variant={props.variant ?? "default"}
+                selected={selectedFlags[index]}
+                correct={item.correct}
+                onClick={() => onClickItem(item, index)}
+                label={item.label}
+            />)}
+        </div>
     </CenteredContent>;
 }
 
-function getItemStyle(selected: boolean, correct: boolean): CSSProperties {
+// --------------------------------------------------------------------------------------------------------------------
+
+interface ItemProps {
+    variant: ImmediateFeedbackChoiceExerciseVariant;
+    selected: boolean;
+    correct: boolean;
+    onClick: () => void;
+    label: ReactNode;
+}
+
+function Item(props: ItemProps) {
     const base: CSSProperties = {
-        marginBottom: "0.6em",
         userSelect: "none",
         padding: "0.5em",
     };
-    if (!selected) {
-        return {
-            ...base,
-            border: "2px solid #aaa",
-        };
-    } else if (correct) {
-        return {
-            ...base,
-            border: "2px solid #0c0",
-            backgroundColor: "#8f8",
-        };
-    } else {
-        return {
-            ...base,
-            border: "2px solid #c00",
-            backgroundColor: "#f88",
-        };
+    
+    const colors: CSSProperties =
+        !props.selected
+        ? {border: "2px solid #aaa"}
+        : props.correct
+        ? {border: "2px solid #0c0", backgroundColor: "#8f8"}
+        : {border: "2px solid #c00", backgroundColor: "#f88"};
+
+    switch (props.variant) {
+
+        case "inline": {
+            const style = {
+                ...base,
+                ...colors,
+                display: "inline-block",
+                marginLeft: "0.6em",
+            };
+            return <div style={style} onClick={props.onClick}>{props.label}</div>;
+        }
+
+        case "default":
+        default: {
+            const style = {
+                ...base,
+                ...colors,
+                marginBottom: "0.6em",
+            };
+            return <div style={style} onClick={props.onClick}>{props.label}</div>;
+        }
+
     }
 }

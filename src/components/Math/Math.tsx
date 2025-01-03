@@ -6,7 +6,7 @@ import KaTeX, {KatexOptions} from "katex";
 // --------------------------------------------------------------------------------------------------------------------
 
 function render(source: string, displayMode: boolean): string {
-    const translatedSource = source.replace("#", "\\");
+    const translatedSource = source.replaceAll("#", "\\");
     const options: KatexOptions = {
         displayMode,
         throwOnError: false,
