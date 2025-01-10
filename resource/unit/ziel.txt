@@ -1,0 +1,129 @@
+
+Ziel: Studium Elektrotechnik, das ist was angewendetes (anders als rein Mathe) und hat (meine Spekulation)
+weniger Diskussionen als Informatik, "wie es richtig geht", da etablierter.
+
+Dazu nötig:
+- Grundlagen-Vorlesungen
+    Da macht jeder etwas anderes, in unterschiedlichen Reihenfolgen
+- Mathe
+    man sollte hier das lernen, was man auch an der Uni lernt -- dann kann man es verwenden, um das richtige
+    Studium durchzuziehen! Wenn man dort in den Aufgaben Beweise führen muss, dann sollte man das hier lernen!
+    - Analysis
+    - LA
+    - Numerik
+    - Statistik / Wahrscheinlichkeitstheorie
+- Physik
+- Informatik
+    Informationssicherheit
+    Software Engineering
+    CPU-Architektur, Assembler
+    C, C++, Rust, ...?
+- sonstige "Nebenfächer"?
+- Soft-Fächer
+    Projektmanagement
+    Qualitätsmanagement
+    Geschäftsentwicklung und Gründung
+    Medizinprodukteregulierung
+    
+- weitergehende Vorlesungen
+    Robotik
+    Mechatronik
+    Messtechnik
+    Systemtheorie
+    Mensch-Maschine Schnittstellen
+    Kommunikation, Nachrichtentechnik (z.B. Mobile Datenübertragung)
+    "Energieeffiziente Antriebe"
+    "Zustandsregelung"
+    Elektrische Antriebe
+    Automatisierung
+    Hochspannungstechnik
+    Optische Nachrichtentechnik
+    biomedizinische Technik
+    Steuerungstechnik
+    Hochfrequenztechnik
+    Leistungselektronik
+    Schaltungstechnik
+    Mikroelektronik, Halbleiter-Bauelemente
+    Elektroenergiesysteme
+    Energiewandlung
+    "medizinische Signal- und Datenverarbeitung"
+    Datennetze
+    Signalverarbeitung
+    Sprach- und Audiosignalverarbeitung
+    Bauelemente
+    Embedded Systems
+    Feldbusse
+    Statistik und Sensordatenfusion
+    Bildverarbeitung
+    KI, Fuzzy-Logic, Neuronale Netze, Evolutionäre Algorithmen
+    (Systemdynamik und) Regelungstechnik
+    Plasmaphysik
+    CAD (Maschinen, Platinen, SoCs, ...)
+    Großgeneratoren und Hochleistungsantriebe
+    Numerische Simulation elektrothermischer Prozesse
+    Sensorik, Aktorik und Elektronik und Micromechatronic Systems
+    Effektives Trouble-Shooting
+    Technische Elektrodynamik
+    Simulation elektromagnetischer Felder im Zeitbereich
+    Physik und Technik von Beschleunigern
+    Numerische Verfahren der Feldtheorie
+    Matlab/Simulink I
+    Programmierung in der Automatisierungstechnik
+    Modellbildung, Simulation und Optimierung
+    Mehrgrößenregelung und Robuste Regelung
+    Biophotonik
+    etit
+    Rechnersysteme
+    Advanced Digital Integrated Circuit Design
+    Industrieelektronik
+    Elektrische Energieversorgung
+    Kraftwerke und Erneuerbare Energien
+    Simulation des elektrischen Energieversorgungssystems
+    Netzschutz
+    Communication and Space-Time-Coding
+    Radarsysteme
+    Relativistische Elektrodynamik
+    Energiekabelanlagen
+    Elektromagnetische Verträglichkeit
+    Lichttechnik
+    Halbleiterlichttechnik
+    "Deterministische Signale und Systeme"
+    Elektromechanische Systeme
+    Informationstheorie
+    Bioinformatik
+    Spintronics, Spintronische Bauelemente
+    Sensor-Arrays
+    Terahertz-Systeme & Anwendungen
+    Elektromagnetisches CAD
+    Elektromagnetismus und Differentialformen
+    numerische Berechnung elektromagnetischer Felder
+    Multimedia Kommunikation
+    Logischer Entwurf
+    Software Defined Networking
+    Anwendungsprotokolle im Internet
+    Energieinformationssysteme
+    Autonomes Fahren
+    Hardware-Grundlagen für neuronale Netze
+
+Was will ich dem Lerner bieten?
+- die Inhalte des ET-Studiums hier lernen zu können
+- äquivalentes Wissen ohne ein ET-Studium zu erlangen
+- sich auf das ET-Studium vorbereiten zu können, damit es dann einfacher wird
+- während des ET-Studiums "Nachhilfe" zu bekommen
+- sich einen Überblick zu verschaffen, ob ET und/oder das ET-Studium was für einen ist
+
+Warum will ich dieses Projekt machen?
+- um etwas sinnvolles mit meinen Fähigkeiten anzustellen
+- um den allgemeinen Wissensstand anzuheben
+- um die Abhängigkeit vom "althergebrachten Studium" zu verringern
+- um Lernern eine Chance (hier auf ET) zu geben, die diese sonst nicht gehabt hätten
+- um Lernern den Mut zu geben, etwas (hier ET) anzugehen
+
+Was sind non-goals?
+- Geld damit zu machen:
+    Wenn das ganze kein Geld abwirft, ist das okay. Ich rechne auch nicht damit, dass was bei rumkommt.
+- Berühmt zu werden:
+    Wenn die Ziele auf anderem Weg oder durch andere erreicht werden, ist das genauso gut.
+    Wichtig: _Dass_ die Ziele auch erreicht werden. Zum Beispiel ist ein Inhaltlich vergleichbares, aber
+        kostenpflichtiges Angebot NICHT ausreichend.
+
