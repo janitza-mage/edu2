@@ -1,0 +1,31 @@
+
+Risikobehandlung (Black Swans)
+- mehrere Maßnahmen je Risiko
+- Prüfen, welche der Maßnahmen andere positive Seiteneffekte haben; vgl. Finanzierung von Archäologie
+    durch ein Bahnbauprojekt
+- Risiko behandeln, dass merhere Black Swans gleichzeitig auftreten (Behandlung je Kombination nötig)
+
+-----------------------------------------------------------------------------------------------------------------------
+Große Risiken
+-----------------------------------------------------------------------------------------------------------------------
+
+- Anton macht selbst auch Uni
+- ich habe selbst nicht genug Ahnung vom Lehren
+- ich habe selbst nicht genug Ahnung von den Fächern
+- eine andere Plattform kommt mir zuvor und wird bekannt, aber mit Parametern, die das Ziel nicht erfüllen
+- ich bekomme es technisch nicht hin
+- die Plattform wird aus UI-Gründen nicht akzeptiert
+- der Lernmodus wird nicht akzeptiert
+- die Plattform wird aus sonstigen nicht akzeptiert
+- die Wünsche der Benutzer passen gar nicht zu den Features (ich kenne die Wünsche nicht mal)
+    z.B. weil Benutzer _nachweisen_ wollen, was sie gelernt haben (oder nur nachweisen wollen und das Lernen irrelevant ist)
+
+generell:
+# think slow, act fast
+# Modularität, Savepoints
+# alles gelernte mitnehmen
+
+-----------------------------------------------------------------------------------------------------------------------
+kleinere Risiken
+-----------------------------------------------------------------------------------------------------------------------
+

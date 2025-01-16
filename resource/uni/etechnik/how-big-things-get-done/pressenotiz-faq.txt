@@ -1,0 +1,21 @@
+
+edu2 ist Anton für die Uni. Damit können Nichtstudenten Unistoff lernen, Studenten bekommen Nachhilfe, Schüler können
+sich aufs Studium vorbereiten und einen Eindruck bekommen, ob das Fach etwas für sie ist. In der ersten Version wird
+nur Elektrotechnik angeboten. Die Anwendung setzt auf selbst machen statt auf trockene Vorlesungen; Erklärungen und
+Übungen sind nicht getrennt, sondern man lernt beim machen. Die Anwendung ist kostenlos und eine Anmeldung ist nicht
+nötig; eine anonyme Anmeldung wird aber angeboten, um den Lernfortschritt bequem über mehrere Geräte zu
+synchronisieren.
+
+Mit edu2 kann man nebenher und zwischendurch lernen, oder konzentiert am Stück. Der Lernende selbst entscheidet hier
+über den Modus und kann so das Lernen mit seinem persönlichen Alltag vereinen.
+
+Die Anwendung ist auf das Lernen limitiert -- es wird keine Lernkontrolle und keine Prüfungen angeboten, außer der
+Selbstkontrolle durch den Lernenden. Es wird daher keine Möglichkeit angeboten, den Fortschritt von lernenden zu
+überwachen oder den Lernerfolg zu kontrollieren. 
+
+Eine Überwachung des Lernfortschritts durch andere (Lehrer, Nachhilfelehrer, usw.) ist für die Zukunft denkbar.
+Prüfungen und Kontrolle ist dagegen mit den grundsätzlichen Zielen nicht vereinbar und würden die Integration in den
+Alltag des Lernenden viel zu stark behindern. Generell sind die Möglichkeiten einer App bzgl. der Kontrolle
+beschränkt; schummeln wird in dem vorgesehenen Lernmodus immer und einfach möglich sein, daher müssen Kontrolle und
+Prüfung auf anderem Wege passieren. Die Anwendung kann dabei ein Baustein sein, aber nicht für den Aspekt, das
+Schummeln zu verhindern.

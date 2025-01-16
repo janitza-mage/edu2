@@ -1,0 +1,91 @@
+
+Ziel: Studium Elektrotechnik, das ist was angewendetes (anders als rein Mathe) und hat (meine Spekulation)
+weniger Diskussionen als Informatik, "wie es richtig geht", da etablierter.
+
+Was will ich dem Lerner bieten?
+- die Inhalte des ET-Studiums hier lernen zu können
+- äquivalentes Wissen ohne ein ET-Studium zu erlangen
+- sich auf das ET-Studium vorbereiten zu können, damit es dann einfacher wird
+- während des ET-Studiums "Nachhilfe" zu bekommen
+- sich einen Überblick zu verschaffen, ob ET und/oder das ET-Studium was für einen ist
+
+Warum will ich dieses Projekt machen?
+- um etwas sinnvolles mit meinen Fähigkeiten anzustellen
+- um den allgemeinen Wissensstand anzuheben
+- um die Abhängigkeit vom "althergebrachten Studium" zu verringern
+- um Lernern eine Chance (hier auf ET) zu geben, die diese sonst nicht gehabt hätten
+- um Lernern den Mut zu geben, etwas (hier ET) anzugehen
+
+------
+
+nötig:
+- Platform / Technik
+    - das ist das kleinste Problem, das bekomme ich hin
+- Inhalte
+    - viel Aufwand. Hier muss der Ansatz sein, einen Starter zu bauen, um dann Hilfe zu bekommen.
+        - Allerdings baue ich keine Authoring-Plattform! Die Hilfe muss mit einer Authoring-losen Software vereinbar
+            sein. Da habe ich aber gerade bei E-Technik recht gute Hoffnungen, dass die "Helfer" das hinbekommen.
+        - dazu muss ich den Helfern die Arbeit einfach machen!
+            - eine große Bibliothek von technischen Funktionen
+            - Anleitungen, Beispiele
+            - definierter Prozess für die Zusammenarbeit, auch bzgl. Versionsverwaltung
+- Usability
+    lässt sich denke ich gut über Feedback lösen
+    Feedback-Funktion einbauen!
+    Truman-Show-Modus? Wäre allerdings nicht vollständig ohne Kamera
+- Bekanntheit
+    ... TODO
+- Beliebtheit
+    abhängig von Usability, Effektivität; aber auch davon, wie ansprechend die Inhalte sind. Feedback!
+    ... TODO
+- Effektivität
+    soll heißen: Man kann auch was damit anfangen!
+    - Feedback, wo es geholfen hat und wo nicht
+    - getrennte Bewertung nach den einzelnen Zielen (Vorbereitung aufs Studium; Ersatz des Studiums; ...)
+    - aus dem Feedback herauslesen, ob es weitere Ziele gibt, die ich nicht im Blick habe
+    - Chance & Mut fürs Studium: dafür braucht es ein Mapping auf die Vorlesungspläne, also z.B. dass ein
+        Vorlesungsplan in der Anwendung aufgerufen und abgearbeitet werden kann, nicht nur reine Themengebiete
+        (in denen z.B. ET und Mathe getrennt wären, und man dann nicht weiß, welche Mathe man alles braucht
+        und welche nicht)
+    ... TODO
+    
+Welche Punkte davon müssen gleich da sein, welche gehen auch später? In Prozent, die da sein müssen.
+- Technik
+    Plattform 100
+    technische Bibliothek 75
+- Inhalte
+    ausgewählter Teil 100 (MVP)
+    Rest 0
+- Usability 50
+- Bekanntheit
+    für den ausgewählten Teil
+        für Feedback 5
+        für Erprobung 25
+        für Erfolg 50
+    Rest 0
+- Beliebtheit
+    für den ausgewählten Teil 90
+    Rest 0
+- Effektivität
+    - Was will ich dem Lerner bieten?
+        - die Inhalte des ET-Studiums hier lernen zu können
+        - äquivalentes Wissen ohne ein ET-Studium zu erlangen
+        - sich auf das ET-Studium vorbereiten zu können, damit es dann einfacher wird
+        - während des ET-Studiums "Nachhilfe" zu bekommen
+        - sich einen Überblick zu verschaffen, ob ET und/oder das ET-Studium was für einen ist
+    
+    - Warum will ich dieses Projekt machen?
+        - um etwas sinnvolles mit meinen Fähigkeiten anzustellen
+        - um den allgemeinen Wissensstand anzuheben
+        - um die Abhängigkeit vom "althergebrachten Studium" zu verringern
+        - um Lernern eine Chance (hier auf ET) zu geben, die diese sonst nicht gehabt hätten
+        - um Lernern den Mut zu geben, etwas (hier ET) anzugehen
+    
+    - Was sind non-goals?
+        - Geld damit zu machen:
+            Wenn das ganze kein Geld abwirft, ist das okay. Ich rechne auch nicht damit, dass was bei rumkommt.
+        - Berühmt zu werden:
+            Wenn die Ziele auf anderem Weg oder durch andere erreicht werden, ist das genauso gut.
+            Wichtig: _Dass_ die Ziele auch erreicht werden. Zum Beispiel ist ein Inhaltlich vergleichbares, aber
+                kostenpflichtiges Angebot NICHT ausreichend.
+    

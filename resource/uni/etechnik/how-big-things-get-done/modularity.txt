@@ -1,0 +1,113 @@
+
+-----------------------------------------------------------------------------------------------------------------------
+Idee
+-----------------------------------------------------------------------------------------------------------------------
+
+- keine Monumente, sondern Standard & Wiederholung
+- Standardisierung erhöht die Modularität
+- man kann aus den ersten Schritten für die folgenden Schritte lernen
+- man zieht Gewinn aus den ersten Schritten, während man die folgenden umsetzt
+- "Plattform-Ansatz": Standards, an die sich jedes Modul hält, damit alles zusammenarbeiten kann
+    Vermutung bzgl. Gigafactory:
+        Standards für die Übergabe von einem Block zum nächsten (bzw. an- und ablieferung)
+        Standards für die interne Infrastruktur
+            Leitungen
+            Transportwege
+            Zugangskontrolle
+            Verwaltung
+- keine neue Technologie, sondern Erprobtes
+- "every mission is cheap enough to fail"
+
+-----------------------------------------------------------------------------------------------------------------------
+Modularität vs. die anderen Prinzipien
+-----------------------------------------------------------------------------------------------------------------------
+
+Think Slow, Act Fast
+- das gesamte Vorhaben durchplanen UND den einzelnen Legobaustein durchplanen, so gut es geht
+- nach dem ersten Baustein beide Pläne anpassen
+- bei beidem jemand dazuziehen, der sowas schon mal gemacht hat
+- je Baustein zusätzlich zum "Baustein-Plan", der sich immer wiederholt, einen "Individualplan" aufstellen
+
+Schätzung
+- das Ganze schätzen
+- den einzelnen Baustein schätzen
+- beide Schätzungen nach jedem Baustein anpassen
+
+Risikobehandlung (Black Swans)
+- Risikobehandlung fürs Ganze und je Baustein
+- beide nach jedem Baustein anpassen
+- nach jedem Baustein muss ein "Savepoint" da sein
+
+Team
+- wenn ein Team alle Bausteine durchzieht, okay
+- falls es mehrere Teams gibt, z.B. um zu skalieren,
+    - modulare Teams, zumindest für einen Teil des Gesamtteams, also Sonderteams A, B, ... und ein Blueprint
+        für immer gleichartige Teams X1, X2, ...
+        - Erfahrung, vor allem voneinander abweichende Erfahrung, in den X-Teams abgleichen, so dass alle lernen
+
+-----------------------------------------------------------------------------------------------------------------------
+"Was ist mein Lego?"
+-----------------------------------------------------------------------------------------------------------------------
+
+Fächer
+Vorlesungen, Aufgaben, Units
+Aufgabentypen
+Aufgaben-/Vorlesungs-Versionen
+Lerner
+Computer, auf denen gelernt wird
+Lehrende (?) -- erst mal nicht
+Installationen
+
+
+
+
+"""
+Product modularity refers to the ability to break a product down into smaller, independent components that can be
+combined in different ways to create different versions of the product. For example, a computer manufacturer may use a
+modular design for their laptops, allowing customers to choose different configurations of components such as the
+processor, memory, and storage.
+
+Process modularity refers to the ability to break down the process of creating a product or delivering a service into
+smaller, independent components. This can allow for greater flexibility and customization in the production or delivery
+process. For example a windfarm, that consist of individual windmill modules that are then repeated one after another.
+The use of the same module, repeated over and over allows for learning experiences through repeated processes of
+installation and maintenance. It also highly affects scalability, in the sense that modules can be added or removed in
+order to achieve the desired size.
+
+Organizational modularity refers to the ability to break down an organization into smaller, independent components
+that can be combined in different ways to achieve different goals. This can allow for greater flexibility and
+adaptability in the face of changing circumstances, as well as easier management of different parts of the organization.
+For example, a large corporation may have different divisions or subsidiaries that operate independently but can be
+combined in different ways to achieve different strategic goals.
+"""
+
+-----------------------------------------------------------------------------------------------------------------------
+Plattform
+-----------------------------------------------------------------------------------------------------------------------
+
+Wie kann ein Lerneffekt eintreten, wenn der erste Stand materialisiert wird und sich dann nicht mehr ändert, damit er
+kompatibel ist? Wie hat das bei anderen Plattformen, z.B. Shipping-Containern, funktioniert?
+- Vermutungen
+    - den Standard aus einer Menge von Unterstandards aufbauen. Wenn Erkenntnisse kommen, dann nach Möglichkeit
+        nur ein paar der Unterstandards anpassen. Im Falle von Containern wäre das z.B., die Größe unabhängig von
+        Befestigungs-Mechanismen und wieder unabhängig vom Maximalgewicht festzulegen.
+
+- Fähigkeiten der Plattform nach und nach erweitern, angefangen mit einer einzigen Fähigkeit
+- Werdegang:
+    Big One-Offs (high variety, low volume)
+    Batch (mid variety, mid volume)
+    Continuous Flow (low variety, high volume)
+    Platform (high variety, high volume)
+- Wenn ich schon irgendwo was "eigenes" brauche, dann zusehen, dass das selbst eine
+    Plattform wird
+- eine Plattform ist auch "frozen experience"
+    Möglichst viele / große Plattformen (aber mit der Zeit gewachsen) verstärken den Lerneffekt
+    Dazu muss ich aber auch wirklich herausfinden, was die Gemeinsamkeiten sind, ansonsten wirkt sich
+        die Plattform negativ aus
+
+-----------------------------------------------------------------------------------------------------------------------
+Strategie
+-----------------------------------------------------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,187 @@
+
+allg.: Variationen mit Schaltplänen, Zeichnungen, Fotos (z.B. Kabel, Platinen, ...)
+
+Ist das hier Einführung e-Technik? Schaltungstechnik? Elektronik? Sonstwas?
+    Elektronik ja, Schaltungstechnik wohl eher nicht (laut Wikipedia)
+    Der mix zusammen mit Elektrodynamik macht denke ich nur so halb viel Sinn, weil dann wild zwischen Themen gesprungen wird.
+
+Reihenfolge nicht wie hier vorgestellt, sondern vor allem als "Sandwich" wiederholt:
+    oberflächlich behandeln, weitergehen, zurückkommen, insgesamt weiter, später wiederholen
+
+---------------------------------------------
+
+Herangehensweise:
+- das hier ist Elektronik-lastig, auch in den Grundlagen. "Ladungen stoßen sich ab", aber nichts über
+    Elektromagnetismus. Entsprechend Kondensatoren, aber keine Spulen.
+- aber rein auf Elektronik zu gehen ist nicht Elektrotechnik, und in anderen Teilbereichen müsste man viele
+    Grundlagen wiederholen.
+
+Was sind die Alternativen?
+- hier nur die Basics, was aber den Kondensator ausschließt. Dafür mehr Schaltpläne lesen usw.
+- hier auch Spulen und dann alles machen, aber dann wilder Mix.
+- Stück für Stück (das gefällt mir am besten), nicht wild hin- und herspringen, bzw. zwischen elektro und magnetisch
+    vielleicht schon, aber entlang einer anderen Dimension nicht, also alle Seiten Stück für Stück lernen.
+    - Beispiel: Symbol für Spule kommt schon mal in einem Schaltplan vor, ohne dass man weiß, was oder wofür das genau
+        ist, aber muss man für die jeweilige Aufgabe auch nicht. Bedenken: Lernen funktioniert NICHT wie der Aufbau
+        einer mathematischen Theorie!
+
+-->
+Wie wäre es eigentlich, wenn ich das ganze E-Technik-Grundstudium + den Pflichtteil des Hauptstudiums, also alle
+"Pflichtthemen", in einem großen Ganzen zusammenfasse? Auch Mathe? Warum sollte ein Lerne überhaupt herumspringen
+müssen? Bei Anton kann man "nachholen", was man nicht verstanden hat. Greift das hier auch?
+
+Vorteile:
+- es muss nicht ein Thema "in sich geschlossen" sein
+- man muss nicht auf andere Themen verweisen, sondern kann sie direkt drannehmen
+- der Lerner muss nicht springen und auch nicht wissen, wann er springen soll
+
+
+---------------------------------------------
+
+Übungen
+https://www.max-academy.de/contentPool/601e8738f2666c0065f6ebad
+https://www.elektrotechnik-fachwissen.de/ausw-testaufgaben.php
++ PDFs
+
+Widerstands-Farbringe ablesen
+Ohmsches Gesetz -> geht direkt, in mehreren Variationen (am besten mehrere drannehmen!)
+- kombiniert mit farbigen Ringen
+Parallel- und Reihenschaltung
+- per Schaltplan
+- mit Fotos
+- kombiniert mit farbigen Ringen
+Schaltpläne
+- mit Fotos vergleichen, ob sie zusammenpassen (welches Foto passt zum Schaltplan? andersrum?)
+- welche zwei Schaltpläne sind gleichbedeutend?
+- welche zwei Fotos können durch den selben SChaltplan dargestellt werden?
+
+
+
+---------------------------------------------
+
+Grundkonzepte
+- Ladung
+    (das hier später? Widerspricht der technischen Stromrichtung, != Elektronenflußrichtung, und ist fürs Verständnis
+        nicht notwendig. Ist es zum Verständnis hilfreich?)
+    ... Elektron: negativ, leicht, beweglich
+    ... Atomkern: positiv, schwer, unbeweglich
+    ... "normale" Materie: gleich viel, neutral
+    --> denke das würde helfen, um Stromfluß durch MAterie besser vorstellbar zu machen
+        Also dann erklären, und dann gleich im 2. Abschnitt mit elektronenflußrichtung vs technische Stromrichtung
+    Größe Q, Einheit C (Symbole und ausgesprochene Namen)
+- Strom
+    Bewegung von Ladung
+    (Drift-)Geschwindigkeit für die e-Technik i.a. alleine nicht Aussagekräftig
+        Anzahl, Dichte usw. der Ladungen ebenso relevant
+        -> Fluß durch Querschnitt wichtig
+    freie Elektronen, elektronengas, Löcher, Ionen, Eletronenausatausch von Ionen, Atomkerne
+    gerichtet!
+    Größe I, einheit A (Symbole und ausgesprochene Namen)
+    LAdung pro Zeit
+    Elektronenflußrichtung vs technische Stromrichtung
+- Energie
+    LAdung stößt sich ab
+    nächstes Bißchen Ladung dazu
+    Energieerhaltungssatz, keine Wärme
+    Energie kann wiedergewonnen werden; Ladung wird gegen Widerstand "rausgedrückt"
+    Größe E oder W, Einheit J (Symbole und ausgesprochene Namen)
+- Spannung
+    LAdung stößt sich ab
+    nächstes Bißchen Ladung dazu
+    Größe U, Einheit V, J/C (Symbole und ausgesprochene Namen)
+- Spannung zwischen geladener Materie -> Strom, wenn leitend verbunden; Ladung gleicht sich aus
+- große Mengen Ladung -> konstante Spannung, auch wenn Teilladung sich rübergewegt
+    - Situation mit konstantem Strom und konstanter Spannung möglich, zumindest in sehr kurzem Zeitabschnitt
+    - Leistung, Einheit W, Energie/Zeit
+- Im Allgemeinen sind die Größen zeitabhängig und dann wird mit Zeitableitung und Zeitintegral gearbeitet
+    - Anmerkung: Wenn man mit Ableitung / Integral nichts anfangen kann -> vorher MAthe
+    - Stromstärke = ABL Ladung / Ladung = INT Stromstärke
+    - Leistung = ABL Energie / Energie = INT Leistung
+    - Spannung, Energie, Ladung = TODO wie verhält sich das? Wie erklärt man es am besten?
+    
+    - "sehr kurzer Zeitabschnitt" -> Zeitableitung
+- Widerstand
+    Größe R, Einheit Ohm (Symbole und ausgesprochene Namen)
+- Schaltplan
+    Widerstand im Schaltplan
+    + Beispiel Reihenschaltung
+    + Beispiel Parallelschaltung
+    "Knoten" -> alles, was ohne Bauteil dazwischen verbunden ist, also "unendlich gut leitend", Widerstand = 0
+    Keine Spannung zwischen den "Teilen" eines Knotens. Wäre eine Spannung da, dann wegen R=0 => I=INF und würde sich
+    ausgleichen
+- Summe der Ströme an einem Knoten näherungsweise = 0, weil sich sonst Ladung sammeln und sofort weitere Ladung
+    abstoßen würde.  später wird durch eine kleine Anpassung des Modells genau = 0 (anm.: parasitäre Kapazität
+    explizit machen)
+- Summe der Spannungen in einem Rundweg = 0 (widerspricht "keine Spannung zwischen den Teilen eines Knotens";
+    widerspricht auch Energieerhaltungssatz, weil Ladung entlang der Masche fließen könnte und dann am Ausgangspunkt
+    mehr Energie als vorher hat.)
+    genannt "Maschenregel", aber welche Rundewege zu Maschen im Schaltplan werden, hängt davon ab, wie der
+        Schaltplan 2d-isiert wird, Beispiele dazu. Die Regel gilt für alle Rundwege.
+- Gesamtwiderstand von Reihen- und Parallelschaltung
+- Spannungsquelle, Stromquelle
+- Leitwert, spezifischer Widerstand, spezifischer Leitwert (Leitfähigkeit)
+
+- Stromkreis mit Spannung, Strom, Leistung, Arbeit
+- Wirkungsgrad
+    Vergleich (Leistung, Wirkungsgrad) von Glühlampe, Energiesparlampe, LED (Achtung: angegebene "Pseudoleistung")
+    
+- Gleichspannung, Wechselspannung, Gleichstrom, Wechselstrom
+
+- Innenwiderstand, Ersatzschaltbild (jeweils für Spannungsquelle und Stromquelle), Leerlauf, Kurzschluß
+    teilweise "reale" Quellen genannt, was aber quatsch ist, ist auch nur ein modell, nur halt ein genaueres
+    in dem Rahmen, in dem ein konstanter Innenwiderstand das Modell genau genug macht, gibt es keine Unterscheidung
+    mehr zwischen Spannungs- und Stomquelle (affin-lineare Abhängigkeit zwischen Spannung und Strom)
+
+- Parallelschaltung von zwei Spannungsquellen -> Ausgleichsstrom
+    vgl.: keine verschiedenen Spannung an zwei "Teilen" eines Knotens; Modellierung durhc "kleinen" Widerstand
+    -> großer Ausgleichsstrom, große Verlustleistung -> Wärme
+
+- Spannungsteiler, Leerlauf und belastet
+- Widerstand messen per Spannung messen, dabei Widerstand an Konstantstromquelle
+- Widerstandsänderung Messen per Spannung messen (H-Schaltung)
+    Anwendung: Dehnungsmessstreifen
+
+- Kondensator
+    Aufbau, Varianten
+    Umgeht die Regel, dass man Ladungen nicht "zusammenschieben" kann:
+        Spannung: Energie, die nötig ist, um das nächste Bißchen Ladung dazuzuschieben
+        Spannung steigt schnell ins Unermeßliche
+        Die Anziehung durch die "Gegenseite" macht es einfacher, weitere Ladung dazuzuschieben
+        -> Spannung steigt gemächlich und linear mit der Ladung
+    weitere Ladung muss auf beiden Platten entsprechend nachgeschoben werden, ansonsten entfällt diese Vereinfachung
+        und es ist wieder praktisch unmöglich, Ladung nachzuschieben
+    nach außen neutral -- wenn man von "der Ladung des Kondensators" spricht, ist die Teilladung auf einer Platte
+        gemeint; die andere gleicht das im Gesamten zu 0 aus
+    Zusammenhang mit der Knotenregel?
+        Der Kondensator ist kein Knoten, Teil eines Knotens oder mehrere Knoten, sondern er sitzt auf einem Zweig
+            zwischen zwei Knoten.
+    gespeicherte Ladung hält Energie im Elektrischen Feld
+    Anwendungen: viele.
+        ein Beispiel: kurzzeitiger Energiespeicher (Stützkondensator)
+        Verbrauchskurve ohne Kondensator; Linie, wieviel die Quelle liefern kann
+        + Widerstand der Versorgungsleitung -> zu wenig
+        mit Kondensator: Verbrauchskurve vor und hinter dem Kondensator
+    Berechnung:
+        Spannung steigt linear mit der Ladung: Q = C * U
+        Energie ist das Integral über die wachsende Spannung / Ladung: E = 1/2 * C * U^2
+        Kondensator durch Spannungsquelle über Ohmschen Widerstand laden
+    Kapazität C
+        Einheit, Symbole, Namen
+        Energiespeicher: hohe Kapazität wichtig (E = 1/2 * C * U^2; mehr Energie bei gleicher Spannung)
+        epsilon * A / d
+        Aufbau für möglichst hohe Kapazität:
+            epsilon -> Dielektrika
+            d -> Folien; Oxidschicht
+            A -> Sandwich; aufgewickelte Rolle
+        Nachteile
+            Frequenzabhängigkeit: lassen sich nicht so schnell umladen
+            keine Negative Spannung, z.B. Elkos
+            ...
+    Reihen- und Parallelschaltung von Kondensatoren
+
+- Diode
+- Transistor
+- Operationsverstärker
+- Wechselstrom, inkl komplexe Darstellung
+- Induktivität
+- Transformator

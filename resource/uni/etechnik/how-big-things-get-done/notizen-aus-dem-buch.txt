@@ -1,0 +1,131 @@
+
+Generell:
+- jemand dazuziehen, der sowas schon mal gemacht hat
+    - Lehrer!
+- wer entscheidet welche Dinge? Wer hat Macht, wer nicht? Welche Interessen werden durchgesetzt?
+- Wie bleibe ich am Steuer, was mein Projekt angeht?
+    erst mal: Indem ich Wissen sammle und damit der Experte bzgl. dieses Projekts bin
+- Ein Projektleiter mit Erfahrung, implizitem Wissen, "Phronesis" muss ran!
+
+Planungsphase:
+- nicht nur im stillen Kämmerlein entwickeln, sondern mit möglichst vielen Stakeholdern, Ideengebern usw. besprechen
+- den Drang danach, zu starten, aussitzen
+- nicht zu früh committen; Entscheidungen in Frage stellen; auf das Problem committen, nicht auf die Lösung
+- Was ist das Ziel? Warum mache ich das ganze überhaupt?
+- Optimismus ist für die anderen, harte Realität für mich
+- Immer wieder und zu allem fragen: Warum? Gibt es Alternativen? Welche? alles hinterfragen, aber nicht im Snne von
+    kritisieren sondern im Sinne von verstehen und lernen. Es gibt zu jedem Thema immer noch Dinge, die man dazulernen
+    kann.
+- An jedem Punkt einen Plan B, falls der Punkt schiefgeht
+- An jedem Punkt Vergleiche mit früheren Projekten
+- An jedem Punkt eine Planung, was dazwischen kommen könnte (?)
+- Welche Entscheidungen sind umkehrbar -> ausprobierbar? Diese ausprobieren statt zu overthinken.
+    Es ist ein Softwareprojekt -- eigentlich ist fast alles umkehrbar.
+    Ausnahmen:
+        - wenn (z.B. durch Sicherheitsprobleme) ein wesentlicher Schaden oder Imageverlust entsteht
+        - wenn diese Lösung "ihren Moment" verpasst und dann das Interesse daran weg ist
+- alle klar dazu aufrufen, den Plan zu kritisieren
+- ausgehen von Fragen, nicht von Antworten. Ausgangsfrage: Warum will ich dieses Projekt machen?
+- Amazon Planning: Pressenotiz und FAQ, die sonst als letztes geschrieben werden, als _erstes_ schreiben. Kein Jargon
+    oder Werbesprech, damit keine Details dahinter versteckt werden können. Plaintext, kein PowerPoint.
+    Nach grober Besprechung jede Zeile im Detail durchgehen. Danach neu planen und iterieren. (s.54)
+- Bei Besprechungen reden die wichtigsten Leute als letzte, damit sie die anderen nicht beeinflussen.
+- Experimentieren
+- Simulieren
+- Erfahrung sammeln
+- Modelle auf verschiedenen Ebenen, aus verschiedenen Perspektiven, für verschiedene Details
+- auf allen Ebenen vertesten, im großen Ganzen wie im kleinen Detail
+- auch den Umsetzungsvorgang modellieren und simulieren; für die Umsetzung planen
+- Iterationszyklen optimieren
+- Iteration auf jeder Ebene; angefangen mit Iteration auf Pressenotiz und FAQ
+- Pixar "storyboard movie", entspricht einem "erweiterten Clickdummy" wo man die ganze Anwendung sehen kann, aber
+    noch nicht "schön" und ohne Logik; dient nur als Grundlage für Feedback
+- Probleme, Herausforderungen und Unbekannte müssen in dieser Phase beseitigt werden
+- "illusion of explanatory depth", erklären wire ein Fahrrad funktioniert
+- minimum viable product vs. maximum virtual product
+- Wie haben andere, ähnliche Projekte das geschafft? Warum sind andere, ähnliche Projekte gescheitert?
+- TODOs im Dummycode geben Hinweise auf umzusetzende Features und offene Fragen
+- in Einzelschritte zerlegen und pro Einzelschritt die verschiedenen Punkte anwenden: Planung, Modularität,
+    Schätzung / Reference Class, Experten dafür, Fat-Tail-Analyse und Risikobehandlung...
+    Nur nicht Ausführung, die muss zusammen in einem kurzen Zeitfenster bleiben, mit der Ausnahme von Über-Modularität.
+- buy-in von den Stakeholdern einholen, indem man sie an Entscheidungen beteiligt
+- Es ist ein Alarmsignal, wenn man viel Zeit für die Ausführung eines Projekts hat.
+    NICHT: Wir haben viel Zeit, das ist gut, dann geht weniger schief
+    SONDERN: Wir haben viel Zeit, aber müssen die Ausführung trotzdem schnell machen, damit uns kein "black swan" trifft
+-  """ Tetlock’s Law. And that is, you know, you have a certain reliability of your forecast the first two or three
+    years of the forecast. And after three to five years, you can pretty much forget any certainty at all of your
+    forecast. So that tells you everything. That means that you actually need to have a substantial part. Maybe the
+    major part of your project needs to be done within two to three years."""
+
+Erfahrung
+- Erfahrung im Team anreichern. Wenn keiner Erfahrung hat, und wir welche von außen dazuholen müssen, dann so,
+    dass sie dadurch im Team angereichert wird. Notfalls Side-Quests dafür eröffnen. Am besten ein modularer
+    Ansatz, so dass die Erfahrung vielschrittig aufgebaut werden kann.
+- Uniqueness Bias als Gefahr beachten: Mein Projekt ist nicht so einzigartig, wie ich denke!
+- "The less proven something is, the more it must be tested."
+- Wenn man das erste, das größte usw. baut, startet man mit einem Erfahrungsdefizit. Das muss man durch Experimente und
+    Erfahung-sammeln ausgleichen. Dass das nötig ist, sollte im Plan vorkommen.
+
+Schätzung
+- Schätzungen laufen oft nach "anchor and adjustment" ab; der Anchor muss gut sein. Ähnliche Projekte heranziehen!
+- Achtung: Man zieht leicht eine beliebige, einem selbst sichtbare und komplett irrelevante Zahl ans Anchor heran;
+    siehe Glücksrad-Experiment von Kahneman (s.102)
+- Reference Class Forecasting: Mein Projekt ist "eins aus der und der Klasse". Das als Anchor heranziehen.
+    "IT-Projekte"?
+        Wahrscheinlich ist "IT-Neuentwicklung" besser -- Anpassung von Legacy-Software ist anders.
+            Aber trotzdem zumindest betrachten, damit die Datenbasis besser wird.
+        Daten zu bekommen wird schwer.
+    Woanders dauern ganze Anwendungen länger (10-20y),
+        einzelne größere Features kürzer (0,5-1y)
+    Die Reference Class liefert mir Ansatzpunkte zur Optimierung, und erst dadurch soltle ich drüber nachdenken,
+        vom Anchor abzuweichen.
+    Eine Quelle sagt, dass
+        abgebrochene IT-Projekte im Schnitt das doppelte wie geplant kosten
+        fertige IT-Projekte im Schnitt das 5-fache wie geplant kosten
+        der Schnitt wird aber durch extreme Ausreißer hochgezogen (Vorsicht vor black swans, betrifft 1 von 6 Projetken!)
+        ansonsten im Schnitt +50% cost overrun
+        --> einmal eine klassische Planung aufstellen und +100%; einmal Vergleichsprojekte,
+            einmal Vergleichsprojekte +100%. Von da aus weiterplanen.
+- Gründe sammlen, warum mein Projekt kürzer oder länger dauern wird als ein anderes. Bewerten (wieviel, wie
+    wahrscheinlich, Gefahren, Chancen, mögliche Informationsquellen, vorgezogene TODOs um Gewissheit zu bekommen)
+- Kreativität bzgl. Problemen aus der Planung heraus, nicht während der Umsetzung aus der Not heraus
+- Auto-recording während Clickdummy- oder sonstigen Test-Sessions
+
+
+Ausführungsphase:
+- "act fast" -> "Window of Doom", black swans
+- Erfolge feiern, einschließlich dass der Plan funktioniert
+- Frühe Verzögerungen sind schlimmer als späte, weil sie mehr Zeit haben, sich auszuwirken. Explizit dagegen vorsorgen.
+- Milestones und Inchstones als Alarmtrigger, dass der Zeitplan ein PRoblem hat. Vorher klären, wer dann wie reagieren
+    muss (Automatismus). Das sollte aber auch überprüft werden, dass es auch wirklich passiert, so dass bei negativer
+    Überprüfung höchstens eine kurze Zeit verloren geht. Zuständigkeiten und Jour Fixe müssten das lösen können.
+
+Team:
+- das Team muss definiert zusammengestellt werden, nicht durch irgendwelche äußeren Faktoren bestimmt und voll
+    mit Leuten, die nicht mitziehen
+- align incentives -> damit die Teammitglieder zusammen und nicht gegeneinander arbeiten
+- das Team ist das gesamte, nicht mehrere Einzelteams. Ab einer bestimmten Größe geht das nicht mehr mit klassischem Scrum.
+    - wie wird das in der Neo gemacht?
+    - wie machen andere das?
+    - ist das Cabal-Modell ein möglicher Ansatz?
+        eine zentrale Gruppe, die die Planung durchzieht; ggf. wechselnde zusammensetzung, aber immer repräsentativ.
+        Minigruppen für Detailentscheidungen.
+            """
+            Internally, once the success of the Cabal process was obvious, mini-Cabals were formed to come up with
+            answers to a variety of design problems. These mini-Cabals would typically include people most effected
+            by the decision, as well as try to include people completely outside the problem being addressed in order
+            to keep a fresh perspective on things. We also kept membership in the initial Cabal somewhat flexible and
+            we quickly started to rotate people through the process every month or so, always including a few people
+            from the last time, and always making sure we had a cross section of the company. This helped to prevent
+            burn out, and ensured that everyone involved in the process had experience using the results of Cabal decisions.
+            """
+- das Team für dieses Projekt steht über den Herkunftsteams. Das ist möglich, aber (zumindest im Anfangsstadium als
+    informelles Projekt) müssen wechselnde Zeiten eingeplant werden. In den wechselnden Zeiten zählt dann nur dieses
+    Projekt, außerhalb zählt das sonstige. Innerhalb dieses Projekts gibt es nur die Zugehörigkeit zu diesem Projektteam.
+- der Sinn und die Bedeutung des Projekts muss klar sein und klargemacht werden: "it had to matter that you worked
+    for T5". Jeder muss das Gefühl haben, dass Geschichte geschrieben wird. Es muss vor allem klar sein, dass das
+    nicht nur Bullshit-Gerede ist.
+- die Voraussetzungen müssen da sein, damit jeder im Team stolz darauf sein kann, Teil dieses Teams zu sein.
+- Feedback über den Workflow und über Probleme, Zeitfresser usw. einholen. Jeder hat das Recht, alles zu sagen,
+    alles zu kritisieren, zu allem Vorschläge zu machen. Das Recht und die Aufforderung dazu.
+- selbst Benchmarks setzen -- aber die müssen von innen kommen, nicht vorgegeben, damit sie "owned" werden
