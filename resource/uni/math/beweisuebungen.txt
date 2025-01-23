@@ -1,0 +1,32 @@
+
+Welche der folgenden Aussagen/Gleichungen lässt sich schlußfolgern?
+- Nachteil: man weiß nicht, welche man schlußfolgern _sollte_
+    - "welche _sollte_ man schlußfolgern" ist rumgerate
+- Nachteil: man kann durchprobieren, weil es multiple choice ist
+    - der Nachteil ist sehr oft da, wenn man nichts lernen _will_ hilft eh nix
+    - es bleibt vielleicht trotzdem was hängen
+
+Welche der folgenden Aussagen/Gleichungen hilft uns nicht weiter
+    - die, wo man vorher schon war
+
+Welche Aussage können wir noch _nicht_ zeigen, die uns wesentlich weiterhelfen würde?
+
+Wenn für den Schritt XYZ ausführen, bei welcher Gleichung landen wir dann?
+Wenn für den Schritt XYZ ausführen, bei welcher Aussage landen wir dann?
+    - da kann man noch viel mehr Variation rausholen als nur Gleichungen, z.B. "x ist ungerade"
+
+(mittendrin: Wo kommen wir her?)
+- welche Annahmen haben wir als Voraussetzungen getroffen?
+- welche Annahme haben wir getroffen, um sie per Negativbeweis zu widerlegen?
+
+Fallunterscheidung: Welche Fälle gibt es?
+
+Wenn man k:=2m setzt (anm: dadurch wird k definiert!), was bekommt man dann?
+
+Negativbeweis, am Ende: Worin liegt der Widerspruch?
+
+
+
+
+
+(weiter durchdenken: https://math.stackexchange.com/questions/2705454/proof-that-sqrt2-is-irrational

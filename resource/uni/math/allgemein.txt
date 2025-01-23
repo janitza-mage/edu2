@@ -1,0 +1,8 @@
+
+"""
+Do those exercises too. Ideally, when studying, attempt proofs yourself before reading the proof given in the book.
+"""
+-> nach den definierenden Schritten am besten jeden Bweis selbst führen lassen.
+
+"""
+PROOF First, we assume for the purpose of later obtaining a contradiction that √(2) is rational.

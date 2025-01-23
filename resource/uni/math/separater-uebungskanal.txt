@@ -1,0 +1,15 @@
+
+Auf ienem separaten Kanal eine reine Reihe von Übungen. Zufallselement. Damit kann man dann üben bis zum Umfallen.
+Dazu sollte jeder Teilbereich an Übungen separat zugänglich sein. Das wäre aber durch einzelne Units machbar,
+nur für den Fortschritt sollte man dann Units abschließen können, deren Vorgänger man noch nicht hat. Aber durch die
+Baumstruktur ist das ohne weiteres machbar; das war ja vorher nur nicht so, weil ohne Baumstruktur der "Course"
+nötig war, um eine Reihenfolge und Struktur reinzubringen.
+
+Exam-Only-University:
+Den separaten Kanal könnte man auch als Test benutzen, man muss dann halt auf anderem Wege dafür sorgen, dass keiner
+mogelt. Ein guter Test würde vermutlich aus einem automatisierten Teil bestehen, der einen dann für einen
+nicht-automatisierten Teil (z.B. Matheaufgaben, wo man selbst frei einen Beweis führen muss) freigibt.
+- Nachteil: Darin steckt die Annahme, dass Prüfungen überhaupt ein notwendiges Mittel sind, um irgendein
+    real existierendes Problem zu lösen.
+
+

@@ -1,0 +1,3 @@
+
+https://math.stackexchange.com/questions/2705454/proof-that-sqrt2-is-irrational
+- sqrt(2) = m/n... was lässt sich über m, n sagen? (€Z)
