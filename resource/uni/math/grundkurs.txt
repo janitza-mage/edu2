@@ -1,6 +1,6 @@
 Grundkurs Mathematik
 -------------------
-- allg. Natürliche Zahlen, aber NICHT Körperaxiome (reelle Zahlen)!
+- allg. Natürliche Zahlen
 - Summenschreibweise
 --> schon mal vorstellen + übungen, dann wirds nachher einfacher, wenn man es braucht
 - verschiedene "Ansammlungen" von Zahlen: endliche/unendliche Menge, Tupel
@@ -33,6 +33,14 @@ Grundkurs Mathematik
 - logische Grundbegriffe: und, oder, implikation, äquivalenz
     "stärkere" und "schwächere" Aussagen
     aus einer falschen Aussage kannn man alles korrekt Schlußfolgern
+- Begriff "paarweise verschieden"
+- Körper
+    - Rationale und Reelle Zahlen
+    - Irrationalität von sqrt(2); "dicht aber nicht lückenlos"; Reelle Zahlen "füllen die Lücken";
+        präzise Definition der reellen Zahlen kommt in der Analysis
+    - Anordnung
+    - Körperaxiome
+    - Anordnungsaxiome
 
 Unit
     Wir brauchen als Hilfsmittel noch einen weiteren Begriff, und zwar, dass eine Zahl _beliebig, aber dann fest_ (BAF)
