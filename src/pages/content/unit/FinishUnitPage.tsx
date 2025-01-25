@@ -1,6 +1,6 @@
 import {Button} from "@mui/material";
-import {CenteredContent} from "../../../components/layout/CenteredContent";
 import {MiniPie} from "../../../components/MiniPie/MiniPie";
+import {calculateScore} from "./calculateScore";
 
 export interface FinishUnitPageProps {
     progressCounter: number;
@@ -10,7 +10,10 @@ export interface FinishUnitPageProps {
 }
 
 export function FinishUnitPage(props: FinishUnitPageProps) {
-    return <CenteredContent widthPercent={50}>
+    return <div style={{textAlign: "center", marginTop: "3em"}}>
+        <div style={{textAlign: "center", marginBottom: "1em"}}>
+            Du hast {calculateScore(props.progressCounter, props.mistakeCounter)} von 10 Punkten erreicht.
+        </div>
         <div style={{textAlign: "center", marginBottom: "2em"}}>
             <MiniPie green={props.progressCounter} red={props.mistakeCounter} grey={0} size={"50%"} resolution={100} />
         </div>
@@ -18,5 +21,5 @@ export function FinishUnitPage(props: FinishUnitPageProps) {
             <Button variant={"text"} onClick={props.onRepeat}>wiederholen</Button>
             <Button variant={"contained"} onClick={props.onContinue}>weiter</Button>
         </div>
-    </CenteredContent>;
+    </div>;
 }
