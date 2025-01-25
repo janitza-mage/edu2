@@ -59,6 +59,16 @@ function withScoreUpdated(currentNode: ScoreNode | null | undefined, subPath: st
     }
 }
 
+export const __testables = {
+    getScoreTree,
+    setScoreTree,
+    getScoreNodeChildById,
+    getScoreSubNodeBySubPath,
+    getScoreNodeByPath,
+    getInitializedSubtree,
+    withScoreUpdated,
+};
+
 // --------------------------------------------------------------------------------------------------------------------
 // public API
 // --------------------------------------------------------------------------------------------------------------------
