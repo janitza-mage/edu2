@@ -1,5 +1,5 @@
 import {Button} from "@mui/material";
-import {MiniPie} from "../../../components/MiniPie/MiniPie";
+import {ScoreMiniPie} from "../../../components/MiniPie/ScoreMiniPie";
 import {calculateFloatScore, calculateIntScore} from "./calculateScore";
 
 export interface FinishUnitPageProps {
@@ -15,7 +15,7 @@ export function FinishUnitPage(props: FinishUnitPageProps) {
             Du hast {calculateIntScore(props.progressCounter, props.mistakeCounter)} von 10 Punkten erreicht.
         </div>
         <div style={{textAlign: "center", marginBottom: "2em"}}>
-            <MiniPie score={calculateFloatScore(props.progressCounter, props.mistakeCounter)} size={"50%"} resolution={100} />
+            <ScoreMiniPie score={calculateFloatScore(props.progressCounter, props.mistakeCounter)} size={"50%"} resolution={100} />
         </div>
         <div>
             <Button variant={"text"} onClick={props.onRepeat}>wiederholen</Button>

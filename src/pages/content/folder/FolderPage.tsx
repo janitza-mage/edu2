@@ -1,11 +1,11 @@
 import {Folder} from "../../../content/types";
 import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
-import {getContentNodeByPath} from "../../../content/paths";
 import {NavigationList} from "../../../components/navigation/NavigationList/NavigationList";
-import {ReactNode} from "react";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {MiniPie} from "../../../components/MiniPie/MiniPie";
+import {ScoreMiniPie} from "../../../components/MiniPie/ScoreMiniPie";
+import {useFolderScores} from "./useFolderScores";
+import {NotYetDoneMiniPie} from "../../../components/MiniPie/NotYetDoneMiniPie";
 
 export interface FolderPageProps {
     folder: Folder;
@@ -13,15 +13,26 @@ export interface FolderPageProps {
 }
 
 export function FolderPage(props: FolderPageProps) {
+    const folderScores = useFolderScores(props.path);
     const navigateToContentNode = useNavigateToContentNode();
     const navigationElements = props.folder.children.map(child => {
         let decoration = null;
         switch (child.type) {
-            case "folder":
+            
+            case "folder": {
                 decoration = <ChevronRightIcon />;
                 break;
-            case "unit":
-                decoration = <MiniPie score={7} size={"2em"} resolution={30} />;
+            }
+            
+            case "unit": {
+                const score = folderScores.getChildScore(child.id);
+                if (score === null) {
+                    decoration = <NotYetDoneMiniPie size={"2em"} resolution={30} />;
+                } else {
+                    decoration = <ScoreMiniPie score={score} size={"2em"} resolution={30} />;
+                }
+            }
+            
         }
         return {
             label: child.name,
@@ -34,6 +45,6 @@ export function FolderPage(props: FolderPageProps) {
             <FolderPageBreadcrumbs path={props.path} />
             <h1 style={{margin: 0}}>{props.folder.name}</h1>
         </div>
-        <NavigationList elements={navigationElements} />
+        <NavigationList elements={navigationElements} scores={folderScores} />
     </>;
 }

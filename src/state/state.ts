@@ -77,45 +77,37 @@ export interface FolderScoreView {
     getChildScore(id: string): number | null;
 }
 
-export const stateService = {
-    
-    getFolderScoreView(path: string[]): FolderScoreView {
-        const selectedNode = getScoreNodeByPath(path);
-        if (selectedNode && (typeof selectedNode === "object")) {
-            const selectedFolder = selectedNode;
-            return {
-                getChildScore(id: string): number | null {
-                    const child = selectedFolder[id];
-                    return (typeof child === "number") ? child : null;
-                },
-            };
-        } else {
-            return {
-                getChildScore(_id: string): number | null {
-                    return null;
-                },
-            };
-        }
-    },
-    
-    getUnitScore(path: string[]): number | null {
-        const selectedNode = getScoreNodeByPath(path);
-        return (typeof selectedNode === "number") ? selectedNode : null;
-    },
-    
-    setUnitScore(path: string[], score: number) {
-        if (score < 0) {
-            score = 0;
-        }
-        if (score > 10) {
-            score = 10;
-        }
-        score = Math.floor(score);
-        setScoreTree(withScoreUpdated(getScoreTree(), path, score));
+export function getFolderScoreView(path: string[]): FolderScoreView {
+    const selectedNode = getScoreNodeByPath(path);
+    if (selectedNode && (typeof selectedNode === "object")) {
+        const selectedFolder = selectedNode;
+        return {
+            getChildScore(id: string): number | null {
+                const child = selectedFolder[id];
+                return (typeof child === "number") ? child : null;
+            },
+        };
+    } else {
+        return {
+            getChildScore(_id: string): number | null {
+                return null;
+            },
+        };
     }
-    
-};
+}
 
+export function getUnitScore(path: string[]): number | null {
+    const selectedNode = getScoreNodeByPath(path);
+    return (typeof selectedNode === "number") ? selectedNode : null;
+}
 
-
-
+export function setUnitScore(path: string[], score: number) {
+    if (score < 0) {
+        score = 0;
+    }
+    if (score > 10) {
+        score = 10;
+    }
+    score = Math.floor(score);
+    setScoreTree(withScoreUpdated(getScoreTree(), path, score));
+}

@@ -6,13 +6,13 @@ const colorRed = "#c00";
 const deg360 = 2 * Math.PI;
 const deg90 = 0.5 * Math.PI;
 
-export interface MiniPieProps {
+export interface ScoreMiniPieProps {
     score: number;
     size: string;
     resolution: number;
 }
 
-export function MiniPie(props: MiniPieProps) {
+export function ScoreMiniPie(props: ScoreMiniPieProps) {
     return <StaticCanvas
         width={props.resolution}
         height={props.resolution}
@@ -21,7 +21,7 @@ export function MiniPie(props: MiniPieProps) {
     />;
 }
 
-function drawMiniPie(props: MiniPieProps, context: CanvasRenderingContext2D, resolution: number) {
+function drawMiniPie(props: ScoreMiniPieProps, context: CanvasRenderingContext2D, resolution: number) {
     const halfRes = resolution / 2;
     const angle1 = -deg90;
     const angle2 = angle1 + deg360 * props.score / 10;
