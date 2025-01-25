@@ -21,7 +21,7 @@ export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
                 {parameters.content}
             </div>
             <br />
-            <FadeIn delay={2}>
+            <FadeIn delay={1}>
                 <Button variant="contained" onClick={onClickButton}>{parameters.buttonLabel ?? "weiter"}</Button>
             </FadeIn>
         </CenteredContent>;
