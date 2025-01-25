@@ -46,6 +46,9 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
     }
 
     function onContinue() {
+        // It is currently unclear what to do if the next unit has been finished already. Doing it again might not
+        // be desired, but skipping it would be confusing. And what if it was finished, but with a low score?
+        // Maybe it would be better to just show that unit anyway, but show the previous score.
         const nextUnitPath = getNextUnitPath(props.path)
         if (nextUnitPath) {
             navigateToContentNode(nextUnitPath);

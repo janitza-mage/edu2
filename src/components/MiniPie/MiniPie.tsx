@@ -2,15 +2,12 @@ import {StaticCanvas} from "../StaticCanvas/StaticCanvas";
 
 const colorGreen = "#0d0";
 const colorRed = "#c00";
-const colorGrey = "#ddd";
 
 const deg360 = 2 * Math.PI;
 const deg90 = 0.5 * Math.PI;
 
 export interface MiniPieProps {
-    green: number;
-    red: number;
-    grey: number;
+    score: number;
     size: string;
     resolution: number;
 }
@@ -26,10 +23,8 @@ export function MiniPie(props: MiniPieProps) {
 
 function drawMiniPie(props: MiniPieProps, context: CanvasRenderingContext2D, resolution: number) {
     const halfRes = resolution / 2;
-    const total = props.green + props.red + props.grey;
     const angle1 = -deg90;
-    const angle2 = angle1 + deg360 * props.green / total;
-    const angle3 = angle2 + deg360 * props.red / total;
+    const angle2 = angle1 + deg360 * props.score / 10;
     
     function drawPiece(a1: number, a2: number, color: string) {
         context.fillStyle = color;
@@ -41,7 +36,6 @@ function drawMiniPie(props: MiniPieProps, context: CanvasRenderingContext2D, res
     
     // slightly overlap the pieces to avoid aliasing artifacts
     drawPiece(angle1, angle2 + 0.1, colorGreen);
-    drawPiece(angle2, angle3 + 0.1, colorRed);
-    drawPiece(angle3, angle1 + 0.1, colorGrey);
+    drawPiece(angle2, angle1 + 0.1, colorRed);
     drawPiece(angle1, angle2, colorGreen);
 }
