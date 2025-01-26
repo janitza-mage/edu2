@@ -1,9 +1,6 @@
 import {ContentNode} from "./types";
-import {createSteppedUnit} from "../unit/createSteppedUnit";
-import {createReadStep} from "../unit/createReadStep";
-import {mathSpan, MathSpan} from "../components/Math/Math";
-import {createChoiceStep} from "../unit/createChoiceStep";
 import {anaysisSubtree} from "./analysis/analysisSubtree";
+import {experimentTree} from "./experiment/experimentTree";
 
 export const contentTree: ContentNode = {
     id: "root",
@@ -42,5 +39,6 @@ export const contentTree: ContentNode = {
                 },
             ],
         },
+        experimentTree,
     ],
 };

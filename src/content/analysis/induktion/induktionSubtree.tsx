@@ -1,0 +1,629 @@
+import {ContentNode} from "../../types";
+import {createSteppedUnit} from "../../../unit/createSteppedUnit";
+import {createReadStep} from "../../../unit/createReadStep";
+import {mathDiv, mathSpan} from "../../../components/Math/Math";
+
+export const induktionSubtree: ContentNode = {
+    id: "induktion",
+    name: "Vollständige Induktion",
+    type: "folder",
+    children: [
+        createSteppedUnit("summeN", "Summe der ersten n Zahlen", () => [
+            createReadStep({
+                content: <div>
+                    <p>Die Summe der ersten {mathSpan("n")} Zahlen ist {mathSpan("#frac{n(n+1)}{2}")}:</p>
+                    <p>
+                        <div>Beispiel {mathSpan("n = 3")}:</div>
+                        <div>{mathDiv("1 + 2 + 3 = 6")}</div>
+                        <div>{mathDiv("#frac{3#cdot 4}{2} = 6")}</div>
+                    </p>
+                </div>,
+            }),
+            createReadStep({
+                content: <div>
+                    <table className={"thinTable"}>
+                        <thead>
+                            <tr>
+                                <th>n</th>
+                                <th>1+...+n</th>
+                                <th>{mathSpan("#frac{n(n+1)}{2}")}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>6</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>15</td>
+                                <td>15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>,
+            }),
+            createReadStep({
+                content: <pre>
+                    1+2+...+n = n(n+1)/2
+                    Mit der Summenschreibweise aus dem Grundkurs:
+                    Summe(i=1..n)i = n(n+1)/2
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+                    Ü: Berechne die Summe der ersten 1000 Zahlen.
+                        (Lösungsweg einblenden, ohne Ergebnis -- das sollte man ja selbst schon vorher eingegeben haben)
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("summeNBeweis", "Beweis", () => [
+            createReadStep({
+                content: <pre>
+    Anschaulicher Beweis:
+    Die Summe der ersten 5 Zahlen ist 15
+    #
+    ##
+    ###
+    ####
+    #####
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    (großes Quadrat vervollständigen, großes Dreieck rot färben)
+    Das große Dreieck entspricht der Hälte des großen Quadrats, also n^2/2.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    (kleine Dreiecke grün fräben)
+    Es gibt n kleine Dreiecke. Jedes entspricht 1/2, also zusammen n/2.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Zusammen sind das {mathSpan("n^2/2 + n/2 = (n^2 + n)/2 = n(n+1)/2")}
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Ü 6x6 anzeigen
+        wie viel ist n^2/2?
+        wie viel ist n/2?
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+    Rechnerisch ist es schnell zu aufwändig, 1+2+...+n zu berechnen.
+    Die Rechnung lässt sich abkürzen, indem man sich auf das vorherige Ergebnis bezieht.
+    1+2+3+4+5 = 15
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    1+2+3+4+5 = 15
+    1+2+3+4+5+6 = 15 + 6 = 21
+    1+...+7 = 21 + 7 = 28
+    Mit der Summenschreibweise aus dem Grundkurs:
+    Summe(i=1..n)i = (Summe(i=1..n-1)i) + n
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Ü Die Summe der ersten 199 Zahlen ist ___. Wie groß ist der Summe der ersten 200 Zahlen?
+        (Lösungsweg einblenden)
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+    Wir benutzen jetzt nur noch die Summenschreibweise aus dem Grundkurs:
+        1+...+n = n(n+1)/2
+        -{">"}
+        Summe(i=1..n)i = n(n+1)/2
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Die Formel
+    kann man beweisen, indem man sich auf das vorherige Ergebnis bezieht.
+    Dieses Verfahren heißt _Vollständige Induktion_.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Dazu muss man die Behauptung
+        Summe(i=1..n)i = n(n+1)/2
+    für ein erstes n zeigen (Induktionsanfang).
+    Für n=1 ist
+        (Summe(i=1..n)i) = 1 = 1(1+1)/2
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Danach muss man zeigen: Wenn die Behauptung für ein beliebiges n gilt, dann folgt daraus, dass sie auch
+    für n+1 gilt (Induktionsschritt).
+    Anders gesagt, muss man für ein beliebiges, vorgegebenes n die Formel
+        (Summe(i=1..n)i)+(n+1) = (n+1)(n+2)/2
+    zeigen, kann aber die Annahme verwenden, dass die Formel
+        Summe(i=1..n)i = n(n+1)/2
+    für _dieses_ n schon gezeigt wurde.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Sei n _beliebig, aber dann fest_ (BAF). Dann ist
+          (Summe(i=1..n+1)i)
+        = (Summe(i=1..n)i)+(n+1)
+        = n(n+1)/2 + n+1
+        = n(n+1)/2 + 2(n+1)/2
+        = (n(n+1)+2(n+1))/2
+        = (n+2)(n+1)/2
+        = (n+1)(n+2)/2
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Mit der vollständigen Induktion zeigt man die Aussage für n=1.
+    Aus der Aussage für n=1 folgt die Aussage für n=2.
+    Aus der Aussage für n=2 folgt die Aussage für n=3.
+    usw.
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+    Es wurde mit Vollständiger Induktion bewiesen:
+        Summe(i=1..n)i = n(n+1) / 2     für n€N
+    Der Induktionsanfang war, diese Aussage für n=1 zu zeigen.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    was war der Induktionsanfang?
+        i=1
+        n=1
+        Summe(i=1..1)i = 1(1+1)/2
+        Summe(i=1..n)i = n(n+1)/2
+        Summe(i=1..n+1)i = (Summe(i=1..n)i + n
+        Summe(i=1..n)i = n(n+1)/2 ={">"} Summe(i=1..n+1)i = (Summe(i=1..n)i + n
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Es wurde mit Vollständiger Induktion bewiesen:
+        Summe(i=1..n)i = n(n+1) / 2     für n€N
+    Der Induktionsschritt war, diese Aussage für n+1 zu zeigen, wobei man aber verwenden konnte, dass die Aussage für
+    n schon bewiesen war.
+    Mit anderen Worten war zu zeigen: Wenn die Aussage für n gilt, dann folgt daraus, dass sie auch für n+1 gilt.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    was war der Induktionsschritt?
+        (gleiche Auswahl)
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n verwendet? Klicke auf den passenden Pfeil.
+              (Summe(i=1..n+1)i)
+            = (Summe(i=1..n)i)+(n+1)
+            = n(n+1)/2 + n+1
+            = n(n+1)/2 + 2(n+1)/2
+            = (n(n+1)+2(n+1))/2
+            = (n+2)(n+1)/2
+            = (n+1)(n+2)/2
+    (rechts daneben gekrümmte Pfeile von einer zeile in die nächste, zum anklicken)
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+    Es soll gezeigt werden:
+    Die Summe der ersten n ungeraden Zahlen ist n^2
+        1             = 1
+        1 + 3         = 4
+        1 + 3 + 5     = 9
+        1 + 3 + 5 + 7 = 16
+        Summe(i=1..n)(2i-1) = n^2
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Die Summe der ersten n ungeraden Zahlen ist n^2
+    Ü Was ist die Summe der ersten 100 ungeraden Zahlen?
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Summe(i=1..n)(2i-1) = n^2
+    Zur Erinnerung aus dem Grundkurs: Die Indizes i und n sind _nicht_ die ungeraden Zahlen selbst, sondern nummerieren
+    diese durch. Die i-te ungerade Zahl hat den Wert (2i-1):
+    (tabelle)
+        i       2i-1
+        1       1
+        2       3
+        3       5
+        4       7
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Die i-te ungerade Zahl hat den Wert (2i-1).
+    Ü Was ist der Wert der 100. ungeraden Zahl?
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+    Es soll gezeigt werden:
+        Summe(i=1..n)(2i-1) = n^2
+    Ü Wie lautet diese Aussage für n=100?
+        folgt Summe(i=1..100)(2i-1) = 100^2
+        (statt multiple choice mal aus Bausteinen zusammenpuzzeln?)
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+    Es soll gezeigt werden:
+        Summe(i=1..n)(2i-1) = n^2
+    Der Induktionsanfang ist, diese Aussage für n=1 zu zeigen.
+    -
+    Summe(i=1..n)(2i-1) = n^2
+    Wie lautet die Aussage für n=1?
+    -
+    Summe(i=1..n)(2i-1) = n^2
+    Der Induktionsschritt ist: Aus der Aussage für n folgt die Aussage für n+1
+    (Auswahl wie beim ersten Beweis)
+    -
+    Induktionsschritt:
+    Summe(i=1..n)(2i-1) = n^2 ={">"} Summe(i=1..n+1)(2i-1) = (n+1)^2
+    Bringe die Beweisschritte in die richtige Reihenfolge:
+      Summe(i=1..n+1)(2i-1)
+    = (Summe(i=1..n)(2i-1)) + 2(n+1)-1
+    = n^2 + 2n + 2 - 1
+    = n^2 + 2n + 1
+    = (n+1)^2
+    -
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n benutzt? Klicke auf den richtigen Pfeil.
+Unit
+    Es soll gezeigt werden: Die Summe der ersten n geraden Zahlen ist (n^2+n)
+    Summe(i=1..n)(2i) = (n^2+n)
+    n=1: 2             = 2
+    n=2: 2 + 4         = 6
+    n=3: 2 + 4 + 6     = 12
+    n=4: 2 + 4 + 6 + 8 = 20
+    -
+    Summe(i=1..n)(2i) = (n^2+n)
+    Ü Was ist die Summe der ersten 100 geraden Zahlen?
+    -
+    Summe(i=1..n)(2i) = (n^2+n)
+    Ü 5x mit verschiedenen n's
+        Wie lautet diese Aussage für n={"{"}a{"}"}?
+        -{">"} Summe(i=1..{"{"}a{"}"})(2i) = {"{"}a{"}"}^2+{"{"}a{"}"}
+                    (statt multiple choice mal aus Bausteinen zusammenpuzzeln?)
+    -
+    Summe(i=1..n)(2i) = (n^2+n)
+    Was ist der Induktionsanfang (n=1)?
+        ... multiple choice
+    -
+    Summe(i=1..n)(2i) = (n^2+n)
+    Was ist der Induktionsschrtt?
+        ... multiple choice
+        Summe(i=1..n)(2i) = (n^2+n) ={">"} Summe(i=1..n+1)(2i) = ((n+1)^2+(n+1))
+    -
+    Beweise den Induktionsschritt, indem du die Einzelschritte in die richtige Reihenfolge bringst
+          Summe(i=1..n+1)(2i)
+        = Summe(i=1..n)(2i) + 2(n+1)
+        = (n^2 + n) + 2(n+1)
+        = (n^2 + n) + (2n + 2)
+        = (n^2 + 2n + 1) + (n + 1)
+        = (n+1)^2 + (n+1)
+    -
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n benutzt? Klicke auf den richtigen Pfeil.
+Unit
+    In dieser Übung wird für verschiedene Formeln der Induktionsschritt geübt.
+    (((
+        Größere Sammlung an Formeln für solche Summen, wo immer in die richtige Reihenfolge gebracht werden muss
+    ))) 
+Unit
+    Hier wird noch mal der Induktionsschritt geübt. ACHTUNG: Du hast pro Formel nur eine begrenzte Zeit!
+    (((
+        wie eben, aber mit Timer
+    ))) 
+Unit
+    Die Formeln werden jetzt komplizierter. Dafür gibt es jetzt kein Zeitlimit.
+    - Summe der ersten n Quadratzahlen
+    - Summe der ersten n geraden Quadratzahlen
+    - Summe der ersten n Zweierpotenzen
+
+(neuer Block? wäre okay, wenn die beiden untersten Ebenen zusammen in einer Liste dargestellt werden)
+
+Unit
+    Der Induktionsanfang war immer bei n=1.
+    Man kann jede Zahl als Induktionsanfang nehmen, aber dann beweist man die ursprüngliche Aussage nur
+    für alle n _ab dieser Zahl_.
+    -
+    Summe(i=1..n)=n(n+1)/2
+    Wenn man als Induktionsanfang n=3 setzt, dann beweist man:
+    ---1         = 1--- (durchgestrichen)
+    ---1+2       = 3--- (durchgestrichen)
+    1+2+3     = 6
+    1+2+3+4   = 10
+    1+2+3+4+5 = 15
+    -
+    Achtung: Wir haben _nicht_ die Aussage verändert, dass die Summe der ersten n Zahlen gleich n(n+1)/2 ist.
+    also _nicht_ etwa: Summe(i=3..n)=n(n+1)/2
+    Das wäre eine andere Aussage, die auch nicht stimmt.
+    Was wir stattdessen gemacht haben, ist, diese Aussage nicht mehr für alle n, sondern nur noch für "fast alle n"
+        zu beweisen.
+    -
+    Wie lautet der Induktionsanfang ab 3?
+        Summe(i=1..3)=3(3+1)/2
+        Summe(i=3..n)=n(n+1)/2
+        Summe(i=3..3)=3(3+1)/2
+Unit
+    Ein Induktionsanfang ab einer anderen Zahl als 1 ist sinnvoll, wenn die Aussage gar nicht für die ersten n gilt,
+    sondern nur noch für die restlichen n.
+    Beispiel:
+    Für alle n ab n=5 ist die Summe der ersten n Zahlen größer als 12.
+    -
+    Für alle n ab n=5 ist die Summe der ersten n Zahlen größer als 12.
+    Tabelle mit n = 1..6
+    -
+    Wie lautet der Induktionsanfang?
+    ...
+    -
+    Wie lautet der Induktionsschritt?
+    ...
+    -
+    Beweise den Induktionsschritt, indem du die Einzelschritte in die richtige Reihenfolge bringst.
+    ...
+    -
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n verwendet? Klicke auf den passenden Pfeil.
+Unit
+    Beweise:
+        Für alle n ab n=3 ist n^2{">"}2n
+    Wie lautet der Induktionsanfang?
+    ...
+    -
+    Wie lautet der Induktionsschritt?
+    ...
+    -
+    Beweise den Induktionsschritt, indem du die Einzelschritte in die richtige Reihenfolge bringst.
+    ...
+    -
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n verwendet? Klicke auf den passenden Pfeil.
+Unit
+    Achtung Fallstrick: Wenn wir den Induktionsanfang festlegen, dann besagt das, dass die Aussage für alle n ab
+    diesem Anfang gilt.
+    Damit ist aber _offen_, ob die Aussage für kleinere n gilt oder nicht. Es gibt keine Verpflichtung, dass die
+    Aussage für kleinere n falsch ist.
+    -
+    Für alle n ab n=10 ist n^2{">"}2n
+    Beweis: Wie für die Aussage ab n=3, nur mit anderem Induktionsanfang.
+    Wir haben die Aussage dann ab n=10 bewiesen.
+    Wir haben offen gelassen, für welche n im Bereich 1..9 die Aussage gilt.
+    Sie gilt z.B. f+r n=5, aber nicht für n=1.
+Unit
+    (random formeln -{">"} Induktionsanfang wählen, Induktionsschritt wählen, Induktionsschritt beweisen)
+Unit
+    (das gleiche mit Timer)
+Unit
+    Die _Fakultät_, geschrieben n!, ist definiert als
+        n! = 1*2*...*n
+    Beispiele
+        (Tabelle: n, 1*2*...*n ausgeschrieben, n! berechnet)
+    -
+    Berechne
+    n! für n=1...5
+Unit
+    Beweise:
+        Für alle n ab n=4 ist n!{">"}2^n
+    Beispiele:
+        Tabelle mit n, n!, 2^n
+    -
+    Wie lautet der Induktionsanfang?
+    ...
+    -
+    Wie lautet der Induktionsschritt?
+        n! {">"} 2^n ={">"} (n+1)! {">"} 2^(n+1)
+    ...
+    -
+    Beweise den Induktionsschritt, indem du die Einzelschritte in die richtige Reihenfolge bringst.
+        (n+1)! = n!*(n+1) {">"} 2^n*(n+1) {">"} 2^n*2 = 2^(n+1)
+    ...
+    -
+    An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n verwendet? Klicke auf den passenden Pfeil.
+Unit
+    Wiederholung aus dem Grundkurs: Bei einer Menge von Zahlen ist nur wichtig, welche Zahlen drin sind und welche
+    nicht, aber es gibt keine Reihenfolge.
+    Wenn man die Zahlen aus einer endlichen Menge hintereinanderschreibt, so dass jede Zahl genau ein mal vorkommt,
+    dann schreibt man sie aber in einer Reihenfolge hin, die man in diesem Moment festlegt.
+    -
+    Sei M die Menge der ersten vier natürlichen Zahlen. Man kann M z.B. schreiben als:
+        M = {"{"} 1, 2, 3, 4 {"}"}
+                    M = {"{"} 4, 3, 2, 1 {"}"}
+                    M = {"{"} 1, 2, 4, 3 {"}"}
+                    ...
+    -
+    Man kann beobachten: Für die ersten n natürlichen Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben.
+    -
+    Für n=1..4:
+        Beispiel n=1, n!=1, Reihenfolgen auflisten
+        -
+    -
+    Für die Menge der ersten drei natürlichen Zahlen gibt es 3!=6 verschiedene Reihenfolgen. Welche sind das? Start {">"}{">"}
+    -
+    (((
+        6 vertikal angeordnete Bereiche, jeweils die drei Zahlen, initial als 1, 2, 3; vertauschen per
+        drag n drop; entweder fertig wenn fertig (zu leicht? aus versehen schaffbar?) oder mit fertig button
+        (braucht vertikalen screen space)
+    )))
+Unit
+    Für die ersten n natürlichen Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben.
+    Wir können sogar sagen:
+    Für n paarweise verschiedene Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben.
+    ... denn für die möglichen Reihenfolgen sind die Zahlenwerte ja völlig egal, solange es keine gleichen
+    Zahlenwerte gibt.
+    Zur Erinnerung aus dem Grundkurs: "paarweise verschieden" heißt, dass es keine zwei gleichen Zahlen gibt.
+    -
+    Ü random {"{"}p{"}"}=1..5: gegeben sind {"{"}p{"}"} _paarweise verschiedene_ Zahlen. Wie viele mögliche Reihenfolgen gibt es,
+    diese hinzuschreiben? (zb multiple choice, n! auswählen) 
+Unit
+    "Für n paarweise verschiedene Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben."
+    Eigentlich muss man nicht mal voraussetzen, dass es sich um Zahlen handelt, denn auch das wurde in dem
+        Beweis gar nicht gebraucht:
+    Für n paarweise verschiedene Dinge gibt es n! mögliche Reihenfolgen, diese hinzuschreiben.
+    -
+    Etwas "mathematischer" formuliert: Für eine Menge mit n Elementen gibt es n! Möglichkeiten, diese Elemente
+    anzuordnen.
+    Diese Formulierung sagt das gleiche aus, weil es bei einer Menge nur darauf ankommt, was drin ist und was nicht.
+    Die Elemente sind also paarweise verschieden.
+    -
+    Wie viele Möglichkeiten gibt es, die Namen Alice, Bob, Charlie und David hinzuschreiben?
+    (4!)
+Unit
+    Beweise: Für eine Menge M mit n Elementen gibt es n! Möglichkeiten, diese Elemente anzuordnen. (n€N+)
+    Dazu sei M = {"{"}A1, ..., An{"}"} -- die Ai sind Namen, die wir den Elementen geben, um sie im Beweis benennen zu können.
+    -
+    Der Induktionsanfang ist einfach. Für n=1 ist n!=1, M={"{"}A1{"}"} und es gibt genau eine Anordnung für dieses eine Element.
+    -
+    Wie lautet der Induktionsschritt?
+    - Für eine Menge mit n Elementen gibt es n! Möglichkeiten, diese Elemente anzuordnen.
+    - Für eine Menge mit (n+1) Elementen gibt es (n+1)! Möglichkeiten, diese Elemente anzuordnen.
+    + Wenn es für eine Menge mit n Elementen n! Möglichkeiten gibt, diese Anzuordnen, dann gibt es für eine Menge mit
+        (n+1) Elementen (n+1)! Möglichkeiten, diese Elemente anzuordnen.
+    -
+    Beweise den Induktionsschritt.
+    Wie viele verschiedene Elemente können an der ersten Stelle der Anordnung stehen?
+        1
+        n
+        n+1
+        A1
+        An
+        An+1
+        n!
+        (n+1)!
+    -
+    Beweise den Induktionsschritt.
+    Wenn das erste Element festgelegt wurde, können die Restlichen Elemente unabhängig davon beliebig angeordnet werden.
+    Wie viele dieser restlichen Elemente gibt es?
+        (gleiche Auswahl wie vorher)
+    -
+    Beweise den Induktionsschritt.
+    Wenn das erste Element festgelegt wurde, können die Restlichen n Elemente unabhängig davon beliebig angeordnet werden.
+    Wie viele mögliche Anordnungen gibt es nach der Induktionsannahme?
+        (gleiche Auswahl wie vorher)
+    -
+    Beweise den Induktionsschritt.
+    Die Auswahl des ersten Elements (n+1 Möglichkeiten) und die Anordnung der restlichen Elemente (n! Möglichkeiten)
+    können beliebig kombiniert werden. Deshalb muss man die Anzahl der Möglichkeiten multiplizieren.
+    Wie viele Möglichkeiten gibt es also insgesamt?
+    n
+    n^2
+    n+1
+    (n+1)^2
+    n!
+    (n+1)!
+    ...
+    damit ist der Induktionsschritt bewiesen.
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+            createReadStep({
+                content: <pre>
+                </pre>,
+            }),
+            createReadStep({
+                content: <pre>
+                </pre>,
+            }),
+        ]),
+        createSteppedUnit("yyyyyyyyyyyyyyyyy", "yyyyy", () => [
+
+
+/*
+Unit
+Unit
+    
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*
+            createReadStep({
+                content: <div>
+                    <p>xxx</p>
+                </div>,
+            }),
+            createChoiceStep({
+                title: "Wähle die Folge:",
+                items: [
+                    {
+                        label: "1, 2, 3, 4, 5",
+                        correct: false,
+                    },
+                    {
+                        label: "1, 2, 3, ...",
+                        correct: true,
+                    },
+                    {
+                        label: "..., -2, -1, 0, 1, 2, ...",
+                        correct: false,
+                    },
+                ],
+                shuffle: false,
+            }),            
+             */
+        ]),
+    ],
+};
