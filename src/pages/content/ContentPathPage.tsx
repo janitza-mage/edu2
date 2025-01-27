@@ -8,7 +8,7 @@ export interface ContentPathPageProps {
 export function ContentPathPage(props: ContentPathPageProps) {
     let node = getContentNodeByPath(props.contentPath);
     if (!node) {
-        return <div>node not found</div>;
+        return <div>node not found: {props.contentPath.join("/")}</div>;
     }
     return <ContentNodePage node={node} path={props.contentPath} />;
 }
