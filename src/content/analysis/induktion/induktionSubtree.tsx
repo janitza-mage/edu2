@@ -60,11 +60,11 @@ export const induktionSubtree: ContentNode = {
                 </div>,
             }),
             createReadStep({
-                content: <pre>
-                    1+2+...+n = n(n+1)/2
-                    Mit der Summenschreibweise aus dem Grundkurs:
-                    Summe(i=1..n)i = n(n+1)/2
-                </pre>,
+                content: <>
+                    {mathDiv("1+2+...+n = n(n+1)/2")}
+                    <div>Mit der Summenschreibweise aus dem Grundkurs:</div>
+                    {mathDiv("#sum_{i=1}^ni = #frac{n(n+1)}{2}")}
+                </>,
             }),
             createReadStep({
                 content: <pre>

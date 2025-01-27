@@ -16,7 +16,7 @@ export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
             props.onProgress();
             props.onFinishStep();
         }
-        return <CenteredContent widthPercent={parameters.widthPercent ?? 75}>
+        return <CenteredContent widthPercent={parameters.widthPercent ?? 90}>
             <div>
                 {parameters.content}
             </div>
