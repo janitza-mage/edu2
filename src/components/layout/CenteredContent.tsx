@@ -12,5 +12,4 @@ export function CenteredContent(props: CenteredContentProps) {
             {props.children}
         </div>
     </div>
-
 }
