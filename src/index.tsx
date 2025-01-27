@@ -6,18 +6,12 @@ import "katex/dist/katex.min.css";
 import {initializeDeveloperControls} from "./components/App/developer";
 import "./components/App/global.css"
 
-console.log("checkpoint A");
-
 initializeDeveloperControls();
-
-console.log("checkpoint B");
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
 root.render(<App/>);
-
-console.log("checkpoint C");
 
 // performance measuring
 import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
@@ -30,5 +24,3 @@ import('web-vitals').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
     getLCP(onPerfEntry);
     getTTFB(onPerfEntry);
 });
-
-console.log("checkpoint D");

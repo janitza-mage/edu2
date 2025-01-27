@@ -10,13 +10,11 @@ function removeTrailingSlashes(s: string): string {
 
 function ContentPathPageWrapper() {
     const { "*": splat } = useParams();
-    console.log("splat", splat);
     const contentPath = (!splat || splat === "") ? [] : removeTrailingSlashes(splat).split("/");
     return <ContentPathPage key={splat} contentPath={contentPath} />;
 }
 
 export function AppRoutes() {
-    console.log("rendering AppRoutes");
     return <Routes>
         <Route path={"*"} element={<ContentPathPageWrapper />} />;
     </Routes>;

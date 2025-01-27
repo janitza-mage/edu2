@@ -3,7 +3,6 @@ import {AppFrame} from "./AppFrame";
 import {AppRoutes} from "./AppRoutes";
 
 export function App() {
-    console.log("rendering App");
     return <BrowserRouter basename={(window as any).applicationBaseUrl}>
         <AppFrame>
             <AppRoutes/>
