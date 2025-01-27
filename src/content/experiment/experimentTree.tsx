@@ -1,7 +1,19 @@
 import {ContentNode} from "../types";
-import {createSteppedUnit} from "../../unit/createSteppedUnit";
+import {createSteppedUnit, UnitStep} from "../../unit/createSteppedUnit";
 import {createLoopedSteps} from "../../unit/createLoopedSteps";
-import {createReadStep} from "../../unit/createReadStep";
+import {ReactNode} from "react";
+import {NumberChoice20Exercise} from "./NumberChoice20Exercise";
+import {getShuffled} from "../../util/random/getShuffled";
+
+export function createNumbers20Exercise(title: ReactNode, answer: number): UnitStep {
+    return props => <NumberChoice20Exercise
+        onProgress={props.onProgress}
+        onMistake={props.onMistake}
+        onFinishStep={props.onFinishStep}
+        title={title}
+        answer={answer}
+    />;
+}
 
 export const experimentTree: ContentNode = {
     id: "experiment",
@@ -10,22 +22,51 @@ export const experimentTree: ContentNode = {
     isolatedChildren: true,
     children: [
         {
-            id: "finja",
-            name: "Finja",
+            id: "f",
+            name: "F",
             type: "folder",
             isolatedChildren: true,
             children: [
-                createSteppedUnit("minus10", "Minusaufgaben bis 10", () => createLoopedSteps(3, i => {
-                    if (i == 2) {
-                        return createLoopedSteps(2, i => createReadStep({
-                            content: <div>nested: {i}</div>
-                        }));
-                    } else {
-                        return createReadStep({
-                            content: <div>top: {i}</div>
-                        });
+                /*
+                createSteppedUnit("minus10", "Minusaufgaben bis 10", () => getShuffled(createLoopedSteps(10, limit => {
+                    if (limit < 5) {
+                        return [];
                     }
-                })),
+                    return createLoopedSteps(limit + 1, y => {
+                        const x = limit - y;
+                        return [
+                            createNumbers20Exercise(<div>{limit} - {x} =</div>, y),
+                            createNumbers20Exercise(<div>{limit} - {y} =</div>, x),
+                        ];
+                    });
+                }))),
+                 */
+                createSteppedUnit("minus10", "Minusaufgaben bis 10", () => getShuffled(createLoopedSteps(10, limit => {
+                    if (limit < 5) {
+                        return [];
+                    }
+                    return createLoopedSteps(limit + 1, y => {
+                        const x = limit - y;
+                        return [
+                            createNumbers20Exercise(<div>{limit} - {x} =</div>, y),
+                            createNumbers20Exercise(<div>{limit} - {y} =</div>, x),
+                        ];
+                    });
+                }))),
+                
+                
+                // createSteppedUnit("minus10", "Minusaufgaben bis 10", () => getShuffled(createLoopedSteps(10, limit => {
+                //     if (limit < 5) {
+                //         return [];
+                //     }
+                //     return createLoopedSteps(limit + 1, y => {
+                //         const x = limit - y;
+                //         return [
+                //             createNumbers20Exercise(<div>{limit} - {x} =</div>, y),
+                //             createNumbers20Exercise(<div>{limit} - {y} =</div>, x),
+                //         ];
+                //     });
+                // }))),
             ],
         },        
     ],
