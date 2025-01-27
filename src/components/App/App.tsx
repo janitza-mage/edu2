@@ -3,7 +3,7 @@ import {AppFrame} from "./AppFrame";
 import {AppRoutes} from "./AppRoutes";
 
 export function App() {
-    return <BrowserRouter basename="/">
+    return <BrowserRouter basename={process.env.PUBLIC_URL}>
         <AppFrame>
             <AppRoutes/>
         </AppFrame>
