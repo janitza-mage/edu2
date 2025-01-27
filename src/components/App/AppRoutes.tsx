@@ -16,6 +16,7 @@ function ContentPathPageWrapper() {
 }
 
 export function AppRoutes() {
+    console.log("rendering AppRoutes");
     return <Routes>
         <Route path={"*"} element={<ContentPathPageWrapper />} />;
     </Routes>;
