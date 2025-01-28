@@ -4,18 +4,20 @@ export interface NumberKeyboardProps {
     onClickNumber: (x: number) => void;
     onClickErase: () => void;
     onClickConfirm: () => void;
+    visible?: boolean;
 }
 
 export function NumberKeyboard(props: NumberKeyboardProps) {
-    return <table className={styles.numberKeyboard}>
+    const visible = props.visible ?? true;
+    return <table className={styles.numberKeyboard} style={{visibility: visible ? "visible": "hidden"}}>
         <tbody>
             <tr>
-                {[1, 2, 3, 4, 5].map(x => <td onClick={() => props.onClickNumber(x)}>{x}</td>)}
-                <td onClick={props.onClickErase}>⌫</td>
+                {[1, 2, 3, 4, 5].map(x => <td onClick={() => visible && props.onClickNumber(x)}>{x}</td>)}
+                <td onClick={() => visible && props.onClickErase()}>⌫</td>
             </tr>
             <tr>
-                {[6, 7, 8, 9, 0].map(x => <td onClick={() => props.onClickNumber(x)}>{x}</td>)}
-                <td onClick={props.onClickConfirm}>✓</td>
+                {[6, 7, 8, 9, 0].map(x => <td onClick={() => visible && props.onClickNumber(x)}>{x}</td>)}
+                <td onClick={() => visible && props.onClickConfirm()}>✓</td>
             </tr>
         </tbody>
     </table>;

@@ -1,0 +1,37 @@
+import {ReactNode} from "react";
+import {WithFooter} from "../layout/WithFooter";
+import {NumberKeyboard} from "./NumberKeyboard";
+import {CenteredContent} from "../layout/CenteredContent";
+import {Button} from "@mui/material";
+
+export interface NumberKeyboardLayoutReadStepProps {
+    content: ReactNode; // input is a string because it is initially empty, not a number
+    widthPercent?: number | undefined | null;
+    overflow?: string;
+    buttonLabel?: string | undefined | null;
+    onClickButton: () => void;
+}
+
+export function NumberKeyboardLayoutReadStep(props: NumberKeyboardLayoutReadStepProps) {
+    const keyboard = <div style={{position: "relative"}}>
+        <NumberKeyboard visible={false}
+            onClickNumber={() => {}}
+            onClickErase={() => {}}
+            onClickConfirm={() => {}}
+        />
+        <Button
+            style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}
+            variant="contained"
+            onClick={props.onClickButton}
+        >
+            {props.buttonLabel ?? "weiter"}
+        </Button>
+    </div>;
+        
+    return <WithFooter footer={keyboard} overflow={props.overflow ?? "hidden"}>
+        <CenteredContent widthPercent={props.widthPercent ?? 90}>
+            {props.content}
+        </CenteredContent>
+    </WithFooter>;
+    
+}
