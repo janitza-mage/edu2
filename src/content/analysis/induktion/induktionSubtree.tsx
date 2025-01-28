@@ -2,6 +2,8 @@ import {ContentNode} from "../../types";
 import {createSteppedUnit} from "../../../unit/createSteppedUnit";
 import {createReadStep} from "../../../unit/createReadStep";
 import {mathDiv, mathSpan} from "../../../components/Math/Math";
+import {CenterBlock} from "../../../components/layout/CenterBlock";
+import {CenterInline} from "../../../components/layout/CenterInline";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -20,8 +22,8 @@ export const induktionSubtree: ContentNode = {
                 </div>,
             }),
             createReadStep({
-                content: <div>
-                    <table className={"thinTable"}>
+                content: <CenterBlock widthPercent={50}>
+                    <table className={"thinTable"} style={{width: "100%"}}>
                         <thead>
                             <tr>
                                 <th>n</th>
@@ -57,7 +59,7 @@ export const induktionSubtree: ContentNode = {
                             </tr>
                         </tbody>
                     </table>
-                </div>,
+                </CenterBlock>,
             }),
             createReadStep({
                 content: <>

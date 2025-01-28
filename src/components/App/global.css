@@ -6,4 +6,14 @@
 .thinTable th, .thinTable td {
     border: 1px solid #aaa;
     padding: 0.3em;
+    text-align: center;
+    min-width: 1.5em;
+}
+
+.thinTable th {
+    background-color: #cef;
+}
+
+.thinTable td {
+    background-color: #ffe;
 }

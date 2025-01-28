@@ -3,6 +3,7 @@ import {Button} from "@mui/material";
 import {UnitStep} from "./createSteppedUnit";
 import {CenteredContent} from "../components/layout/CenteredContent";
 import {FadeIn} from "../components/effects/FadeIn";
+import {CenterInline} from "../components/layout/CenterInline";
 
 export interface CreateReadStepParameters {
     content: ReactNode;
@@ -22,7 +23,9 @@ export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
             </div>
             <br />
             <FadeIn delay={1}>
-                <Button variant="contained" onClick={onClickButton}>{parameters.buttonLabel ?? "weiter"}</Button>
+                <CenterInline>
+                    <Button variant="contained" onClick={onClickButton}>{parameters.buttonLabel ?? "weiter"}</Button>
+                </CenterInline>
             </FadeIn>
         </CenteredContent>;
     };
