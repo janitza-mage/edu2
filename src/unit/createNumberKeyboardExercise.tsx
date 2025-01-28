@@ -1,4 +1,4 @@
-import {ReactNode, useState} from "react";
+import {ReactNode} from "react";
 import {UnitStep} from "./createSteppedUnit";
 import {NumberKeyboardExercise} from "../components/unit/NumberKeyboardExercise";
 
@@ -10,35 +10,19 @@ export interface createNumberKeyboardExerciseParameters {
 }
 
 export function createNumberKeyboardExercise(parameters: createNumberKeyboardExerciseParameters): UnitStep {
-    return props => {
-        const [input, setInput] = useState("");
-        
-        function onConfirm() {
-            let validator: (x: number) => boolean;
-            if ((typeof parameters.correct) === "number") {
-                validator = (x: number) => (x === parameters.correct)
-            } else {
-                validator = parameters.correct as (x: number) => boolean;
-            }
-            
-            // multi-field not supported yet
-            const inputValue = parseInt(input);
-            if (!isNaN(inputValue)) {
-                if (validator(inputValue)) {
-                    props.onProgress();
-                    props.onFinishStep();
-                } else {
-                    props.onMistake();
-                }
-            }
-        }
-        
-        return <NumberKeyboardExercise
-            onClickNumber={n => setInput(input + "" + n)}
-            onClickErase={() => setInput(input.length === 0 ? input : input.substring(0, input.length - 1))}
-            onClickConfirm={onConfirm}
-        >
-            {parameters.body(input)}
-        </NumberKeyboardExercise>
-    };
+    let validator: (x: number) => boolean;
+    if ((typeof parameters.correct) === "number") {
+        validator = (x: number) => (x === parameters.correct)
+    } else {
+        validator = parameters.correct as (x: number) => boolean;
+    }
+    return props => <NumberKeyboardExercise
+        body={parameters.body}
+        validator={validator}
+        widthPercent={parameters.widthPercent}
+        overflow={parameters.overflow}
+        onProgress={props.onProgress}
+        onMistake={props.onMistake}
+        onFinishStep={props.onFinishStep}
+    />;
 }

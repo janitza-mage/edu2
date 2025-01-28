@@ -41,6 +41,8 @@ export const experimentTree: ContentNode = {
                     });
                 ))),
                  */
+                
+                /*
                 createSteppedUnit("minus10a", "Minus 10..20", () => createLoopedSteps(1000, () => {
                     const r1 = randomInt(10);
                     const x = 11 + r1;
@@ -48,6 +50,8 @@ export const experimentTree: ContentNode = {
                     const z = x - y;
                     return createNumbers20Exercise(<div>{x} - {y} =</div>, z);
                 })),
+                 */
+                
                 createSteppedUnit("minus10b", "Minus 10..20 + Umkehr", () => createLoopedSteps(1000, () => {
                     const r1 = randomInt(10) + 1;
                     const x = 10 + r1;
@@ -70,6 +74,7 @@ export const experimentTree: ContentNode = {
                         ),
                     ];
                 })),
+                
                 createSteppedUnit("minus10c", "Minus 10..20 umgedreht", () => createLoopedSteps(1000, () => {
                     const r1 = randomInt(10) + 1;
                     const x = 10 + r1;
@@ -92,6 +97,7 @@ export const experimentTree: ContentNode = {
                         ),
                     ];
                 })),
+                
                 createSteppedUnit("minus10d", "Minus mit Zehnerübergang", () => createLoopedSteps(1000, () => {
                     const r1 = randomInt(10) + 1;
                     const x = 10 + r1;
