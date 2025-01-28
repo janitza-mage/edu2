@@ -3,7 +3,7 @@ import {UnitStep} from "./createSteppedUnit";
 import {
     ImmediateFeedbackChoiceExercise,
     ImmediateFeedbackChoiceExerciseItem, ImmediateFeedbackChoiceExerciseVariant
-} from "../components/ImmediateFeedbackChoiceExercise/ImmediateFeedbackChoiceExercise";
+} from "../components/unit/ImmediateFeedbackChoiceExercise";
 import {getShuffled} from "../util/random/getShuffled";
 
 export interface CreateChoiceStepParameters {

@@ -1,9 +1,10 @@
 import {ContentNode} from "../../types";
-import {createSteppedUnit} from "../../../unit/createSteppedUnit";
+import {createSteppedUnit, StepInstanceProps} from "../../../unit/createSteppedUnit";
 import {createReadStep} from "../../../unit/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
+import {MathDiv, mathDiv, mathSpan} from "../../../components/Math/Math";
 import {CenterBlock} from "../../../components/layout/CenterBlock";
 import {CenterInline} from "../../../components/layout/CenterInline";
+import {NumberKeyboardExercise} from "../../../components/unit/NumberKeyboardExercise";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -68,12 +69,19 @@ export const induktionSubtree: ContentNode = {
                     {mathDiv("#sum_{i=1}^ni = #frac{n(n+1)}{2}")}
                 </>,
             }),
-            createReadStep({
-                content: <pre>
-                    Ü: Berechne die Summe der ersten 1000 Zahlen.
+            (props: StepInstanceProps) => <NumberKeyboardExercise
+                onClickNumber={n => {}}
+                onClickErase={() => {}}
+                onClickConfirm={() => {}}
+            >
+                <div>Berechne die Summe der ersten 1000 Zahlen.</div>
+                {mathDiv("#sum_{i=i}^{1000} = ?")}
+                <div>
+                    Ü: 
                         (Lösungsweg einblenden, ohne Ergebnis -- das sollte man ja selbst schon vorher eingegeben haben)
-                </pre>,
-            }),
+                    
+                </div>
+            </NumberKeyboardExercise>,
         ]),
         createSteppedUnit("summeNBeweis", "Beweis", () => [
             createReadStep({
