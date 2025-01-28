@@ -9,6 +9,7 @@ export interface CreateReadStepParameters {
     content: ReactNode;
     widthPercent?: number | undefined | null;
     buttonLabel?: string | undefined | null;
+    fadeIn?: boolean;
 }
 
 export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
@@ -22,7 +23,8 @@ export function createReadStep(parameters: CreateReadStepParameters): UnitStep {
                 {parameters.content}
             </div>
             <br />
-            <FadeIn delay={1}>
+            {!parameters.fadeIn}
+            <FadeIn delay={(parameters.fadeIn ?? true) ? 1 : false}>
                 <CenterInline>
                     <Button variant="contained" onClick={onClickButton}>{parameters.buttonLabel ?? "weiter"}</Button>
                 </CenterInline>

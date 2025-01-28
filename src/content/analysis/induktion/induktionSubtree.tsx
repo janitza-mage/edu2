@@ -1,11 +1,10 @@
 import {ContentNode} from "../../types";
-import {createSteppedUnit, StepInstanceProps} from "../../../unit/createSteppedUnit";
+import {createSteppedUnit} from "../../../unit/createSteppedUnit";
 import {createReadStep} from "../../../unit/createReadStep";
-import {MathDiv, mathDiv, mathSpan} from "../../../components/Math/Math";
+import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {CenterBlock} from "../../../components/layout/CenterBlock";
-import {CenterInline} from "../../../components/layout/CenterInline";
-import {NumberKeyboardExercise} from "../../../components/unit/NumberKeyboardExercise";
 import {createNumberKeyboardExercise} from "../../../unit/createNumberKeyboardExercise";
+import {createNumberKeyboardLayoutReadStep} from "../../../unit/createNumberKeyboardLayoutReadStep";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -74,13 +73,14 @@ export const induktionSubtree: ContentNode = {
                 body: input => <>
                     <div>Berechne die Summe der ersten 1000 Zahlen.</div>
                     {mathDiv("#sum_{i=i}^{1000} = #textcolor{blue}{" + (input || "?") + "}")}
-                    <div>
-                        Ü:
-                        (Lösungsweg einblenden, ohne Ergebnis -- das sollte man ja selbst schon vorher eingegeben haben)
-
-                    </div>
                 </>,
                 correct: 500 * 1001,
+            }),
+            createNumberKeyboardLayoutReadStep({
+                content: <>
+                    <div>Berechne die Summe der ersten 1000 Zahlen.</div>
+                    {mathDiv("#sum_{i=i}^{1000} = 500500")}
+                </>,
             }),
         ]),
         createSteppedUnit("summeNBeweis", "Beweis", () => [

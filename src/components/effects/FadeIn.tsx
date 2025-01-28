@@ -4,7 +4,7 @@ import {isFastMode} from "../App/developer";
 
 export interface FadeInProps {
     children: ReactNode;
-    delay: 0 | 1;
+    delay: 0 | 1 | false; // 0 = fade in immediately, false = show immediately without even fading
 }
 
 export function FadeIn(props: FadeInProps) {
