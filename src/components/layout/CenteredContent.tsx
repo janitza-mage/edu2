@@ -1,5 +1,10 @@
 import {ReactNode} from "react";
 
+// TODO CenteredContent is mostly used to apply a padding because it is used by default everywhere, but not needed.
+// better add a padding and use CenteredContent only in the few places where it is actually needed. Probably
+// near to nowhere because it is only useful when using a pixel-width or em-width, not a percentage width (% width
+// can be equally achieved with padding).
+
 export interface CenteredContentProps {
     widthPercent: number;
     children: ReactNode;
