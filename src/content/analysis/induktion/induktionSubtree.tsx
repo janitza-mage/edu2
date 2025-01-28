@@ -11,7 +11,7 @@ export const induktionSubtree: ContentNode = {
         createSteppedUnit("summeN", "Summe der ersten n Zahlen", () => [
             createReadStep({
                 content: <div>
-                    <p>Die Summe der ersten {mathSpan("n")} Zahlen ist {mathSpan("#frac{n(n+1)}{2}")}:</p>
+                    <p>Die Summe der ersten {mathSpan("n")} Zahlen ist {mathSpan("#frac{n(n+1)}{2}")}.</p>
                     <p>
                         <div>Beispiel {mathSpan("n = 3")}:</div>
                         <div>{mathDiv("1 + 2 + 3 = 6")}</div>
