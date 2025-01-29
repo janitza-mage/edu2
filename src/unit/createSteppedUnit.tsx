@@ -8,7 +8,11 @@ export interface StepInstanceProps {
     onFinishStep: () => void;
 }
 
-export type UnitStep = (props: StepInstanceProps) => ReactElement;
+export interface StepMetadata {
+    fadeIn?: boolean;
+}
+
+export type UnitStep = ((props: StepInstanceProps) => ReactElement) & StepMetadata;
 
 export function createSteppedUnitInstance(steps: UnitStep[]) {
     return (props: UnitInstanceProps) => {
@@ -32,7 +36,7 @@ export function createSteppedUnitInstance(steps: UnitStep[]) {
             }
         }
 
-        return <FadeIn key={currentStepIndex} delay={0}>
+        return <FadeIn key={currentStepIndex} delay={(CurrentStep.fadeIn ?? true) ? 0 : false}>
             <CurrentStep
                 key={currentStepIndex}
                 onProgress={onProgress}

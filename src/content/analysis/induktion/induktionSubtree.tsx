@@ -5,6 +5,7 @@ import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {CenterBlock} from "../../../components/layout/CenterBlock";
 import {createNumberKeyboardExercise} from "../../../unit/createNumberKeyboardExercise";
 import {createNumberKeyboardLayoutReadStep} from "../../../unit/createNumberKeyboardLayoutReadStep";
+import {noFadeStep} from "../../../unit/noFadeStep";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -76,12 +77,12 @@ export const induktionSubtree: ContentNode = {
                 </>,
                 correct: 500 * 1001,
             }),
-            createNumberKeyboardLayoutReadStep({
+            noFadeStep(createNumberKeyboardLayoutReadStep({
                 content: <>
                     <div>Berechne die Summe der ersten 1000 Zahlen.</div>
                     {mathDiv("#sum_{i=i}^{1000} = 500500")}
                 </>,
-            }),
+            })),
         ]),
         createSteppedUnit("summeNBeweis", "Beweis", () => [
             createReadStep({
