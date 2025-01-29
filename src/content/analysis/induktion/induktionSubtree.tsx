@@ -24,12 +24,12 @@ export const induktionSubtree: ContentNode = {
                 </div>,
             }),
             createReadStep({
-                content: <CenterBlock widthPercent={50}>
+                content: <CenterBlock widthPercent={60}>
                     <table className={"thinTable"} style={{width: "100%"}}>
                         <thead>
                             <tr>
-                                <th>n</th>
-                                <th>1+...+n</th>
+                                <th>{mathSpan("n")}</th>
+                                <th>{mathSpan("1+...+n")}</th>
                                 <th>{mathSpan("#frac{n(n+1)}{2}")}</th>
                             </tr>
                         </thead>
@@ -65,7 +65,7 @@ export const induktionSubtree: ContentNode = {
             }),
             createReadStep({
                 content: <>
-                    {mathDiv("1+2+...+n = n(n+1)/2")}
+                    {mathDiv("1+2+...+n = #frac{n(n+1)}{2}")}
                     <div>Mit der Summenschreibweise aus dem Grundkurs:</div>
                     {mathDiv("#sum_{i=1}^ni = #frac{n(n+1)}{2}")}
                 </>,
