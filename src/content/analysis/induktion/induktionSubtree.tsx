@@ -6,8 +6,8 @@ import {CenterBlock} from "../../../components/layout/CenterBlock";
 import {createNumberKeyboardExercise} from "../../../unit/createNumberKeyboardExercise";
 import {createNumberKeyboardLayoutReadStep} from "../../../unit/createNumberKeyboardLayoutReadStep";
 import {noFadeStep} from "../../../unit/noFadeStep";
-import {ColoredMatrix} from "../../../components/atoms/ColoredMatrix/ColoredMatrix";
 import {HorizontalSplit} from "../../../components/layout/HorizontalSplit";
+import {createBoxMatrix} from "./createBoxMatrix";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -86,28 +86,35 @@ export const induktionSubtree: ContentNode = {
                 </>,
             })),
         ]),
-        createSteppedUnit("summeNBeweis", "Beweis", () => [
-            createReadStep({
-                content: <div>
+        createSteppedUnit("summeNBeweis", "Beweis", () => {
+
+            return [
+                createReadStep({
+                    content: <div>
                     <p>Anschaulicher Beweis:</p>
-                    <p>Die Summe der ersten 5 Zahlen ist 15</p>
-                    <HorizontalSplit positionPercentage={30}>
-                        <ColoredMatrix
-                            cellSize={"1em"}
-                            colors={[
-                                ["#88f", "white", "white", "white", "white"],
-                                ["#88f", "#88f", "white", "white", "white"],
-                                ["#88f", "#88f", "#88f", "white", "white"],
-                                ["#88f", "#88f", "#88f", "#88f", "white"],
-                                ["#88f", "#88f", "#88f", "#88f", "#88f"],
-                            ]}
-                        />
-                        <div>Die blauen Kästchen zeigen die Zahlen, die addiert werden.</div>
-                    </HorizontalSplit>
-                </div>
-            }),
-            createReadStep({
-                content: <pre>
+                        <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                        <HorizontalSplit positionPercentage={30}>
+                            {createBoxMatrix([
+                                "bwwww",
+                                "bbwww",
+                                "bbbww",
+                                "bbbbw",
+                                "bbbbb",
+                            ])}
+                            <div>Die blauen Kästchen zeigen die Zahlen, die addiert werden.</div>
+                        </HorizontalSplit>
+                    </div>
+                }),
+                /*
+        #triangle-bottomleft {
+          width: 0;
+          height: 0;
+          border-bottom: 100px solid red;
+          border-right: 100px solid transparent;
+                
+                 */
+                createReadStep({
+                    content: <pre>
     Anschaulicher Beweis:
     Die Summe der ersten 5 Zahlen ist 15
     #
@@ -116,32 +123,33 @@ export const induktionSubtree: ContentNode = {
     ####
     #####
                 </pre>,
-            }),
-            createReadStep({
-                content: <pre>
+                }),
+                createReadStep({
+                    content: <pre>
     (großes Quadrat vervollständigen, großes Dreieck rot färben)
     Das große Dreieck entspricht der Hälte des großen Quadrats, also n^2/2.
                 </pre>,
-            }),
-            createReadStep({
-                content: <pre>
+                }),
+                createReadStep({
+                    content: <pre>
     (kleine Dreiecke grün fräben)
     Es gibt n kleine Dreiecke. Jedes entspricht 1/2, also zusammen n/2.
                 </pre>,
-            }),
-            createReadStep({
-                content: <pre>
+                }),
+                createReadStep({
+                    content: <pre>
     Zusammen sind das {mathSpan("n^2/2 + n/2 = (n^2 + n)/2 = n(n+1)/2")}
                 </pre>,
-            }),
-            createReadStep({
-                content: <pre>
+                }),
+                createReadStep({
+                    content: <pre>
     Ü 6x6 anzeigen
         wie viel ist n^2/2?
         wie viel ist n/2?
                 </pre>,
-            }),
-        ]),
+                }),
+            ];            
+        }),
         createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
             createReadStep({
                 content: <pre>
