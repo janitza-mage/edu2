@@ -1,5 +1,5 @@
 import {Button} from "@mui/material";
-import {ScoreMiniPie} from "../../../components/MiniPie/ScoreMiniPie";
+import {ScoreMiniPie} from "../../../components/atoms/MiniPie/ScoreMiniPie";
 import {calculateFloatScore, calculateIntScore} from "./calculateScore";
 
 export interface FinishUnitPageProps {

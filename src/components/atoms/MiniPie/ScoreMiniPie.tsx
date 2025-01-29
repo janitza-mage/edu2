@@ -1,4 +1,4 @@
-import {StaticCanvas} from "../StaticCanvas/StaticCanvas";
+import {StaticCanvas} from "../../StaticCanvas/StaticCanvas";
 
 const colorGreen = "#0d0";
 const colorRed = "#c00";

@@ -1,4 +1,4 @@
-import {StaticCanvas} from "../StaticCanvas/StaticCanvas";
+import {StaticCanvas} from "../../StaticCanvas/StaticCanvas";
 
 export interface NotYetDoneMiniPieProps {
     size: string;

@@ -3,9 +3,9 @@ import {FolderPageBreadcrumbs} from "./FolderPageBreadcrumbs";
 import {NavigationList} from "../../../components/navigation/NavigationList/NavigationList";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {ScoreMiniPie} from "../../../components/MiniPie/ScoreMiniPie";
+import {ScoreMiniPie} from "../../../components/atoms/MiniPie/ScoreMiniPie";
 import {useFolderScores} from "./useFolderScores";
-import {NotYetDoneMiniPie} from "../../../components/MiniPie/NotYetDoneMiniPie";
+import {NotYetDoneMiniPie} from "../../../components/atoms/MiniPie/NotYetDoneMiniPie";
 
 export interface FolderPageProps {
     folder: Folder;
