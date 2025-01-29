@@ -6,6 +6,8 @@ import {CenterBlock} from "../../../components/layout/CenterBlock";
 import {createNumberKeyboardExercise} from "../../../unit/createNumberKeyboardExercise";
 import {createNumberKeyboardLayoutReadStep} from "../../../unit/createNumberKeyboardLayoutReadStep";
 import {noFadeStep} from "../../../unit/noFadeStep";
+import {ColoredMatrix} from "../../../components/atoms/ColoredMatrix/ColoredMatrix";
+import {HorizontalSplit} from "../../../components/layout/HorizontalSplit";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -85,6 +87,25 @@ export const induktionSubtree: ContentNode = {
             })),
         ]),
         createSteppedUnit("summeNBeweis", "Beweis", () => [
+            createReadStep({
+                content: <div>
+                    <p>Anschaulicher Beweis:</p>
+                    <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                    <HorizontalSplit positionPercentage={30}>
+                        <ColoredMatrix
+                            cellSize={"1em"}
+                            colors={[
+                                ["#88f", "white", "white", "white", "white"],
+                                ["#88f", "#88f", "white", "white", "white"],
+                                ["#88f", "#88f", "#88f", "white", "white"],
+                                ["#88f", "#88f", "#88f", "#88f", "white"],
+                                ["#88f", "#88f", "#88f", "#88f", "#88f"],
+                            ]}
+                        />
+                        <div>Die blauen Kästchen zeigen die Zahlen, die addiert werden.</div>
+                    </HorizontalSplit>
+                </div>
+            }),
             createReadStep({
                 content: <pre>
     Anschaulicher Beweis:

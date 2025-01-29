@@ -8,9 +8,9 @@ export interface ColoredMatrixProps {
 export function ColoredMatrix(props: ColoredMatrixProps) {
     return <table className={styles.coloredMatrix}>
         <tbody>
-        {props.colors.map(row => <tr>
-            {row.map(cell =>
-                <td style={{backgroundColor: cell, width: props.cellSize, height: props.cellSize}} />
+        {props.colors.map((row, rowIndex) => <tr key={rowIndex}>
+            {row.map((cell, cellIndex) =>
+                <td key={cellIndex } style={{backgroundColor: cell, width: props.cellSize, height: props.cellSize}} />
             )}
         </tr>)}
         </tbody>
