@@ -91,7 +91,7 @@ export const induktionSubtree: ContentNode = {
             return [
                 createReadStep({
                     content: <div>
-                    <p>Anschaulicher Beweis:</p>
+                        <p>Anschaulicher Beweis:</p>
                         <p>Die Summe der ersten 5 Zahlen ist 15</p>
                         <HorizontalSplit positionPercentage={30}>
                             {createBoxMatrix([
@@ -105,14 +105,24 @@ export const induktionSubtree: ContentNode = {
                         </HorizontalSplit>
                     </div>
                 }),
-                /*
-        #triangle-bottomleft {
-          width: 0;
-          height: 0;
-          border-bottom: 100px solid red;
-          border-right: 100px solid transparent;
-                
-                 */
+                createReadStep({
+                    content: <div>
+                        <p>Anschaulicher Beweis:</p>
+                        <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                        <HorizontalSplit positionPercentage={30}>
+                            {createBoxMatrix([
+                                "0wwww",
+                                "R0www",
+                                "RR0ww",
+                                "RRR0w",
+                                "RRRR0",
+                            ])}
+                            <div>Das rote Dreieck deckt genau die Häfte des großen Quadrats ab. Das Quadrat hat
+                            eine Fläche von {mathSpan("n^2")}, das Dreieck also {mathSpan("#frac{n^2}{2}")}.</div>
+                        </HorizontalSplit>
+                    </div>
+                }),
+
                 createReadStep({
                     content: <pre>
     Anschaulicher Beweis:
