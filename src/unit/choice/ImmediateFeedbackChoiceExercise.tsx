@@ -55,6 +55,7 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
         {props.title && <div style={{marginBottom: "1em"}}>{props.title}</div>}
         <div>
             {props.items.map((item, index) => <Item
+                key={index}
                 variant={props.variant ?? "default"}
                 selected={selectedFlags[index]}
                 correct={item.correct}
