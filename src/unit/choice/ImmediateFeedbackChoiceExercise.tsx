@@ -28,7 +28,8 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
     const [enabled, setEnabled] = useState(true);
     
     function onClickItem(item: ImmediateFeedbackChoiceExerciseItem, index: number) {
-        if (!enabled) {
+        if (!enabled || selectedFlags[index]) {
+            // clicking too fast, or clicking an item again that has been selected already
             return;
         }
         const newSelectedFlags = withElementSet(selectedFlags, index, true);
