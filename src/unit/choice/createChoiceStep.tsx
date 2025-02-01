@@ -5,6 +5,7 @@ import {
     ImmediateFeedbackChoiceExerciseItem, ImmediateFeedbackChoiceExerciseVariant
 } from "./ImmediateFeedbackChoiceExercise";
 import {getShuffled} from "../../util/random/getShuffled";
+import {CenteredContent} from "../../components/layout/CenteredContent";
 
 export interface CreateChoiceStepParameters {
     title: ReactNode;
@@ -17,13 +18,14 @@ export interface CreateChoiceStepParameters {
 
 export function createChoiceStep(parameters: CreateChoiceStepParameters): UnitStep {
     const orderedItems = parameters.shuffle ? getShuffled(parameters.items) : parameters.items;
-    return props => <ImmediateFeedbackChoiceExercise
-        onProgress={props.onProgress}
-        onMistake={props.onMistake}
-        onFinishStep={props.onFinishStep}
-        title={parameters.title}
-        items={orderedItems}
-        widthPercent={parameters.widthPercent}
-        variant={parameters.variant}
-    />;
+    return props => <CenteredContent widthPercent={parameters.widthPercent ?? 75}>
+        <ImmediateFeedbackChoiceExercise
+            onProgress={props.onProgress}
+            onMistake={props.onMistake}
+            onFinishStep={props.onFinishStep}
+            title={parameters.title}
+            items={orderedItems}
+            variant={parameters.variant}
+        />
+    </CenteredContent>;
 }

@@ -1,5 +1,4 @@
 import {CSSProperties, ReactNode, useState} from "react";
-import {CenteredContent} from "../../components/layout/CenteredContent";
 import {sounds} from "../../sounds/sounds";
 import {StepInstanceProps} from "../step/createSteppedUnit";
 import {isFastMode} from "../../components/App/developer";
@@ -14,7 +13,6 @@ export type ImmediateFeedbackChoiceExerciseVariant = "default" | "inline";
 export interface ImmediateFeedbackChoiceExerciseProps extends StepInstanceProps {
     title: ReactNode;
     items: ImmediateFeedbackChoiceExerciseItem[];
-    widthPercent?: number | undefined | null;
     variant?: ImmediateFeedbackChoiceExerciseVariant;
 }
 
@@ -53,8 +51,8 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
         }
     }
 
-    return <CenteredContent widthPercent={props.widthPercent ?? 75}>
-        <div style={{marginBottom: "1em"}}>{props.title}</div>
+    return <>
+        {props.title && <div style={{marginBottom: "1em"}}>{props.title}</div>}
         <div>
             {props.items.map((item, index) => <Item
                 variant={props.variant ?? "default"}
@@ -64,7 +62,7 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
                 label={item.label}
             />)}
         </div>
-    </CenteredContent>;
+    </>;
 }
 
 // --------------------------------------------------------------------------------------------------------------------
