@@ -1,10 +1,10 @@
 import {ReactNode} from "react";
-import {UnitStep} from "./createSteppedUnit";
+import {UnitStep} from "../step/createSteppedUnit";
 import {
     ImmediateFeedbackChoiceExercise,
     ImmediateFeedbackChoiceExerciseItem, ImmediateFeedbackChoiceExerciseVariant
-} from "../components/unit/ImmediateFeedbackChoiceExercise";
-import {getShuffled} from "../util/random/getShuffled";
+} from "./ImmediateFeedbackChoiceExercise";
+import {getShuffled} from "../../util/random/getShuffled";
 
 export interface CreateChoiceStepParameters {
     title: ReactNode;

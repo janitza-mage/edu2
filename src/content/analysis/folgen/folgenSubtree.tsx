@@ -1,7 +1,7 @@
 import {ContentNode} from "../../types";
-import {createReadStep} from "../../../unit/createReadStep";
-import {createSteppedUnit} from "../../../unit/createSteppedUnit";
-import {createChoiceStep} from "../../../unit/createChoiceStep";
+import {createReadStep} from "../../../unit/read/createReadStep";
+import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
+import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
 import {mathSpan} from "../../../components/Math/Math";
 
 export const folgenSubtree: ContentNode = {

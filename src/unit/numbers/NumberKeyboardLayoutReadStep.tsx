@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
-import {WithFooter} from "../layout/WithFooter";
+import {WithFooter} from "../../components/layout/WithFooter";
 import {NumberKeyboard} from "./NumberKeyboard";
-import {CenteredContent} from "../layout/CenteredContent";
+import {CenteredContent} from "../../components/layout/CenteredContent";
 import {Button} from "@mui/material";
 
 export interface NumberKeyboardLayoutReadStepProps {

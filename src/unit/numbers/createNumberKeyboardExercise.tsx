@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
-import {UnitStep} from "./createSteppedUnit";
-import {NumberKeyboardExercise} from "../components/unit/NumberKeyboardExercise";
+import {UnitStep} from "../step/createSteppedUnit";
+import {NumberKeyboardExercise} from "./NumberKeyboardExercise";
 
 export interface createNumberKeyboardExerciseParameters {
     body: (input: string) => ReactNode; // input is a string because it is initially empty, not a number

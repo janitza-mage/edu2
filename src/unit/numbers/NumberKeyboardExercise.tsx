@@ -1,8 +1,8 @@
 import {ReactNode, useState} from "react";
-import {WithFooter} from "../layout/WithFooter";
+import {WithFooter} from "../../components/layout/WithFooter";
 import {NumberKeyboard} from "./NumberKeyboard";
-import {CenteredContent} from "../layout/CenteredContent";
-import {useExerciseSingletonFeedback} from "../util/useExerciseSingletonFeedback";
+import {CenteredContent} from "../../components/layout/CenteredContent";
+import {useExerciseSingletonFeedback} from "../../components/util/useExerciseSingletonFeedback";
 
 export interface NumberKeyboardExerciseProps {
     body: (input: string) => ReactNode; // input is a string because it is initially empty, not a number

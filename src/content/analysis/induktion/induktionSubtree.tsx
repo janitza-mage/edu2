@@ -1,13 +1,14 @@
 import {ContentNode} from "../../types";
-import {createSteppedUnit} from "../../../unit/createSteppedUnit";
-import {createReadStep} from "../../../unit/createReadStep";
+import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
+import {createReadStep} from "../../../unit/read/createReadStep";
 import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {CenterBlock} from "../../../components/layout/CenterBlock";
-import {createNumberKeyboardExercise} from "../../../unit/createNumberKeyboardExercise";
-import {createNumberKeyboardLayoutReadStep} from "../../../unit/createNumberKeyboardLayoutReadStep";
-import {noFadeStep} from "../../../unit/noFadeStep";
+import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
+import {createNumberKeyboardLayoutReadStep} from "../../../unit/numbers/createNumberKeyboardLayoutReadStep";
+import {noFadeStep} from "../../../unit/step/noFadeStep";
 import {HorizontalSplit} from "../../../components/layout/HorizontalSplit";
 import {createBoxMatrix} from "./createBoxMatrix";
+import {ImmediateFeedbackChoiceExercise} from "../../../unit/choice/ImmediateFeedbackChoiceExercise";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -92,7 +93,8 @@ export const induktionSubtree: ContentNode = {
                 createReadStep({
                     content: <div>
                         <p>Anschaulicher Beweis:</p>
-                        <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                        <p>Die Summe der ersten {mathSpan("n")} Zahlen ist {mathSpan("#frac{n(n+1)}{2}")}.</p>
+                        <p>Beispiel: Die Summe der ersten 5 Zahlen ist 15</p>
                         <HorizontalSplit positionPercentage={30}>
                             {createBoxMatrix([
                                 "bwwww",
@@ -122,35 +124,45 @@ export const induktionSubtree: ContentNode = {
                         </HorizontalSplit>
                     </div>
                 }),
-
                 createReadStep({
-                    content: <pre>
-    Anschaulicher Beweis:
-    Die Summe der ersten 5 Zahlen ist 15
-    #
-    ##
-    ###
-    ####
-    #####
-                </pre>,
+                    content: <div>
+                        <p>Anschaulicher Beweis:</p>
+                        <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                        <HorizontalSplit positionPercentage={30}>
+                            {createBoxMatrix([
+                                "1wwww",
+                                "R1www",
+                                "RR1ww",
+                                "RRR1w",
+                                "RRRR1",
+                            ])}
+                            <div>Die kleinen grünen Dreiecke decken jeweils {mathSpan("#frac{1}{2}")} ab. Es
+                                gibt {mathSpan("n")} solcher Dreiecke, also zusammen {mathSpan("#frac{n}{2}")}.</div>
+                        </HorizontalSplit>
+                    </div>
                 }),
                 createReadStep({
-                    content: <pre>
-    (großes Quadrat vervollständigen, großes Dreieck rot färben)
-    Das große Dreieck entspricht der Hälte des großen Quadrats, also n^2/2.
-                </pre>,
+                    content: <div>
+                        <p>Anschaulicher Beweis:</p>
+                        <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                        <HorizontalSplit positionPercentage={30}>
+                            {createBoxMatrix([
+                                "1wwww",
+                                "R1www",
+                                "RR1ww",
+                                "RRR1w",
+                                "RRRR1",
+                            ])}
+                            <div>
+                                <div>Rotes Dreieck: {mathSpan("#frac{n^2}{2}")}</div>
+                                <div>Grüne Dreiecke: {mathSpan("#frac{n}{2}")}</div>
+                                <div>Zusammen:</div>
+                                <div>{mathSpan("#frac{n^2}{2} + #frac{n}{2} = #frac{n^2+n}{2} = #frac{n(n+1)}{2}")}</div>
+                            </div>
+                        </HorizontalSplit>
+                    </div>
                 }),
-                createReadStep({
-                    content: <pre>
-    (kleine Dreiecke grün fräben)
-    Es gibt n kleine Dreiecke. Jedes entspricht 1/2, also zusammen n/2.
-                </pre>,
-                }),
-                createReadStep({
-                    content: <pre>
-    Zusammen sind das {mathSpan("n^2/2 + n/2 = (n^2 + n)/2 = n(n+1)/2")}
-                </pre>,
-                }),
+                
                 createReadStep({
                     content: <pre>
     Ü 6x6 anzeigen

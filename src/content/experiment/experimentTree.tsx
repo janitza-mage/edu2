@@ -1,6 +1,6 @@
 import {ContentNode} from "../types";
-import {createSteppedUnit, UnitStep} from "../../unit/createSteppedUnit";
-import {createLoopedSteps} from "../../unit/createLoopedSteps";
+import {createSteppedUnit, UnitStep} from "../../unit/step/createSteppedUnit";
+import {createLoopedSteps} from "../../unit/step/createLoopedSteps";
 import {ReactNode} from "react";
 import {NumberChoice20Exercise} from "./NumberChoice20Exercise";
 import {randomInt} from "../../util/random/randomInt";

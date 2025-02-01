@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
-import {UnitStep} from "./createSteppedUnit";
-import {NumberKeyboardLayoutReadStep} from "../components/unit/NumberKeyboardLayoutReadStep";
+import {UnitStep} from "../step/createSteppedUnit";
+import {NumberKeyboardLayoutReadStep} from "./NumberKeyboardLayoutReadStep";
 
 export interface CreateNumberKeyboardLayoutReadStepParameters {
     content: ReactNode;

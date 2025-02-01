@@ -31,6 +31,7 @@ function getCellStyle(cellSpec: string): CSSProperties {
         case "r":
             return {...base, backgroundColor: "#f88"};
         case "R":
+        case "1":
             return {...base, backgroundColor: "#f44"};
         case "w":
         default:
@@ -42,6 +43,8 @@ function getCellContents(cellSpec: string): ReactNode {
     switch (cellSpec) {
         case "0":
             return <div style={{width: "0px", height: "0px", borderBottom: "1em solid #f44", borderRight: "1em solid transparent"}}></div>;
+        case "1":
+            return <div style={{width: "0px", height: "0px", borderTop: "1em solid #4f4", borderLeft: "1em solid transparent"}}></div>;
         default:
             return null;
     }

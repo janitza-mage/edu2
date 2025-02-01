@@ -1,6 +1,6 @@
 import {CSSProperties, ReactNode, useState} from "react";
 import {sounds} from "../../sounds/sounds";
-import {StepInstanceProps} from "../../unit/createSteppedUnit";
+import {StepInstanceProps} from "../../unit/step/createSteppedUnit";
 import {createIndexArray} from "../../util/createIndexArray";
 import {isFastMode} from "../../components/App/developer";
 import {CenteredContent} from "../../components/layout/CenteredContent";

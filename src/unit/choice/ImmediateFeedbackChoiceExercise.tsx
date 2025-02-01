@@ -1,8 +1,8 @@
 import {CSSProperties, ReactNode, useState} from "react";
-import {CenteredContent} from "../layout/CenteredContent";
+import {CenteredContent} from "../../components/layout/CenteredContent";
 import {sounds} from "../../sounds/sounds";
-import {StepInstanceProps} from "../../unit/createSteppedUnit";
-import {isFastMode} from "../App/developer";
+import {StepInstanceProps} from "../step/createSteppedUnit";
+import {isFastMode} from "../../components/App/developer";
 
 export interface ImmediateFeedbackChoiceExerciseItem {
     label: ReactNode;

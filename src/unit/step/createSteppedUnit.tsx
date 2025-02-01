@@ -1,6 +1,6 @@
-import {Unit, UnitInstanceProps} from "../content/types";
+import {Unit, UnitInstanceProps} from "../../content/types";
 import {ReactElement, useState} from "react";
-import {FadeIn} from "../components/effects/FadeIn";
+import {FadeIn} from "../../components/effects/FadeIn";
 
 export interface StepInstanceProps {
     onProgress: () => void;
