@@ -187,6 +187,40 @@ export const induktionSubtree: ContentNode = {
                     </HorizontalSplit>
                 </>
             }),
+            props => <CenteredContent widthPercent={90}>
+                <p>Anschaulicher Beweis:</p>
+                <p>Die Summe der ersten 5 Zahlen ist 15</p>
+                <HorizontalSplit positionPercentage={30}>
+                    {createBoxMatrix([
+                        "1wwww",
+                        "R1www",
+                        "RR1ww",
+                        "RRR1w",
+                        "RRRR1",
+                    ])}
+                    <div>
+                        <div>Die restliche Fläche, die von den ersten n Zahlen verdeckt wird, besteht aus den
+                            kleinen grünen Dreiecken.
+                        </div>
+                        <div><b>Wie viele dieser grünen Dreiecke gibt es?</b></div>
+                    </div>
+                </HorizontalSplit>
+                <br />
+                <ImmediateFeedbackChoiceExercise
+                    title={null}
+                    variant={"inline"}
+                    items={[
+                        {label: mathSpan("n"), correct: true},
+                        {label: mathSpan("#frac{n}{2}"), correct: false},
+                        {label: mathSpan("2n"), correct: false},
+                        {label: mathSpan("n^2"), correct: false},
+                        {label: mathSpan("#frac{n^2}{2}"), correct: false},
+                    ]}
+                    onProgress={props.onProgress}
+                    onMistake={props.onMistake}
+                    onFinishStep={props.onFinishStep}
+                />
+            </CenteredContent>,
             createReadStep({
                 content: <div>
                     <p>Anschaulicher Beweis:</p>
