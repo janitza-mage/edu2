@@ -1,8 +1,9 @@
-import {ReactNode, useEffect} from "react";
+import {ReactNode} from "react";
 import {Button} from "@mui/material";
 import {StepInstanceProps} from "../step/createSteppedUnit";
 import {FadeIn} from "../../components/effects/FadeIn";
 import {CenterInline} from "../../components/layout/CenterInline";
+import {useOnEnter} from "../../components/util/useOnEnter";
 
 export interface ReadStepProps extends StepInstanceProps {
     content: ReactNode;
@@ -17,15 +18,7 @@ export function ReadStep(props: ReadStepProps) {
         props.onFinishStep();
     }
 
-    useEffect(() => {
-        function onKeyDown(event: KeyboardEvent) {
-            if (event.key === "Enter") {
-                onClickButton();
-            }
-        }
-        window.addEventListener("keydown", onKeyDown);
-        return () => window.removeEventListener("keydown", onKeyDown);
-    })
+    useOnEnter(onClickButton);
     
     return <>
         <div>

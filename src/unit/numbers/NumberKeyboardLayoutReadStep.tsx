@@ -3,6 +3,7 @@ import {WithFooter} from "../../components/layout/WithFooter";
 import {NumberKeyboard} from "./NumberKeyboard";
 import {CenteredContent} from "../../components/layout/CenteredContent";
 import {Button} from "@mui/material";
+import {useOnEnter} from "../../components/util/useOnEnter";
 
 export interface NumberKeyboardLayoutReadStepProps {
     content: ReactNode; // input is a string because it is initially empty, not a number
@@ -13,6 +14,8 @@ export interface NumberKeyboardLayoutReadStepProps {
 }
 
 export function NumberKeyboardLayoutReadStep(props: NumberKeyboardLayoutReadStepProps) {
+    useOnEnter(props.onClickButton);
+
     const keyboard = <div style={{position: "relative"}}>
         <NumberKeyboard visible={false}
             onClickNumber={() => {}}

@@ -1,6 +1,7 @@
 import {Button} from "@mui/material";
 import {ScoreMiniPie} from "../../../components/atoms/MiniPie/ScoreMiniPie";
 import {calculateFloatScore, calculateIntScore} from "./calculateScore";
+import {useOnEnter} from "../../../components/util/useOnEnter";
 
 export interface FinishUnitPageProps {
     progressCounter: number;
@@ -10,6 +11,7 @@ export interface FinishUnitPageProps {
 }
 
 export function FinishUnitPage(props: FinishUnitPageProps) {
+    useOnEnter(props.onContinue);
     return <div style={{textAlign: "center", marginTop: "3em"}}>
         <div style={{textAlign: "center", marginBottom: "1em"}}>
             Du hast {calculateIntScore(props.progressCounter, props.mistakeCounter)} von 10 Punkten erreicht.
