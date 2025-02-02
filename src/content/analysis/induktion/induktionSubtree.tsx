@@ -9,11 +9,10 @@ import {induktionUnit7} from "./induktionUnit7-summe-ungerade-beweis";
 import {induktionUnit8} from "./induktionUnit8-summe-gerade";
 import {induktionUnit9x} from "./induktionUnit9x-uebungen";
 import {induktionUnit10x} from "./induktionUnit10x-anderer-induktionsanfang";
-import {induktionUnit11} from "./induktionUnit11-uebung";
-import {induktionUnit12x} from "./induktionUnit12x";
-import {induktionUnit13x} from "./induktionUnit13x-fakultaet";
-import {induktionUnit14x} from "./induktionUnit14-mengen-reihenfolgen";
-import {induktionUnit15} from "./induktionUnit15-beweis";
+import {induktionUnit11x} from "./induktionUnit11x-uebungen";
+import {induktionUnit12x} from "./induktionUnit12x-fakultaet";
+import {induktionUnit13x} from "./induktionUnit13x-mengen-reihenfolgen";
+import {induktionUnit14} from "./induktionUnit14-beweis";
 import {createDummyUnit} from "../../../unit/createDummyUnit";
 
 export const induktionSubtree: ContentNode = {
@@ -32,10 +31,9 @@ export const induktionSubtree: ContentNode = {
         induktionUnit8,
         ...induktionUnit9x,
         ...induktionUnit10x,
-        induktionUnit11,
+        ...induktionUnit11x,
         ...induktionUnit12x,
         ...induktionUnit13x,
-        ...induktionUnit14x,
-        induktionUnit15,
+        induktionUnit14,
     ],
 };

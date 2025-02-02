@@ -1,7 +1,7 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
-export const induktionUnit7 = createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+export const induktionUnit7 = createSteppedUnit("summeUngeradeBeweis", "Beweis", () => [
     createReadStep({
         content: <pre>
 Es soll gezeigt werden:

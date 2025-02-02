@@ -1,8 +1,8 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
-export const induktionUnit14x = [ 
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+export const induktionUnit13x = [ 
+    createSteppedUnit("mengen-reihenfolgen-1", "Anzahl der Reihenfolgen bei Mengen (1)", () => [
         createReadStep({
             content: <pre>
         Wiederholung aus dem Grundkurs: Bei einer Menge von Zahlen ist nur wichtig, welche Zahlen drin sind und welche
@@ -46,7 +46,7 @@ export const induktionUnit14x = [
                     </pre>,
         }),
     ]),
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+    createSteppedUnit("mengen-reihenfolgen-2", "Anzahl der Reihenfolgen bei Mengen (2)", () => [
         createReadStep({
             content: <pre>
     Für die ersten n natürlichen Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben.
@@ -64,7 +64,7 @@ export const induktionUnit14x = [
                 </pre>,
         }),
     ]),
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+    createSteppedUnit("mengen-reihenfolgen-3", "Anzahl der Reihenfolgen bei Mengen (3)", () => [
         createReadStep({
             content: <pre>
     "Für n paarweise verschiedene Zahlen gibt es n! mögliche Reihenfolgen, diese hinzuschreiben."

@@ -1,7 +1,7 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
-export const induktionUnit8 = createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+export const induktionUnit8 = createSteppedUnit("summeGerade", "Summe der ersten n geraden Zahlen", () => [
     createReadStep({
         content: <pre>
 Es soll gezeigt werden: Die Summe der ersten n geraden Zahlen ist (n^2+n)

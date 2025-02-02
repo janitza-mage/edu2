@@ -1,7 +1,7 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
-export const induktionUnit15 = createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+export const induktionUnit14 = createSteppedUnit("mengen-reihenfolgen-beweis", "Beweis", () => [
     createReadStep({
         content: <pre>
     Beweise: Für eine Menge M mit n Elementen gibt es n! Möglichkeiten, diese Elemente anzuordnen. (n€N+)

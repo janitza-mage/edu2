@@ -2,7 +2,7 @@ import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
 export const induktionUnit10x = [
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+    createSteppedUnit("anderer-induktionsanfang-1", "Induktionsanfang >1", () => [
         createReadStep({
             content: <pre>
     Der Induktionsanfang war immer bei n=1.
@@ -56,7 +56,7 @@ export const induktionUnit10x = [
                 </pre>,
         }),
     ]),
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+    createSteppedUnit("anderer-induktionsanfang-2", "Anwendungsfälle", () => [
         createReadStep({
             content: <pre>
     Ein Induktionsanfang ab einer anderen Zahl als 1 ist sinnvoll, wenn die Aussage gar nicht für die ersten n gilt,

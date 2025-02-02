@@ -1,8 +1,8 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 
-export const induktionUnit13x = [
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+export const induktionUnit12x = [
+    createSteppedUnit("fakultaet", "Fakultät", () => [
         createReadStep({
             content: <pre>
     Die _Fakultät_, geschrieben n!, ist definiert als
@@ -18,7 +18,7 @@ export const induktionUnit13x = [
                 </pre>,
         }),
     ]),
-    createSteppedUnit("xxxxxxxx", "xxxxxxxxxxx", () => [
+    createSteppedUnit("fakultaet-induktion", "Induktionsbeweis zur Fakultät", () => [
         createReadStep({
             content: <pre>
     Beweise:
