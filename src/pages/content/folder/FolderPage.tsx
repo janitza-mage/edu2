@@ -6,6 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {ScoreMiniPie} from "../../../components/atoms/MiniPie/ScoreMiniPie";
 import {useFolderScores} from "./useFolderScores";
 import {NotYetDoneMiniPie} from "../../../components/atoms/MiniPie/NotYetDoneMiniPie";
+import {WithHeader} from "../../../components/layout/WithHeader";
 
 export interface FolderPageProps {
     folder: Folder;
@@ -40,11 +41,13 @@ export function FolderPage(props: FolderPageProps) {
             onClick: () => navigateToContentNode([...props.path, child.id]),
         };
     });
-    return <>
-        <div style={{backgroundColor: "#ccc", borderBottom: "1px solid #aaa"}}>
+    return <WithHeader
+        header={<div style={{backgroundColor: "#ccc", borderBottom: "1px solid #aaa"}}>
             <FolderPageBreadcrumbs path={props.path} />
             <h1 style={{margin: 0}}>{props.folder.name}</h1>
-        </div>
+        </div>}
+        overflow={"hidden scroll"}
+    >
         <NavigationList elements={navigationElements} scores={folderScores} />
-    </>;
+    </WithHeader>;
 }
