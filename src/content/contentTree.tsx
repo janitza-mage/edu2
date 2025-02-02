@@ -9,6 +9,7 @@ export const contentTree: ContentNode = {
     isolatedChildren: false,
     children: [
         anaysisSubtree,
+        /*
         {
             id: "lineare_algebra",
             name: "Lineare Algebra",
@@ -40,5 +41,7 @@ export const contentTree: ContentNode = {
             ],
         },
         experimentTree,
+        
+         */
     ],
 };

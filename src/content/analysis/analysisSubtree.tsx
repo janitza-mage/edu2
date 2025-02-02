@@ -8,6 +8,6 @@ export const anaysisSubtree: ContentNode = {
     type: "folder",
     children: [
         induktionSubtree,
-        folgenSubtree,
+        // folgenSubtree,
     ],
 };
