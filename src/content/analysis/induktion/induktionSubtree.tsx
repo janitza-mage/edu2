@@ -14,6 +14,7 @@ import {induktionUnit12x} from "./induktionUnit12x";
 import {induktionUnit13x} from "./induktionUnit13x-fakultaet";
 import {induktionUnit14x} from "./induktionUnit14-mengen-reihenfolgen";
 import {induktionUnit15} from "./induktionUnit15-beweis";
+import {createDummyUnit} from "../../../unit/createDummyUnit";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
@@ -23,6 +24,7 @@ export const induktionSubtree: ContentNode = {
         induktionUnit1,
         induktionUnit2,
         induktionUnit3,
+        createDummyUnit("--== TODO ab hier ==--"),
         induktionUnit4,
         induktionUnit5,
         induktionUnit6,
