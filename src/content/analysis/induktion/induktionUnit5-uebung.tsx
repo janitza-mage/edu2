@@ -1,13 +1,15 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
+import {mathInlineBlock, mathSpan} from "../../../components/Math/Math";
+import {CenterInline} from "../../../components/layout/CenterInline";
 
 export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", () => [
     createReadStep({
-        content: <pre>
-Es wurde mit Vollständiger Induktion bewiesen:
-    Summe(i=1..n)i = n(n+1) / 2     für n€N
-Der Induktionsanfang war, diese Aussage für n=1 zu zeigen.
-            </pre>,
+        content: <>
+            <p>Es wurde mit Vollständiger Induktion bewiesen:</p>
+            <p><CenterInline>{mathInlineBlock("#sum_{i=1}^ni = #frac{n(n+1)}{2}", 12)} für {mathSpan("n#in #N")}</CenterInline></p>
+            <p>Der Induktionsanfang war, diese Aussage für {mathSpan("n=1")} zu zeigen.</p>
+        </>,
     }),
     createReadStep({
         content: <pre>

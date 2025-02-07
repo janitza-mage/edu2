@@ -59,3 +59,20 @@ export function MathSpan(props: MathSpanProps) {
 export function mathSpan(source: string): ReactElement {
     return <MathSpan source={source} />;
 }
+
+// --------------------------------------------------------------------------------------------------------------------
+// inline-block span props and component
+// --------------------------------------------------------------------------------------------------------------------
+
+export interface MathInlineBlockProps extends MathProps {
+    widthEm: number;
+}
+
+export function MathInlineBlock(props: MathInlineBlockProps) {
+    const html = useRendered(props.source, true);
+    return <span style={{display: "inline-block", width: props.widthEm + "em"}} dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
+export function mathInlineBlock(source: string, widthEm: number): ReactElement {
+    return <MathInlineBlock source={source} widthEm={widthEm} />;
+}
