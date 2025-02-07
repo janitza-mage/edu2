@@ -17,7 +17,7 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
         </>,
     }),
     createReadStep({
-        content: <TextSize size={0.9}>
+        content: <>
             <p>
                 <div><i>Induktionsanfang</i>: Beweise die Formel für {mathSpan("n=1")}:</div>
                 {mathDiv("#sum_{i=1}^1i = #frac{1#cdot(1+1)}{2}")}
@@ -27,7 +27,7 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
                 Formel für {mathSpan("n+1")}. Verwende dabei die schon bewiesene Formel für {mathSpan("n")}.
                 {mathDiv("#sum_{i=1}^ni = #frac{n(n+1)}{2} #Rightarrow #sum_{i=1}^{n+1}i = #frac{(n+1)(n+2)}{2}")}
             </p>
-        </TextSize>,
+        </>,
     }),
     createReadStep({
         content: <>
@@ -54,7 +54,7 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
         </>,
     }),
     createReadStep({
-        content: <TextSize size={0.7}>
+        content: <>
             <p>
                 <i>Induktionsschritt</i>: Beweise die Formel für {mathSpan("n+1")}. Verwende dabei die schon
                 bewiesene Formel für {mathSpan("n")}.
@@ -66,10 +66,10 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
                 <div>schon gilt. Unter dieser Annahme muss man zeigen, dass </div>
                 {mathDiv("#sum_{i=1}^{n+1}i = #frac{(n+1)(n+2)}{2}")}
             </p>
-        </TextSize>,
+        </>,
     }),
     createReadStep({
-        content: <TextSize size={0.5}>
+        content: <TextSize size={0.8}>
             <p>
                 <i>Induktionsschritt</i>: Sei {mathSpan("n #geq 1")} beliebig gewählt, aber dann fest (BAF).
             </p>
@@ -85,7 +85,7 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
         </TextSize>,
     }),
     createReadStep({
-        content: <TextSize size={0.9}>
+        content: <>
             <p>
                 Mit dem Induktionsanfang zeigt man die Aussage für {mathSpan("n=1")}.
             </p>
@@ -104,6 +104,6 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
             <p>
                 ...
             </p>
-        </TextSize>,
+        </>,
     }),
 ]);
