@@ -29,3 +29,20 @@ export function createChoiceStep(parameters: CreateChoiceStepParameters): UnitSt
         />
     </CenteredContent>;
 }
+
+export function createShuffledSingleChoiceStep(
+    title: ReactNode,
+    correctLabel: ReactNode,
+    wrongLabels: ReactNode[],
+    additionalParameters?: Omit<CreateChoiceStepParameters, "title"|"shuffle"|"items">,
+): UnitStep {
+    return createChoiceStep({
+        ...(additionalParameters ?? {}),
+        title,
+        shuffle: true,
+        items: [
+            {label: correctLabel, correct: true},
+            ...wrongLabels.map(label => ({label, correct: false})),
+        ],
+    });
+}

@@ -2,6 +2,7 @@ import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
 import {mathInlineBlock, mathSpan} from "../../../components/Math/Math";
 import {CenterInline} from "../../../components/layout/CenterInline";
+import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
 
 export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", () => [
     createReadStep({
@@ -11,26 +12,34 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
             <p>Der Induktionsanfang war, diese Aussage für {mathSpan("n=1")} zu zeigen.</p>
         </>,
     }),
-    createReadStep({
-        content: <pre>
-was war der Induktionsanfang?
-    i=1
-    n=1
-    Summe(i=1..1)i = 1(1+1)/2
-    Summe(i=1..n)i = n(n+1)/2
-    Summe(i=1..n+1)i = (Summe(i=1..n)i + n
-    Summe(i=1..n)i = n(n+1)/2 ={">"} Summe(i=1..n+1)i = (Summe(i=1..n)i + n
-            </pre>,
+    createChoiceStep({
+        title: <>Was war für den Induktionsanfang ({mathSpan("n=1")}) zu beweisen? Wähle alle richtigen Antworten.</>,
+        items: [
+            {correct: true, label: mathSpan("#sum_{i=1}^1i = #frac{1(1+1)}{2}")},
+            {correct: true, label: mathSpan("#sum_{i=1}^ni = #frac{n(n+1)}{2}")},
+            {correct: false, label: mathSpan("i=1")},
+            {correct: false, label: mathSpan("n=1")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}i = (#sum_{i=1}^ni) + (n+1)")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}i = #frac{(n+1)(n+2)}{2}")},
+            {correct: false, label: mathSpan("#sum_{i=1}^ni = #frac{n(n+1)}{2} #Rightarrow #sum_{i=1}^{n+1}i = #frac{(n+1)(n+2)}{2}")},
+        ],
+        shuffle: true,
     }),
     createReadStep({
-        content: <pre>
-Es wurde mit Vollständiger Induktion bewiesen:
-    Summe(i=1..n)i = n(n+1) / 2     für n€N
-Der Induktionsschritt war, diese Aussage für n+1 zu zeigen, wobei man aber verwenden konnte, dass die Aussage für
-n schon bewiesen war.
-Mit anderen Worten war zu zeigen: Wenn die Aussage für n gilt, dann folgt daraus, dass sie auch für n+1 gilt.
-            </pre>,
+        content: <>
+            <p>Es wurde mit Vollständiger Induktion bewiesen:</p>
+            <p><CenterInline>{mathInlineBlock("#sum_{i=1}^ni = #frac{n(n+1)}{2}", 12)} für {mathSpan("n#in #N")}</CenterInline></p>
+            <p>Der Induktionsschritt war, diese Aussage für {mathSpan("n+1")} zu zeigen, wobei man aber verwenden
+                konnte, dass die Aussage für {mathSpan("n")} schon bewiesen war.</p>
+            <p>Mit anderen Worten war zu zeigen: Wenn die Aussage für {mathSpan("n")} gilt, dann folgt daraus,
+                dass sie auch für {mathSpan("n+1")} gilt.</p>
+        </>,
     }),
+    
+    // TODO
+    // TODO
+    // TODO
+    
     createReadStep({
         content: <pre>
 was war der Induktionsschritt?

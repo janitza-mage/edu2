@@ -13,7 +13,7 @@ Grundkurs Mathematik
 - Menge der Zahlen bis 10
 - Ungleichheit von Tupeln beim Umordnen
 - FAB, "n oder n+1 ist gerade"
-- Summenschreibweise, warum ist die leere Summe 0?
+- Summenschreibweise (block und inline), warum ist die leere Summe 0?
     Mehrdeutigkeit von Summe(i=1..n)i+1, könnte (Summe(i=1..n)i) + 1 oder Summe(i=1..n)(i + 1) sein
     Deshalb benutzen wir nur die geklammerte, eindeutige Schreibweise.
 - Produktschreibweise, warum ist das leere Produkt 1?
