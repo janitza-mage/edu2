@@ -38,3 +38,8 @@ code {
   // section above that.
   overflow: hidden;
 }
+
+// I'm sorry if anybody wants to copy'n'paste text out, but this interferes with the UI too much.
+* {
+  user-select: none;
+}
