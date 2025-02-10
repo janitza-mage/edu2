@@ -55,3 +55,7 @@ export function createSteppedUnit(id: string, name: string, stepsFactory: () => 
         instantiate: () => createSteppedUnitInstance(stepsFactory()),
     };
 }
+
+export function copyStepMetadata(from: UnitStep, to: UnitStep): void {
+    to.fadeIn = from.fadeIn;
+}
