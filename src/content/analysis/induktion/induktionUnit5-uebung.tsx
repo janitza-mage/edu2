@@ -6,6 +6,7 @@ import {EquationTransformationArrowExercise} from "./EquationTransformationArrow
 import {createReadStep} from "../../../unit/read/createReadStep";
 import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
 import {CenterInline} from "../../../components/layout/CenterInline";
+import {SortEquationTransformationExercise} from "./SortEquationTransformationExercise";
 
 export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", () => [
     createReadStep({
@@ -67,15 +68,28 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
                         "= #frac{n(n+1)}{2}+(n+1)",
                         "= #frac{n(n+1)}{2}+#frac{2(n+1)}{2}",
                         "= #frac{n(n+1)+2(n+1)}{2}",
-                        "= #frac{(n+2)(n+1)}{2}",
                         "= #frac{(n+1)(n+2)}{2}",
                     ]}
                 />
             </TextSize>
         </CenteredContent>;
     },
-    
-    // TODO
-    // TODO Schritte sortieren
-    // TODO
+    (props: StepInstanceProps) => {
+        return <CenteredContent widthPercent={75}>
+            <TextSize size={0.9}>
+                <SortEquationTransformationExercise
+                    {...props}
+                    description={"Bringe die Gleichungen für den Induktionsschritt in die richtige Reihenfolge:"}
+                    equations={[
+                        "#sum_{i=1}^{n+1}i",
+                        "= (#sum_{i=1}^{n}i)+(n+1)",
+                        "= #frac{n(n+1)}{2}+(n+1)",
+                        "= #frac{n(n+1)}{2}+#frac{2(n+1)}{2}",
+                        "= #frac{n(n+1)+2(n+1)}{2}",
+                        "= #frac{(n+1)(n+2)}{2}",
+                    ]}
+                />
+            </TextSize>
+        </CenteredContent>;
+    },
 ]);

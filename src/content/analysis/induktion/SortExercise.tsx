@@ -1,56 +1,51 @@
 import {StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {CSSProperties, ReactNode} from "react";
-import {ImmediateFeedbackChoiceExerciseVariant} from "../../../unit/choice/ImmediateFeedbackChoiceExercise";
-import React, {useState} from 'react';
-import {
-    DndContext,
-    closestCenter,
-    KeyboardSensor,
-    PointerSensor,
-    useSensor,
-    useSensors,
-} from '@dnd-kit/core';
+import React, {ReactNode, useState} from "react";
+import {closestCenter, DndContext, KeyboardSensor, PointerSensor, useSensor, useSensors,} from '@dnd-kit/core';
 import {
     arrayMove,
     SortableContext,
-    sortableKeyboardCoordinates, useSortable,
+    sortableKeyboardCoordinates,
+    useSortable,
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
+import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../components/effects/useFlashExerciseBackground";
+import {sounds} from "../../../sounds/sounds";
+import {Button} from "@mui/material";
+import {createIndexArray} from "../../../util/createIndexArray";
+import {getShuffled} from "../../../util/random/getShuffled";
 
 export interface SortExerciseProps extends StepInstanceProps {
+    description: ReactNode;
     items: ReactNode[];
 }
 
 export function SortExercise(props: SortExerciseProps) {
-    const [items, setItems] = useState([1, 2, 3]);
-    const sensors = useSensors(
-        useSensor(PointerSensor),
-        useSensor(KeyboardSensor, {
-            coordinateGetter: sortableKeyboardCoordinates,
-        })
-    );
+    const flashExerciseBackgroundCorrectOrWrong = useFlashExerciseBackgroundCorrectOrWrong();
+    const [enabled, setEnabled] = useState(true);
+    const [itemIds, setitemIds] = useState(getShuffled(createIndexArray(props.items.length)));
 
-    return (
-        <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd}
-        >
-            <SortableContext
-                items={items}
-                strategy={verticalListSortingStrategy}
-            >
-                {items.map(id => <SortableItem key={id} id={id} />)}
-            </SortableContext>
-        </DndContext>
-    );
+    function onClickCheckButton() {
+        if (!enabled) {
+            return;
+        }
+        setEnabled(false);
+        if (itemIds.every((itemId, index) => itemId === index)) {
+            sounds.correct.play();
+            flashExerciseBackgroundCorrectOrWrong(true, 1000, props.onFinishStep);
+            props.onProgress();
+        } else {
+            sounds.wrong.play();
+            flashExerciseBackgroundCorrectOrWrong(false, 500, () => setEnabled(true));
+            props.onMistake();
+        }
+    }
 
     function handleDragEnd(event: any) {
         const {active, over} = event;
 
         if (active.id !== over.id) {
-            setItems((items) => {
+            setitemIds((items) => {
                 const oldIndex = items.indexOf(active.id);
                 const newIndex = items.indexOf(over.id);
 
@@ -58,18 +53,37 @@ export function SortExercise(props: SortExerciseProps) {
             });
         }
     }
+
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    );
+    
+    return <>
+        <p>{props.description}</p>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+            <SortableContext items={itemIds} strategy={verticalListSortingStrategy}>
+                {itemIds.map(id => <Item key={id} id={id} content={props.items[id]} />)}
+            </SortableContext>
+        </DndContext>
+        <p style={{textAlign: "center"}}>
+            <Button variant="contained" onClick={onClickCheckButton}>{"prüfen"}</Button>
+        </p>
+    </>;
 }
 
+// --------------------------------------------------------------------------------------------------------------------
+// item
+// --------------------------------------------------------------------------------------------------------------------
 
+interface ItemProps {
+    id: number;
+    content: ReactNode;
+}
 
-
-
-
-
-
-
-
-export function SortableItem(props: any) {
+export function Item(props: ItemProps) {
     const {
         attributes,
         listeners,
@@ -81,94 +95,15 @@ export function SortableItem(props: any) {
     const style = {
         transform: CSS.Transform.toString(transform),
         transition,
+        border: "2px solid #aaa",
+        marginBottom: "0.6em",
+        backgroundColor: "#eee",
+        borderRadius: "2em",
     };
 
     return (
         <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-            foo {/* ... */}
+            {props.content}
         </div>
     );
 }
-
-
-
-
-// --------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// --------------------------------------------------------------------------------------------------------------------
-// item
-// --------------------------------------------------------------------------------------------------------------------
-/*
-interface ItemProps {
-    children: ReactNode;
-}
-
-function Item(props: ItemProps) {
-    const base: CSSProperties = {
-        userSelect: "none",
-        padding: "0.5em",
-    };
-
-    const colors: CSSProperties =
-        !props.selected
-            ? {border: "2px solid #aaa"}
-            : props.correct
-                ? {border: "2px solid #0c0", backgroundColor: "#8f8"}
-                : {border: "2px solid #c00", backgroundColor: "#f88"};
-
-    switch (props.variant) {
-
-        case "inline": {
-            const style = {
-                ...base,
-                ...colors,
-                display: "inline-block",
-                marginLeft: "0.6em",
-            };
-            return <div style={style} onClick={props.onClick}>{props.label}</div>;
-        }
-
-        case "default":
-        default: {
-            const style = {
-                ...base,
-                ...colors,
-                marginBottom: "0.6em",
-            };
-            return <div style={style} onClick={props.onClick}>{props.label}</div>;
-        }
-
-    }
-}
-*/
