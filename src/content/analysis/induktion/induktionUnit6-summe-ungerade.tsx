@@ -8,6 +8,9 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
     createReadStep({
         content: <>
             <p>Es soll gezeigt werden: Die Summe der ersten {mathSpan("n")} ungeraden Zahlen ist {mathSpan("n^2")}.</p>
+            <p>Zur Erinnerung aus dem Grundkurs: Die Indizes {mathSpan("i")} und {mathSpan("n")} sind <i>nicht</i> die
+                ungeraden Zahlen selbst, sondern nummerieren diese durch. Die {mathSpan("i")}-te ungerade Zahl
+                hat den Wert {mathSpan("(2i-1)")}.</p>
             <p>
                 <MathTable widthPercent={60} headers={["n", "1+3+...+(2n-1)", "n^2"]} cells={[
                     ["1", "1", "1"],
@@ -27,19 +30,9 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
         </>,
         correct: 10000,
     }),
-    createReadStep({
-        content: <pre>
-Summe(i=1..n)(2i-1) = n^2
-Zur Erinnerung aus dem Grundkurs: Die Indizes i und n sind _nicht_ die ungeraden Zahlen selbst, sondern nummerieren
-diese durch. Die i-te ungerade Zahl hat den Wert (2i-1):
-(tabelle)
-    i       2i-1
-    1       1
-    2       3
-    3       5
-    4       7
-            </pre>,
-    }),
+
+// TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO 
+
     createReadStep({
         content: <pre>
 Die i-te ungerade Zahl hat den Wert (2i-1).
