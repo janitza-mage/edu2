@@ -45,7 +45,7 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
     }),
     withTextSize(0.7, createChoiceStep({
         title: <>
-            <p>Es soll gezeigt werden: {mathSpan("Summe(i=1..n)(2i-1) = n^2")}. Wie lautet diese Aussage
+            <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
                 für {mathSpan("n=100")}?</p>
         </>,
         shuffle: true,

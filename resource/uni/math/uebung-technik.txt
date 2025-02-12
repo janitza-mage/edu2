@@ -1,0 +1,8 @@
+choose-one / choose-many mit bildern
+Lückentext, jeweils choose-one
+Lückentext mit "Formeltastatur", evtl. sogar Formel-Builder
+    aber Formeltastatur ist einfacher zu machen und bringt schon viel!
+Lückentext am Bild, "Beschriftung"
+Punkte im Bild wählen, nicht an die falsche Stelle tippen
+Zuordnungs-Verschieben -- je zwei gehören zusammen
+Zuordnungs-Verschieben -- N Dinge in Gruppen einsortieren (die stehen immer unten am Rand)

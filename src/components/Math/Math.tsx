@@ -6,7 +6,9 @@ import KaTeX, {KatexOptions} from "katex";
 // --------------------------------------------------------------------------------------------------------------------
 
 function render(source: string, displayMode: boolean): string {
-    const translatedSource = source.replaceAll("#", "\\");
+    const translatedSource = source
+        .replaceAll("§cursor", "#kern -0.01em #textcolor{red}{#rule{0.02em}{0.7em}} #kern -0.01em#relax ")
+        .replaceAll("#", "\\");
     const options: KatexOptions = {
         displayMode,
         throwOnError: false,

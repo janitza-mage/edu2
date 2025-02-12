@@ -1,0 +1,26 @@
+
+"Formelsprache": kein WYSIWYG. Aber genau deshalb auch nicht toll.
+
+"linear": alles, auch über/unter dem Summenzeichen, ist eine lineare Abfolge und man kann mit Pfeiltasten / erase
+navigieren.
+
+"strukturell": man editiert die Struktur. Über/unter dem Summenzeichen sind Textfelder.
+
+"Bildhaft": (neueste Idee): Man zieht Teile, entweder eine Gegebene Menge oder sogar von "unendlichen Stacks", zu
+einem Bild zusammen und das muss die Formel ergeben. Man bekommt durch visuelle Hints gezeigt, ob die Teile sich
+verbinden, oder sie "snappen". Hintergrundfarbe könnte auch zeigen, wann was gesnappt ist.
+- Hintergrundfarbe: blau = Formel, rot = was nicht snappt, rot immer höchster z-index.
+- Zahlen könnten ein unendlicher Stack mit Eingabefeld sein, oder aber vorgegebene Zahlen.
+
+Aktuelle Überlegung ist, dass "Bildhaft" netter wäre, wenn man die Dinge hintereinander eintippen kann... aber dann
+läuft es, wenn man alles am UI geradebiegt, auf "linear" hinaus. Vielleicht ist das gar nicht schlecht, plus:
+ - cursor anzeigen (kann Katex das, ohne dass der Content sich verschiebt?)
+ - cursor bewegen, ohne was zu löschen (Pfeiltasten statt Backspace)
+ - die Möglichkeit, irgendwo hin zu tippen, und dann ist der Cursor da (kann Katex das?)
+---
+Hier ist das gleiche Problem: https://github.com/KaTeX/KaTeX/issues/358
+Anders als da beschrieben, gibt es nur wenige CSS-Regeln der Form a+b
+
+
+ "Bildhaft" geht immer noch, aber mit größeren Blöcken. Ist dann ein anderer Aufgabentyp.
+ 
