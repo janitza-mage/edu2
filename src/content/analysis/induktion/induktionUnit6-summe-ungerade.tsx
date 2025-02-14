@@ -43,6 +43,7 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
         </>,
         correct: 10000,
     }),
+    // TODO eine Art Formeleditor wäre cool hier, aber ich weiß noch nicht, wie man das am besten umsetzt
     withTextSize(0.7, createChoiceStep({
         title: <>
             <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
