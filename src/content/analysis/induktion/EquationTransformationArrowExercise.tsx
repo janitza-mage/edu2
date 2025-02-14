@@ -42,6 +42,6 @@ export function EquationTransformationArrowExercise(props: EquationTransformatio
                 </div>
                 {mathDiv(equation)}
             </div>;
-        })},
+        })}
     </>;
 }

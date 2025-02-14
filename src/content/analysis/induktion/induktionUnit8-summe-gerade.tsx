@@ -1,7 +1,22 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
+import {DndTest} from "./dnd/DndTest";
+
+/*
+Idee: Kein voller Formeleditor, sondern nur drag n drop von Formelteilen in mehreren Zeilen. Nur lineares
+Zusammenbauen -- ist besser als immer das gleiche und einfacher umzusetzen.
+
+foo
+= bar + baz
+= abc + def
+
+Dabei sind [foo, bar, baz, abc, def] die drag n droppable teile. 
+
+ */
+
 
 export const induktionUnit8 = createSteppedUnit("summeGerade", "Summe der ersten n geraden Zahlen", () => [
+    props => <DndTest />,
     createReadStep({
         content: <pre>
 Es soll gezeigt werden: Die Summe der ersten n geraden Zahlen ist (n^2+n)
