@@ -1,10 +1,10 @@
-import {StructuredFormula} from "./StructuredFormula";
+import {FormulaNode} from "./FormulaNode";
 
 /**
  * The result will be interpreted by our own math lib, so we can use # instead of \ for Latex control sequences,
  * and §cursor to insert a cursor.
  */
-export function convertStructuredFormulaToLatex(structuredFormula: StructuredFormula): string {
+export function convertStructuredFormulaToLatex(structuredFormula: FormulaNode): string {
     switch (structuredFormula.type) {
         
         case "atom":

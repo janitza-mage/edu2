@@ -1,4 +1,4 @@
-import {StructuredFormula} from "./StructuredFormula";
+import {FormulaNode} from "./FormulaNode";
 
 /*
 Concept:
@@ -26,15 +26,15 @@ such a position is to be encoded as a tuple of indices:
 
 export type StructuredFormulaCursorPosition = number[];
 
-function errorAtom(message: string): StructuredFormula {
+function errorAtom(message: string): FormulaNode {
     return { type: "atom", content: `???cursor:${message}???` };
 }
 
 export function insertIntoStructuredFormula(
-    formula: StructuredFormula,
+    formula: FormulaNode,
     position: StructuredFormulaCursorPosition,
-    what: StructuredFormula,
-): StructuredFormula {
+    what: FormulaNode,
+): FormulaNode {
     if (position.length === 0) {
         return errorAtom("noMorePositionElements");
     }
@@ -87,14 +87,14 @@ export function insertIntoStructuredFormula(
     }
 }
 
-// export function moveCursorLeft(formula: StructuredFormula, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition {
+// export function moveCursorLeft(formula: FormulaNode, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition {
 //     const res
 // }
 //
-// function tryMoveCursorLeft(formula: StructuredFormula, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition | null {
+// function tryMoveCursorLeft(formula: FormulaNode, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition | null {
 //
 // }
 //
-// export function moveCursorRight(formula: StructuredFormula, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition {
+// export function moveCursorRight(formula: FormulaNode, position: StructuredFormulaCursorPosition): StructuredFormulaCursorPosition {
 //    
 // }

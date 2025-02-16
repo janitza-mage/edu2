@@ -1,12 +1,12 @@
-import {StructuredFormula} from "./StructuredFormula";
+import {FormulaNode} from "./FormulaNode";
 import {StructuredFormulaCursorPosition} from "./cursor";
 
 class FormulaEditorModel {
 
-    formula: StructuredFormula;
+    formula: FormulaNode;
     position: StructuredFormulaCursorPosition;
 
-    constructor(formula: StructuredFormula, position: StructuredFormulaCursorPosition) {
+    constructor(formula: FormulaNode, position: StructuredFormulaCursorPosition) {
         this.formula = formula;
         this.position = position;
     }
@@ -19,7 +19,7 @@ class FormulaEditorModel {
         return this; // TODO
     }
 
-    insert(what: StructuredFormula): FormulaEditorModel {
+    insert(what: FormulaNode): FormulaEditorModel {
         // TODO respect current position
     }
 
