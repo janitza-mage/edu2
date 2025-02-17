@@ -200,10 +200,46 @@ export class SequenceNode implements FormulaNode {
         };
     }
 
-    deleteRight([_index, ..._remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
-        // Like deleteLeft(), just mirrored -- but we'll not implement this until needed, otherwise the code would
-        // likely be buggy.
-        throw new Error("not yet implemented");
+    deleteRight([index, ...remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
+        const newElements = [...this.elements];
+        let newCursorPosition: CursorPosition;
+        if (remainingIndices.length === 0) {
+            // we're not inside an element
+            if (index === this.elements.length) {
+                // we're at the end of this node, so return to the caller that we cannot delete anything inside it
+                return null;
+            }
+            const subPosition = newElements[index].getFirstCursorPosition();
+            if (subPosition !== null) {
+                // move the cursor into the element to the left, to delete its contents first
+                newCursorPosition = [index, ...subPosition];
+            } else {
+                // the node left to the cursor has no sub-positions, so delete it
+                newElements.splice(index, 1);
+                newCursorPosition = [index];
+            }
+        } else {
+            // ask the element we're inside to delete something inside it first
+            const subResult = newElements[index].deleteRight(remainingIndices as CursorPosition);
+            if (subResult !== null) {
+                // successfully deleted something inside the element
+                newElements[index] = subResult.formulaNode;
+                newCursorPosition = [index, ...subResult.cursorPosition];
+            } else if (newElements[index].hasUserInsertedSubContent()) {
+                // the element is not empty, but we could not delete something inside it (i.e. the cursor was at the
+                // leftmost position inside the element, but there was content to the right of it). In that case, we'll
+                // only move the cursor out of the element.
+                newCursorPosition = [index + 1];
+            } else {
+                // we could not delete anything inside that element because it is empty already, so we can delete it
+                newElements.splice(index, 1);
+                newCursorPosition = [index];
+            }
+        }
+        return {
+            formulaNode: new SequenceNode(newElements),
+            cursorPosition: newCursorPosition,
+        };
     }
     
     hasUserInsertedSubContent(): boolean {

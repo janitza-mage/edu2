@@ -1,12 +1,7 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {createFormulaKeyboardExercise} from "../../../components/FormulaEditor/createFormulaKeyboardExercise";
-import {
-    Atom,
-    CursorPosition,
-    FormulaNode,
-    FormulaNodeAndCursorPosition
-} from "../../../components/FormulaEditor/FormulaNode";
+import {Atom, CursorPosition, FormulaNode} from "../../../components/FormulaEditor/FormulaNode";
 
 const indexValueReminder = <p>Zur Erinnerung aus dem Grundkurs: Die
     Indizes {mathSpan("i")} und {mathSpan("n")} sind <i>nicht</i> die
@@ -72,7 +67,11 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
                 für {mathSpan("n=100")}?</p>
             <p>{mathDiv(withCursor(input, cursorPosition).convertToLatex())}</p>
         </>,
-        formulaKeys: [],
+        formulaKeys: [
+            [1, new Atom("1a")],
+            [2, new Atom("2b")],
+            [3, new Atom("3c")],
+        ],
         validator: input => true,
     })
 ]);

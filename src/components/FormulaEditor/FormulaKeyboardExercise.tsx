@@ -3,9 +3,10 @@ import {WithFooter} from "../layout/WithFooter";
 import {FormulaKeyboard} from "./FormulaKeyboard";
 import {CenteredContent} from "../layout/CenteredContent";
 import {useExerciseSingletonFeedback} from "../util/useExerciseSingletonFeedback";
-import {Atom, CursorPosition, FormulaNode, FormulaNodeAndCursorPosition, SequenceNode} from "./FormulaNode";
+import {CursorPosition, FormulaNode, FormulaNodeAndCursorPosition, SequenceNode} from "./FormulaNode";
 
 export interface FormulaKeyboardExerciseProps {
+    formulaKeys: [ReactNode, FormulaNode][];
     body: (input: FormulaNode, cursorPosition: CursorPosition) => ReactNode;
     validator: (input: FormulaNode) => boolean;
     widthPercent?: number | undefined | null;
@@ -104,11 +105,7 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
      */
 
     const keyboard = <FormulaKeyboard
-        formulaKeys={[
-            [1, new Atom("1")],
-            [2, new Atom("2")],
-            [3, new Atom("3")],
-        ]}
+        formulaKeys={props.formulaKeys}
         onClickInsertFormulaNode={onClickInsertFormulaNode}
         onClickDeleteLeft={onClickDeleteLeft}
         onClickDeleteRight={onClickDeleteRight}

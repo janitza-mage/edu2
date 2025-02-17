@@ -13,6 +13,7 @@ export interface createFormulaKeyboardExerciseParameters {
 
 export function createFormulaKeyboardExercise(parameters: createFormulaKeyboardExerciseParameters): UnitStep {
     return props => <FormulaKeyboardExercise
+        formulaKeys={parameters.formulaKeys}
         body={parameters.body}
         validator={parameters.validator}
         widthPercent={parameters.widthPercent}
