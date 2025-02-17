@@ -20,7 +20,7 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
     const [cursorPosition, setCursorPosition] = useState<CursorPosition>([0]);
     const feedback = useExerciseSingletonFeedback();
     
-    function handle(result: FormulaNodeAndCursorPosition | null) {
+    function handleResult(result: FormulaNodeAndCursorPosition | null) {
         if (result) {
             setInput(result.formulaNode);
             setCursorPosition(result.cursorPosition);
@@ -30,22 +30,31 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
             feedback.fire("#ddd", () => feedback.hide());
         }
     }
+    
+    function handleCursorPosition(position: CursorPosition | null) {
+        if (position) {
+            setCursorPosition(position);
+        } // no visual feedback for bumping the cursor against the side walls
+    }
 
     function onClickInsertFormulaNode(node: FormulaNode) {
-        handle(input.insertLeft(cursorPosition, node));
+        handleResult(input.insertLeft(cursorPosition, node));
     }
     
     function onClickDeleteLeft() {
-        handle(input.deleteLeft(cursorPosition));
+        handleResult(input.deleteLeft(cursorPosition));
     }
     
     function onClickDeleteRight() {
+        handleResult(input.deleteRight(cursorPosition));
     }
     
     function onClickMoveLeft() {
+        handleCursorPosition(input.getPreviousCursorPosition(cursorPosition));
     }
     
     function onClickMoveRight() {
+        handleCursorPosition(input.getNextCursorPosition(cursorPosition));
     }
     
     function onConfirm() {
