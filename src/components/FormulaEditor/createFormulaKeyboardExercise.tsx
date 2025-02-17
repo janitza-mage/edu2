@@ -1,11 +1,11 @@
 import {ReactNode} from "react";
-import {FormulaNode} from "./FormulaNode";
+import {CursorPosition, FormulaNode} from "./FormulaNode";
 import {UnitStep} from "../../unit/step/createSteppedUnit";
 import {FormulaKeyboardExercise} from "./FormulaKeyboardExercise";
 
 export interface createFormulaKeyboardExerciseParameters {
     formulaKeys: [ReactNode, FormulaNode][];
-    body: (input: FormulaNode) => ReactNode;
+    body: (input: FormulaNode, cursorPosition: CursorPosition) => ReactNode;
     validator: (input: FormulaNode) => boolean;
     widthPercent?: number | undefined | null;
     overflow?: string;

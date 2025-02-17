@@ -1,6 +1,12 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {createFormulaKeyboardExercise} from "../../../components/FormulaEditor/createFormulaKeyboardExercise";
+import {
+    Atom,
+    CursorPosition,
+    FormulaNode,
+    FormulaNodeAndCursorPosition
+} from "../../../components/FormulaEditor/FormulaNode";
 
 const indexValueReminder = <p>Zur Erinnerung aus dem Grundkurs: Die
     Indizes {mathSpan("i")} und {mathSpan("n")} sind <i>nicht</i> die
@@ -61,12 +67,17 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
     })),
      */
     createFormulaKeyboardExercise({
-        body: input => <>
+        body: (input, cursorPosition) => <>
             <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
-                für {mathSpan("n=100")}?</p>,
-            {mathDiv(input.convertToLatex())}
+                für {mathSpan("n=100")}?</p>
+            <p>{mathDiv(withCursor(input, cursorPosition).convertToLatex())}</p>
         </>,
         formulaKeys: [],
         validator: input => true,
     })
 ]);
+
+const cursorAtom = new Atom("§cursor");
+function withCursor(formula: FormulaNode, cursorPosition: CursorPosition): FormulaNode {
+    return formula.insertLeft(cursorPosition, cursorAtom).formulaNode;
+}

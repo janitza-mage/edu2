@@ -3,10 +3,10 @@ import {WithFooter} from "../layout/WithFooter";
 import {FormulaKeyboard} from "./FormulaKeyboard";
 import {CenteredContent} from "../layout/CenteredContent";
 import {useExerciseSingletonFeedback} from "../util/useExerciseSingletonFeedback";
-import {Atom, FormulaNode, SequenceNode} from "./FormulaNode";
+import {Atom, CursorPosition, FormulaNode, FormulaNodeAndCursorPosition, SequenceNode} from "./FormulaNode";
 
 export interface FormulaKeyboardExerciseProps {
-    body: (input: FormulaNode) => ReactNode;
+    body: (input: FormulaNode, cursorPosition: CursorPosition) => ReactNode;
     validator: (input: FormulaNode) => boolean;
     widthPercent?: number | undefined | null;
     overflow?: string;
@@ -17,14 +17,26 @@ export interface FormulaKeyboardExerciseProps {
 
 export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
     const [input, setInput] = useState<FormulaNode>(new SequenceNode([]));
+    const [cursorPosition, setCursorPosition] = useState<CursorPosition>([0]);
     const feedback = useExerciseSingletonFeedback();
+    
+    function handle(result: FormulaNodeAndCursorPosition | null) {
+        if (result) {
+            setInput(result.formulaNode);
+            setCursorPosition(result.cursorPosition);
+        } else {
+            // just a slight visual hint that the current keypress has no effect, e.g. pressing backspace
+            // when the cursor is at the beginning.
+            feedback.fire("#ddd", () => feedback.hide());
+        }
+    }
 
     function onClickInsertFormulaNode(node: FormulaNode) {
-        // setInput(input + "" + n);
+        handle(input.insertLeft(cursorPosition, node));
     }
     
     function onClickDeleteLeft() {
-        // setInput(input.length === 0 ? input : input.substring(0, input.length - 1));
+        handle(input.deleteLeft(cursorPosition));
     }
     
     function onClickDeleteRight() {
@@ -101,7 +113,7 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
     return <WithFooter footer={keyboard} overflow={props.overflow ?? "hidden"}>
         <div style={{width: "100%", height: "100%", backgroundColor: feedback.color}}>
             <CenteredContent widthPercent={props.widthPercent ?? 90}>
-                {props.body(input)}
+                {props.body(input, cursorPosition)}
             </CenteredContent>
         </div>
     </WithFooter>;

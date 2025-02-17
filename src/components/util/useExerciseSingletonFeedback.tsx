@@ -17,7 +17,7 @@ export interface ExerciseSingletonFeedback {
     /**
      * Gives feedback to the user.
      */
-    fire(correct: boolean, onDelayFinished: () => void): void;
+    fire(correctOrColor: boolean | string, onDelayFinished: () => void): void;
 
     /**
      * Hides feedback.
@@ -39,7 +39,7 @@ export function useExerciseSingletonFeedback(): ExerciseSingletonFeedback {
     const [active, setActive] = useState(false);
     const [color, setColor] = useState(myTransparent);
 
-    function fire(correct: boolean, onDelayFinished: () => void) {
+    function fire(correctOrColor: boolean | string, onDelayFinished: () => void) {
         setActive(previouslyActive => {
             if (previouslyActive) {
                 // there is no "sane default" for handling the two onFinished() callbacks in this case
@@ -47,14 +47,17 @@ export function useExerciseSingletonFeedback(): ExerciseSingletonFeedback {
             }
             return true;
         });
-        if (correct) {
+        if (correctOrColor === true) {
             setColor(myGreen);
             sounds.correct.play();
             setTimeout(onDelayFinished, isFastMode() ? 100 : 1000);
-        } else {
+        } else if (correctOrColor === false) {
             setColor(myRed);
             sounds.wrong.play();
             setTimeout(onDelayFinished, isFastMode() ? 100 : 500);
+        } else {
+            setColor(correctOrColor);
+            setTimeout(onDelayFinished, 200);
         }
     }
     
