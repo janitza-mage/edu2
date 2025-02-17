@@ -1,12 +1,13 @@
-import {ReactNode, useEffect, useState} from "react";
-import {WithFooter} from "../../components/layout/WithFooter";
+import {ReactNode, useState} from "react";
+import {WithFooter} from "../layout/WithFooter";
 import {FormulaKeyboard} from "./FormulaKeyboard";
-import {CenteredContent} from "../../components/layout/CenteredContent";
-import {useExerciseSingletonFeedback} from "../../components/util/useExerciseSingletonFeedback";
+import {CenteredContent} from "../layout/CenteredContent";
+import {useExerciseSingletonFeedback} from "../util/useExerciseSingletonFeedback";
+import {Atom, FormulaNode, SequenceNode} from "./FormulaNode";
 
 export interface FormulaKeyboardExerciseProps {
-    body: (input: string) => ReactNode; // input is a string because it is initially empty, not a number
-    validator: (n: number) => boolean;
+    body: (input: FormulaNode) => ReactNode;
+    validator: (input: FormulaNode) => boolean;
     widthPercent?: number | undefined | null;
     overflow?: string;
     onProgress: () => void;
@@ -15,18 +16,28 @@ export interface FormulaKeyboardExerciseProps {
 }
 
 export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState<FormulaNode>(new SequenceNode([]));
     const feedback = useExerciseSingletonFeedback();
 
-    function onClickNumber(n: number | string) {
-        setInput(input + "" + n);
+    function onClickInsertFormulaNode(node: FormulaNode) {
+        // setInput(input + "" + n);
     }
     
-    function onClickErase() {
-        setInput(input.length === 0 ? input : input.substring(0, input.length - 1));
+    function onClickDeleteLeft() {
+        // setInput(input.length === 0 ? input : input.substring(0, input.length - 1));
+    }
+    
+    function onClickDeleteRight() {
+    }
+    
+    function onClickMoveLeft() {
+    }
+    
+    function onClickMoveRight() {
     }
     
     function onConfirm() {
+        /*
         // multi-field not supported yet
         const inputValue = parseInt(input);
         if (!isNaN(inputValue)) {
@@ -38,8 +49,11 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
                 feedback.fire(false, () => feedback.hide());
             }
         }
+         */
     }
-    
+
+    /*
+    TODO consider keyboard mapping
     useEffect(() => {
         function onKeyDown(event: KeyboardEvent) {
             switch (event.key) {
@@ -66,8 +80,22 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     })
+     */
 
-    const keyboard = <FormulaKeyboard onClickNumber={onClickNumber} onClickErase={onClickErase} onClickConfirm={onConfirm} />;
+    const keyboard = <FormulaKeyboard
+        formulaKeys={[
+            [1, new Atom("1")],
+            [2, new Atom("2")],
+            [3, new Atom("3")],
+        ]}
+        onClickInsertFormulaNode={onClickInsertFormulaNode}
+        onClickDeleteLeft={onClickDeleteLeft}
+        onClickDeleteRight={onClickDeleteRight}
+        onClickMoveLeft={onClickMoveLeft}
+        onClickMoveRight={onClickMoveRight}
+        onClickConfirm={onConfirm}
+        visible={true}
+    />;
     // TODO handle overflow once the TODO at CenteredContent is solved
     // TODO block events if feedback.disabled
     return <WithFooter footer={keyboard} overflow={props.overflow ?? "hidden"}>
