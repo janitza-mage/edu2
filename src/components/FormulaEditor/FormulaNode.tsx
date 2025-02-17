@@ -27,10 +27,27 @@ export interface FormulaNode {
 
     insertRight(currentPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition;
 
-    deleteLeft(currentPosition: CursorPosition): FormulaNodeAndCursorPosition;
+    /**
+     * Returns null if there is nothing to delete. The caller would usually keep its current formula and cursor
+     * position, and possibly notify the user.
+     */
+    deleteLeft(currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null;
 
-    deleteRight(currentPosition: CursorPosition): FormulaNodeAndCursorPosition;
+    /**
+     * Returns null if there is nothing to delete. The caller would usually keep its current formula and cursor
+     * position, and possibly notify the user.
+     */
+    deleteRight(currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null;
 
+    /**
+     * Whether this node contains any sub-content that was inserted by the user. The node itself and its "rigid"
+     * structure do not count towards this, even if inserted by the user. The intention is that any node without
+     * such content can be deleted by the user in a single step, while content _with_ user-inserted sub-content
+     * would refuse deletion until the user has deleted that content first, to avoid deleting large amounts of
+     * content with a single keypress.
+     */
+    hasUserInsertedSubContent(): boolean;
+    
     // note: may use our own "extended" Latex syntax, such as # instead of \ and using §cursor.
     convertToLatex(): string;
     
@@ -81,52 +98,123 @@ export class SequenceNode implements FormulaNode {
     }
     
     getNextCursorPosition([index, ...remainingIndices]: CursorPosition): CursorPosition | null {
+        if (index === this.elements.length) {
+            return null;
+        }
+        const element = this.elements[index];
+        const elementResult = (remainingIndices.length === 0)
+            ? element.getFirstCursorPosition()
+            : element.getNextCursorPosition(remainingIndices as CursorPosition);
+        return (elementResult === null) ? [index + 1] : [index, ...elementResult];
+    }
+
+    getPreviousCursorPosition([index, ...remainingIndices]: CursorPosition): CursorPosition | null {
+        if (index === 0) {
+            return null;
+        }
+        const element = this.elements[index - 1];
+        const elementResult = (remainingIndices.length === 0)
+            ? element.getLastCursorPosition()
+            : element.getPreviousCursorPosition(remainingIndices as CursorPosition);
+        return [index - 1, ...(elementResult ?? [])];
+    }
+
+    insertLeft(cursorPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+        return this.insertInternal(cursorPosition, what, 1);
+    }
+
+    insertRight(cursorPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+        return this.insertInternal(cursorPosition, what, 0);
+    }
+
+    private insertInternal([index, ...remainingIndices]: CursorPosition, what: FormulaNode, cursorIncrement: number): FormulaNodeAndCursorPosition {
+        const newElements = [...this.elements];
+        let newCursorPosition: CursorPosition;
+        if (remainingIndices.length === 0) {
+            newElements.splice(index, 0, what);
+            newCursorPosition = [index + cursorIncrement];
+        } else {
+            const subResult = newElements[index].insertLeft(remainingIndices as CursorPosition, what);
+            newElements[index] = subResult.formulaNode;
+            newCursorPosition = [index, ...subResult.cursorPosition];
+        }
+        return {
+            formulaNode: new SequenceNode(newElements),
+            cursorPosition: newCursorPosition,
+        };
+    }
+    
+    /*
+    TODO: Die Idee, dass man beim Löschen in ein komplexes Element reinrutscht und dann erst den Inhalt löscht, bevor
+    man das ganze komplexe Element löscht, war, dass so nicht auf einen Schlag vieles verschwindet. Aber das
+    Problem ist immer noch da, nur anders: Man kann jetzt ein ganzes komplexes Element mit allen Inhalten auf
+    einen Schlag verschwinden lassen, wenn man sich am Anfang davon befindet, auch wenn rechts vom Cursor noch viele
+    Inhalte stehen.
+    
+    Ist so aber vllt trotzdem besser, wenn man bedenkt, dass es nur "nach links löschen" und "nach links einfügen"
+    gibt: Meistens ist der Cursor rechts von den Inhalten, und tritt o.g. Situation i.A. nicht auf.  
+    
+    Neueste Änderung: Man löscht das komplexe Element jetzt nur noch, wenn es komplett leer ist. Mal schauen, ob das
+    besser ist.
+     */
+
+    deleteLeft([index, ...remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
+        const newElements = [...this.elements];
+        let newCursorPosition: CursorPosition;
         if (remainingIndices.length === 0) {
             // we're not inside an element
-            if (index === this.elements.length) {
-                // after last element
+            if (index === 0) {
+                // we're at the start of this node, so return to the caller that we cannot delete anything inside it
                 return null;
+            }
+            const subPosition = newElements[index - 1].getLastCursorPosition();
+            if (subPosition !== null) {
+                // move the cursor into the element to the left, to delete its contents first
+                newCursorPosition = [index - 1, ...subPosition];
             } else {
-                // between two elements, so enter next element
-                const result = this.elements[index].getFirstCursorPosition();
-                if (result === null) {
-                    // that element has no insertable places, so skip it and place the cursor directly behind it
-                    return [index + 1];
-                } else {
-                    // successfully entered that element
-                    return [index, ...result];
-                }
+                // the node left to the cursor has no sub-positions, so delete it
+                newElements.splice(index - 1, 1);
+                newCursorPosition = [index - 1];
             }
         } else {
-            // we are inside an element (the type-cast is justified because of the enclosing if-statement -- Typescript
-            // just doesn't realize it)
-            const result = this.elements[index].getNextCursorPosition(remainingIndices as CursorPosition);
-            if (result === null) {
-                // we are at the end of the element, so the next position is between it and the next one 
-                return [index + 1];
+            // ask the element we're inside to delete something inside it first
+            const subResult = newElements[index].deleteLeft(remainingIndices as CursorPosition);
+            if (subResult !== null) {
+                // successfully deleted something inside the element
+                newElements[index] = subResult.formulaNode;
+                newCursorPosition = [index, ...subResult.cursorPosition];
+            } else if (newElements[index].hasUserInsertedSubContent()) {
+                // the element is not empty, but we could not delete something inside it (i.e. the cursor was at the
+                // leftmost position inside the element, but there was content to the right of it). In that case, we'll
+                // only move the cursor out of the element.
+                newCursorPosition = [index];
             } else {
-                // successfully moved within that element
-                return [index, ...result];
+                // we could not delete anything inside that element because it is empty already, so we can delete it
+                newElements.splice(index, 1);
+                newCursorPosition = [index];
             }
         }
+        return {
+            formulaNode: new SequenceNode(newElements),
+            cursorPosition: newCursorPosition,
+        };
     }
 
-    getPreviousCursorPosition(currentPosition: CursorPosition): CursorPosition | null {
+    deleteRight([_index, ..._remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
+        // Like deleteLeft(), just mirrored -- but we'll not implement this until needed, otherwise the code would
+        // likely be buggy.
+        throw new Error("not yet implemented");
     }
-
-    insertLeft(currentPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
-    }
-
-    insertRight(currentPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
-    }
-
-    deleteLeft(currentPosition: CursorPosition): FormulaNodeAndCursorPosition {
-    }
-
-    deleteRight(currentPosition: CursorPosition): FormulaNodeAndCursorPosition {
+    
+    hasUserInsertedSubContent(): boolean {
+        // Any element, no matter what it is, counts as user-inserted because the user can edit the whole sequence.
+        // On the other hand, if this sequence has no elements, then there are no sub-node that would hold any
+        // user-inserted content.
+        return this.elements.length !== 0;
     }
 
     convertToLatex(): string {
+        return this.elements.map(element => element.convertToLatex()).join("");
     }
     
 }
@@ -147,28 +235,32 @@ export class Atom implements FormulaNode {
         return null;
     }
 
-    getNextCursorPosition(currentPosition: CursorPosition): CursorPosition | null {
+    getNextCursorPosition(_currentPosition: CursorPosition): CursorPosition | null {
         return null;
     }
 
-    getPreviousCursorPosition(currentPosition: CursorPosition): CursorPosition | null {
+    getPreviousCursorPosition(_currentPosition: CursorPosition): CursorPosition | null {
         return null;
     }
 
-    insertLeft(currentPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+    insertLeft(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
         return { formulaNode: this, cursorPosition: currentPosition };
     }
 
-    insertRight(currentPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+    insertRight(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
         return { formulaNode: this, cursorPosition: currentPosition };
     }
 
-    deleteLeft(currentPosition: CursorPosition): FormulaNodeAndCursorPosition {
-        return { formulaNode: this, cursorPosition: currentPosition };
+    deleteLeft(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+        return null;
     }
 
-    deleteRight(currentPosition: CursorPosition): FormulaNodeAndCursorPosition {
-        return { formulaNode: this, cursorPosition: currentPosition };
+    deleteRight(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+        return null;
+    }
+
+    hasUserInsertedSubContent(): boolean {
+        return false;
     }
 
     convertToLatex(): string {
