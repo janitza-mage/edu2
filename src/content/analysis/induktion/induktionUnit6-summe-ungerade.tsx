@@ -1,10 +1,6 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {createReadStep} from "../../../unit/read/createReadStep";
-import {MathTable} from "./MathTable";
-import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
 import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
-import {withTextSize} from "../../../unit/step/withTextSize";
+import {createFormulaKeyboardExercise} from "../../../components/FormulaEditor/createFormulaKeyboardExercise";
 
 const indexValueReminder = <p>Zur Erinnerung aus dem Grundkurs: Die
     Indizes {mathSpan("i")} und {mathSpan("n")} sind <i>nicht</i> die
@@ -12,6 +8,7 @@ const indexValueReminder = <p>Zur Erinnerung aus dem Grundkurs: Die
     hat den Wert {mathSpan("(2i-1)")}.</p>;
     
 export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der ersten n ungeraden Zahlen", () => [
+    /*
     createReadStep({
         content: <>
             <p>Es soll gezeigt werden: Die Summe der ersten {mathSpan("n")} ungeraden Zahlen ist {mathSpan("n^2")}.</p>
@@ -62,4 +59,14 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
             {correct: true, label: mathSpan("#sum_{i=1}^{100}(2i-1) = 100^2")},
         ],
     })),
+     */
+    createFormulaKeyboardExercise({
+        body: input => <>
+            <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
+                für {mathSpan("n=100")}?</p>,
+            {mathDiv(input.convertToLatex())}
+        </>,
+        formulaKeys: [],
+        validator: input => true,
+    })
 ]);
