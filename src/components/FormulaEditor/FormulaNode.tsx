@@ -304,3 +304,84 @@ export class Atom implements FormulaNode {
     }
 
 }
+
+export abstract class AbstractRigidNode implements FormulaNode {
+
+    private readonly children: FormulaNode[];
+    
+    protected constructor(children: FormulaNode[]) {
+        this.children = children;
+    }
+
+    getFirstCursorPosition(): CursorPosition | null {
+        for (const child of this.children) {
+            const result = child.getFirstCursorPosition();
+            if (result) {
+                return result;
+            }
+        }
+        return null;
+    }
+
+    getLastCursorPosition(): CursorPosition | null {
+        for (const child of [...this.children].reverse()) {
+            const result = child.getLastCursorPosition();
+            if (result) {
+                return result;
+            }
+        }
+        return null;
+    }
+
+    getNextCursorPosition([index, ...remainingIndices]: CursorPosition): CursorPosition | null {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return this.getFirstCursorPosition();
+        }
+        while (index < this.children.length) {
+            const subResult = this.children[index].getNextCursorPosition(remainingIndices as CursorPosition);
+            if (subResult != null) {
+                return [index, ...subResult];
+            }
+            index++;
+        }
+        return null;
+    }
+
+    getPreviousCursorPosition([index, ...remainingIndices]: CursorPosition): CursorPosition | null {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return this.getFirstCursorPosition();
+        }
+        while (index >= 0) {
+            const subResult = this.children[index].getPreviousCursorPosition(remainingIndices as CursorPosition);
+            if (subResult != null) {
+                return [index, ...subResult];
+            }
+            index--;
+        }
+        return null;
+    }
+
+    insertLeft(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
+    }
+
+    insertRight(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
+    }
+
+    deleteLeft(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+    }
+
+    deleteRight(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+    }
+
+    hasUserInsertedSubContent(): boolean {
+        for (const child of this.children) {
+            if (child.hasUserInsertedSubContent()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    abstract convertToLatex(): string;
+
+}
