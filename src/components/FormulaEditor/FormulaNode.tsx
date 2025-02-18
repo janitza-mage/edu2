@@ -85,8 +85,8 @@ export class SequenceNode implements FormulaNode {
     
     private readonly elements: FormulaNode[];
     
-    constructor(elements: FormulaNode[]) {
-        this.elements = elements;
+    constructor(elements?: FormulaNode[]) {
+        this.elements = elements ?? [];
     }
 
     getFirstCursorPosition(): CursorPosition | null {
@@ -465,7 +465,7 @@ export class SumNode extends AbstractRigidNode {
         const a = this.convertChildToLatex(0);
         const b = this.convertChildToLatex(1);
         const c = this.convertChildToLatex(2);
-        return `#sum_{${a}^{${b}}(${c})`;
+        return `#sum_{${a}}^{${b}}(${c})`;
     }
 
 }
