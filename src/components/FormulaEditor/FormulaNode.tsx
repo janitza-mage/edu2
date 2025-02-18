@@ -367,10 +367,34 @@ export abstract class AbstractRigidNode implements FormulaNode {
     insertRight(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
     }
 
-    deleteLeft(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+    deleteLeft([index, ...remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return null;
+        }
+        const result = this.children[index].deleteLeft(remainingIndices as CursorPosition);
+        if (result === null) {
+            const newPosition = this.getPreviousCursorPosition([index, ...remainingIndices]);
+            return newPosition ? { formulaNode: this, cursorPosition: newPosition} : null;
+        }
+        return {
+            formulaNode: this.withChildReplaced(index, result.formulaNode),
+            cursorPosition: [index, ...result.cursorPosition],
+        };
     }
 
-    deleteRight(_currentPosition: CursorPosition): FormulaNodeAndCursorPosition | null {
+    deleteRight([index, ...remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return null;
+        }
+        const result = this.children[index].deleteRight(remainingIndices as CursorPosition);
+        if (result === null) {
+            const newPosition = this.getNextCursorPosition([index, ...remainingIndices]);
+            return newPosition ? { formulaNode: this, cursorPosition: newPosition} : null;
+        }
+        return {
+            formulaNode: this.withChildReplaced(index, result.formulaNode),
+            cursorPosition: [index, ...result.cursorPosition],
+        };
     }
 
     hasUserInsertedSubContent(): boolean {
@@ -383,5 +407,19 @@ export abstract class AbstractRigidNode implements FormulaNode {
     }
 
     abstract convertToLatex(): string;
+    
+    protected clone(): typeof this {
+        return new (this.constructor as any)(this.children);
+    }
+    
+    protected withChildReplaced(index: number, newChild: FormulaNode): typeof this {
+        if (index < 0 || index >= this.children.length) {
+            throw new Error();
+        }
+        const clone = this.clone();
+        (clone as any).children = [...clone.children];
+        (clone as any).children[index] = newChild;
+        return clone;
+    }
 
 }
