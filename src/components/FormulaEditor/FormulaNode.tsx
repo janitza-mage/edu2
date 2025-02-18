@@ -361,10 +361,26 @@ export abstract class AbstractRigidNode implements FormulaNode {
         return null;
     }
 
-    insertLeft(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
+    insertLeft([index, ...remainingIndices]: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return { formulaNode: this, cursorPosition: [index, ...remainingIndices]};
+        }
+        const result = this.children[index].insertLeft(remainingIndices as CursorPosition, what);
+        return {
+            formulaNode: this.withChildReplaced(index, result.formulaNode),
+            cursorPosition: [index, ...result.cursorPosition],
+        };
     }
 
-    insertRight(currentPosition: CursorPosition, _what: FormulaNode): FormulaNodeAndCursorPosition {
+    insertRight([index, ...remainingIndices]: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
+        if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
+            return { formulaNode: this, cursorPosition: [index, ...remainingIndices]};
+        }
+        const result = this.children[index].insertRight(remainingIndices as CursorPosition, what);
+        return {
+            formulaNode: this.withChildReplaced(index, result.formulaNode),
+            cursorPosition: [index, ...result.cursorPosition],
+        };
     }
 
     deleteLeft([index, ...remainingIndices]: CursorPosition): FormulaNodeAndCursorPosition | null {
@@ -420,6 +436,36 @@ export abstract class AbstractRigidNode implements FormulaNode {
         (clone as any).children = [...clone.children];
         (clone as any).children[index] = newChild;
         return clone;
+    }
+
+    protected convertChildToLatex(index: number): string {
+        return this.children[index].convertToLatex();
+    }
+
+}
+
+export function sanitizeRigitNodeChildren(children: FormulaNode[], count: number): FormulaNode[] {
+    children = [...children];
+    if (children.length > count) {
+        children = children.slice(0, count);
+    }
+    while (children.length < count) {
+        children.push(new Atom("???"));
+    }
+    return children;
+}
+
+export class SumNode extends AbstractRigidNode {
+
+    constructor(children: [FormulaNode, FormulaNode, FormulaNode]) {
+        super(sanitizeRigitNodeChildren(children, 3));
+    }
+
+    convertToLatex(): string {
+        const a = this.convertChildToLatex(0);
+        const b = this.convertChildToLatex(1);
+        const c = this.convertChildToLatex(2);
+        return `#sum_{${a}^{${b}}(${c})`;
     }
 
 }
