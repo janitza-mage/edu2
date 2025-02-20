@@ -314,20 +314,20 @@ export abstract class AbstractRigidNode implements FormulaNode {
     }
 
     getFirstCursorPosition(): CursorPosition | null {
-        for (const child of this.children) {
-            const result = child.getFirstCursorPosition();
+        for (let i = 0; i < this.children.length; i++) {
+            const result = this.children[i].getFirstCursorPosition();
             if (result) {
-                return result;
+                return [i, ...result];
             }
         }
         return null;
     }
 
     getLastCursorPosition(): CursorPosition | null {
-        for (const child of [...this.children].reverse()) {
-            const result = child.getLastCursorPosition();
+        for (let i = this.children.length - 1; i >= 0; i++) {
+            const result = this.children[i].getLastCursorPosition();
             if (result) {
-                return result;
+                return [i, ...result];
             }
         }
         return null;
