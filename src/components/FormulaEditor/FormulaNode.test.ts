@@ -151,3 +151,49 @@ function checkInsert(
         cursorPosition: position,
     });
 }
+
+function checkDeleteLeft(
+    oldRoot: FormulaNode,
+    oldPosition: CursorPosition,
+    expectedRoot: FormulaNode,
+    expectedPosition: CursorPosition
+): void {
+    const actual = oldRoot.deleteLeft(oldPosition);
+    expect(actual).not.toBeNull();
+    if (!actual) {
+        return;
+    }
+    const { formulaNode: actualRoot, cursorPosition: actualPosition } = actual;
+    expect(actualRoot).toStrictEqual(expectedRoot);
+    expect(actualPosition).toStrictEqual(expectedPosition);
+}
+
+function checkDeleteLeftFails(
+    oldRoot: FormulaNode,
+    oldPosition: CursorPosition
+): void {
+    expect(oldRoot.deleteLeft(oldPosition)).toBeNull();
+}
+
+function checkDeleteRight(
+    oldRoot: FormulaNode,
+    oldPosition: CursorPosition,
+    expectedRoot: FormulaNode,
+    expectedPosition: CursorPosition
+): void {
+    const actual = oldRoot.deleteRight(oldPosition);
+    expect(actual).not.toBeNull();
+    if (!actual) {
+        return;
+    }
+    const { formulaNode: actualRoot, cursorPosition: actualPosition } = actual;
+    expect(actualRoot).toStrictEqual(expectedRoot);
+    expect(actualPosition).toStrictEqual(expectedPosition);
+}
+
+function checkDeleteRightFails(
+    oldRoot: FormulaNode,
+    oldPosition: CursorPosition
+): void {
+    expect(oldRoot.deleteRight(oldPosition)).toBeNull();
+}
