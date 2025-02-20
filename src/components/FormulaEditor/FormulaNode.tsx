@@ -337,8 +337,13 @@ export abstract class AbstractRigidNode implements FormulaNode {
         if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
             return this.getFirstCursorPosition();
         }
+        const subResult = this.children[index].getNextCursorPosition(remainingIndices as CursorPosition);
+        if (subResult != null) {
+            return [index, ...subResult];
+        }
+        index++;
         while (index < this.children.length) {
-            const subResult = this.children[index].getNextCursorPosition(remainingIndices as CursorPosition);
+            const subResult = this.children[index].getFirstCursorPosition();
             if (subResult != null) {
                 return [index, ...subResult];
             }
@@ -351,8 +356,13 @@ export abstract class AbstractRigidNode implements FormulaNode {
         if (index < 0 || index >= this.children.length || remainingIndices.length === 0) {
             return this.getFirstCursorPosition();
         }
+        const subResult = this.children[index].getPreviousCursorPosition(remainingIndices as CursorPosition);
+        if (subResult != null) {
+            return [index, ...subResult];
+        }
+        index--;
         while (index >= 0) {
-            const subResult = this.children[index].getPreviousCursorPosition(remainingIndices as CursorPosition);
+            const subResult = this.children[index].getLastCursorPosition();
             if (subResult != null) {
                 return [index, ...subResult];
             }
