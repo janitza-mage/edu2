@@ -24,10 +24,10 @@ function checkBackwardPositions(root: FormulaNode, expectedPositions: CursorPosi
     expect(position).toBeNull();
 }
 
-it("formula with sum", () => {
+it("sequence with sum with empty content", () => {
     const node = new SequenceNode([new SumNode([new SequenceNode(), new SequenceNode(), new SequenceNode()])]);
-    expect(node.getFirstCursorPosition()).toStrictEqual([0]);
-    expect(node.getLastCursorPosition()).toStrictEqual([1]);
+    checkForwardPositions(node, [[0], [0, 0, 0], [0, 1, 0], [0, 2, 0], [1]]);
+    checkBackwardPositions(node, [[1], [0, 2, 0], [0, 1, 0], [0, 0, 0], [0]]);
 });
 
 it("single toplevel sum formula with empty content", () => {

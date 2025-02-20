@@ -109,14 +109,17 @@ export class SequenceNode implements FormulaNode {
     }
 
     getPreviousCursorPosition([index, ...remainingIndices]: CursorPosition): CursorPosition | null {
-        if (index === 0) {
+        if (remainingIndices.length > 0) {
+            const element = this.elements[index];
+            const elementResult = element.getPreviousCursorPosition(remainingIndices as CursorPosition);
+            return elementResult ? [index, ...elementResult] : [index];
+        } else if (index === 0) {
             return null;
+        } else {
+            const element = this.elements[index - 1];
+            const elementResult = element.getLastCursorPosition();
+            return elementResult ? [index - 1, ...elementResult] : [index - 1];
         }
-        const element = this.elements[index - 1];
-        const elementResult = (remainingIndices.length === 0)
-            ? element.getLastCursorPosition()
-            : element.getPreviousCursorPosition(remainingIndices as CursorPosition);
-        return [index - 1, ...(elementResult ?? [])];
     }
 
     insertLeft(cursorPosition: CursorPosition, what: FormulaNode): FormulaNodeAndCursorPosition {
