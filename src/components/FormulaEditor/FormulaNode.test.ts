@@ -91,6 +91,18 @@ it("sequence with sum with non-empty content", () => {
     checkDeleteLeft(node, [0, 2, 1], seq(sumOf(ab, cd, seq(atom("f")))), [0, 2, 0]);
     checkDeleteLeft(node, [0, 2, 2], seq(sumOf(ab, cd, seq(atom("e")))), [0, 2, 1]);
     checkDeleteLeft(node, [1], node, [0, 2, 2]);
+    
+    checkDeleteRight(node, [0], node, [0, 0, 0]);
+    checkDeleteRight(node, [0, 0, 0], seq(sumOf(seq(atom("b")), cd, ef)), [0, 0, 0]);
+    checkDeleteRight(node, [0, 0, 1], seq(sumOf(seq(atom("a")), cd, ef)), [0, 0, 1]);
+    checkDeleteRight(node, [0, 0, 2], node, [0, 1, 0]);
+    checkDeleteRight(node, [0, 1, 0], seq(sumOf(ab, seq(atom("d")), ef)), [0, 1, 0]);
+    checkDeleteRight(node, [0, 1, 1], seq(sumOf(ab, seq(atom("c")), ef)), [0, 1, 1]);
+    checkDeleteRight(node, [0, 1, 2], node, [0, 2, 0]);
+    checkDeleteRight(node, [0, 2, 0], seq(sumOf(ab, cd, seq(atom("f")))), [0, 2, 0]);
+    checkDeleteRight(node, [0, 2, 1], seq(sumOf(ab, cd, seq(atom("e")))), [0, 2, 1]);
+    checkDeleteRight(node, [0, 2, 2], node, [1]);
+    checkDeleteRightFails(node, [1]);
 });
 
 it("single toplevel sum formula with empty content", () => {
