@@ -43,6 +43,18 @@ it("sequence with sum with empty content", () => {
     checkInsert(node, [0, 1, 0], seq(sumOf(seq(), seq(inserted), seq())));
     checkInsert(node, [0, 2, 0], seq(sumOf(seq(), seq(), seq(inserted))));
     checkInsert(node, [1], seq(sum(), inserted));
+    
+    checkDeleteLeftFails(node, [0]);
+    checkDeleteLeft(node, [0, 0, 0], seq(), [0]);
+    checkDeleteLeft(node, [0, 1, 0], node, [0, 0, 0]);
+    checkDeleteLeft(node, [0, 2, 0], node, [0, 1, 0]);
+    checkDeleteLeft(node, [1], node, [0, 2, 0]);
+    
+    checkDeleteRight(node, [0], node, [0, 0, 0]);
+    checkDeleteRight(node, [0, 0, 0], node, [0, 1, 0]);
+    checkDeleteRight(node, [0, 1, 0], node, [0, 2, 0]);
+    checkDeleteRight(node, [0, 2, 0], seq(), [0]);
+    checkDeleteRightFails(node, [1]);
 });
 
 it("sequence with sum with non-empty content", () => {
