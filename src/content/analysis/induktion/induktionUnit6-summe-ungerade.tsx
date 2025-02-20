@@ -61,6 +61,7 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
         ],
     })),
      */
+    
     createFormulaKeyboardExercise({
         body: (input, cursorPosition) => <>
             <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
@@ -72,12 +73,13 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
                 new SequenceNode([new Atom("a")]),
                 new SequenceNode([new Atom("b")]),
                 new SequenceNode([new Atom("c")]),
-            ]),
+            ])],
             [2, new Atom("2b")],
             [3, new Atom("3c")],
         ],
         validator: input => true,
     })
+    
 ]);
 
 const cursorAtom = new Atom("§cursor");
