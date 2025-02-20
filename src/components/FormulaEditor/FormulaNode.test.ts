@@ -141,6 +141,26 @@ it("single toplevel sum formula with non-empty content", () => {
     checkInsert(node, [2, 0], sumOf(ab, cd, seq(inserted, atom("e"), atom("f"))));
     checkInsert(node, [2, 1], sumOf(ab, cd, seq(atom("e"), inserted, atom("f"))));
     checkInsert(node, [2, 2], sumOf(ab, cd, seq(atom("e"), atom("f"), inserted)));
+
+    checkDeleteLeftFails(node, [0, 0]);
+    checkDeleteLeft(node, [0, 1], sumOf(seq(atom("b")), cd, ef), [0, 0]);
+    checkDeleteLeft(node, [0, 2], sumOf(seq(atom("a")), cd, ef), [0, 1]);
+    checkDeleteLeft(node, [1, 0], node, [0, 2]);
+    checkDeleteLeft(node, [1, 1], sumOf(ab, seq(atom("d")), ef), [1, 0]);
+    checkDeleteLeft(node, [1, 2], sumOf(ab, seq(atom("c")), ef), [1, 1]);
+    checkDeleteLeft(node, [2, 0], node, [1, 2]);
+    checkDeleteLeft(node, [2, 1], sumOf(ab, cd, seq(atom("f"))), [2, 0]);
+    checkDeleteLeft(node, [2, 2], sumOf(ab, cd, seq(atom("e"))), [2, 1]);
+
+    checkDeleteRight(node, [0, 0], sumOf(seq(atom("b")), cd, ef), [0, 0]);
+    checkDeleteRight(node, [0, 1], sumOf(seq(atom("a")), cd, ef), [0, 1]);
+    checkDeleteRight(node, [0, 2], node, [1, 0]);
+    checkDeleteRight(node, [1, 0], sumOf(ab, seq(atom("d")), ef), [1, 0]);
+    checkDeleteRight(node, [1, 1], sumOf(ab, seq(atom("c")), ef), [1, 1]);
+    checkDeleteRight(node, [1, 2], node, [2, 0]);
+    checkDeleteRight(node, [2, 0], sumOf(ab, cd, seq(atom("f"))), [2, 0]);
+    checkDeleteRight(node, [2, 1], sumOf(ab, cd, seq(atom("e"))), [2, 1]);
+    checkDeleteRightFails(node, [2, 2]);
 });
 
 // --------------------------------------------------------------------------------------------------------------------
