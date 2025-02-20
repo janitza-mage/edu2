@@ -113,6 +113,14 @@ it("single toplevel sum formula with empty content", () => {
     checkInsert(node, [0, 0], sumOf(seq(inserted), seq(), seq()));
     checkInsert(node, [1, 0], sumOf(seq(), seq(inserted), seq()));
     checkInsert(node, [2, 0], sumOf(seq(), seq(), seq(inserted)));
+
+    checkDeleteLeftFails(node, [0, 0]);
+    checkDeleteLeft(node, [1, 0], node, [0, 0]);
+    checkDeleteLeft(node, [2, 0], node, [1, 0]);
+
+    checkDeleteRight(node, [0, 0], node, [1, 0]);
+    checkDeleteRight(node, [1, 0], node, [2, 0]);
+    checkDeleteRightFails(node, [2, 0]);
 });
 
 it("single toplevel sum formula with non-empty content", () => {
