@@ -30,40 +30,73 @@ function sum() {
     return sumOf(seq(), seq(), seq());
 }
 
+const inserted = atom("inserted");
 
 it("sequence with sum with empty content", () => {
     const node = seq(sum());
+
     checkForwardPositions(node, [[0], [0, 0, 0], [0, 1, 0], [0, 2, 0], [1]]);
     checkBackwardPositions(node, [[1], [0, 2, 0], [0, 1, 0], [0, 0, 0], [0]]);
-    // checkInsert(node, [0], new SequenceNode([new Atom("a"), new SumNode([new SequenceNode(), new SequenceNode(), new SequenceNode()])]));
+
+    checkInsert(node, [0], seq(inserted, sum()));
+    checkInsert(node, [0, 0, 0], seq(sumOf(seq(inserted), seq(), seq())));
+    checkInsert(node, [0, 1, 0], seq(sumOf(seq(), seq(inserted), seq())));
+    checkInsert(node, [0, 2, 0], seq(sumOf(seq(), seq(), seq(inserted))));
+    checkInsert(node, [1], seq(sum(), inserted));
 });
 
 it("sequence with sum with non-empty content", () => {
-    const node = seq(sumOf(
-        seq(atom("a"), atom("b")),
-        seq(atom("c"), atom("d")),
-        seq(atom("e"), atom("f")),
-    ));
+    const ab = seq(atom("a"), atom("b"));
+    const cd = seq(atom("c"), atom("d"));
+    const ef = seq(atom("e"), atom("f"));
+    const node = seq(sumOf(ab, cd, ef));
+
     checkForwardPositions(node, [[0], [0, 0, 0], [0, 0, 1], [0, 0, 2], [0, 1, 0], [0, 1, 1], [0, 1, 2],
         [0, 2, 0], [0, 2, 1], [0, 2, 2], [1]]);
     checkBackwardPositions(node, [[1], [0, 2, 2], [0, 2, 1], [0, 2, 0], [0, 1, 2], [0, 1, 1], [0, 1, 0],
         [0, 0, 2], [0, 0, 1], [0, 0, 0], [0]]);
+
+    checkInsert(node, [0], seq(inserted, sumOf(ab, cd, ef)));
+    checkInsert(node, [0, 0, 0], seq(sumOf(seq(inserted, atom("a"), atom("b")), cd, ef)));
+    checkInsert(node, [0, 0, 1], seq(sumOf(seq(atom("a"), inserted, atom("b")), cd, ef)));
+    checkInsert(node, [0, 0, 2], seq(sumOf(seq(atom("a"), atom("b"), inserted), cd, ef)));
+    checkInsert(node, [0, 1, 0], seq(sumOf(ab, seq(inserted, atom("c"), atom("d")), ef)));
+    checkInsert(node, [0, 1, 1], seq(sumOf(ab, seq(atom("c"), inserted, atom("d")), ef)));
+    checkInsert(node, [0, 1, 2], seq(sumOf(ab, seq(atom("c"), atom("d"), inserted), ef)));
+    checkInsert(node, [0, 2, 0], seq(sumOf(ab, cd, seq(inserted, atom("e"), atom("f")))));
+    checkInsert(node, [0, 2, 1], seq(sumOf(ab, cd, seq(atom("e"), inserted, atom("f")))));
+    checkInsert(node, [0, 2, 2], seq(sumOf(ab, cd, seq(atom("e"), atom("f"), inserted))));
+    checkInsert(node, [1], seq(sumOf(ab, cd, ef), inserted));
 });
 
 it("single toplevel sum formula with empty content", () => {
     const node = sum();
     checkForwardPositions(node, [[0, 0], [1, 0], [2, 0]]);
     checkBackwardPositions(node, [[2, 0], [1, 0], [0, 0]]);
+
+    checkInsert(node, [0, 0], sumOf(seq(inserted), seq(), seq()));
+    checkInsert(node, [1, 0], sumOf(seq(), seq(inserted), seq()));
+    checkInsert(node, [2, 0], sumOf(seq(), seq(), seq(inserted)));
 });
 
 it("single toplevel sum formula with non-empty content", () => {
-    const node = sumOf(
-        seq(atom("a"), atom("b")),
-        seq(atom("c"), atom("d")),
-        seq(atom("e"), atom("f")),
-    );
+    const ab = seq(atom("a"), atom("b"));
+    const cd = seq(atom("c"), atom("d"));
+    const ef = seq(atom("e"), atom("f"));
+    const node = sumOf(ab, cd, ef);
+    
     checkForwardPositions(node, [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]]);
     checkBackwardPositions(node, [[2, 2], [2, 1], [2, 0], [1, 2], [1, 1], [1, 0], [0, 2], [0, 1], [0, 0]]);
+
+    checkInsert(node, [0, 0], sumOf(seq(inserted, atom("a"), atom("b")), cd, ef));
+    checkInsert(node, [0, 1], sumOf(seq(atom("a"), inserted, atom("b")), cd, ef));
+    checkInsert(node, [0, 2], sumOf(seq(atom("a"), atom("b"), inserted), cd, ef));
+    checkInsert(node, [1, 0], sumOf(ab, seq(inserted, atom("c"), atom("d")), ef));
+    checkInsert(node, [1, 1], sumOf(ab, seq(atom("c"), inserted, atom("d")), ef));
+    checkInsert(node, [1, 2], sumOf(ab, seq(atom("c"), atom("d"), inserted), ef));
+    checkInsert(node, [2, 0], sumOf(ab, cd, seq(inserted, atom("e"), atom("f"))));
+    checkInsert(node, [2, 1], sumOf(ab, cd, seq(atom("e"), inserted, atom("f"))));
+    checkInsert(node, [2, 2], sumOf(ab, cd, seq(atom("e"), atom("f"), inserted)));
 });
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -109,11 +142,11 @@ function checkInsert(
 ): void {
     const modifiedPosition: CursorPosition = [...position];
     modifiedPosition[modifiedPosition.length - 1]++;
-    expectFormulaAndPositionEquals(root.insertLeft(position, new Atom("blarp")), {
+    expectFormulaAndPositionEquals(root.insertLeft(position, inserted), {
         formulaNode: expectedFormula,
         cursorPosition: modifiedPosition,
     });
-    expectFormulaAndPositionEquals(root.insertRight(position, new Atom("blarp")), {
+    expectFormulaAndPositionEquals(root.insertRight(position, inserted), {
         formulaNode: expectedFormula,
         cursorPosition: position,
     });

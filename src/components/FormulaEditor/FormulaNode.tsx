@@ -137,7 +137,9 @@ export class SequenceNode implements FormulaNode {
             newElements.splice(index, 0, what);
             newCursorPosition = [index + cursorIncrement];
         } else {
-            const subResult = newElements[index].insertLeft(remainingIndices as CursorPosition, what);
+            const subResult = cursorIncrement === 0
+                ? newElements[index].insertRight(remainingIndices as CursorPosition, what)
+                : newElements[index].insertLeft(remainingIndices as CursorPosition, what);
             newElements[index] = subResult.formulaNode;
             newCursorPosition = [index, ...subResult.cursorPosition];
         }
