@@ -48,15 +48,15 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
         </>,
         shuffle: true,
         items: [
-            {correct: false, label: mathSpan("#sum_{i=1}^1i = 1^2")},
+            {correct: false, label: mathSpan("#sum_{i=1}^1(i) = 1^2")},
             {correct: false, label: mathSpan("#sum_{i=1}^1(2i-1) = 1^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^ni = n^2")},
+            {correct: false, label: mathSpan("#sum_{i=1}^n(i) = n^2")},
             {correct: false, label: mathSpan("#sum_{i=1}^n(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}i = n^2")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = n^2")},
             {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^ni = n^2 #Rightarrow #sum_{i=1}^{n+1}i = n^2")},
+            {correct: false, label: mathSpan("#sum_{i=1}^n(i) = n^2 #Rightarrow #sum_{i=1}^{n+1}(i) = n^2")},
             {correct: false, label: mathSpan("#sum_{i=1}^n(2i-1) = n^2 #Rightarrow #sum_{i=1}^{n+1}(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{100}i = 100^2")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{100}(i) = 100^2")},
             {correct: true, label: mathSpan("#sum_{i=1}^{100}(2i-1) = 100^2")},
         ],
     })),
@@ -64,18 +64,15 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
     
     createFormulaKeyboardExercise({
         body: (input, cursorPosition) => <>
-            <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
-                für {mathSpan("n=100")}?</p>
+            <p>Es soll gezeigt werden:</p>
+            <p>{mathDiv("#sum_{i=1}^{n}(2i-1) = n^2")}</p>
+            <p>Wie lautet diese Aussage für {mathSpan("n=100")}?</p>
             <p>{mathDiv(withCursor(input, cursorPosition).convertToLatex())}</p>
         </>,
         formulaKeys: [
-            ["S", new SumNode([
-                new SequenceNode([new Atom("a")]),
-                new SequenceNode([new Atom("b")]),
-                new SequenceNode([new Atom("c")]),
-            ])],
-            [2, new Atom("2b")],
-            [3, new Atom("3c")],
+            ["Σ", new SumNode([new SequenceNode(), new SequenceNode(), new SequenceNode()])],
+            "0", "1", "2", "n", "i", "=", "(", ")", "+", "-",
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"
         ],
         validator: input => true,
     })

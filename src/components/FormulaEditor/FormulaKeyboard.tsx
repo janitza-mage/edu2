@@ -1,55 +1,57 @@
 import styles from "./FormulaKeyboard.module.css";
-import {FormulaNode} from "./FormulaNode";
+import {Atom, FormulaNode} from "./FormulaNode";
 import {ReactNode} from "react";
 
 export interface FormulaKeyboardProps {
-    formulaKeys: [ReactNode, FormulaNode][];
+    formulaKeys: ([ReactNode, FormulaNode] | string)[];
     onClickInsertFormulaNode: (node: FormulaNode) => void;
     onClickDeleteLeft: () => void;
     onClickDeleteRight: () => void;
     onClickMoveLeft: () => void;
     onClickMoveRight: () => void;
+    onClickReset: () => void;
     onClickConfirm: () => void;
     visible?: boolean;
 }
 
-const maxUserDefinedKeysFirstRow = 4;
-const maxUserDefinedKeysSecondRow = 3;
-const maxUserDefinedKeys = maxUserDefinedKeysFirstRow + maxUserDefinedKeysSecondRow;
-
 export function FormulaKeyboard(props: FormulaKeyboardProps) {
-    const keys = normalizeKeys(props.formulaKeys);
-    const firstRowKeys = keys.slice(0, maxUserDefinedKeysFirstRow);
-    const secondRowKeys = keys.slice(maxUserDefinedKeysFirstRow);
-    
     const visible = props.visible ?? true;
+    
+    const userDefinedKeys = normalizeUserDefinedKeys(props.formulaKeys, 24);
+    function getUserDefinedRow(from: number, to: number): [ReactNode, () => void][] {
+        const slice = userDefinedKeys.slice(from, to);
+        return slice.map(([label, node]) => [label, () => node && props.onClickInsertFormulaNode(node)]);
+    }
+    
+    const rows: [label: ReactNode, onClick: () => void][][] = [
+        [...getUserDefinedRow(0, 8), ["⬅", props.onClickMoveLeft], ["➡", props.onClickMoveRight]],
+        [...getUserDefinedRow(8, 16), ["⌫", props.onClickDeleteLeft], ["⌦", props.onClickDeleteRight]],
+        [...getUserDefinedRow(16, 24), ["🗑", props.onClickReset], ["✓", props.onClickConfirm]],
+    ]; 
+    
     return <table className={styles.formulaKeyboard} style={{visibility: visible ? "visible": "hidden"}}>
         <tbody>
-            <tr>
-                {firstRowKeys.map(x => <td onClick={() => visible && x[1] && props.onClickInsertFormulaNode(x[1])}>
-                    {x[0]}
+            {rows.map(row => <tr>
+                {row.map(cell => <td onClick={() => visible && cell[1]()}>
+                    {cell[0]}
                 </td>)}
-                <td onClick={() => visible && props.onClickDeleteLeft()}>⌫</td>
-                <td onClick={() => visible && props.onClickDeleteRight()}>⌦</td>
-            </tr>
-            <tr>
-                {secondRowKeys.map(x => <td onClick={() => visible && x[1] && props.onClickInsertFormulaNode(x[1])}>
-                    {x[0]}
-                </td>)}
-                <td onClick={() => visible && props.onClickMoveLeft()}>⬅</td>
-                <td onClick={() => visible && props.onClickMoveRight()}>➡</td>
-                <td onClick={() => visible && props.onClickConfirm()}>✓</td>
-            </tr>
+            </tr>)}
         </tbody>
     </table>;
 }
 
-function normalizeKeys(keys: [ReactNode, FormulaNode][]): [ReactNode, FormulaNode | null][] {
-    const result: [ReactNode, FormulaNode | null][] = [...keys];
-    if (result.length > maxUserDefinedKeys) {
-        return result.slice(0, maxUserDefinedKeys);
+function normalizeUserDefinedKeys(keys: ([ReactNode, FormulaNode] | string)[], max: number): [ReactNode, FormulaNode | null][] {
+    const result: [ReactNode, FormulaNode | null][] = keys.map(key => {
+        if (typeof key === "string") {
+            return [key, new Atom(key)];
+        } else {
+            return key;
+        }
+    });
+    if (result.length > max) {
+        return result.slice(0, max);
     }
-    while (result.length < maxUserDefinedKeys) {
+    while (result.length < max) {
         result.push([null, null]);
     }
     return result;

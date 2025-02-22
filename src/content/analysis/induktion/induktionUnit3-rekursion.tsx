@@ -20,8 +20,8 @@ export const induktionUnit3 = createSteppedUnit("rekursion", "Bezug auf das vorh
     createReadStep({
         content: <>
             <div>Beispiel:</div>
-            <div>{mathDiv("#sum_{i=1}^{10}i = 55")}</div>
-            <div>{mathDiv("#sum_{i=1}^{11}i = #sum_{i=1}^{10}i + 11 = 66")}</div>
+            <div>{mathDiv("#sum_{i=1}^{10}(i) = 55")}</div>
+            <div>{mathDiv("#sum_{i=1}^{11}(i) = #sum_{i=1}^{10}(i) + 11 = 66")}</div>
         </>,
     }),
     createNumberKeyboardExercise({
@@ -31,7 +31,7 @@ export const induktionUnit3 = createSteppedUnit("rekursion", "Bezug auf das vorh
                 ersten 200 Zahlen?
             </p>
             <p>
-                {mathDiv("#sum_{i=1}^{200}i = #sum_{i=1}^{199}i + 200 = #textcolor{blue}{" + (input || "?") + "}")}
+                {mathDiv("#sum_{i=1}^{200}(i) = #sum_{i=1}^{199}(i) + 200 = #textcolor{blue}{" + (input || "?") + "}")}
             </p>
         </>,
         correct: 20100,
@@ -43,7 +43,7 @@ export const induktionUnit3 = createSteppedUnit("rekursion", "Bezug auf das vorh
                 ersten 200 Zahlen?
             </p>
             <p>
-                {mathDiv("#sum_{i=1}^{200}i = #sum_{i=1}^{199}i + 200 = 20100")}
+                {mathDiv("#sum_{i=1}^{200}(i) = #sum_{i=1}^{199}(i) + 200 = 20100")}
             </p>
         </>,
     })),

@@ -61,20 +61,20 @@ export const induktionUnit1 = createSteppedUnit("summeN", "Summe der ersten n Za
         content: <>
             {mathDiv("1+2+...+n = #frac{n(n+1)}{2}")}
             <div>Mit der Summenschreibweise aus dem Grundkurs:</div>
-            {mathDiv("#sum_{i=1}^ni = #frac{n(n+1)}{2}")}
+            {mathDiv("#sum_{i=1}^n(i) = #frac{n(n+1)}{2}")}
         </>,
     }),
     createNumberKeyboardExercise({
         body: input => <>
             <div>Berechne die Summe der ersten 1000 Zahlen.</div>
-            {mathDiv("#sum_{i=i}^{1000} = #textcolor{blue}{" + (input || "?") + "}")}
+            {mathDiv("#sum_{i=i}^{1000}(i) = #textcolor{blue}{" + (input || "?") + "}")}
         </>,
         correct: 500 * 1001,
     }),
     noFadeStep(createNumberKeyboardLayoutReadStep({
         content: <>
             <div>Berechne die Summe der ersten 1000 Zahlen.</div>
-            {mathDiv("#sum_{i=i}^{1000} = 500500")}
+            {mathDiv("#sum_{i=i}^{1000}(i) = 500500")}
         </>,
     })),
 ]);

@@ -6,7 +6,7 @@ import {useExerciseSingletonFeedback} from "../util/useExerciseSingletonFeedback
 import {CursorPosition, FormulaNode, FormulaNodeAndCursorPosition, SequenceNode} from "./FormulaNode";
 
 export interface FormulaKeyboardExerciseProps {
-    formulaKeys: [ReactNode, FormulaNode][];
+    formulaKeys: ([ReactNode, FormulaNode] | string)[];
     body: (input: FormulaNode, cursorPosition: CursorPosition) => ReactNode;
     validator: (input: FormulaNode) => boolean;
     widthPercent?: number | undefined | null;
@@ -56,6 +56,11 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
     
     function onClickMoveRight() {
         handleCursorPosition(input.getNextCursorPosition(cursorPosition));
+    }
+    
+    function onReset() {
+        setInput(new SequenceNode([]));
+        setCursorPosition([0]);
     }
     
     function onConfirm() {
@@ -111,6 +116,7 @@ export function FormulaKeyboardExercise(props: FormulaKeyboardExerciseProps) {
         onClickDeleteRight={onClickDeleteRight}
         onClickMoveLeft={onClickMoveLeft}
         onClickMoveRight={onClickMoveRight}
+        onClickReset={onReset}
         onClickConfirm={onConfirm}
         visible={true}
     />;
