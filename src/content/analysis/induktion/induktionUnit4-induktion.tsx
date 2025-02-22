@@ -75,7 +75,7 @@ export const induktionUnit4 = createSteppedUnit("induktion", "Beweis durch Volls
             </p>
             <p>
                 {mathDiv("#sum_{i=1}^{n+1}(i)")}
-                {mathDiv("= (#sum_{i=1}^{n}(i))+(n+1)")}
+                {mathDiv("= #sum_{i=1}^{n}(i)+(n+1)")}
                 {mathDiv("= #frac{n(n+1)}{2}+(n+1)")}
                 {mathDiv("= #frac{n(n+1)}{2}+#frac{2(n+1)}{2}")}
                 {mathDiv("= #frac{n(n+1)+2(n+1)}{2}")}

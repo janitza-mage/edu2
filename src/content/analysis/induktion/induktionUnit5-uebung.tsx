@@ -23,7 +23,7 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
             {correct: true, label: mathSpan("#sum_{i=1}^n(i) = #frac{n(n+1)}{2}")},
             {correct: false, label: mathSpan("i=1")},
             {correct: false, label: mathSpan("n=1")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = (#sum_{i=1}^n(i)) + (n+1)")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = #sum_{i=1}^n(i) + (n+1)")},
             {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = #frac{(n+1)(n+2)}{2}")},
             {correct: false, label: mathSpan("#sum_{i=1}^n(i) = #frac{n(n+1)}{2} #Rightarrow #sum_{i=1}^{n+1}(i) = #frac{(n+1)(n+2)}{2}")},
         ],
@@ -46,7 +46,7 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
             {correct: false, label: mathSpan("#sum_{i=1}^n(i) = #frac{n(n+1)}{2}")},
             {correct: false, label: mathSpan("i=1")},
             {correct: false, label: mathSpan("n=1")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = (#sum_{i=1}^ni) + (n+1)")},
+            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = #sum_{i=1}^n(i) + (n+1)")},
             {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = #frac{(n+1)(n+2)}{2}")},
             {correct: true, label: mathSpan("#sum_{i=1}^n(i) = #frac{n(n+1)}{2} #Rightarrow #sum_{i=1}^{n+1}(i) = #frac{(n+1)(n+2)}{2}")},
         ],
@@ -64,7 +64,7 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
                     correctArrowIndex={1}
                     equations={[
                         "#sum_{i=1}^{n+1}(i)",
-                        "= (#sum_{i=1}^{n}(i))+(n+1)",
+                        "= #sum_{i=1}^{n}(i)+(n+1)",
                         "= #frac{n(n+1)}{2}+(n+1)",
                         "= #frac{n(n+1)}{2}+#frac{2(n+1)}{2}",
                         "= #frac{n(n+1)+2(n+1)}{2}",
@@ -82,7 +82,7 @@ export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", ()
                     description={"Bringe die Gleichungen für den Induktionsschritt in die richtige Reihenfolge:"}
                     equations={[
                         "#sum_{i=1}^{n+1}(i)",
-                        "= (#sum_{i=1}^{n}(i))+(n+1)",
+                        "= #sum_{i=1}^{n}(i)+(n+1)",
                         "= #frac{n(n+1)}{2}+(n+1)",
                         "= #frac{n(n+1)}{2}+#frac{2(n+1)}{2}",
                         "= #frac{n(n+1)+2(n+1)}{2}",
