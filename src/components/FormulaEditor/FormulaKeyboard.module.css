@@ -5,11 +5,12 @@
     border-spacing: 0.1em;
     background-color: #ffe;
     table-layout: fixed;
+    font-size: 1.6em;
 }
 
 .formulaKeyboard td {
     border: 1px solid #aaa;
-    padding: 0.5em;
+    padding: 0.2em;
     text-align: center;
     cursor: pointer;
 }

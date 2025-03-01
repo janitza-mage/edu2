@@ -15,8 +15,8 @@ export interface CenteredContentProps {
  */
 export function CenteredContent(props: CenteredContentProps) {
     // TODO handle content that is too large
-    return <div style={{width: (props.widthPercent ?? 50) + "%", height: "100%", marginLeft: "auto", marginRight: "auto", position: "relative"}}>
-        <div style={{width: "100%", position: "absolute", top: "50%", transform: "translateY(-50%)"}}>
+    return <div style={{width: (props.widthPercent ?? 50) + "%", height: "100%", marginLeft: "auto", marginRight: "auto", position: "relative", overflowX: "hidden", overflowY: "scroll"}}>
+        <div style={{width: "100%", position: "absolute", top: "50%", transform: "translateY(-50%)", paddingTop: "6em", paddingBottom: "3em"}}>
             {props.children}
         </div>
     </div>

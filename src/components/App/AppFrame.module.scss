@@ -3,18 +3,36 @@ html {
   overscroll-behavior: none;
 
   // must be here, so it affects "rem" units
-  font-size: min(3.0vw, 3.0vh);
+  font-size: min(4.0vw, 4.0vh);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #888;
+
+  font-family: "app-open-sans", serif;
+  font-variation-settings: "wdth" 100;
 }
+
+@font-face {
+  font-family: 'app-open-sans';
+  src: url('app-open-sans.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'app-open-sans';
+  src: url('app-open-sans-italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
