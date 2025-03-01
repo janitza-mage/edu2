@@ -37,27 +37,27 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
         body: input => <>
             <p>Die Summe der ersten {mathSpan("n")} ungeraden Zahlen ist {mathSpan("n^2")}.</p>
             <p>Was ist die Summe der ersten 100 ungeraden Zahlen?</p>
-            <p>{mathDiv("#sum_{i=1}^{100}(2i+1) = #textcolor{blue}{" + (input || "?") + "}")}</p>
+            <p>{mathDiv("(#sum_{i=1}^{100}2i+1) = #textcolor{blue}{" + (input || "?") + "}")}</p>
         </>,
         correct: 10000,
     }),
     withTextSize(0.7, createChoiceStep({
         title: <>
-            <p>Es soll gezeigt werden: {mathSpan("#sum_{i=1}^{n}(2i-1) = n^2")}. Wie lautet diese Aussage
+            <p>Es soll gezeigt werden: {mathSpan("(#sum_{i=1}^{n}2i-1) = n^2")}. Wie lautet diese Aussage
                 für {mathSpan("n=100")}?</p>
         </>,
         shuffle: true,
         items: [
-            {correct: false, label: mathSpan("#sum_{i=1}^1(i) = 1^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^1(2i-1) = 1^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^n(i) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^n(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(i) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{n+1}(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^n(i) = n^2 #Rightarrow #sum_{i=1}^{n+1}(i) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^n(2i-1) = n^2 #Rightarrow #sum_{i=1}^{n+1}(2i-1) = n^2")},
-            {correct: false, label: mathSpan("#sum_{i=1}^{100}(i) = 100^2")},
-            {correct: true, label: mathSpan("#sum_{i=1}^{100}(2i-1) = 100^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^1i) = 1^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^12i-1) = 1^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^ni) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^n2i-1) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^{n+1}i) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^{n+1}2i-1) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^ni) = n^2 #Rightarrow (#sum_{i=1}^{n+1}i) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^n2i-1) = n^2 #Rightarrow (#sum_{i=1}^{n+1}2i-1) = n^2")},
+            {correct: false, label: mathSpan("(#sum_{i=1}^{100}i) = 100^2")},
+            {correct: true, label: mathSpan("(#sum_{i=1}^{100}2i-1) = 100^2")},
         ],
     })),
      */
@@ -65,7 +65,7 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
     createFormulaKeyboardExercise({
         body: (input, cursorPosition) => <>
             <p>Es soll gezeigt werden:</p>
-            <p>{mathDiv("#sum_{i=1}^{n}(2i-1) = n^2")}</p>
+            <p>{mathDiv("(#sum_{i=1}^{n}2i-1) = n^2")}</p>
             <p>Wie lautet diese Aussage für {mathSpan("n=100")}?</p>
             <p>{mathDiv(withCursor(input, cursorPosition).convertToLatex())}</p>
         </>,

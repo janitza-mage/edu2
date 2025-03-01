@@ -470,6 +470,11 @@ export function sanitizeRigitNodeChildren(children: FormulaNode[], count: number
     return children;
 }
 
+/**
+ * A sum node gets parenthesized as (Σ ...), with everything inside the parentheses
+ * being part of the per-index term. I first considered using Σ(...), but then squaring
+ * the whole sum is written as Σ(...)² which is ambiguous.
+ */
 export class SumNode extends AbstractRigidNode {
 
     constructor(children: [FormulaNode, FormulaNode, FormulaNode]) {
@@ -480,7 +485,7 @@ export class SumNode extends AbstractRigidNode {
         const a = this.convertChildToLatex(0);
         const b = this.convertChildToLatex(1);
         const c = this.convertChildToLatex(2);
-        return `#sum_{${a}}^{${b}}(${c})`;
+        return `(#sum_{${a}}^{${b}}${c})`;
     }
 
 }
