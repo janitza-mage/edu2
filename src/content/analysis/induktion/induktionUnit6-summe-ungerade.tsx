@@ -70,9 +70,14 @@ export const induktionUnit6 = createSteppedUnit("summeUngerade", "Summe der erst
             <p>{mathDiv(withCursor(input, cursorPosition).convertToLatex())}</p>
         </>,
         formulaKeys: [
-            ["Σ", new SumNode([new SequenceNode(), new SequenceNode(), new SequenceNode()])],
-            "0", "1", "2", "n", "i", "=", "(", ")", "+", "-",
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"
+            [
+                "Σ", new SumNode([new SequenceNode(), new SequenceNode(), new SequenceNode()])
+            ],
+            "0", "1", "2", "n", "i", "+", "-",
+            "(", ")", "=",
+            [
+                "²", new Atom("^2"),
+            ],
         ],
         validator: input => true,
     })
