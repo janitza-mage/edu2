@@ -135,6 +135,7 @@ export class SequenceNode implements FormulaNode {
         let newCursorPosition: CursorPosition;
         if (remainingIndices.length === 0) {
             newElements.splice(index, 0, what);
+            // TODO if cursorIncrement == 0 try to find first position in inserted content
             newCursorPosition = [index + cursorIncrement];
         } else {
             const subResult = cursorIncrement === 0
@@ -459,7 +460,7 @@ export abstract class AbstractRigidNode implements FormulaNode {
 
 }
 
-export function sanitizeRigitNodeChildren(children: FormulaNode[], count: number): FormulaNode[] {
+export function sanitizeRigidNodeChildren(children: FormulaNode[], count: number): FormulaNode[] {
     children = [...children];
     if (children.length > count) {
         children = children.slice(0, count);
@@ -478,7 +479,7 @@ export function sanitizeRigitNodeChildren(children: FormulaNode[], count: number
 export class SumNode extends AbstractRigidNode {
 
     constructor(children: [FormulaNode, FormulaNode, FormulaNode]) {
-        super(sanitizeRigitNodeChildren(children, 3));
+        super(sanitizeRigidNodeChildren(children, 3));
     }
 
     convertToLatex(): string {

@@ -1,0 +1,162 @@
+
+Hier ist noch gar nicht der Ansatz aus dem Spaced Learning / Flashcards drin.
+
+Außerdem ist der Inhalt in keinster Weise an den Leser angepasst.
+
+Idee zu beidem: Man lernt nach dem Flashcard-Spacing-System, aber mit den Übungen aus
+der bisherigen Anwendung. Aber eben gespaced mit N "Stapeln".
+- Dazu müsste entweder sowas wie eine Einteilung in "Fächer" oder sogar "Teilbereiche"
+    her, weil es keinen Sinn macht, wenn man Analysis lernen will, dass man Aufgaben
+    aus Physik reingestreut bekommt.
+- Oder es müsste ein komplett zweiter Bereich / andere App her, wo man anders lernt.
+    Bereiche sind das schlimmste, was ich dem Leser antun sollte, denn der soll ja
+    eigentlich nicht entscheiden müssen, was man als nächstes lernt.
+
+Der Vorteil einer solchen Flashcard-App wäre, dass ich nicht zwischendurch lange an
+die Erklärungen muss -- das kann zB eine KI tun. Der Nachteil ist, dass man es als
+Leser dann auch nicht beigebracht bekommt, wenn man sich nicht selbst drum kümmert.
+
+(Blöd ist gerade, dass das alles rein theoretisch passiert. Vorteil ist aber, dass
+ich zumindest schon mal verschiedene Ansätze kenne, bevor ich es praktisch ausprobiere.)
+
+Idee: Es gibt keine "Bereiche" im großen Stil, sondern "Einheiten" im kleinen Stil,
+und dort muss man schon entscheiden, welche man als nächstes nimmt. Das löst
+nicht das Problem, dass man dann die Richtung finden muss. Allerdings kann man die
+Inhalte auf z.B. eine Vorlesung abstimmen; die einheiten wären dann ein DAG
+und man wählt pro Einheit, was in Stapel 1 reinwandern soll.
+- Dann könnte man auf höherer Ebene eine "Vorlesung" / "Fach" definieren, wodurch
+    das Einstreuen von neuen Einheiten gesteuert wird.
+- wahrscheinlich ist irgendeine Art von "Flashcard A > Flashcard B" nötig. Man soll
+    zwar jedes Konzept so oft lernen, bis man es kann, aber manchmal gibt es pro
+    Konzept mehrere Karten mit zunehmeder Schwierigkeit. Dann bringt es nicht so
+    viel, die leichten Karten zu lernen, wenn man die schwierigeren schon beherrscht.
+    - vllt sowas wie einen Punktestand pro Konzept: Mit zunehmendem Punktestand
+    kommen erst die schwierigeren Flashcards und dann wirds seltener. Wenn man
+    was verhaut, zurück auf 0 oder zumindest runtergesetzt.
+- Der Ansatz löst zumindest das Problem, wenn es Überschneidungen zwischen den
+    Fächern gibt, weil es hier ja keine Fächer mehr gibt und diese sich so die Einheiten
+    teilen können.
+- Es gibt dann eine Liste von "möglichen nächsten Einheiten", von denen man sich welche
+    Freischalten kann. Wenn ein überhaupt nicht zum Lernziel gehört, kann man diese
+    ausblenden und dafür gibt es eine Liste von ausgeblendeten Einheiten.
+- Die "Fächer" haben jeweils 1. eine Liste von Einstiegseinheiten (die ohne Vorgänger)
+    und außerdem ist es eine Steuerung dafür, was gemcht und was ausgeblendet wird.
+    - Was technisch das selbe sein könnte. Man wählt ein Fach und dadurch werden
+    anfangs die Eintiegseinheiten und später die nächsten Einheiten gefiltert.
+    - ist aber glaube ich vom UI her nicht so toll
+
+Wie würde man es sich als Benutzer wünschen?
+- Das kommt auf den Use-Case an. Welchen will ich denn untersützen?
+    - auf eine Vorlesung ausgerichtet?
+        -> nein. Das ist zu eng und die Vorlesungen wechseln zu schnell. Bringt nix.
+    - aufs Studium vorbereiten?
+        -> nein. Da sehe ich nicht, dass der Bedarf da ist.
+    - Nachhilfe beim Studium?
+        -> nein. Ist so wie die Ausrichtung auf eine Vorlesung -- da renne ich dem Ziel nach.
+    - rausfinden, ob das Studium was für einen ist?
+        - vielleicht
+    - das gleiche ohne ein Studium lernen? / eigenständig was neues lernen?
+        - am liebsten das hier.
+-->
+Dann würde ich mir wünschen:
+- dass ich an die Hand genommen werde, welche Inhalte ich lernen muss
+- dass ich inhaltlich über den Tellerrand schauen kann. Ich weiß ja selbt eh nicht, wo dieser ist.
+- Warum dann Analysis? Wenn ich Informatik lerne, bringt mir das doch eh nix!
+    Oder sollte ich Analysis als ein mögliches Thema anbieten, und man kann sich aussuchen, ob das
+        was ist?
+- Ich will was für den allgemeinen Bildungsstand tun. Da bringt es denke ich am mmeisten, dass jeder
+    frei wählen kann, was ihn interessiert. Also nicht vorgeben, ob Analysis, sondern lieber
+    anbieten und man macht es oder nicht. Die Motivation ist komplett intrinsisch, d.h. etwas vorzugeben
+    würde dieser zuwiderlaufen. Wenn jemand extern motiviert ist, kann man das immer noch auf
+    höherer Ebene abbilden. Also: Nur auf Fächer-Ebene auswählen (z.B. Mathe: ja) und dann bekommt man,
+    wann immer das System merkt, dass im ersten Stapel Platz ist, neue mögliche Mathe-Themen vorgeschlagen
+    und kann sich eines aussuchen bzw. auch ausblenden. Die ausgeblendeten Themen sind dann auch
+    nach gröbst-Fächern wie "Mathe" sortiert.
+
+Jede Art von automatischer Steuerung wird auch nicht damit klarkommen, wenn man später was wiederholen
+will, was man mal gut konnte. Im Gegenteil, die ist dann eher im Weg.
+Idee:
+- Zu jedem Thema (z.B. Induktion) gibt es erst die Lernschritte, dann die Übungen, dann
+    selbstkontrollierte Übungen. Die Lernschritte brauchen dann auch nicht unbedingt mehr eine
+    Benotung, das macht es einfacher. Stattdessen kann man Knoten mit eigens gewählten Icons markieren,
+    z.B. für fertig, uninteressant, unklar usw.
+    - innerhalb der Lernschritte würde es Sinn machen, dass man automatisch zum nächsten kommt.
+        Das ist bei Übungen und selbstkontrollierten Übungen anders, weil die endlos sind und man so
+        nie weiterkommt.
+    - zu einem Thema kann es dann auch Links geben. Erklärvideos etc. Allerdings ersetzt das nicht
+        so gut die initiale Erklärung, höchstens im MVP.
+    - eine initiale Erklärung widerspricht aber auch der Idee. Lieber direkt _machen_!
+        - wenn ich nur "machen-Schritte" habe, löst sich auch das Problem mit dem automatisch weitergehen.
+            Alles sind Übungen, und die sind endlos, bis man wieder rausgeht und dann kann man
+                sie markieren, wenn man will.
+            --> das klingt total ansprechend als "Spielidee"!
+
+Wie machen es andere?
+- Erklärung durch den Lehrer; die App ist vor allem zum Wiederholen und üben
+    - das entspricht keinem meiner beiden Ansätze. Weder lernt man es rein aus der App,
+        noch kann man beliebig oft "drillen".
+    - In späteren Aufgaben kommt dnan aber noch der "Drill".
+    - Trotzdem geht es alles immer von einem separaten Unterricht mit Erklärung und Lehrer aus.
+- Uni aktuell: Vorlesung, + danach wenige Übungen (ist so nicht gut)
+
+Wie könnte ich mir das vorstellen? Geht das ohne Lehrer? Geht es ohne vorab-Erklärung?
+
+Bei Uni-Level wird nicht jeder gleich schnell vorankommen und man wird Übungen zum "Drill" brauchen, zumindest für
+manche Themen (je nach Leser). Der eine kann das eine Thema schneller, der andere das andere Thema. Damit muss
+das Tempo zumindest auf den Leser angepasst werden, oder aber sogar durch den Leser bestimmt (eine Automatik rät
+im Zweifel falsch und ist dann mehr nervig als hilfreich).
+
+Der jetzige Aufbau erklärt zu detailliert das n(n+1)/2 und zu wenig die VI.
+
+Neuer Ansatz:
+- Einheit 1: Erklärung, wie VI theoretisch funktioniert; Demonstration am n(n+1)/2-Beispiel ohne Übung. Alles in
+    einer Einheit ohne viel Geschwafel und Detail-Erklärungen (es ist gar nicht sicher, dass diese beim Verständnis
+    helfen!) + Links auf mehr Videos, Wikipedia, und man kann ja auch noch ChatGPT befragen.
+- Übung 1: summe(i), summe(2i), summe(2i-1), ...
+- Übung 2: Ungleichungen, Produkt, ...
+- Übung 3: Anzahl Teilmengen
+    <-- wie damit umgehen, dass die Übungen manchmal nur 1 oder wenige sind, manchmal viele und manchmal
+    unendlich (generator)?
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Neue Idee:
+- es gibt "Kurse" oder den jetzigen Baum, damit man eine Führung hat, was als nächstes kommt
+- eine geschaffte Einheit wird am nächsten Tag wiederholt und ist dann schwieriger
+- eine geschaffte Einheit auf dem höchsten Level wird nach 1, 2, 3, 5, 8, 13, ... Tagen wiederholt
+---
+alternativ
+- es wird vom Benutzer erwartet, dass er selbst den Baum entlanggeht, je nachdem was er braucht und wie gut
+    er was kann, und die Wiederholung selbst durchführt
+- innerhalb eines Asts werden die Einheiten schwieriger, also so, dass innerhalb von "VI" auch die superschweren
+    VI-Dinge kommen
+==> Vorteile
+    mehr Kontrolle
+    jetzt weniger theoretisch rumprobiert und mehr vertestet
+    man versteht das mit dem Wiederholen besser
+==> Nachteile
+    man könnte denken, dass man VI erst perfekt können muss, bevor es weitergeht. Das könnte man durch einen
+    eingeblendeten "Tipp" verhindern
+==> Idee-Erweiterungen
+- Einheiten, wo random-Aufgaben generiert werden, also solche markieren, aber ansonsten gleich behandeln. Auch nach
+    einer Aufgabe zurück (oder nach N Aufgaben, wenn der Inhalt dieser Unit so definiert ist, aber jedenfalls nicht
+    unenndlich.) Durch di Markierung weiß der Benutzer, dass es hier was neues gibt, wenn man später zurückkommt.
+- Führungs-Assistent auf dieses Konzept oben drauf stülpen. Idee dazu, dass der Assistent einem zwar zeigt, was man
+    machen sollte, aber man auch parallel / danach / etc. ungeführt durch den Baum gehen kann. Mein Gefühl ist,
+    dass das die Motivation verbessert.
+
+
+Wie ist die Abstufung von leichten zu schweren VI-Aufgaben?
+- Aufgabe mit Gleichungen in die richtige Reihenfolge bringen, mit einer Summe wie 1...n o.ä.
+- Gleichungen in die richtige Reihenfolge bringen, wobei nacheinander von oben nach unten "die Plätze mit Gleichungen
+    gefüllt werden". Eine hingeschobene Gleichung wird eingefroren, so dass man sie nicht aus versehen verschieben kann.
+    Ein Overlay zeigt auf die nächste Gleichtung und erklärt, waurm das die nächste ist. (Ist so etwas schwer zu
+    erklären, aber man könnte erklären, welcher Schritt ausgeführt wurde).
+    Die Textbox zum Overlay müsste die Gleichungen nach unten schieben (diese ist technisch gesehen selbst also
+    KEIN overlay).
+- ebenso, aber das Overlay zeigt nicht mehr auf die richtige Gleichung, sondern beschreibt nur noch den auszuführenden
+    Schritt
+- das overlay beschreibt nur noch den gesamten rechenweg, nicht mehr den "aktuellen" schritt. Schritte, die an der
+    richtigen Position liegen, werden nicht mehr eingefroren.
+- ohne Overlay
