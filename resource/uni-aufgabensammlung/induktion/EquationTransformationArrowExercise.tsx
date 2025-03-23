@@ -1,5 +1,5 @@
 import {StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {mathDiv} from "../../../components/Math/Math";
+import {mathDiv} from "../../../src/components/Math/Math";
 import styles from "./EquationTransformationArrowExercise.module.css";
 import {sounds} from "../../../sounds/sounds";
 import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../components/effects/useFlashExerciseBackground";

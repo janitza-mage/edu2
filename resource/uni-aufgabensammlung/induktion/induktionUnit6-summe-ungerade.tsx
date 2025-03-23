@@ -1,5 +1,5 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
+import {mathDiv, mathSpan} from "../../../src/components/Math/Math";
 import {createFormulaKeyboardExercise} from "../../../components/FormulaEditor/createFormulaKeyboardExercise";
 import {Atom, CursorPosition, FormulaNode, SequenceNode, SumNode} from "../../../components/FormulaEditor/FormulaNode";
 

@@ -1,4 +1,4 @@
-import {ContentNode} from "../../types";
+import {ContentNode} from "../../../src/content/types";
 import {induktionUnit1} from "./induktionUnit1-summe-n";
 import {induktionUnit2} from "./induktionUnit2-summe-n-beweis";
 import {induktionUnit3} from "./induktionUnit3-rekursion";

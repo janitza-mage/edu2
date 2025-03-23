@@ -1,11 +1,11 @@
 import {createSteppedUnit, StepInstanceProps} from "../../../unit/step/createSteppedUnit";
-import {mathInlineBlock, mathSpan} from "../../../components/Math/Math";
-import {TextSize} from "../../../components/layout/TextSize";
-import {CenteredContent} from "../../../components/layout/CenteredContent";
+import {mathInlineBlock, mathSpan} from "../../../src/components/Math/Math";
+import {TextSize} from "../../../src/components/layout/TextSize";
+import {CenteredContent} from "../../../src/components/layout/CenteredContent";
 import {EquationTransformationArrowExercise} from "./EquationTransformationArrowExercise";
 import {createReadStep} from "../../../unit/read/createReadStep";
 import {createChoiceStep} from "../../../unit/choice/createChoiceStep";
-import {CenterInline} from "../../../components/layout/CenterInline";
+import {CenterInline} from "../../../src/components/layout/CenterInline";
 import {SortEquationTransformationExercise} from "./SortEquationTransformationExercise";
 
 export const induktionUnit5 = createSteppedUnit("induktion-uebung", "Übung", () => [

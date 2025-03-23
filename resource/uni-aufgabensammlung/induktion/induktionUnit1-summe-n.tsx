@@ -1,7 +1,7 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
-import {CenterBlock} from "../../../components/layout/CenterBlock";
+import {mathDiv, mathSpan} from "../../../src/components/Math/Math";
+import {CenterBlock} from "../../../src/components/layout/CenterBlock";
 import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
 import {noFadeStep} from "../../../unit/step/noFadeStep";
 import {createNumberKeyboardLayoutReadStep} from "../../../unit/numbers/createNumberKeyboardLayoutReadStep";

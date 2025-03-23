@@ -12,6 +12,6 @@ export function ContentNodePage(props: ContentNodePageProps) {
         case "folder":
             return <FolderPage folder={props.node as Folder} path={props.path} />;
         case "problem":
-            return <ProblemPage unit={props.node as Problem} path={props.path} />;
+            return <ProblemPage problem={props.node as Problem} path={props.path} />;
     }
 }

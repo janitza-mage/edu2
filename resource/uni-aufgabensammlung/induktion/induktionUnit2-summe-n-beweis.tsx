@@ -1,13 +1,13 @@
 import {createSteppedUnit, StepInstanceProps} from "../../../unit/step/createSteppedUnit";
 import {ReactNode} from "react";
-import {mathSpan} from "../../../components/Math/Math";
-import {HorizontalSplit} from "../../../components/layout/HorizontalSplit";
+import {mathSpan} from "../../../src/components/Math/Math";
+import {HorizontalSplit} from "../../../src/components/layout/HorizontalSplit";
 import {createBoxMatrix} from "./createBoxMatrix";
-import {getShuffled} from "../../../util/random/getShuffled";
+import {getShuffled} from "../../../src/util/random/getShuffled";
 import {ImmediateFeedbackChoiceExercise} from "../../../unit/choice/ImmediateFeedbackChoiceExercise";
 import {createReadStep} from "../../../unit/read/createReadStep";
-import {inlineLet} from "../../../util/inlineLet";
-import {CenteredContent} from "../../../components/layout/CenteredContent";
+import {inlineLet} from "../../../src/util/inlineLet";
+import {CenteredContent} from "../../../src/components/layout/CenteredContent";
 
 export const induktionUnit2 = createSteppedUnit("summeNBeweis", "Beweis", () => {
     const makeContent = (matrixSpec: string[], right: ReactNode, bottom: ReactNode) => <>

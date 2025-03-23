@@ -12,8 +12,8 @@ import {CSS} from '@dnd-kit/utilities';
 import {useFlashExerciseBackgroundCorrectOrWrong} from "../../../components/effects/useFlashExerciseBackground";
 import {sounds} from "../../../sounds/sounds";
 import {Button} from "@mui/material";
-import {createIndexArray} from "../../../util/createIndexArray";
-import {getShuffled} from "../../../util/random/getShuffled";
+import {createIndexArray} from "../../../src/util/createIndexArray";
+import {getShuffled} from "../../../src/util/random/getShuffled";
 
 export interface SortExerciseProps extends StepInstanceProps {
     description: ReactNode;

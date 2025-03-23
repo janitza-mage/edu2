@@ -1,6 +1,6 @@
 import {createSteppedUnit} from "../../../unit/step/createSteppedUnit";
 import {createReadStep} from "../../../unit/read/createReadStep";
-import {mathDiv, mathSpan} from "../../../components/Math/Math";
+import {mathDiv, mathSpan} from "../../../src/components/Math/Math";
 import {createNumberKeyboardExercise} from "../../../unit/numbers/createNumberKeyboardExercise";
 import {createNumberKeyboardLayoutReadStep} from "../../../unit/numbers/createNumberKeyboardLayoutReadStep";
 import {noFadeStep} from "../../../unit/step/noFadeStep";

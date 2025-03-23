@@ -1,26 +1,37 @@
 import {Problem} from "../../../content/types";
 import {useState} from "react";
-import {UnitInstancePage} from "./UnitInstancePage";
+import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
+import {PageWithHeader} from "../../../components/layout/PageWithHeader";
+import {IconButton} from "@mui/material";
+import CancelIcon from "@mui/icons-material/Cancel";
 
-export interface UnitPageProps {
-    unit: Problem;
+export interface ProblemPageProps {
+    problem: Problem;
     path: string[];
 }
 
-export function ProblemPage(props: UnitPageProps) {
-    const [instanceCounter, setInstanceCounter] = useState(0);
-    const [unitInstance, setUnitInstance] = useState(() => props.unit.instantiate());
-    
-    function onNewInstance() {
-        setInstanceCounter(instanceCounter + 1);
-        setUnitInstance(() => props.unit.instantiate());
+export function ProblemPage(props: ProblemPageProps) {
+    const navigateToContentNode = useNavigateToContentNode();
+    const [unitInstance, ] = useState(() => props.problem.instantiate());
+
+    function onClickCancel() {
+        const parentPath = [...props.path];
+        parentPath.pop();
+        navigateToContentNode(parentPath);
     }
-    
-    return <UnitInstancePage
-        key={instanceCounter}
-        unit={props.unit}
-        path={props.path}
-        unitInstance={unitInstance}
-        onNewInstance={onNewInstance}
-    />;
+
+    return <>
+        <PageWithHeader
+            header={
+                <h1 style={{margin: 0}}>
+                    <IconButton onClick={onClickCancel} sx={{marginRight: "1em"}}>
+                        <CancelIcon fontSize={"large"} />
+                    </IconButton>
+                    {props.problem.name}
+                </h1>
+            }
+        >
+            {unitInstance}
+        </PageWithHeader>
+    </>;
 }
