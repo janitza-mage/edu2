@@ -30,6 +30,7 @@ export function ProblemPage(props: ProblemPageProps) {
                     {props.problem.name}
                 </h1>
             }
+            scrollable={true}
         >
             {unitInstance}
         </PageWithHeader>
