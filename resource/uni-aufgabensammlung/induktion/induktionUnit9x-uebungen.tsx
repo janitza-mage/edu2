@@ -7,7 +7,6 @@ export const induktionUnit9x = [
             content: <pre>
     Die Formeln werden jetzt komplizierter. Dafür gibt es jetzt kein Zeitlimit.
     - Summe der ersten n geraden Quadratzahlen
-    - Summe der ersten n Zweierpotenzen
 
                 </pre>,
         }),

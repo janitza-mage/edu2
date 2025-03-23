@@ -103,7 +103,20 @@ export const induktionSubtree: ContentNode = {
                 "= #frac{n+1}{6}(n + 2)(2n + 3)",
                 "= #frac{(n+1)(n+2)(2(n+1)+1)}{6}",
             ],
-            0.6, 0.6
+            0.6, 0.8
+        ),
+        summeAufgabe("summe-zweierpotenzen", "Summe der Zweierpotenzen",
+            "#sum_{i=0}^{n}2^i = 2^{n+1}-1",
+            "#sum_{i=0}^{0}2^i", "2^{0+1}-1", "1",
+            "#sum_{i=0}^{n}2^i = 2^{n+1}-1 #Rightarrow #sum_{i=0}^{n+1}2^i = 2^{n+2}-1",
+            [
+                "#sum_{i=0}^{n+1}2^i",
+                "= (#sum_{i=0}^{n}2^i) + (2^{n+1})",
+                "= (2^{n+1}-1) + (2^{n+1})",
+                "= 2#cdot2^{n+1} - 1",
+                "= 2^{n+2} - 1",
+            ],
+            0.6, 0.8
         ),
     ],
 };
