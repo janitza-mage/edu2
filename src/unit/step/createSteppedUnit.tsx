@@ -1,4 +1,4 @@
-import {Unit, UnitInstanceProps} from "../../content/types";
+import {Problem, UnitInstanceProps} from "../../content/types";
 import {ReactElement, useState} from "react";
 import {FadeIn} from "../../components/effects/FadeIn";
 
@@ -47,11 +47,11 @@ export function createSteppedUnitInstance(steps: UnitStep[]) {
     };
 }
 
-export function createSteppedUnit(id: string, name: string, stepsFactory: () => UnitStep[]): Unit {
+export function createSteppedUnit(id: string, name: string, stepsFactory: () => UnitStep[]): Problem {
     return {
         id,
         name,
-        type: "unit",
+        type: "problem",
         instantiate: () => createSteppedUnitInstance(stepsFactory()),
     };
 }

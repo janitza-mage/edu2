@@ -19,13 +19,11 @@ export const experimentTree: ContentNode = {
     id: "experiment",
     name: "Experiment",
     type: "folder",
-    isolatedChildren: true,
     children: [
         {
             id: "f",
             name: "F",
             type: "folder",
-            isolatedChildren: true,
             children: [
                 /*
                 createSteppedUnit("minus10", "Minusaufgaben bis 10", () => getShuffled(createLoopedSteps(10, limit =>

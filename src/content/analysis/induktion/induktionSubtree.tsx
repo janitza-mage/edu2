@@ -14,12 +14,22 @@ import {induktionUnit12x} from "./induktionUnit12x-fakultaet";
 import {induktionUnit13x} from "./induktionUnit13x-mengen-reihenfolgen";
 import {induktionUnit14} from "./induktionUnit14-beweis";
 import {createDummyUnit} from "../../../unit/createDummyUnit";
+import React from "react";
 
 export const induktionSubtree: ContentNode = {
     id: "induktion",
     name: "Vollständige Induktion",
     type: "folder",
     children: [
+        {
+            id: "eins",
+            name: "Eins",
+            type: "problem",
+            instantiate(): React.ReactElement {
+                return <div>hello world</div>;
+            },
+        },
+        /*
         induktionUnit1,
         induktionUnit2,
         induktionUnit3,
@@ -35,5 +45,6 @@ export const induktionSubtree: ContentNode = {
         ...induktionUnit12x,
         ...induktionUnit13x,
         induktionUnit14,
+         */
     ],
 };

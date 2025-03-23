@@ -1,13 +1,13 @@
-import {Unit} from "../../../content/types";
+import {Problem} from "../../../content/types";
 import {useState} from "react";
 import {UnitInstancePage} from "./UnitInstancePage";
 
 export interface UnitPageProps {
-    unit: Unit;
+    unit: Problem;
     path: string[];
 }
 
-export function UnitPage(props: UnitPageProps) {
+export function ProblemPage(props: UnitPageProps) {
     const [instanceCounter, setInstanceCounter] = useState(0);
     const [unitInstance, setUnitInstance] = useState(() => props.unit.instantiate());
     

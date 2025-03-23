@@ -1,17 +1,16 @@
-import {Unit, UnitInstance} from "../../../content/types";
+import {Problem, UnitInstance} from "../../../content/types";
 import CancelIcon from '@mui/icons-material/Cancel';
 import {IconButton} from "@mui/material";
 import {useNavigateToContentNode} from "../../../components/navigation/ContentNodeLink/useNavigateToContentNode";
 import {useState} from "react";
 import {FinishUnitPage} from "./FinishUnitPage";
-import {getNextUnitPath} from "../../../content/paths";
 import {PageWithHeader} from "../../../components/layout/PageWithHeader";
 import {setUnitScore} from "../../../state/state";
 import {calculateIntScore} from "./calculateScore";
 import {FlashExerciseBackgroundProvider} from "../../../components/effects/useFlashExerciseBackground";
 
 export interface UnitInstancePageProps {
-    unit: Unit;
+    unit: Problem;
     path: string[];
     unitInstance: UnitInstance;
     onNewInstance: () => void;
@@ -53,10 +52,7 @@ export function UnitInstancePage(props: UnitInstancePageProps) {
         // It is currently unclear what to do if the next unit has been finished already. Doing it again might not
         // be desired, but skipping it would be confusing. And what if it was finished, but with a low score?
         // Maybe it would be better to just show that unit anyway, but show the previous score.
-        const nextUnitPath = getNextUnitPath(props.path)
-        if (nextUnitPath) {
-            navigateToContentNode(nextUnitPath);
-        } else if (props.path.length === 0) {
+        if (props.path.length === 0) {
             navigateToContentNode([]);
         } else {
             const parentPath = [...props.path];

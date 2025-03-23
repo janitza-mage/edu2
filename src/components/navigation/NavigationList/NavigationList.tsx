@@ -1,17 +1,15 @@
 import styles from "./NavigationList.module.scss";
-import {List, ListItem, ListItemButton, ListItemText} from "@mui/material";
-import {ReactNode} from "react";
-import {FolderScoreView} from "../../../state/state";
+import {List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {ReactElement} from "react";
 
 export interface NavigationListElement {
+    icon: ReactElement;
     label: string;
-    decoration?: ReactNode | undefined | null;
     onClick: () => void;
 }
 
 export interface NavigationListProps {
     elements: NavigationListElement[];
-    scores: FolderScoreView;
 }
 
 export function NavigationList(props: NavigationListProps) {
@@ -20,10 +18,10 @@ export function NavigationList(props: NavigationListProps) {
             <ListItem
                 key={index}
                 disablePadding
-                {...(element.decoration ? {secondaryAction: element.decoration} : {})}
                 className={styles.NavigationListElement}
             >
                 <ListItemButton onClick={element.onClick}>
+                    <ListItemIcon>{element.icon}</ListItemIcon>
                     <ListItemText primary={element.label} />
                 </ListItemButton>
             </ListItem>)

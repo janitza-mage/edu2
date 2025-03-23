@@ -1,12 +1,10 @@
 import {ContentNode} from "./types";
 import {anaysisSubtree} from "./analysis/analysisSubtree";
-import {experimentTree} from "./experiment/experimentTree";
 
 export const contentTree: ContentNode = {
     id: "root",
     name: "Inhalte",
     type: "folder",
-    isolatedChildren: false,
     children: [
         anaysisSubtree,
         /*
