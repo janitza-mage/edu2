@@ -25,20 +25,6 @@ export const induktionUnit14 = createSteppedUnit("mengen-reihenfolgen-beweis", "
     createReadStep({
         content: <pre>
     Beweise den Induktionsschritt.
-    Wie viele verschiedene Elemente können an der ersten Stelle der Anordnung stehen?
-        1
-        n
-        n+1
-        A1
-        An
-        An+1
-        n!
-        (n+1)!
-                </pre>,
-    }),
-    createReadStep({
-        content: <pre>
-    Beweise den Induktionsschritt.
     Wenn das erste Element festgelegt wurde, können die Restlichen Elemente unabhängig davon beliebig angeordnet werden.
     Wie viele dieser restlichen Elemente gibt es?
         (gleiche Auswahl wie vorher)

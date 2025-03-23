@@ -11,36 +11,5 @@ export const induktionUnit11x = [
         ...
                     </pre>,
         }),
-        createReadStep({
-            content: <pre>
-        Wie lautet der Induktionsschritt?
-        ...
-                    </pre>,
-        }),
-        createReadStep({
-            content: <pre>
-        Beweise den Induktionsschritt, indem du die Einzelschritte in die richtige Reihenfolge bringst.
-        ...
-                    </pre>,
-        }),
-        createReadStep({
-            content: <pre>
-        An welcher Stelle im Induktionsschritt wurde die schon bewiesene Aussage für n verwendet? Klicke auf den passenden Pfeil.
-                    </pre>,
-        }),
-    ]),
-    createSteppedUnit("anderer-induktionsanfang-uebungen-2", "Übungen (2)", () => [
-        createReadStep({
-            content: <pre>
-    (random formeln -{">"} Induktionsanfang wählen, Induktionsschritt wählen, Induktionsschritt beweisen)
-                </pre>,
-        }),
-    ]),
-    createSteppedUnit("anderer-induktionsanfang-uebungen-3", "Übungen (3)", () => [
-        createReadStep({
-            content: <pre>
-    (das gleiche mit Timer)
-                </pre>,
-        }),
     ]),
 ];
