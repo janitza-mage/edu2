@@ -13,6 +13,8 @@ function summeAufgabe(
     anfangWert: string,
     schrittKurz: string,
     schrittLang: string[],
+    schrittKurzTextSize?: number,
+    schrittLangTextSize?: number,
 ): ContentNode {
     return {
         id,
@@ -28,7 +30,7 @@ function summeAufgabe(
                     <p>Zeige zuerst den Induktionsanfang:</p>
                     <p>{mathDiv(anfangLinks + " = " + anfangRechts)}</p>
                     <p>Zeige danach den Induktionsschritt:</p>
-                    <p><TextSize size={0.9}>{mathDiv(schrittKurz)}</TextSize></p>
+                    <p><TextSize size={schrittKurzTextSize ?? 0.9}>{mathDiv(schrittKurz)}</TextSize></p>
                 </ProblemAccordionSection>
                 <ProblemAccordionSection title={"Tipp 2"}>
                     <p>Fange mit der Summe bis {mathSpan("(n+1)")} an. Spalte den {mathSpan("(n+1)")}-Term ab und
@@ -38,7 +40,7 @@ function summeAufgabe(
                     <p>Induktionsanfang:</p>
                     <p>{mathDiv(anfangLinks + " = " + anfangWert + " = " + anfangRechts)}</p>
                     <p>Induktionsschritt:</p>
-                    <TextSize size={0.8}><p>
+                    <TextSize size={schrittLangTextSize ?? 0.8}><p>
                         {schrittLang.map(mathDiv)}
                     </p></TextSize>
                 </ProblemAccordionSection>
@@ -87,6 +89,21 @@ export const induktionSubtree: ContentNode = {
                 "= (n^2 + 2n + 1) + (n + 1)",
                 "= (n+1)^2 + (n+1)",
             ],
+        ),
+        summeAufgabe("summe-quadratzahlen", "Summe der ersten n Quadratzahlen", "#sum_{i=1}^{n}i^2 = #frac{n(n+1)(2n+1)}{6}",
+            "#sum_{i=1}^{1}i^2", "#frac{1#cdot(1+1)#cdot(2+1)}{6}", "1",
+            "#sum_{i=1}^{n}i^2 = #frac{n(n+1)(2n+1)}{6} #Rightarrow #sum_{i=1}^{n+1}i^2 = #frac{(n+1)(n+2)(2(n+1)+1)}{6}",
+            [
+                "#sum_{i=1}^{n+1}i^2",
+                "= (#sum_{i=1}^{n}i^2) + (n+1)^2",
+                "= #frac{n(n+1)(2n+1)}{6} + #frac{6(n+1)^2}{6}",
+                "= #frac{n+1}{6}(n(2n+1) + 6(n+1))",
+                "= #frac{n+1}{6}(2n^2 + n + 6n + 6)",
+                "= #frac{n+1}{6}(2n^2 + 7n + 6)",
+                "= #frac{n+1}{6}(n + 2)(2n + 3)",
+                "= #frac{(n+1)(n+2)(2(n+1)+1)}{6}",
+            ],
+            0.6, 0.6
         ),
     ],
 };
