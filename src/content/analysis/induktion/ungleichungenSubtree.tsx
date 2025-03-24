@@ -3,6 +3,12 @@ import {mathDiv, mathSpan} from "../../../components/Math/Math";
 import {ContentNode} from "../../types";
 import {ProblemAccordion, ProblemAccordionSection} from "../../../components/ProblemAccordion/ProblemAccordion";
 
+const weglassenHinweis = <>
+    <p>Bei dieser Ungleichung (und vielen anderen) hilft es, Teile wegzulassen: Wenn
+        {mathSpan("a #ge 0")}, dann ist {mathSpan("b+a #ge b")}.</p>
+    <p>Ebenso gilt: Wenn {mathSpan("a > 0")}, dann ist {mathSpan("b+a > b")}.</p>
+</>;
+
 export const ungleichungenSubtree: ContentNode = {
     id: "ungleichungen",
     name: "Ungleichungen",
@@ -30,9 +36,7 @@ export const ungleichungenSubtree: ContentNode = {
                     <ProblemAccordionSection title={"Tipp 2"}>
                         <p>Fange mit der Summe bis {mathSpan("(n+1)")} an. Spalte den {mathSpan("(n+1)")}-Term ab und
                             wende dann die schon bewiesene Aussage für {mathSpan("n")} auf die restliche Summe an.</p>
-                        <p>Bei dieser Ungleichung (und vielen anderen) hilft es, Teile wegzulassen: Wenn
-                            {mathSpan("a #ge 0")}, dann ist {mathSpan("b+a #ge b")}.</p>
-                        <p>Ebenso gilt: Wenn {mathSpan("a > 0")}, dann ist {mathSpan("b+a > b")}.</p>
+                        {weglassenHinweis}
                     </ProblemAccordionSection>
                     <ProblemAccordionSection title={"Lösung"}>
                         <p>Induktionsanfang:</p>
@@ -57,6 +61,41 @@ export const ungleichungenSubtree: ContentNode = {
                         <p>Der Teil {mathSpan("(n+1)")} ist für diesen Beweis unnötig und kann weggelassen werden --
                             das geht aber nur, weil wir wissen, dass (n+1) nicht negativ sein kann!</p>
                         <p>{mathDiv("#ge 12")}</p>
+                    </ProblemAccordionSection>
+                </ProblemAccordion>;
+            },
+        },
+        {
+            id: "quadrat-groesser-2n",
+            name: "n² > 2n",
+            type: "problem",
+            instantiate(): React.ReactElement {
+                return <ProblemAccordion>
+                    <ProblemAccordionSection title={"Aufgabe"} defaultExpanded>
+                        <p>Beweise mit Vollständiger Induktion:</p>
+                        <p>Für alle {mathSpan("n")} ab {mathSpan("n=10")} ist {mathSpan("n^2>2n")}.</p>
+                    </ProblemAccordionSection>
+                    <ProblemAccordionSection title={"Tipp 1"}>
+                        <p>Zeige zuerst den Induktionsanfang ({mathSpan("n=10")}):</p>
+                        <p>{mathDiv("10^2 > 2#cdot10")}</p>
+                        <p>Zeige danach den Induktionsschritt:</p>
+                        <p>{mathDiv("n^2 > 2n #Rightarrow (n+1)^2 > 2(n+1)")}</p>
+                    </ProblemAccordionSection>
+                    <ProblemAccordionSection title={"Tipp 2"}>
+                        <p>Induktionsschritt: Multipliziere {mathSpan("(n+1)^2")} aus und wende dann die schon
+                            bewiesene Aussage auf {mathSpan("n^2")} an.</p>
+                        {weglassenHinweis}
+                    </ProblemAccordionSection>
+                    <ProblemAccordionSection title={"Lösung"}>
+                        <p>Induktionsanfang:</p>
+                        <p>{mathDiv("10^2 = 100 > 20 = 2#cdot10")}</p>
+                        <p>Induktionsschritt:</p>
+                        <p>
+                            {mathDiv("(n+1)^2")}
+                            {mathDiv("= n^2 + 2n + 1")}
+                            {mathDiv("> 2n + 2n + 1")}
+                            {mathDiv("#ge 2n")}
+                        </p>
                     </ProblemAccordionSection>
                 </ProblemAccordion>;
             },
