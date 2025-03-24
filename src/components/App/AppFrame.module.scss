@@ -3,7 +3,7 @@ html {
   overscroll-behavior: none;
 
   // must be here, so it affects "rem" units
-  font-size: min(4.0vw, 4.0vh);
+  font-size: min(2.8vw, 2.8vh);
 }
 
 body {
@@ -50,7 +50,7 @@ code {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
-  max-width: 100vh;
+  max-width: 70vh;
 
   // Hide scrollbars. The inner content will usually have a sticky footer and its own scrollbars within the content
   // section above that.
