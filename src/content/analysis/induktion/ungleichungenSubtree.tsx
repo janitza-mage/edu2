@@ -13,16 +13,6 @@ export const ungleichungenSubtree: ContentNode = {
             name: "Summe größer 12",
             type: "problem",
             instantiate(): React.ReactElement {
-
-                /*
-<pre>
-    Ein Induktionsanfang ab einer anderen Zahl als 1 ist sinnvoll, wenn die Aussage gar nicht für die ersten n gilt,
-    sondern nur noch für die restlichen n.
-    Beispiel:
-    
-                </pre>                
-                 */
-                
                 return <ProblemAccordion>
                     <ProblemAccordionSection title={"Aufgabe"} defaultExpanded>
                         <p>Beweise mit Vollständiger Induktion:</p>
