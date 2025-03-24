@@ -13,14 +13,4 @@ export const induktionUnit10x = [
                 </pre>,
         }),
     ]),
-    createSteppedUnit("anderer-induktionsanfang-2", "Anwendungsfälle", () => [
-        createReadStep({
-            content: <pre>
-    Ein Induktionsanfang ab einer anderen Zahl als 1 ist sinnvoll, wenn die Aussage gar nicht für die ersten n gilt,
-    sondern nur noch für die restlichen n.
-    Beispiel:
-    Für alle n ab n=5 ist die Summe der ersten n Zahlen größer als 12.
-                </pre>,
-        }),
-    ]),
 ];
