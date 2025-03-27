@@ -1,5 +1,5 @@
 import {CSSProperties, ReactNode, useState} from "react";
-import {sounds} from "../../../src/app/sounds";
+import {sounds} from "../../src/app/sounds";
 import {StepInstanceProps} from "../step/createSteppedUnit";
 import {isFastMode} from "../../../src/app/developer";
 

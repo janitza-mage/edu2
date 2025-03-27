@@ -1,9 +1,9 @@
 import {CSSProperties, ReactNode, useState} from "react";
-import {sounds} from "../../../src/app/sounds";
+import {sounds} from "../../src/app/sounds";
 import {StepInstanceProps} from "../../unit/step/createSteppedUnit";
-import {createIndexArray} from "../../../src/util/createIndexArray";
+import {createIndexArray} from "../../src/util/createIndexArray";
 import {isFastMode} from "../../../src/app/developer";
-import {CenteredContent} from "../../../src/components/layout/CenteredContent";
+import {CenteredContent} from "../../src/components/layout/CenteredContent";
 
 const numbers = createIndexArray(20);
 

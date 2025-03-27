@@ -4,8 +4,8 @@ import {
     ImmediateFeedbackChoiceExercise,
     ImmediateFeedbackChoiceExerciseItem, ImmediateFeedbackChoiceExerciseVariant
 } from "./ImmediateFeedbackChoiceExercise";
-import {getShuffled} from "../../../src/util/random/getShuffled";
-import {CenteredContent} from "../../../src/components/layout/CenteredContent";
+import {getShuffled} from "../../src/util/random/getShuffled";
+import {CenteredContent} from "../../src/components/layout/CenteredContent";
 
 export interface CreateChoiceStepParameters {
     title: ReactNode;

@@ -3,7 +3,7 @@ import {createSteppedUnit, UnitStep} from "../../unit/step/createSteppedUnit";
 import {createLoopedSteps} from "../../unit/step/createLoopedSteps";
 import {ReactNode} from "react";
 import {NumberChoice20Exercise} from "./NumberChoice20Exercise";
-import {randomInt} from "../../../src/util/random/randomInt";
+import {randomInt} from "../../src/util/random/randomInt";
 
 export function createNumbers20Exercise(title: ReactNode, answer: number): UnitStep {
     return props => <NumberChoice20Exercise
