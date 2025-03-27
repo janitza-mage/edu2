@@ -1,0 +1,18 @@
+
+// this app is intended to be used in portrait orientation, so if in landscape, reduce the screen to at most
+// square size.
+.AppFrame {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  max-width: 100vh;
+
+  // Hide scrollbars. The inner content will usually have a sticky footer and its own scrollbars within the content
+  // section above that.
+  overflow: hidden;
+}

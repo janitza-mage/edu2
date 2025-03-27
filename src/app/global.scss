@@ -1,0 +1,55 @@
+
+// --------------------------------------------------------------------------------------------------------------------
+// general-purpose styling
+// --------------------------------------------------------------------------------------------------------------------
+
+html {
+    overflow: hidden;
+    overscroll-behavior: none;
+
+    // must be here, so it affects "rem" units
+    font-size: min(3.0vw, 3.0vh);
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #888;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+// I'm sorry if anybody wants to copy'n'paste text out, but this interferes with the UI too much.
+* {
+    user-select: none;
+}
+
+// --------------------------------------------------------------------------------------------------------------------
+// thin table
+// --------------------------------------------------------------------------------------------------------------------
+
+.thinTable {
+    border-collapse: collapse;    
+}
+
+.thinTable th, .thinTable td {
+    border: 1px solid #aaa;
+    padding: 0.3em;
+    text-align: center;
+    min-width: 1.5em;
+}
+
+.thinTable th {
+    background-color: #cef;
+}
+
+.thinTable td {
+    background-color: #ffe;
+}

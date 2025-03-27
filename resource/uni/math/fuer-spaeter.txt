@@ -1,6 +1,0 @@
-
-https://math.stackexchange.com/questions/2705454/proof-that-sqrt2-is-irrational
-- sqrt(2) = m/n... was lässt sich über m, n sagen? (€Z)
-
-Warum ist unendlich keine Zahl? Was gibt 0 * Unendlich? -> kann 0, unendlich oder irgendwas dazwischen sein. Das
-(selbst) zu zeigen sollte das verdeutlichen.
