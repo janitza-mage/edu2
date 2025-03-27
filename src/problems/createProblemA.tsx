@@ -1,7 +1,7 @@
 import {randomInt} from "../util/random/randomInt";
 import {createImmediateFeedbackChoiceProblemShuffled} from "../components/Choice/createImmediateFeedbackChoiceProblem";
 import {TextSize} from "../components/layout/TextSize";
-import {mathDiv} from "../components/Math/Math";
+import {mathSpan} from "../components/Math/Math";
 import {ProblemProps} from "./Problem";
 import {createNumberKeyboardProblem} from "../components/NumberKeyboard/createNumberKeyboardProblem";
 import {MoneyUnit} from "./money/MoneyUnit";
@@ -10,12 +10,12 @@ import {ReactNode} from "react";
 function createNumberProblem(formula: string, result: number, keyboard: boolean) {
     if (keyboard) {
         return createNumberKeyboardProblem({
-            body: input => <TextSize size={4}>{mathDiv(formula + " = " + input)}</TextSize>,
+            body: input => <TextSize size={4}>{mathSpan(formula + " = " + input)}</TextSize>,
             validator: result,
         });
     } else {
         return createImmediateFeedbackChoiceProblemShuffled(
-            <TextSize size={4}>{mathDiv(formula + " = ")}</TextSize>,
+            <TextSize size={4}>{mathSpan(formula + " = ")}</TextSize>,
             result,
             [result + 5, result - 5, result + 7, result - 7],
             { variant: "inline" },
@@ -49,7 +49,7 @@ function createMoneyProblem(_keyboard: boolean) {
 }
 
 export function createProblemA() {
-    switch (randomInt(4)) {
+    switch (randomInt(10)) {
         
         // einmaleins
         case 0: {
@@ -73,8 +73,47 @@ export function createProblemA() {
             return createNumberProblem((2 * x) + " #div 2", x, false);
         }
         
-        // Geld zählen TODO Komma kann nicht eingegeben werden!
+        // Addition (ab + c) auch mit Zehnerübergang
         case 3: {
+            break;
+            const x = randomInt(100);
+            const y = randomInt(10) + 1;
+            return createNumberProblem(x + " + " + y, x + y, true);
+        }
+        
+        // Subtraktion (ab - c) auch mit Zehnerübergang
+        case 4: {
+            break;
+            const x = randomInt(100);
+            const y = randomInt(10) + 1;
+            return createNumberProblem(x + " - " + y, x - y, true);
+        }
+
+        // Addition (ab + cd) ohne Zehnerübergang
+        case 5: {
+            break;
+            const a = randomInt(10);
+            const b = randomInt(10);
+            const c = randomInt(10 - a);
+            const d = randomInt(10 - b);
+            const x = a * 10 + b;
+            const y = c * 10 + d;
+            return createNumberProblem(x + " + " + y, x + y, true);
+        }
+
+        // Subtraktion (ab - cd) ohne Zehnerübergang
+        case 6: {
+            const a = randomInt(10);
+            const b = randomInt(10);
+            const c = randomInt(a + 1);
+            const d = randomInt(b + 1);
+            const x = a * 10 + b;
+            const y = c * 10 + d;
+            return createNumberProblem(x + " - " + y, x - y, true);
+        }
+        
+        // Geld zählen TODO Komma kann nicht eingegeben werden!
+        case 9999: {
             return createMoneyProblem(true);
         }
 
