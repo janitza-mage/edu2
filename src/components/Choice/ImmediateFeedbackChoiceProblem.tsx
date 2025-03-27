@@ -1,19 +1,18 @@
 import {CSSProperties, ReactNode, useState} from "react";
-import {sounds} from "../../src/app/sounds";
-import {StepInstanceProps} from "../step/createSteppedUnit";
-import {isFastMode} from "../../../src/app/developer";
+import {sounds} from "../../app/sounds";
+import {ProblemProps} from "../../problems/Problem";
 
-export interface ImmediateFeedbackChoiceExerciseItem {
+export interface ImmediateFeedbackChoiceProblemItem {
     label: ReactNode;
     correct: boolean;
 }
 
-export type ImmediateFeedbackChoiceExerciseVariant = "default" | "inline";
+export type ImmediateFeedbackChoiceProblemVariant = "default" | "inline";
 
-export interface ImmediateFeedbackChoiceExerciseProps extends StepInstanceProps {
+export interface ImmediateFeedbackChoiceProblemProps extends ProblemProps {
     title: ReactNode;
-    items: ImmediateFeedbackChoiceExerciseItem[];
-    variant?: ImmediateFeedbackChoiceExerciseVariant;
+    items: ImmediateFeedbackChoiceProblemItem[];
+    variant?: ImmediateFeedbackChoiceProblemVariant;
 }
 
 function withElementSet<T>(array: T[], index: number, value: T): T[] {
@@ -22,12 +21,12 @@ function withElementSet<T>(array: T[], index: number, value: T): T[] {
     return array;
 }
 
-export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceExerciseProps) {
+export function ImmediateFeedbackChoiceProblem(props: ImmediateFeedbackChoiceProblemProps) {
     
     const [selectedFlags, setSelectedFlags] = useState(() => props.items.map(_ => false));
     const [enabled, setEnabled] = useState(true);
     
-    function onClickItem(item: ImmediateFeedbackChoiceExerciseItem, index: number) {
+    function onClickItem(item: ImmediateFeedbackChoiceProblemItem, index: number) {
         if (!enabled || selectedFlags[index]) {
             // clicking too fast, or clicking an item again that has been selected already
             return;
@@ -36,25 +35,23 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
         setSelectedFlags(newSelectedFlags);
         if (item.correct) {
             sounds.correct.play();
-            props.onProgress();
             if (props.items.every((item, index) => !item.correct || newSelectedFlags[index])) {
                 setEnabled(false);
-                setTimeout(props.onFinishStep, isFastMode() ? 100 : 1000);
+                setTimeout(props.onFinish, 500);
             }
         } else {
             sounds.wrong.play();
-            props.onMistake();
             setEnabled(false);
             setTimeout(() => {
                 setSelectedFlags(flags => withElementSet(flags, index, false));
                 setEnabled(true);
-            }, isFastMode() ? 100 : 500);
+            }, 500);
         }
     }
 
     return <>
         {props.title && <div style={{marginBottom: "1em"}}>{props.title}</div>}
-        <div>
+        <div style={{textAlign: "center"}}>
             {props.items.map((item, index) => <Item
                 key={index}
                 variant={props.variant ?? "default"}
@@ -70,7 +67,7 @@ export function ImmediateFeedbackChoiceExercise(props: ImmediateFeedbackChoiceEx
 // --------------------------------------------------------------------------------------------------------------------
 
 interface ItemProps {
-    variant: ImmediateFeedbackChoiceExerciseVariant;
+    variant: ImmediateFeedbackChoiceProblemVariant;
     selected: boolean;
     correct: boolean;
     onClick: () => void;
@@ -81,6 +78,7 @@ function Item(props: ItemProps) {
     const base: CSSProperties = {
         userSelect: "none",
         padding: "0.5em",
+        fontSize: "2em",
     };
     
     const colors: CSSProperties =

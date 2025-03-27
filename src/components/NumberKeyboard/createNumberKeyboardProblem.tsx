@@ -2,14 +2,14 @@ import {ReactNode} from "react";
 import {NumberKeyboardProblem} from "./NumberKeyboardProblem";
 import {Problem} from "../../problems/Problem";
 
-export interface NumberKeyboardProblemParameters {
+export interface CreateNumberKeyboardProblemParameters {
     body: (input: string) => ReactNode; // input is a string because it is initially empty, not a number
     validator: number | ((n: number) => boolean);
     widthPercent?: number | undefined | null;
     overflow?: string;
 }
 
-export function createNumberKeyboardProblem(parameters: NumberKeyboardProblemParameters): Problem {
+export function createNumberKeyboardProblem(parameters: CreateNumberKeyboardProblemParameters): Problem {
     return props => <NumberKeyboardProblem
         body={parameters.body}
         validator={parameters.validator}
