@@ -13,6 +13,7 @@ export interface ImmediateFeedbackChoiceProblemProps extends ProblemProps {
     title: ReactNode;
     items: ImmediateFeedbackChoiceProblemItem[];
     variant?: ImmediateFeedbackChoiceProblemVariant;
+    onSelect?: (correct: boolean) => void;
 }
 
 function withElementSet<T>(array: T[], index: number, value: T): T[] {
@@ -33,6 +34,9 @@ export function ImmediateFeedbackChoiceProblem(props: ImmediateFeedbackChoicePro
         }
         const newSelectedFlags = withElementSet(selectedFlags, index, true);
         setSelectedFlags(newSelectedFlags);
+        if (props.onSelect) {
+            props.onSelect(item.correct);
+        }
         if (item.correct) {
             sounds.correct.play();
             if (props.items.every((item, index) => !item.correct || newSelectedFlags[index])) {

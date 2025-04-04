@@ -15,6 +15,7 @@ export interface CreateImmediateFeedbackChoiceProblemParameters {
     shuffle: boolean;
     // TODO: delayed feedback option for multi-select choice exercises
     variant?: ImmediateFeedbackChoiceProblemVariant;
+    onSelect?: (correct: boolean) => void;
 }
 
 export function createImmediateFeedbackChoiceProblem(parameters: CreateImmediateFeedbackChoiceProblemParameters): Problem {
@@ -25,6 +26,7 @@ export function createImmediateFeedbackChoiceProblem(parameters: CreateImmediate
             title={parameters.title}
             items={orderedItems}
             variant={parameters.variant}
+            onSelect={parameters.onSelect}
         />
     </CenteredContent>;
 }
