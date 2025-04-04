@@ -1,6 +1,6 @@
 import {Problem} from "./Problem";
-import {createProblemA} from "./createProblemA";
+import {createProblemB} from "./createProblemB";
 
 export function createProblem3002(): Problem {
-    return createProblemA();
+    return createProblemB();
 }

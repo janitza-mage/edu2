@@ -2,7 +2,7 @@ import {randomInt} from "../util/random/randomInt";
 import {createImmediateFeedbackChoiceProblemShuffled} from "../components/Choice/createImmediateFeedbackChoiceProblem";
 import {TextSize} from "../components/layout/TextSize";
 import {mathSpan} from "../components/Math/Math";
-import {ProblemProps} from "./Problem";
+import {Problem, ProblemProps} from "./Problem";
 import {createNumberKeyboardProblem} from "../components/NumberKeyboard/createNumberKeyboardProblem";
 import {MoneyUnit} from "./money/MoneyUnit";
 import {ReactNode} from "react";
@@ -103,6 +103,7 @@ export function createProblemA() {
 
         // Subtraktion (ab - cd) ohne Zehnerübergang
         case 6: {
+            break;
             const a = randomInt(10);
             const b = randomInt(10);
             const c = randomInt(a + 1);
@@ -111,6 +112,9 @@ export function createProblemA() {
             const y = c * 10 + d;
             return createNumberProblem(x + " - " + y, x - y, true);
         }
+        
+        case 7: 
+            return createRemainingProblem();
         
         // Geld zählen TODO Komma kann nicht eingegeben werden!
         case 9999: {
@@ -123,4 +127,31 @@ export function createProblemA() {
         props.onFinish();
         return <></>;
     };
+}
+
+function createMultProblem(x: number, y: number) {
+    return createNumberKeyboardProblem({
+        body: input => mathSpan(x + " #cdot " + y + " = " + input),
+        validator: x * y,
+    });
+}
+
+const problems: Problem[] = [];
+
+for (let x of [2, 5]) {
+    for (let y = 2; y < 10; y++) {
+        problems.push(createMultProblem(x, y));
+        problems.push(createMultProblem(y, x));
+    }
+}
+
+function createRemainingProblem(): Problem {
+    if (problems.length === 0) {
+        return _props => <div>fertig!</div>;
+    }
+    let index = randomInt(problems.length);
+    const problem = problems[index];
+    problems[index] = problems[problems.length - 1];
+    problems.pop();
+    return problem;
 }
